@@ -13,13 +13,13 @@
     </nx-checkbox>
   </div>
 
-  <nx-radio-buttons value="male">
+  <nx-radio-group value="male">
     <nx-radio value="male">Male</nx-radio>
 
     <nx-radio value="female">Female</nx-radio>
 
     <nx-radio value="other">Other</nx-radio>
-  </nx-radio-buttons>
+  </nx-radio-group>
 
   <nx-grid>
     <nx-row>
@@ -73,13 +73,13 @@
     >
     </nx-input>
 
-    <nx-radio-buttons value="male" formControlName="gender" name="gender">
+    <nx-radio-group value="male" formControlName="gender" name="gender">
       <nx-radio value="male">Male</nx-radio>
 
       <nx-radio value="female">Female</nx-radio>
 
       <nx-radio value="other">Other</nx-radio>
-    </nx-radio-buttons>
+    </nx-radio-group>
 
     <nx-checkbox formControlName="acceptTcn">
       I agree to the Terms,Conditions,and Notices(TCN).

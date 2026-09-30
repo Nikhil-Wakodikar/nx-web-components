@@ -18,12 +18,12 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
 
 @Directive({
   selector: `
-      nx-radio-buttons[formControlName],
-      nx-radio-buttons[formControl],
-      nx-radio-buttons[ngModel]
+      nx-radio-group[formControlName],
+      nx-radio-group[formControl],
+      nx-radio-group[ngModel]
   `,
 })
-export class RadioButtonsValueAccessorDirective
+export class RadioGroupValueAccessorDirective
   implements ControlValueAccessor, OnInit, OnDestroy
 {
   private statusSub!: Subscription;

@@ -165,14 +165,14 @@ export declare interface NxRadio extends Components.NxRadio {
   methods: ['setFocus']
 })
 @Component({
-  selector: 'nx-radio-buttons',
+  selector: 'nx-radio-group',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['allowEmptySelection', 'compareWith', 'disabled', 'errorText', 'helperText', 'invalid', 'name', 'value'],
 })
-export class NxRadioButtons {
-  protected el: HTMLNxRadioButtonsElement;
+export class NxRadioGroup {
+  protected el: HTMLNxRadioGroupElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
@@ -181,14 +181,14 @@ export class NxRadioButtons {
 }
 
 
-import type { NxRadioButtonsChangeEventDetail as INxRadioButtonsNxRadioButtonsChangeEventDetail } from 'stencil-library';
-import type { NxRadioButtonsValueChangeEventDetail as INxRadioButtonsNxRadioButtonsValueChangeEventDetail } from 'stencil-library';
+import type { NxRadioGroupChangeEventDetail as INxRadioGroupNxRadioGroupChangeEventDetail } from 'stencil-library';
+import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupValueChangeEventDetail } from 'stencil-library';
 
-export declare interface NxRadioButtons extends Components.NxRadioButtons {
+export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
-  bflChange: EventEmitter<CustomEvent<INxRadioButtonsNxRadioButtonsChangeEventDetail>>;
+  bflChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupChangeEventDetail>>;
 
-  bflValueChange: EventEmitter<CustomEvent<INxRadioButtonsNxRadioButtonsValueChangeEventDetail>>;
+  bflValueChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupValueChangeEventDetail>>;
 }
 
 

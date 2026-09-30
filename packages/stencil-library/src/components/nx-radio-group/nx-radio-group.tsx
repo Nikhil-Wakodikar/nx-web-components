@@ -1,25 +1,25 @@
 import { Component, Element, Event, EventEmitter, Host, Listen, Method, Prop, Watch, h } from '@stencil/core';
 
-export interface NxRadioButtonsChangeEventDetail {
+export interface NxRadioGroupChangeEventDetail {
   value: any;
 }
 
-export interface NxRadioButtonsValueChangeEventDetail {
+export interface NxRadioGroupValueChangeEventDetail {
   value: any;
 }
 
-export interface NxRadioButtonsCustomEvent<T = NxRadioButtonsChangeEventDetail>
+export interface NxRadioGroupCustomEvent<T = NxRadioGroupChangeEventDetail>
   extends CustomEvent<T> {
   detail: T;
-  target: HTMLNxRadioButtonsElement;
+  target: HTMLElement;
 }
 
 @Component({
-  tag: 'nx-radio-buttons',
-  styleUrl: 'nx-radio-buttons.scss',
+  tag: 'nx-radio-group',
+  styleUrl: 'nx-radio-group.scss',
   shadow: true,
 })
-export class NxRadioButtons {
+export class NxRadioGroup {
 
   @Element() el!: HTMLElement;
 
@@ -40,10 +40,10 @@ export class NxRadioButtons {
   @Prop() invalid = false;
 
   @Event()
-  bflChange!: EventEmitter<NxRadioButtonsChangeEventDetail>;
+  bflChange!: EventEmitter<NxRadioGroupChangeEventDetail>;
 
   @Event()
-  bflValueChange!: EventEmitter<NxRadioButtonsValueChangeEventDetail>;
+  bflValueChange!: EventEmitter<NxRadioGroupValueChangeEventDetail>;
 
   private helperTextId = `${this.name}-helper`;
 

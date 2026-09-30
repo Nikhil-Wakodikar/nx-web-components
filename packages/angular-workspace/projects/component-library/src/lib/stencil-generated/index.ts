@@ -8,6 +8,6 @@ export const DIRECTIVES = [
   d.NxGrid,
   d.NxInput,
   d.NxRadio,
-  d.NxRadioButtons,
+  d.NxRadioGroup,
   d.NxRow
 ];

@@ -20,9 +20,7 @@ describe('AppComponent', () => {
   it('creates the app with nx components', () => {
     expect(fixture.componentInstance).toBeTruthy();
     expect(fixture.nativeElement.querySelector('nx-input')).toBeTruthy();
-    expect(
-      fixture.nativeElement.querySelector('nx-radio-buttons')
-    ).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('nx-radio-group')).toBeTruthy();
   });
 
   it('requires the consent and required fields before submission', () => {

@@ -15,7 +15,7 @@ export function handleSharedFormSubmit(
     if (!formEl) return;
 
     // 2. Query all custom form components in the form container
-    const selector = 'nx-input, nx-radio-buttons, nx-checkbox';
+    const selector = 'nx-input, nx-radio-group, nx-checkbox';
     const allInvalidFields = Array.from(
       formEl.querySelectorAll(selector)
     ).filter((field: any) => {

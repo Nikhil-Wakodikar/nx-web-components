@@ -1,12 +1,18 @@
 import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, Watch, h } from '@stencil/core';
 
+type RadioGroupElement = HTMLElement & {
+  allowEmptySelection: boolean;
+  compareWith?: string | ((a: any, b: any) => boolean);
+  value: any;
+};
+
 @Component({
   tag: 'nx-radio',
   styleUrl: 'nx-radio.scss',
   shadow: true,
 })
 export class NxRadio {
-  private radioGroup?: HTMLNxRadioButtonsElement;
+  private radioGroup?: RadioGroupElement;
 
   @Element() el!: HTMLNxRadioElement;
 
@@ -34,7 +40,7 @@ export class NxRadio {
   @Event() bflBlur!: EventEmitter<void>;
 
   connectedCallback() {
-    this.radioGroup = this.el.closest('nx-radio-buttons') as HTMLNxRadioButtonsElement;
+    this.radioGroup = this.el.closest('nx-radio-group') as RadioGroupElement;
 
     this.updateState();
 

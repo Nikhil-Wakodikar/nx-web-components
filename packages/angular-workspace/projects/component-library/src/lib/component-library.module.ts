@@ -7,13 +7,13 @@ import { DateFormatDirective } from './directives/date-format-directive';
 import { InrFormatDirective } from './directives/inr-format.directive';
 import { NxCheckboxValueAccessor } from './stencil-generated/checkbox-value-accessor';
 import { InputValueAccessor } from './stencil-generated/input-value-accessor';
-import { RadioButtonsValueAccessorDirective } from './stencil-generated/radio-buttons-value-accessor';
+import { RadioGroupValueAccessorDirective } from './stencil-generated/radio-group-value-accessor';
 
 @NgModule({
   declarations: [
     DateFormatDirective,
     InrFormatDirective,
-    RadioButtonsValueAccessorDirective,
+    RadioGroupValueAccessorDirective,
     InputValueAccessor,
     NxCheckboxValueAccessor,
     ...DIRECTIVES,
@@ -22,7 +22,7 @@ import { RadioButtonsValueAccessorDirective } from './stencil-generated/radio-bu
   exports: [
     DateFormatDirective,
     InrFormatDirective,
-    RadioButtonsValueAccessorDirective,
+    RadioGroupValueAccessorDirective,
     NxCheckboxValueAccessor,
     InputValueAccessor,
     ...DIRECTIVES,
