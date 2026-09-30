@@ -1,0 +1,136 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Integration Documentation" />
+
+# Integrating the Input Component in Angular
+
+To successfully integrate the `Input` component into your Angular application, please follow the steps outlined below:
+
+1. Place the component inside a standard Angular form with `[formGroup]`.
+2. Bind the `formControl` to the component.
+3. Use `createUniversalValidator` with field configuration objects that define validation rules and error messages for each field.
+4. There is no need to manage error display in the HTML; the component will handle this automatically.
+
+### ErrorConfig Interface
+
+The `ErrorConfig` interface defines the structure for validation configuration objects:
+
+```typescript
+interface ErrorConfig {
+  required?: {
+    validationMessage: string;
+  };
+  minLength?: {
+    validationMessage: string;
+    minCharacters: number;
+  };
+  maxLength?: {
+    validationMessage: string;
+    maxCharacters: number;
+  };
+  pattern?: {
+    validationMessage: string;
+    pattern: string;
+  };
+  email?: {
+    validationMessage: string;
+    invalidDomainMessage?: string; // Optional separate message for invalid domains
+    pattern?: string; // Optional custom email pattern
+    invalidDomains?: string[]; // List of invalid domains to check against
+  };
+  termsAndConditions?: {
+    validationMessage: string;
+  };
+  custom?: {
+    validationFunction: (control: AbstractControl) => ValidatorFn;
+  };
+  panFormat?: {
+    validationMessage: string;
+    pattern?: string; // Optional regex pattern for PAN validation
+  };
+  gstinFormat?: {
+    validationMessage: string;
+    pattern?: string; // Optional regex pattern for GSTIN validation
+  };
+  pincodeFormat?: {
+    validationMessage: string;
+    pattern?: string; // Optional regex pattern for pincode validation
+  };
+  numericOnly?: {
+    validationMessage: string;
+    cleanValue?: boolean; // Remove non-numeric characters before validation
+  };
+  minValue?: {
+    validationMessage: string;
+    value: number;
+    cleanValue?: boolean; // Remove non-numeric characters before validation
+  };
+  maxValue?: {
+    validationMessage: string;
+    value: number;
+    cleanValue?: boolean; // Remove non-numeric characters before validation
+  };
+  noConsecutiveSpaces?: {
+    validationMessage: string;
+  };
+  dateFormatValidation?: {
+    validationMessage: string;
+    format?: string; // e.g., 'dd/mm/yyyy'
+  };
+  futureDateValidation?: {
+    validationMessage: string;
+    format?: string; // e.g., 'dd/mm/yyyy'
+  };
+  ageRangeValidation?: {
+    validationMessage: string;
+    minAge: number;
+    maxAge: number;
+    format?: string; // e.g., 'dd/mm/yyyy'
+  };
+}
+```
+
+### Angular Code Example
+
+```typescript
+import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { createUniversalValidator } from 'component-library';
+
+// Define form field configurations
+const formFieldConfigs = {
+  amount: {
+    required: {
+      validationMessage: 'Amount is required.',
+    },
+    minLength: {
+      validationMessage: 'Please enter at least {min} characters.',
+      minCharacters: 4,
+    },
+    maxLength: {
+      validationMessage: 'Please enter no more than {max} characters.',
+      maxCharacters: 10,
+    },
+  },
+};
+
+@Component({
+  selector: 'app-amount-input',
+  template: `
+    <form [formGroup]="form">
+      <nx-input name="amountInput" label="Loan Amount" placeholder="Enter loan amount" formControlName="amount"> </nx-input>
+      <nx-button type="submit">Submit</nx-button>
+    </form>
+  `,
+  styles: [],
+})
+export class AmountInputComponent {
+  form: FormGroup;
+
+  constructor() {
+    this.form = new FormGroup({
+      amount: new FormControl('', [createUniversalValidator(formFieldConfigs.amount)]),
+    });
+  }
+}
+```

@@ -1,0 +1,388 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+
+  --background: var(--white, #ffffff);
+  --background-focus: var(--aliceBlue, #eef7ff);
+  --background-disabled: var(--mediumGray, #f3f3f3);
+
+  --color: var(--title, #1a1a1a);
+  --placeholder-color: var(--input-placeholder, #999999);
+
+  --border-color: var(--neutralGray, #d9d9d9);
+  --border-hover-color: #bdbdbd;
+  --border-focus-color: #aedeff;
+  --border-error-color: var(--red, #e53935);
+
+  --outline-focus: 2px solid #aedeff;
+
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: var(--border-radius-4, 4px);
+
+  --padding-top: 12px;
+  --padding-bottom: 12px;
+  --padding-start: 12px;
+  --padding-end: 30px;
+
+  /* Start Slot */
+  --start-background: transparent;
+  --start-color: var(--color);
+  --start-padding-start: 0px;
+  --start-padding-end: 0px;
+  --start-border-right: none;
+
+  /* End Slot */
+  --end-background: transparent;
+  --end-color: var(--color);
+  --end-padding-start: 0px;
+  --end-padding-end: 0px;
+  --end-border-left: none;
+
+  --font-family: var(--font-rubik, sans-serif);
+  --font-size: var(--FontSize-14, 14px);
+  --font-weight: 400;
+  --line-height: 20px;
+
+  --caret-color: #72acf2;
+
+  display: block;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   Wrapper
+   ========================================== */
+
+.input-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin-bottom: 24px;
+
+  &:has(.native-input:disabled) {
+    pointer-events: none;
+  }
+}
+
+/* ==========================================
+   Label
+   ========================================== */
+
+.label-text-wrapper {
+  display: flex;
+  align-items: center;
+
+  margin-bottom: 12px;
+}
+
+.label-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  user-select: none;
+
+  color: var(--title);
+
+  font-family: var(--font-rubik-medium);
+  font-size: var(--FontSize-14);
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.label-text .required {
+  color: var(--border-error-color);
+}
+
+/* ==========================================
+   Native Wrapper / Input Box
+   ========================================== */
+
+.native-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: stretch;
+
+  width: 100%;
+
+  min-height: 46px;
+
+  overflow: hidden;
+
+  background: var(--background);
+
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+}
+
+/* Hover */
+
+.native-wrapper:hover {
+  border-color: var(--border-hover-color);
+}
+
+/* Focus */
+
+.native-wrapper:focus-within {
+  background: var(--background-focus);
+
+  outline: var(--outline-focus);
+
+  border: 2px solid var(--neutralGray);
+}
+
+/* Disabled */
+
+.native-wrapper:has(.native-input:disabled) {
+  background: var(--background-disabled);
+
+  cursor: not-allowed;
+}
+
+/* ==========================================
+   Start Slot
+   ========================================== */
+
+.input-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  /*
+   * Height comes from .native-wrapper.
+   * Do not set height here.
+   */
+  min-height: 0;
+
+  background: var(--start-background);
+  color: var(--start-color);
+
+  padding-left: var(--start-padding-start);
+  padding-right: var(--start-padding-end);
+
+  border-right: var(--start-border-right);
+}
+
+/*
+ * Style the actual slotted content only for
+ * basic layout. Avoid setting padding/background
+ * here so the consumer can control it.
+ */
+
+::slotted([slot='start']) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+}
+
+/* ==========================================
+   End Slot
+   ========================================== */
+
+.input-end {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  min-height: 0;
+
+  background: var(--end-background);
+  color: var(--end-color);
+
+  padding-left: var(--end-padding-start);
+  padding-right: var(--end-padding-end);
+
+  border-left: var(--end-border-left);
+}
+
+::slotted([slot='end']) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: inherit;
+}
+
+/* ==========================================
+   Native Input
+   ========================================== */
+
+.native-input {
+  flex: 1;
+
+  min-width: 0;
+
+  width: 100%;
+
+  min-height: 0;
+
+  background: transparent;
+
+  color: var(--color);
+
+  border: 0;
+  outline: none;
+
+  padding: var(--padding-top) var(--padding-end) var(--padding-bottom) var(--padding-start);
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+
+  appearance: none;
+  resize: none;
+
+  caret-color: var(--caret-color);
+
+  &::placeholder {
+    color: var(--placeholder-color);
+  }
+
+  &:focus {
+    background: transparent;
+
+    outline: none;
+    border: 0;
+
+    color: var(--color);
+
+    &::placeholder {
+      opacity: 0;
+    }
+  }
+
+  &:disabled {
+    background: transparent;
+
+    cursor: not-allowed;
+
+    color: var(--color);
+
+    -webkit-text-fill-color: var(--color);
+
+    &::placeholder {
+      color: #666;
+    }
+  }
+
+  &[readonly] {
+    background: transparent;
+    cursor: default;
+  }
+
+  &::-ms-reveal,
+  &::-ms-clear {
+    display: none;
+  }
+}
+
+/* ==========================================
+   Invalid State
+   ========================================== */
+
+:host(.invalid) .native-wrapper {
+  border-color: var(--border-error-color);
+}
+
+:host(.invalid) .native-wrapper:focus-within {
+  border-color: var(--border-error-color);
+  outline: none;
+}
+
+/* ==========================================
+   Success State
+   ========================================== */
+
+:host(.success) .native-wrapper {
+  border-color: var(--border-focus-color);
+}
+
+/* ==========================================
+   Error Icon
+   ========================================== */
+
+.error-icon {
+  position: absolute;
+
+  right: 12px;
+
+  width: 16px;
+  height: 16px;
+
+  color: var(--border-error-color);
+}
+
+/* ==========================================
+   Helper / Error Text
+   ========================================== */
+
+.helper-text,
+.error-text {
+  margin-top: 4px;
+
+  font-family: var(--font-family);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.helper-text {
+  color: var(--placeholder-color);
+}
+
+.error-text {
+  color: var(--border-error-color);
+}
+
+/* ==========================================
+   iOS Zoom Fix
+   ========================================== */
+
+@supports (-webkit-touch-callout: none) {
+  .native-input {
+    font-size: 16px !important;
+  }
+}
+
+/* ==========================================
+   Shake Animation
+   ========================================== */
+
+@keyframes shake-animation {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20%,
+  60% {
+    transform: translateX(-6px);
+  }
+
+  40%,
+  80% {
+    transform: translateX(6px);
+  }
+}
+
+:host(.shake) {
+  .native-wrapper {
+    animation: shake-animation 0.4s ease-in-out;
+  }
+}

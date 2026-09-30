@@ -1,0 +1,37 @@
+
+/* variable to be used for theme*/
+
+:root {
+
+  --bflstrbk-main-bg: #ebf0f8a2;
+  --bflstrbk-docs-bg: #fff;
+  --bflstrbk-toc-bg: #0f0f10;
+  --bflstrbk-toc-text: #fff;
+}
+
+/* Set docs content width and wrapping */
+.sbdocs-content {
+  max-width: 700px !important;
+  width: 100% !important;
+  margin: 0 auto;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+
+
+body, .sbdocs, .sbdocs-wrapper {
+  background: var(--bflstrbk-main-bg) !important;
+}
+
+
+/* Prevent buttons and small controls from breaking text per-letter */
+.sbdocs button,
+.sbdocs .button,
+.sbdocs .btn,
+.css-bzpine .rejt-add-value-node button,
+.css-bzpine .rejt-add-value-node input {
+  white-space: nowrap !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+}

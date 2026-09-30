@@ -1,0 +1,120 @@
+:host {
+
+    // Color
+    --white : #fff;
+    --black : #000;
+    --green : #1F8B24;
+    --red : rgb(211, 47, 47);
+    --orange : #FF6700;
+    --info : #007BFF;
+    --title : #1A1A1A;
+    --input-placeholder : #666666;
+    --input-focus : #FFF5DA;
+    --gary-555: #555555;
+    --required-icon : #FF0000;
+    --aliceBlue :#F0F8FF;
+    --softPeach:#FFECDF;
+    --mediumGray :#888888;
+    --lightGray : #f2f2f2;
+    --primary-orange: #E55005;
+    --errorRed: #d32f2f;
+    --neutralGray: #999999;
+    --lightSkyBlue: #AEDDFF;
+    --deep-blue: #002855;
+    --color-light-gray: #ddd;
+    --color-very-light-gray:#fafafa;
+    --color-light-periwinkle: #F2F4FB;
+    --color-medium-gray:#cccccc;
+    --color-soft-peach: #FFF2EA;
+    --color-light-grayish:#d4d4d4;
+    --color-bright-red:#f00;
+    --color-vibrant-green: #00b300;
+    --color-light-mint:#C3E5C3;
+    --color-pale-mint:#E4F8E4;
+    --color-light-rose: #F3A4B9;
+    --color-soft-blush: #F7E3EA;
+    --color-vibrant-blue: #1778EB;
+    --color-dark-red: #B40000;
+    --color-dark-blue: #002953;
+    --color-deep-blue: #002f5f;
+    --color-very-light-gray: #f0f0f0;
+    --color-light-gray: #F7F7F7;
+    --color-dark-gray: #333;
+    --color-pale-pink: #FFF3F3;
+    --color-teal: #089E86;
+    --color-light-gray-medium: #C5C5C5;
+    --color-tealish-blue: #4098A3;
+    --color-deep-teal: #00796B;
+    --color-light-gray-2: #F4F4F4;
+    --light-gray-background: #f9f9fb;
+    --check-box-border:#4d4d4d;
+    --color-mint:#EEF9F7;
+    --emerald-green:#018501;
+    --soft-sky:#DBECFF;
+    --light-gray-border: #E5E5E5;
+
+
+    // font-family — delegates to --bfl-font-* API variables set on :root based on lang attribute.
+    // Falls back to Rubik when no lang-based override is provided (backward compatible).
+    --font-rubik: var(--bfl-font-regular, 'Rubik-Regular', sans-serif);
+    --font-rubik-medium: var(--bfl-font-medium, 'Rubik-Medium', sans-serif);
+
+    // Font Size
+    --FontSize-10: 1rem;
+    --FontSize-12: 1.2rem;
+    --FontSize-13: 1.3rem;
+    --FontSize-14: 1.4rem;
+    --FontSize-15: 1.5rem;
+    --FontSize-16: 1.6rem;
+    --FontSize-18: 1.8rem;
+    --FontSize-20: 2rem;
+    --FontSize-22: 2.2rem;
+
+    // padding
+    --pt: 15px 0px 0px 0px;
+    --pb: 0px 0px 15px 0px;
+    --pl: 0px 0px 0px 15px;
+    --pr: 0px 15px 0px 0px;
+    --p-12-12: 12px 12px;
+
+    // margin
+    --m: 12px 16px;
+    --mt: 15px 0px 0px 0px;
+    --mb: 0px 0px 15px 0px;
+    --ml: 0px 0px 0px 15px;
+    --mr: 0px 15px 0px 0px;
+
+    // Border
+    --border-1: 1px solid #999999;
+    --border-2: 2px solid #cccccc;
+    --border-3: 3px solid #cccccc;
+    --border-4: 4px solid #cccccc;
+    --border-5: 5px solid #cccccc;
+
+    // Border Radius
+    --border-radius-4: 4px;
+    --border-radius-20: 20px;
+    --border-radius-50: 50px;
+
+    //font-weight
+    --font-light: 300;
+    --font-regular: 400;
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+    --font-extrabold: 800;
+  }
+
+  .mt-10 {margin-top:10px;}
+  .mr-10 {margin-right:10px;}
+  .mb-50 {margin-bottom:50px;}
+  .ml-10 {margin-left:10px;}
+  .mb-16 { margin-bottom: 16px;}
+  .mb-24 { margin-bottom: 24px;}
+
+  .pt-10 {margin-top:10px;}
+  .pr-10 {margin-right:10px;}
+  .pb-50 {margin-bottom:50px;}
+  .pl-10 {margin-left:10px;}
+
+  .border-none { border: none;}

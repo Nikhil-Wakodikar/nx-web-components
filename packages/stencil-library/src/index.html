@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=no, viewport-fit=cover"/> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+    <title>NX Web Components</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet" />
+
+    <script type="module" src="/build/stencil-library.esm.js"></script>
+    <script nomodule src="/build/stencil-library.js"></script>
+  </head>
+
+  <body>
+    <main>
+      <h1>NX Web Components</h1>
+
+      <section aria-label="Buttons">
+        <nx-button>Default</nx-button>
+        <nx-button fill="outline">Outline</nx-button>
+        <nx-button fill="clear">Clear</nx-button>
+        <nx-button shape="round">Round</nx-button>
+      </section>
+
+      <section aria-label="Form controls">
+        <nx-input label="Name" placeholder="Enter your name"></nx-input>
+        <nx-checkbox>Accept the terms</nx-checkbox>
+        <nx-radio-buttons name="example-choice" value="first">
+          <nx-radio value="first">First</nx-radio>
+          <nx-radio value="second">Second</nx-radio>
+        </nx-radio-buttons>
+      </section>
+
+      <nx-grid>
+        <nx-row>
+          <nx-col size-xs="12" size-sm="6">First column</nx-col>
+          <nx-col size-xs="12" size-sm="6">Second column</nx-col>
+        </nx-row>
+      </nx-grid>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,182 @@
+trigger: none
+
+parameters:
+  - name: buildTarget
+    displayName: "Choose Library to Build"
+    type: string
+    default: "stencil-library"
+    values:
+      - "stencil-library"
+      - "component-library"
+      - "storybook"
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: BuildLibrary
+    jobs:
+      - job: BuildAndPack
+        timeoutInMinutes: 60
+        cancelTimeoutInMinutes: 2
+        displayName: "Build and Pack ${{ parameters.buildTarget }}"
+        steps:
+          - task: NodeTool@0
+            inputs:
+              versionSpec: "18.20.8"
+            displayName: "Install Node.js"
+
+          - script: |
+              export NODE_OPTIONS="--max-old-space-size=4096"
+              export PUPPETEER_SKIP_DOWNLOAD=true
+
+              echo "Cleaning previous installations..."
+              npm cache clean --force
+              rm -rf node_modules package-lock.json
+              rm -rf packages/*/node_modules packages/*/package-lock.json
+
+              echo "Installing root dependencies..."
+              npm install --legacy-peer-deps --force
+
+              # Install stencil-library dependencies (always needed for component-library linking)
+              echo "Installing stencil-library dependencies..."
+              cd packages/stencil-library
+              npm install --legacy-peer-deps --force
+              cd ../..
+
+              if [ "${{ parameters.buildTarget }}" = "component-library" ]; then
+                echo "Installing Angular workspace dependencies..."
+                cd packages/angular-workspace
+                npm install --legacy-peer-deps --force
+                cd ../..
+              fi
+
+              echo "Dependencies installed successfully"
+            displayName: "Install Dependencies"
+
+          - script: |
+              echo "🔨 Building ${{ parameters.buildTarget }}..."
+
+              if [ "${{ parameters.buildTarget }}" = "stencil-library" ]; then
+                cd packages/stencil-library
+
+                echo "Installing stencil-library dependencies (local)..."
+                npm install --legacy-peer-deps --force
+
+                echo "Running stencil build..."
+                npm run build
+
+                if [ ! -d "dist" ]; then
+                  echo "Build failed - no dist folder found"
+                  exit 1
+                fi
+
+              elif [ "${{ parameters.buildTarget }}" = "component-library" ]; then
+                # First, build and link stencil-library
+                echo "Building stencil-library first..."
+                cd packages/stencil-library
+                npm run build
+                npm link
+                cd ../..
+                
+                # Then build component-library with linked stencil-library
+                echo "Linking stencil-library to component-library..."
+                cd packages/angular-workspace
+                npm link stencil-library
+                
+                echo "🔨 Building component-library..."
+                npx ng build component-library --configuration production
+                
+                if [ ! -d "dist/component-library" ]; then
+                  echo "Build failed - no dist/component-library folder found"
+                  exit 1
+                fi
+                cd ../..
+
+              elif [ "${{ parameters.buildTarget }}" = "storybook" ]; then
+                # Build only Storybook from stencil-library
+                echo "Building Storybook (standalone)..."
+                cd packages/stencil-library
+
+                echo "Installing stencil-library dependencies (local)..."
+                npm install --legacy-peer-deps --force
+
+                echo "Running stencil build (required for Storybook)..."
+                npm run build
+
+                echo "Building Storybook for stencil-library..."
+                npm run build-storybook
+
+                if [ ! -d "storybook-static" ]; then
+                  echo "Storybook build failed - no storybook-static folder found"
+                  exit 1
+                fi
+                cd ../..
+              fi
+
+              echo "Build completed successfully"
+            displayName: "Build ${{ parameters.buildTarget }}"
+
+          - script: |
+              echo "Packing ${{ parameters.buildTarget }}..."
+
+              if [ "${{ parameters.buildTarget }}" = "stencil-library" ]; then
+                cd packages/stencil-library
+                npm run pack-lib-stencil-library
+
+              elif [ "${{ parameters.buildTarget }}" = "component-library" ]; then
+                cd packages/angular-workspace/dist/component-library
+                npm pack
+                cd ../../..
+
+              elif [ "${{ parameters.buildTarget }}" = "storybook" ]; then
+                echo "No package to pack for storybook target"
+              fi
+
+              echo "Packing completed successfully"
+            displayName: "Pack ${{ parameters.buildTarget }}"
+
+          - script: |
+              echo "Organizing artifacts for ${{ parameters.buildTarget }}..."
+
+              if [ "${{ parameters.buildTarget }}" = "stencil-library" ]; then
+                mkdir -p artifact-staging/library-artifacts/stencil-lib
+
+                # Copy build and packed files
+                cp -r packages/stencil-library/dist/* artifact-staging/library-artifacts/stencil-lib/
+                find packages/stencil-library -name "*.tgz" -exec cp {} artifact-staging/library-artifacts/stencil-lib/ \;
+
+                # Copy version.json from repo root if available
+                if [ -f "version.json" ]; then
+                  cp version.json artifact-staging/library-artifacts/stencil-lib/
+                fi
+
+              elif [ "${{ parameters.buildTarget }}" = "component-library" ]; then
+                mkdir -p artifact-staging/library-artifacts/component-lib
+                
+                # Copy build and packed files
+                cp -r packages/angular-workspace/dist/component-library/* artifact-staging/library-artifacts/component-lib/
+                find packages/angular-workspace/dist/component-library -name "*.tgz" -exec cp {} artifact-staging/library-artifacts/component-lib/ \;
+
+                # Copy version.json from repo root if available
+                if [ -f "version.json" ]; then
+                  cp version.json artifact-staging/library-artifacts/component-lib/
+                fi
+
+              elif [ "${{ parameters.buildTarget }}" = "storybook" ]; then
+                mkdir -p artifact-staging/library-artifacts/storybook
+                if [ -d "packages/stencil-library/storybook-static" ]; then
+                  cp -r packages/stencil-library/storybook-static/* artifact-staging/library-artifacts/storybook/
+                fi
+              fi
+
+              echo "Artifacts organized successfully"
+            displayName: "Organize Artifacts"
+
+          - task: CopyPublishBuildArtifacts@1
+            displayName: "Publish ${{ parameters.buildTarget }} Artifacts"
+            inputs:
+              CopyRoot: "artifact-staging"
+              Contents: "**"
+              ArtifactName: "library-artifacts"
+              ArtifactType: Container

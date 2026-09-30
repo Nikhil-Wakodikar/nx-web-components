@@ -1,0 +1,200 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Component Organization Guide" />
+
+# 📚 Component Organization Guide
+
+This guide helps developers understand our Storybook structure and quickly locate the components they need for their projects.
+
+## 🏗️ Design System Structure Overview
+
+Our component library is organized under the **Design System** category with the following structure:
+
+```
+📁 Design System
+├── 🎨 Tokens
+├── 🧱 Components
+└── 📖 Documentation
+```
+
+---
+
+## 🎨 **Tokens**
+
+### **Design System/Tokens/Colors**
+- **Purpose**: Color palette and brand guidelines
+- **What you'll find**: Primary colors, secondary colors, neutrals, utility colors
+- **When to use**: When you need consistent brand colors for custom styling
+- **Example**: Getting the exact hex code for primary button colors
+
+### **Design System/Tokens/Typography**
+- **Purpose**: Typography scales, font families, and text styling guidelines
+- **What you'll find**: Heading styles, body text, font weights, line heights
+- **When to use**: When implementing consistent text styling across applications
+- **Example**: Understanding hierarchy for page titles vs. section headings
+
+---
+
+## 🧱 **Components**
+
+### **Design System/Components/Form Controls**
+> *Basic, single-purpose input elements - the building blocks of forms*
+
+**What you'll find:**
+- `Amount Input` - Monetary value inputs with formatting
+- `Date of Birth Input` - Date picker for personal information
+- `Email Input` - Email validation and formatting
+- `Full Name Input` - Text input optimized for names
+- `PAN Input` - Indian PAN number validation
+- `GSTIN Input` - GST identification number input
+- `Smart Search Input` - Search with autocomplete functionality
+- `Year Input` - Year selection component
+- `Pincode Input` - Postal code validation
+- `Dropdown Input` - Select/dropdown menus
+- `Branch Input` - Bank branch selection
+
+**When to use:**
+- ✅ Building custom forms from scratch
+- ✅ Need a specific input type with built-in validation
+- ✅ Want consistent styling across different forms
+- ✅ Implementing individual form fields
+
+**Developer Example:**
+```typescript
+// Need a simple email input for a contact form
+<bfl-email-input 
+  name="email" 
+  label="Email Address" 
+  isRequired="true">
+</bfl-email-input>
+```
+
+---
+
+### **Design System/Components/Form Components**
+> *Complex, multi-element form structures with advanced functionality*
+
+**What you'll find:**
+- `Form Wrapper` - Complete form container with validation management
+- `Radio Input` - Individual radio button (use with radio groups)
+- `Terms & Conditions Checkbox` - Legal agreement checkbox with links
+- `Duration Input` - Composite time period selector (years + months)
+- `Radio Chip Input` - Advanced radio selection with modern chip UI
+- `JSON Form Generator` - Dynamic form creation from configuration
+
+**When to use:**
+- ✅ Need complex form behavior or validation
+- ✅ Building complete form sections
+- ✅ Want pre-built form patterns
+- ✅ Need dynamic form generation
+- ✅ Implementing multi-step or conditional forms
+
+**Developer Example:**
+```typescript
+// Need a complete form with validation handling
+<bfl-form-wrapper>
+  <bfl-text-input name="name" label="Full Name"></bfl-text-input>
+  <bfl-email-input name="email" label="Email"></bfl-email-input>
+  <bfl-tnc-checkbox name="terms" label="I agree to terms"></bfl-tnc-checkbox>
+</bfl-form-wrapper>
+```
+
+---
+
+### **Design System/Components/Layout & Navigation**
+> *Page structure and navigation elements*
+
+**What you'll find:**
+- `Button Group` - Container for multiple related buttons
+- `CTA Button` - Call-to-action buttons with various styles
+- `Page Details` - Page header with title and metadata
+- `App Header` - Application navigation header
+
+**When to use:**
+- ✅ Building page layouts and navigation
+- ✅ Need consistent button groupings
+- ✅ Implementing page headers and titles
+- ✅ Creating application-level navigation
+
+**Developer Example:**
+```typescript
+// Need action buttons for a form
+<bfl-button-group>
+  <bfl-cta-button label="Save Draft" type="secondary"></bfl-cta-button>
+  <bfl-cta-button label="Submit" type="primary"></bfl-cta-button>
+</bfl-button-group>
+```
+
+---
+
+### **Design System/Components/Data Display**
+> *Components for presenting information and data*
+
+**What you'll find:**
+- `Accordion` - Collapsible content sections
+- `Tracker Input` - Progress tracking and step indicators
+
+**When to use:**
+- ✅ Displaying large amounts of content in organized sections
+- ✅ Showing progress through multi-step processes
+- ✅ Creating FAQ sections or content hierarchies
+- ✅ Building dashboard-like interfaces
+
+**Developer Example:**
+```typescript
+// Show application progress
+<bfl-tracker-input 
+  steps='[
+    {"name": "Personal Info", "state": "completed"},
+    {"name": "Documents", "state": "in-progress"},
+    {"name": "Review", "state": "pending"}
+  ]'>
+</bfl-tracker-input>
+```
+
+---
+
+### **Design System/Components/Utility Components**
+> *Helper components that provide specific functionality*
+
+**What you'll find:**
+- `Need Help` - Customer support section with contact options
+- `Callback Link` - Request callback functionality
+- `Common Form Error` - Standardized error message display
+- `Address Verification Input` - Specialized address confirmation
+
+**When to use:**
+- ✅ Adding support and help functionality
+- ✅ Implementing error handling patterns
+- ✅ Need specialized business logic components
+- ✅ Building customer service features
+
+**Developer Example:**
+```typescript
+// Add help section to a complex form
+<bfl-need-help 
+  helpText="Having trouble with your application?"
+  linkText="Get Help">
+</bfl-need-help>
+```
+
+---
+
+## 📖 **Additional Documentation**
+
+- **Integration Documentation** - Detailed implementation guides
+- **Stencil Library** - Core library setup and configuration
+
+---
+
+## 💡 **Pro Tips for Developers**
+
+1. **Form Controls are composable** - Mix and match to build custom forms
+2. **Form Components include validation** - Less code for you to write
+3. **Layout components are responsive** - Work across device sizes
+4. **Utility components follow business logic** - Domain-specific functionality
+5. **All components support theming** - Consistent with design system
+
+---
+
+

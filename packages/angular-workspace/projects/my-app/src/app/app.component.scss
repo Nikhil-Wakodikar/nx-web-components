@@ -1,0 +1,66 @@
+// nx-input::part(label) {
+//   color: blue;
+//   font-weight: 600;
+// }
+
+// // nx-input::part(input-box) {
+// //   border: 1px solid #ccc;
+// //   border-radius: 8px;
+// //   padding: 8px;
+// // }
+
+// nx-input::part(input) {
+//   font-size: 16px;
+//   color: red;
+// }
+
+// nx-input::part(start) {
+//   color: green;
+//   background: red;
+// }
+// nx-input::part(start) {
+//   background: #f3f3f3;
+//   padding: 0 32px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+
+// nx-input::part(end) {
+//   color: orange;
+// }
+
+.my-checkbox::part(container) {
+  // gap: 30px;
+  margin: 30px;
+}
+
+.my-checkbox::part(mark) {
+  // border-radius: 50%;
+  --border-width: 1px;
+  --checked-background: #ff6700;
+  --checked-border-color: #ff6700;
+  // --check-size: 10px;
+}
+
+// .my-checkbox::part(label) {
+//    --label-color: red;
+//    --label-font-size: 18px;
+// }
+
+nx-col {
+  --background: #135d54;
+  --border: 1px solid #fff;
+  color: #fff;
+  // padding: 0px;
+  // --border-radius: 8px;
+}
+
+.btn {
+  --background: #2dd36f;
+  --margin: 20px;
+  border: 2px solid red;
+  color: blue;
+  padding: 30px;
+  --border-radius: 50px;
+}

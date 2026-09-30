@@ -1,0 +1,175 @@
+:host {
+  display: block;
+
+  /* ==============================
+     Public CSS API
+     ============================== */
+
+  --size: 20px;
+
+  --border-width: 2px;
+  --border-color: #c7c7c7;
+  --border-radius: 4px;
+
+  --background: #fff;
+  --checked-background: #0f62fe;
+  --checked-border-color: #0f62fe;
+
+  --check-color: #fff;
+  --check-size: 5px;
+
+  --label-color: #1f1f1f;
+  --label-font-size: 14px;
+  --label-font-weight: 400;
+
+  --gap: 10px;
+
+  --disabled-opacity: 0.5;
+
+  --transition-duration: 0.2s;
+}
+
+// Justify Content
+// ---------------------------------------------
+
+:host(.checkbox-justify-space-between) .checkbox-wrapper {
+  justify-content: space-between;
+}
+
+:host(.checkbox-justify-start) .checkbox-wrapper {
+  justify-content: start;
+}
+
+:host(.checkbox-justify-end) .checkbox-wrapper {
+  justify-content: end;
+}
+
+// Align Items
+// ---------------------------------------------
+
+:host(.checkbox-alignment-start) .checkbox-wrapper {
+  align-items: start;
+}
+
+:host(.checkbox-alignment-center) .checkbox-wrapper {
+  align-items: center;
+}
+/* ==============================
+   Wrapper
+   ============================== */
+
+.checkbox-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: var(--gap);
+
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ==============================
+   Checkbox Box
+   ============================== */
+
+.checkbox-box-wrapper {
+  position: relative;
+
+  width: var(--size);
+  height: var(--size);
+
+  flex-shrink: 0;
+
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+
+  background: var(--background);
+
+  transition: background var(--transition-duration) ease, border-color var(--transition-duration) ease;
+}
+
+/* ==============================
+   Native Input
+   ============================== */
+
+.checkbox-box-wrapper input {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+
+  opacity: 0;
+
+  cursor: pointer;
+}
+
+/* ==============================
+   Checked State
+   ============================== */
+
+:host(.checked) .checkbox-box-wrapper {
+  background: var(--checked-background);
+  border-color: var(--checked-border-color);
+}
+
+/* ==============================
+   Checkmark
+   ============================== */
+
+.checkbox-box-wrapper::after {
+  content: '';
+
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: var(--check-size);
+  height: calc(var(--check-size) * 2);
+
+  border: solid var(--check-color);
+  border-width: 0 2px 2px 0;
+
+  transform: translate(-50%, -60%) rotate(45deg) scale(0);
+
+  transition: transform 0.15s ease;
+
+  pointer-events: none;
+}
+
+:host(.checked) .checkbox-box-wrapper::after {
+  transform: translate(-50%, -60%) rotate(45deg) scale(1);
+}
+
+/* ==============================
+   Label
+   ============================== */
+
+.checkbox-label-container {
+  color: var(--label-color);
+
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+
+  line-height: 1.4;
+}
+
+/* ==============================
+   Disabled
+   ============================== */
+
+:host(.disabled) {
+  opacity: var(--disabled-opacity);
+}
+
+:host(.disabled) .checkbox-wrapper {
+  cursor: not-allowed;
+}
+
+:host(.disabled) input {
+  cursor: not-allowed;
+}

@@ -1,0 +1,98 @@
+import { Meta } from "@storybook/blocks";
+
+
+<Meta title=" Stencil Library" />
+
+<div className="sb-container">
+  <div className='sb-section-title'>
+    # Component Library Integration Documentation
+
+## Introduction
+Stencil is a powerful compiler designed for generating reusable, standards-compliant web components. This enables developers to create high-performance, framework-agnostic UI components that can seamlessly integrate with various frameworks like Angular, React, and Vue.
+
+Storybook is an open-source tool utilized for developing and showcasing UI components in isolation. It allows developers to visualize different states of components, document their usage, and facilitate collaboration between designers and developers. This ultimately enhances the component development workflow.
+
+We have developed an Angular `component library` utilizing `Stencil` web components. Each component's use case is meticulously documented in Storybook, providing clear guidance and examples for users.
+
+## Integrating the Stencil Component Library: Quick Installation Guide
+
+### Prerequisites
+- **Node.js** and **npm** installed
+- Basic understanding of `package.json`
+
+### Step 1: Install Libraries
+
+#### Method 1: Via TGZ File/URL
+1. **Obtain TGZ:** Get the `.tgz` files or URLs for the `component-library` and `stencil`.
+2. **Modify package.json:** Add the following dependencies to the dependencies section:
+   ```json
+   "dependencies": {
+     "component-library": "path/to/component-library.tgz",
+     "stencil": "path/to/stencil.tgz"
+   }
+
+1. **Install:** Run npm install.
+2. **Verify:** Check `node_modules` to ensure the libraries are installed correctly.
+   
+#### Method 2: Via Azure Artifacts (Recommended)
+
+For detailed instructions, refer to the <a href="https://azure.artifacts/installation-guide">Azure Artifacts Installation Guide.</a>
+
+## Troubleshooting
+
+- **Authentication Errors:** Verify your PAT (Personal Access Token), registry URL, and token settings.
+- **Package Not Found:** : Ensure the packages are published to the Azure Artifacts feed.
+- **Network Issues:** Check network access to Azure Artifacts.
+
+## Summary
+
+Choose either TGZ files/URLs or Azure Artifacts for installing the `component-library` and `stencil`. Ensure correct authentication and configurations for smooth integration.
+Both libraries should be added to both the host and remote applications.
+
+## Step 2: Implementation
+
+To fully integrate the component library into your application, you need to import it at both the app level and the module level. This typically involves updating your `module.ts` file to include the necessary modules from the Here's how to do it:
+
+
+</div>
+ </div>
+
+
+ ```json
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { ComponentLibraryModule } from 'component-library'; // Import the component library module
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+  ],
+  imports: [
+    BrowserModule,
+    ComponentLibraryModule, // Add the component library module to the imports array
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
+
+ ## Step 3: Configuration
+
+ Add `"skipLibCheck": true` in your `tsconfig` file
+
+    ```json
+    "compilerOptions": {
+      ...,
+      "skipLibCheck": true
+    }
+    ```
+
+
+    You are now set to utilize the component selectors.
+
+    **Happy coding!**
+
+
+

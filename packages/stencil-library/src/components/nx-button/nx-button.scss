@@ -1,0 +1,116 @@
+:host {
+  /* ===============================
+     Public Styling API
+     =============================== */
+
+  --background: #3880ff;
+  --background-hover: var(--background);
+  --background-active: var(--background);
+
+  --color: #fff;
+
+  --border-radius: 6px;
+
+  --margin: 0;
+  --padding: 10px 16px;
+
+  --font-size: 14px;
+  --font-weight: 500;
+
+  display: inline-block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.button-native {
+  all: unset;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  background: var(--background);
+  color: var(--color);
+
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+
+  margin: var(--margin);
+  padding: var(--padding);
+
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+
+  box-shadow: var(--box-shadow);
+
+  transition: background 0.2s ease;
+}
+
+.button-native:hover:not(:disabled) {
+  background: var(--background-hover);
+}
+
+.button-native:active:not(:disabled) {
+  background: var(--background-active);
+}
+
+.button-native:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.button-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+// Expand Button
+// --------------------------------------------------
+
+:host(.button-block) {
+  display: block;
+}
+
+:host(.button-block) .button-native {
+  width: 100%;
+}
+
+:host(.button-full) {
+  display: block;
+}
+
+:host(.button-full) .button-native {
+  width: 100%;
+  border-radius: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+:host(.button-round) .button-native {
+  border-radius: 999px;
+}
+
+:host(.button-solid) .button-native {
+  background: var(--background);
+  color: var(--color);
+  border: none;
+}
+
+:host(.button-outline) .button-native {
+  background: transparent;
+  color: var(--background);
+  border: 1px solid var(--background);
+}
+
+:host(.button-clear) .button-native {
+  background: transparent;
+  color: var(--background);
+  border: none;
+}

@@ -1,0 +1,13 @@
+
+import * as d from './components';
+
+export const DIRECTIVES = [
+  d.NxButton,
+  d.NxCheckbox,
+  d.NxCol,
+  d.NxGrid,
+  d.NxInput,
+  d.NxRadio,
+  d.NxRadioButtons,
+  d.NxRow
+];

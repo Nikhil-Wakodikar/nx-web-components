@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: 'Rubik-Regular';
+  src: url('../../../../stencil-library/src/global/fonts/Rubik-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Rubik-Medium';
+  src: url('../../../../stencil-library/src/global/fonts/Rubik-Medium.ttf');
+}
+
+:root {
+  // Colors
+  --white: #fff;
+  --black: #000;
+  --green: #1F8B24;
+  --red: rgb(211, 47, 47);
+  --orange: #FF6700;
+  --info: #007BFF;
+  --title: #1A1A1A;
+  --input-placeholder: #666666;
+  --input-focus: #FFF5DA;
+  --gary-555: #555555;
+
+  // Tracker specific colors
+  --color-medium-gray: #CCCCCC;
+  --color-vibrant-blue: #089E86;
+
+  // Font family
+  --font-rubik: 'Rubik-Regular';
+  --font-rubik-medium: 'Rubik-Medium';
+
+  // Font Size
+  --FontSize-10: 1rem;
+  --FontSize-12: 1.2rem;
+  --FontSize-14: 1.4rem;
+  --FontSize-15: 1.5rem;
+  --FontSize-16: 1.6rem;
+  --FontSize-18: 1.8rem;
+  --FontSize-20: 2rem;
+
+  // Font weights
+  --font-light: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  // Border
+  --border-1: 1px solid #cccccc;
+  --border-radius-4: 4px;
+  --border-radius-20: 20px;
+  --border-radius-50: 50px;
+}
+
+html {
+  font-size: 10px !important;
+}
+
+body {
+  font-size: 10px !important;
+  font-family: 'Rubik-Regular';
+  margin: 0;
+  padding: 0;
+  background: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Rubik-Regular';
+}
+
+a {
+  text-decoration: none;
+  color: var(--orange);
+  cursor: pointer;
+}
+

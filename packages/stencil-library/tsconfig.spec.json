@@ -1,0 +1,8 @@
+// stencil-library/tsconfig.spec.json
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["jest", "node"]
+  },
+  "include": ["src/**/*.spec.ts"]
+}

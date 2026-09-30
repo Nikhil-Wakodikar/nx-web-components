@@ -1,0 +1,130 @@
+:host {
+  --size: 20px;
+  --border-width: 2px;
+
+  --border-color: #b5b5b5;
+  --border-color-checked: var(--primary, #0054e9);
+
+  --background: #fff;
+  --background-checked: var(--primary, #0054e9);
+
+  --label-color: #222;
+  --disabled-opacity: 0.5;
+
+  display: inline-flex;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+:host(.disabled) {
+  opacity: var(--disabled-opacity);
+  cursor: not-allowed;
+}
+
+.radio-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label-wrapper {
+  color: var(--label-color);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.label-wrapper.hidden {
+  display: none;
+}
+
+.radio-icon {
+  position: relative;
+
+  width: var(--size);
+  height: var(--size);
+
+  border-radius: 50%;
+
+  border: var(--border-width) solid var(--border-color);
+
+  background: var(--background);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+}
+
+.radio-inner {
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: white;
+
+  transform: scale(0);
+
+  transition: transform 0.18s ease;
+}
+
+:host(.checked) .radio-icon {
+  border-color: var(--border-color-checked);
+  background: var(--background-checked);
+}
+
+:host(.checked) .radio-inner {
+  transform: scale(1);
+}
+
+:host(:focus-visible) .radio-icon {
+  box-shadow: 0 0 0 4px rgba(0, 84, 233, 0.15);
+}
+
+/* ---------- Label Placement ---------- */
+
+:host(.label-start) .radio-wrapper {
+  flex-direction: row-reverse;
+}
+
+:host(.label-end) .radio-wrapper {
+  flex-direction: row;
+}
+
+:host(.label-stacked) .radio-wrapper {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+:host(.label-fixed) .label-wrapper {
+  width: 120px;
+}
+
+/* ---------- Justify ---------- */
+
+:host(.justify-start) {
+  display: flex;
+  justify-content: flex-start;
+}
+
+:host(.justify-end) {
+  display: flex;
+  justify-content: flex-end;
+}
+
+:host(.justify-space-between) {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- Alignment ---------- */
+
+:host(.align-start) .radio-wrapper {
+  align-items: flex-start;
+}
+
+:host(.align-center) .radio-wrapper {
+  align-items: center;
+}
