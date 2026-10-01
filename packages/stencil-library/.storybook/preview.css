@@ -1,29 +1,22 @@
-
-/* variable to be used for theme*/
-
 :root {
-
-  --bflstrbk-main-bg: #ebf0f8a2;
-  --bflstrbk-docs-bg: #fff;
-  --bflstrbk-toc-bg: #0f0f10;
-  --bflstrbk-toc-text: #fff;
+  --nx-storybook-canvas: #f7f5fa;
+  --nx-storybook-surface: #ffffff;
 }
 
 /* Set docs content width and wrapping */
 .sbdocs-content {
-  max-width: 700px !important;
+  max-width: 900px !important;
   width: 100% !important;
   margin: 0 auto;
   word-break: break-word;
   overflow-wrap: anywhere;
 }
 
-
-
-body, .sbdocs, .sbdocs-wrapper {
-  background: var(--bflstrbk-main-bg) !important;
+body,
+.sbdocs,
+.sbdocs-wrapper {
+  background: var(--nx-storybook-canvas) !important;
 }
-
 
 /* Prevent buttons and small controls from breaking text per-letter */
 .sbdocs button,

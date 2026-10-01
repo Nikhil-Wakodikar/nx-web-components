@@ -10,10 +10,8 @@ export class AppComponent {
   constructor(private fb: FormBuilder) {}
 
   tcnForm = this.fb.group({
-    name: ['nik', Validators.required],
+    name: ['', Validators.required],
     password: ['', Validators.required],
-    phone: [''],
-    date: ['26/08/2026'],
     acceptTcn: [false, Validators.requiredTrue],
     gender: ['', Validators.required],
     price: ['115000'],

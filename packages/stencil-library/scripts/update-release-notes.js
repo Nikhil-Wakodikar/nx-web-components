@@ -45,14 +45,14 @@ function discoverStoryPath(componentName) {
   if (storyPathCache[componentName]) {
     return storyPathCache[componentName];
   }
-  
+
   const componentDir = path.join(COMPONENTS_DIR, componentName);
-  
+
   // Try to find story file in component directory
   if (fs.existsSync(componentDir)) {
     const files = fs.readdirSync(componentDir);
     const storyFile = files.find(f => f.endsWith('.stories.ts') || f.endsWith('.stories.tsx'));
-    
+
     if (storyFile) {
       try {
         const content = fs.readFileSync(path.join(componentDir, storyFile), 'utf8');
@@ -74,7 +74,7 @@ function discoverStoryPath(componentName) {
       }
     }
   }
-  
+
   // Fallback: generate path from component name
   const fallbackPath = `design-system-components-${componentName.toLowerCase()}`;
   storyPathCache[componentName] = fallbackPath;
@@ -119,8 +119,8 @@ function getCommitPatch(hash) {
 function isNewComponent(hash, componentName) {
   // Check if the component's main .tsx file was added (not modified)
   const diff = runGit(`git show ${hash} --diff-filter=A --name-only`);
-  return diff.includes(`components/${componentName}/`) && 
-         (diff.includes('.tsx') || diff.includes('.ts'));
+  return diff.includes(`components/${componentName}/`) &&
+    (diff.includes('.tsx') || diff.includes('.ts'));
 }
 
 function extractComponentName(filePath) {
@@ -132,7 +132,7 @@ function detectNewProps(patch) {
   const addedProps = [];
   const removedProps = new Set();
   const lines = patch.split('\n');
-  
+
   // First pass: collect removed props (existing props being modified)
   for (const line of lines) {
     if (line.startsWith('-') && !line.startsWith('---')) {
@@ -142,7 +142,7 @@ function detectNewProps(patch) {
       }
     }
   }
-  
+
   // Second pass: collect added props that are truly NEW (not in removed set)
   for (const line of lines) {
     if (line.startsWith('+') && !line.startsWith('+++')) {
@@ -164,7 +164,7 @@ function detectNewProps(patch) {
 function getExampleValue(propName, propType) {
   const name = propName.toLowerCase();
   const type = propType.toLowerCase();
-  
+
   // Style-related props
   if (name.includes('style') || name.includes('styles')) {
     return "{ width: '20px', height: '20px', borderRadius: '24px' }";
@@ -172,7 +172,7 @@ function getExampleValue(propName, propType) {
   if (name.includes('iconstyle')) {
     return "{ width: '32px', height: '32px' }";
   }
-  
+
   // URL props
   if (name.includes('url') || name.includes('icon') && name.includes('url')) {
     return "'assets/icon.png'";
@@ -180,7 +180,7 @@ function getExampleValue(propName, propType) {
   if (name.includes('imageurl') || name.includes('backgroundimage')) {
     return "'assets/image.jpg'";
   }
-  
+
   // Text props
   if (name.includes('title') || name.includes('header') || name.includes('label')) {
     return "'Your Title Here'";
@@ -194,7 +194,7 @@ function getExampleValue(propName, propType) {
   if (name.includes('status')) {
     return "'active'";
   }
-  
+
   // Position/alignment props
   if (name.includes('align') || name.includes('position')) {
     return "'left'";
@@ -202,27 +202,27 @@ function getExampleValue(propName, propType) {
   if (name.includes('top') || name.includes('bottom') || name.includes('left') || name.includes('right')) {
     return "100";
   }
-  
+
   // Boolean props
   if (type.includes('boolean') || name.startsWith('is') || name.startsWith('has') || name.startsWith('show') || name.includes('expandable') || name.includes('forcefully')) {
     return "true";
   }
-  
+
   // Number props
   if (type.includes('number')) {
     return "10";
   }
-  
+
   // Object/any type
   if (type.includes('object') || type.includes('{')) {
     return "{ key: 'value' }";
   }
-  
+
   // Array type
   if (type.includes('[]') || type.includes('array')) {
     return "[]";
   }
-  
+
   // Default string
   return "'value'";
 }
@@ -231,7 +231,7 @@ function categorizeCommit(commit) {
   const msg = commit.message.toLowerCase();
   const patch = getCommitPatch(commit.hash);
   const diff = getCommitDiff(commit.hash);
-  
+
   // Extract component names from changed files
   const components = new Set();
   const newComponents = new Set();
@@ -245,10 +245,10 @@ function categorizeCommit(commit) {
       }
     }
   });
-  
+
   // Detect new props
   const newProps = detectNewProps(patch);
-  
+
   // Categorize based on commit message and changes
   let category = 'changed';
   if (msg.includes('fix:') || msg.includes('fix ') || msg.includes('fixed')) {
@@ -262,10 +262,10 @@ function categorizeCommit(commit) {
   } else if (msg.includes('deprecat')) {
     category = 'deprecated';
   }
-  
+
   // Check if it's a storybook-only change
   const isStorybookOnly = diff.includes('.stories.') && !diff.match(/\.tsx?$/m);
-  
+
   return {
     ...commit,
     category,
@@ -280,7 +280,7 @@ function categorizeCommit(commit) {
 function formatComponentLink(componentName) {
   const storyPath = getStoryPath(componentName);
   const displayName = componentName
-    .replace(/^bfl-/, '')
+    .replace(/^nx-/, '')
     .split('-')
     .map(w => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
@@ -291,19 +291,19 @@ function formatComponentLink(componentName) {
 function generateChangeDescription(commit, componentName) {
   const { message, newProps, newComponents, isStorybookOnly, isCssOnly, category } = commit;
   const msg = message.toLowerCase();
-  
+
   // Format component display name
   const displayName = componentName
-    .replace(/^bfl-/, '')
+    .replace(/^nx-/, '')
     .split('-')
     .map(w => w.charAt(0).toUpperCase() + w.slice(1))
     .join(' ');
-  
+
   // Check if this is a brand new component
   if (newComponents && newComponents.includes(componentName)) {
     return `New component added to the library`;
   }
-  
+
   // Fix category - check first before other checks
   if (category === 'fixed') {
     if (msg.includes('floating') || msg.includes('position')) {
@@ -320,46 +320,48 @@ function generateChangeDescription(commit, componentName) {
     }
     return `Bug fixes and stability improvements`;
   }
-  
+
   // If new props were added
   if (newProps.length > 0) {
     const propNames = newProps.map(p => `\`${p.name}\``).join(', ');
     return `Added new ${newProps.length > 1 ? 'properties' : 'property'} ${propNames} for enhanced customization`;
   }
-  
+
   // Storybook-only changes
   if (isStorybookOnly || msg.includes('storybook')) {
     return `Updated Storybook documentation with improved examples and usage guidelines`;
   }
-  
+
   // CSS/styling changes
   if (isCssOnly || msg.includes('css') || msg.includes('style') || msg.includes('ui fix')) {
     return `Improved visual styling and UI consistency`;
   }
-  
+
   // New component (fallback check from commit message)
   if (msg.includes('new component') || msg.includes('created')) {
     return `New component added to the library`;
   }
-  
+
   // Generic update
   return `Component updated with improvements`;
 }
 
 function generatePropUsageBlock(componentName, props) {
   // props is an array of { name, type } objects
-  const selector = `bfl-${componentName.replace(/^bfl-/, '')}`;
-  
+  const selector = componentName.startsWith('nx-')
+    ? componentName
+    : `nx-${componentName}`;
+
   // Build prop lines with green highlight
   const propLines = props.map(prop => {
     const sampleValue = getExampleValue(prop.name, prop.type);
     const escapedPropLine = `[${prop.name}]="${sampleValue}"`.replace(/\{/g, '&#123;').replace(/\}/g, '&#125;');
     return `<span style={{ display: "block", padding: "2px 10px", background: "#dafbe1", color: "#116329" }}>  ${escapedPropLine}</span>`;
   }).join('\n');
-  
+
   // Build props list for heading
   const propNames = props.map(p => `\`${p.name}\``).join(', ');
-  
+
   return `
 ### ${formatComponentLink(componentName)} - ${propNames}
 
@@ -380,7 +382,7 @@ function generateReleaseNotes(categorizedCommits, version, date) {
   const fixed = categorizedCommits.filter(c => c.category === 'fixed');
   const removed = categorizedCommits.filter(c => c.category === 'removed');
   const deprecated = categorizedCommits.filter(c => c.category === 'deprecated');
-  
+
   // Helper function to group commits by component and merge messages
   function groupByComponent(commits) {
     const grouped = {};
@@ -413,7 +415,7 @@ function generateReleaseNotes(categorizedCommits, version, date) {
     });
     return grouped;
   }
-  
+
   // Collect all new props for the usage section
   const allNewProps = [];
   categorizedCommits.forEach(c => {
@@ -492,7 +494,7 @@ Track what was added, changed, fixed, removed, and deprecated in each deployment
   // Add new props usage section - group by component
   if (allNewProps.length > 0) {
     md += `\n## New Props Usage\n`;
-    
+
     // Group props by component
     const propsByComponent = {};
     allNewProps.forEach(({ component, prop }) => {
@@ -501,7 +503,7 @@ Track what was added, changed, fixed, removed, and deprecated in each deployment
       }
       propsByComponent[component].push(prop);
     });
-    
+
     // Generate one block per component with all its props
     Object.keys(propsByComponent).forEach(component => {
       md += generatePropUsageBlock(component, propsByComponent[component]);
@@ -515,7 +517,7 @@ function main() {
   const args = process.argv.slice(2);
   let since = null;
   let version = getVersionFromFile(); // Read from version.json
-  
+
   args.forEach(arg => {
     if (arg.startsWith('--since=')) {
       since = arg.replace('--since=', '');
@@ -527,23 +529,23 @@ function main() {
 
   console.log('📝 Fetching commits...');
   const commits = getCommitsSince(since);
-  
+
   if (commits.length === 0) {
     console.log('No component changes found.');
     return;
   }
 
   console.log(`Found ${commits.length} commits affecting components.`);
-  
+
   console.log('🔍 Analyzing changes...');
   const categorized = commits.map(categorizeCommit);
-  
+
   const date = new Date().toISOString().split('T')[0];
   const releaseNotes = generateReleaseNotes(categorized, version, date);
-  
+
   console.log('📄 Writing release notes...');
   fs.writeFileSync(RELEASE_NOTES_PATH, releaseNotes);
-  
+
   console.log(`✅ Release notes updated: ${RELEASE_NOTES_PATH}`);
   console.log('\nSummary:');
   console.log(`  Added: ${categorized.filter(c => c.category === 'added').length}`);

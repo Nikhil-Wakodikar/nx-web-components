@@ -1,8 +1,9 @@
 import { create } from '@storybook/theming';
 
 export default create({
-  base: 'dark',
-  brandTitle: '3in1 Web Components',
-  brandImage: 'https://cms-assets.bajajfinserv.in/is/image/bajajfinance/bajaj-finserv-logo-v1-1?scl=1&fmt=png-alpha',
+  base: 'light',
+  brandTitle: 'NX Web Components',
+  colorPrimary: '#8145B5',
+  colorSecondary: '#6E389C',
   brandTarget: '_self',
 });

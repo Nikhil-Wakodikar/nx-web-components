@@ -34,7 +34,7 @@ export class InrFormatDirective implements OnInit, OnDestroy {
     }
 
     /*
-     * Capture bflInput BEFORE normal Angular event handlers.
+    * Capture nxInput before normal Angular event handlers.
      */
     this.inputListener = (event: Event) => {
       /*
@@ -57,7 +57,7 @@ export class InrFormatDirective implements OnInit, OnDestroy {
       const rawValue = this.getRawValue(value);
 
       /*
-       * Stop Angular's existing bflInput listeners from receiving
+      * Stop Angular's existing nxInput listeners from receiving
        * the formatted value.
        */
       event.stopImmediatePropagation();
@@ -72,10 +72,10 @@ export class InrFormatDirective implements OnInit, OnDestroy {
       this.formatDisplay(rawValue);
 
       /*
-       * Send a NEW bflInput event containing RAW value.
+      * Send a new nxInput event containing the raw value.
        *
        * Angular:
-       * (bflInput)="displayAmount($event)"
+      * (nxInput)="displayAmount($event)"
        *
        * will now receive:
        *
@@ -85,7 +85,7 @@ export class InrFormatDirective implements OnInit, OnDestroy {
     };
 
     this.el.nativeElement.addEventListener(
-      'bflInput',
+      'nxInput',
       this.inputListener,
       true
     );
@@ -118,7 +118,7 @@ export class InrFormatDirective implements OnInit, OnDestroy {
 
     if (this.inputListener) {
       this.el.nativeElement.removeEventListener(
-        'bflInput',
+        'nxInput',
         this.inputListener,
         true
       );
@@ -129,7 +129,7 @@ export class InrFormatDirective implements OnInit, OnDestroy {
     this.forwardingRawEvent = true;
 
     this.el.nativeElement.dispatchEvent(
-      new CustomEvent('bflInput', {
+      new CustomEvent('nxInput', {
         detail: rawValue,
         bubbles: true,
         composed: true,

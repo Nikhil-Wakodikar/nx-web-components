@@ -87,13 +87,13 @@ export class InputValueAccessor
     this.el.nativeElement.disabled = isDisabled;
   }
 
-  @HostListener('bflInput', ['$event.detail'])
+  @HostListener('nxInput', ['$event.detail'])
   handleInput(value: any) {
     this.onChange(value);
     this.syncInvalidState();
   }
 
-  @HostListener('bflBlur')
+  @HostListener('nxBlur')
   handleBlur() {
     this.onTouched();
     this.syncInvalidState();

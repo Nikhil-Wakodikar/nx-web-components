@@ -114,20 +114,20 @@ export class NxInput {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['bflInput', 'bflChange', 'bflFocus', 'bflBlur']);
+    proxyOutputs(this, this.el, ['nxInput', 'nxChange', 'nxFocus', 'nxBlur']);
   }
 }
 
 
 export declare interface NxInput extends Components.NxInput {
 
-  bflInput: EventEmitter<CustomEvent<string>>;
+  nxInput: EventEmitter<CustomEvent<string>>;
 
-  bflChange: EventEmitter<CustomEvent<string>>;
+  nxChange: EventEmitter<CustomEvent<string>>;
 
-  bflFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
 
-  bflBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
 }
 
 
@@ -147,16 +147,16 @@ export class NxRadio {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['bflFocus', 'bflBlur']);
+    proxyOutputs(this, this.el, ['nxFocus', 'nxBlur']);
   }
 }
 
 
 export declare interface NxRadio extends Components.NxRadio {
 
-  bflFocus: EventEmitter<CustomEvent<void>>;
+  nxFocus: EventEmitter<CustomEvent<void>>;
 
-  bflBlur: EventEmitter<CustomEvent<void>>;
+  nxBlur: EventEmitter<CustomEvent<void>>;
 }
 
 
@@ -176,7 +176,7 @@ export class NxRadioGroup {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['bflChange', 'bflValueChange']);
+    proxyOutputs(this, this.el, ['nxChange', 'nxValueChange']);
   }
 }
 
@@ -186,9 +186,9 @@ import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupVal
 
 export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
-  bflChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupChangeEventDetail>>;
+  nxChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupChangeEventDetail>>;
 
-  bflValueChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupValueChangeEventDetail>>;
+  nxValueChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupValueChangeEventDetail>>;
 }
 
 

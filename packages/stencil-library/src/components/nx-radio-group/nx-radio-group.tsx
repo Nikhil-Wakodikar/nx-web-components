@@ -40,10 +40,10 @@ export class NxRadioGroup {
   @Prop() invalid = false;
 
   @Event()
-  bflChange!: EventEmitter<NxRadioGroupChangeEventDetail>;
+  nxChange!: EventEmitter<NxRadioGroupChangeEventDetail>;
 
   @Event()
-  bflValueChange!: EventEmitter<NxRadioGroupValueChangeEventDetail>;
+  nxValueChange!: EventEmitter<NxRadioGroupValueChangeEventDetail>;
 
   private helperTextId = `${this.name}-helper`;
 
@@ -53,7 +53,7 @@ export class NxRadioGroup {
   valueChanged(value: any) {
     this.setRadioTabindex(value);
 
-    this.bflValueChange.emit({
+    this.nxValueChange.emit({
       value,
     });
   }
@@ -93,7 +93,7 @@ export class NxRadioGroup {
 
 
   private emitValueChange() {
-    this.bflChange.emit({
+    this.nxChange.emit({
       value: this.value,
     });
   }

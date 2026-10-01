@@ -56,23 +56,6 @@
     <nx-input type="text" formControlName="price" appInrFormat label="Price">
     </nx-input>
 
-    <nx-input
-      type="text"
-      placeholder="(123)456-7890"
-      formControlName="phone"
-      label="MobileNumber"
-    >
-    </nx-input>
-
-    <nx-input
-      type="text"
-      dateFormat
-      placeholder="00/00/0000"
-      formControlName="date"
-      label="Date"
-    >
-    </nx-input>
-
     <nx-radio-group value="male" formControlName="gender" name="gender">
       <nx-radio value="male">Male</nx-radio>
 
@@ -85,8 +68,6 @@
       I agree to the Terms,Conditions,and Notices(TCN).
     </nx-checkbox>
 
-    <nx-button class="btn-green" type="submit" [disabled]="tcnForm.invalid">
-      Continue
-    </nx-button>
+    <nx-button class="btn-green" type="submit"> Continue </nx-button>
   </form>
 </div>

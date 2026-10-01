@@ -35,9 +35,9 @@ export class NxRadio {
 
   @State() buttonTabindex = -1;
 
-  @Event() bflFocus!: EventEmitter<void>;
+  @Event() nxFocus!: EventEmitter<void>;
 
-  @Event() bflBlur!: EventEmitter<void>;
+  @Event() nxBlur!: EventEmitter<void>;
 
   connectedCallback() {
     this.radioGroup = this.el.closest('nx-radio-group') as RadioGroupElement;
@@ -45,14 +45,14 @@ export class NxRadio {
     this.updateState();
 
     this.radioGroup?.addEventListener(
-      'bflValueChange',
+      'nxValueChange',
       this.updateState
     );
   }
 
   disconnectedCallback() {
     this.radioGroup?.removeEventListener(
-      'bflValueChange',
+      'nxValueChange',
       this.updateState
     );
   }
@@ -107,11 +107,11 @@ export class NxRadio {
   };
 
   private onFocus = () => {
-    this.bflFocus.emit();
+    this.nxFocus.emit();
   };
 
   private onBlur = () => {
-    this.bflBlur.emit();
+    this.nxBlur.emit();
   };
 
   @Method()

@@ -360,30 +360,3 @@
     font-size: 16px !important;
   }
 }
-
-/* ==========================================
-   Shake Animation
-   ========================================== */
-
-@keyframes shake-animation {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  20%,
-  60% {
-    transform: translateX(-6px);
-  }
-
-  40%,
-  80% {
-    transform: translateX(6px);
-  }
-}
-
-:host(.shake) {
-  .native-wrapper {
-    animation: shake-animation 0.4s ease-in-out;
-  }
-}

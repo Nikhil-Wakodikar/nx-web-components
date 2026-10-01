@@ -44,13 +44,13 @@ export class NxInput {
   @Prop() invalid = false;
   @Prop() success = false;
 
-  @Event({ bubbles: true, composed: true }) bflInput!: EventEmitter<string>;
+  @Event({ bubbles: true, composed: true }) nxInput!: EventEmitter<string>;
 
-  @Event({ bubbles: true, composed: true }) bflChange!: EventEmitter<string>;
+  @Event({ bubbles: true, composed: true }) nxChange!: EventEmitter<string>;
 
-  @Event({ bubbles: true, composed: true }) bflFocus!: EventEmitter<FocusEvent>;
+  @Event({ bubbles: true, composed: true }) nxFocus!: EventEmitter<FocusEvent>;
 
-  @Event({ bubbles: true, composed: true }) bflBlur!: EventEmitter<FocusEvent>;
+  @Event({ bubbles: true, composed: true }) nxBlur!: EventEmitter<FocusEvent>;
 
   connectedCallback() {
     this.slotMutationController = createSlotMutationController(
@@ -84,7 +84,7 @@ export class NxInput {
       this.nativeInput.value = value;
     }
 
-    this.bflInput.emit(this.value);
+    this.nxInput.emit(this.value);
   }
 
   @Method()
@@ -154,21 +154,21 @@ export class NxInput {
 
     this.value = input.value;
 
-    this.bflInput.emit(this.value);
+    this.nxInput.emit(this.value);
   };
 
   private onChange = () => {
-    this.bflChange.emit(this.value);
+    this.nxChange.emit(this.value);
   };
 
   private onFocus = (ev: FocusEvent) => {
     this.hasFocus = true;
-    this.bflFocus.emit(ev);
+    this.nxFocus.emit(ev);
   };
 
   private onBlur = (ev: FocusEvent) => {
     this.hasFocus = false;
-    this.bflBlur.emit(ev);
+    this.nxBlur.emit(ev);
   };
 
   private onLabelClick = (ev: MouseEvent) => {

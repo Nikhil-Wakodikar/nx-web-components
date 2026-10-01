@@ -150,9 +150,6 @@
         background-color: var(--mediumGray);
       }
 
-      &.shake {
-        animation: shake 0.5s ease-in-out;
-      }
     }
     textarea {
       &:focus {
@@ -235,92 +232,6 @@
       }
     }
 
-    // Dropdown scss
-    .bfl-dropdown-input {
-      display: flex;
-      align-items: center;
-      position: relative;
-
-      .dropdown-label {
-        font-size: var(--FontSize-14);
-        color: var(--input-placeholder);
-        border-radius: var(--border-radius-4);
-        padding: var(--p-12-12);
-        border: var(--border-1);
-        line-height: 20px;
-        width: 100%;
-        font-family: var(--font-rubik);
-        background: var(--white);
-        overflow: hidden;
-        justify-content: space-between;
-        align-items: center;
-        display: flex;
-        margin: 0px;
-        white-space: nowrap;
-        overflow-x: auto;
-        padding-right: 38px;
-
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE & Edge */
-
-        &::-webkit-scrollbar {
-          display: none; /* Chrome, Safari */
-        }
-
-        &:focus {
-          background-color: var(--input-focus);
-          outline: blanchedalmond !important;
-        }
-
-        &.border-error {
-          border-color: var(--red);
-          font-family: var(--font-rubik);
-        }
-
-        &.autofill {
-          animation: bgchangeColor 10s forwards;
-        }
-
-        &.disabled {
-          background-color: #888 !important;
-        }
-
-        &.shake {
-          animation: shake 0.5s ease-in-out;
-        }
-      }
-
-      .dropdown-icon {
-        margin-left: 4px;
-        width: 16px;
-        height: 16px;
-        position: absolute;
-        // right: 12px;
-        right: 1px;
-        // background: #fff;
-        width: 26px;
-        padding-left: 5px;
-      }
-
-      .rupee-symbol {
-        position: absolute;
-        top: 34%;
-        left: 12px;
-        font-family: var(--font-rubik);
-        font-size: var(--FontSize-14);
-        font-weight: var(--font-regular);
-      }
-
-      .cross-symbol {
-        position: absolute;
-        font-size: var(--FontSize-14);
-        right: 12px;
-        color: var(--red);
-        width: 16px;
-        height: 16px;
-      }
-    }
-
     .modal {
       display: flex;
       justify-content: center;
@@ -389,9 +300,6 @@
           }
         }
 
-        .shake {
-          animation: shake 0.5s ease-in-out;
-        }
       }
     }
 
@@ -589,10 +497,6 @@
         }
       }
 
-      .shake {
-        animation: shake 0.5s ease-in-out;
-      }
-
       input[type='checkbox']:checked {
         accent-color: var(--orange);
       }
@@ -603,9 +507,6 @@
       margin: 12px 0px;
     }
 
-    .shake {
-      animation: shake 0.5s ease-in-out;
-    }
   }
 
   &.radio-container {
@@ -693,9 +594,6 @@
         font-weight: 400 !important;
       }
 
-      .shake {
-        animation: shake 0.5s ease-in-out;
-      }
     }
 
     input {
@@ -793,9 +691,6 @@
         accent-color: var(--orange);
       }
 
-      &.shake {
-        animation: shake 0.5s ease-in-out;
-      }
     }
 
     .error-input {
@@ -803,9 +698,6 @@
       margin: 12px 0px;
     }
 
-    .shake {
-      animation: shake 0.5s ease-in-out;
-    }
   }
 
   &.rupee-text {
@@ -820,44 +712,6 @@
 
       input {
         padding-left: 12px;
-      }
-    }
-  }
-
-  &.bfl-duration-input-container {
-    .bfl-duration-input-sub-container {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      width: 100%;
-      gap: 8px;
-
-      .bfl-duration-child-input {
-        .input-container {
-          width: 116px;
-          .inputsuffix {
-            position: absolute;
-            // left: 35px;
-            color: var(--title);
-            font-size: var(--FontSize-12);
-          }
-        }
-      }
-    }
-  }
-
-  &.bfl-year-input {
-    .input-container {
-      width: 30%;
-      position: relative;
-
-      .cross-symbol {
-        position: absolute;
-        font-size: var(--FontSize-14);
-        right: 12px;
-        color: var(--red);
-        width: 16px;
-        height: 16px;
       }
     }
   }
@@ -1136,32 +990,6 @@
   }
 }
 
-.shake {
-  animation: shake 0.5s ease-in-out;
-}
-
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-
-  25% {
-    transform: translateX(-2px);
-  }
-
-  50% {
-    transform: translateX(2px);
-  }
-
-  75% {
-    transform: translateX(-2px);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
 @keyframes bgchangeColor {
   0% {
     background-color: var(--input-focus);
@@ -1170,10 +998,6 @@
   100% {
     background-color: transparent;
   }
-}
-
-.shake {
-  animation: shake 0.5s ease-in-out;
 }
 
 // .accordion-input {
