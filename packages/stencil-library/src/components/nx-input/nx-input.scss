@@ -3,19 +3,20 @@
      Public Styling API
      ========================================== */
 
-  --background: var(--white, #ffffff);
-  --background-focus: var(--aliceBlue, #eef7ff);
-  --background-disabled: var(--mediumGray, #f3f3f3);
+  --background: transparent;
+  --background-focus: transparent;
+  --background-disabled: var(--nx-color-gray-100, #f1f5f9);
 
-  --color: var(--title, #1a1a1a);
-  --placeholder-color: var(--input-placeholder, #999999);
+  --color: var(--nx-color-gray-900, #0f172a);
+  --placeholder-color: var(--nx-color-gray-500, #64748b);
 
-  --border-color: var(--neutralGray, #d9d9d9);
-  --border-hover-color: #bdbdbd;
-  --border-focus-color: #aedeff;
-  --border-error-color: var(--red, #e53935);
+  --border-color: var(--nx-color-gray-300, #cbd5e1);
+  --border-hover-color: var(--nx-color-gray-500, #64748b);
+  --border-focus-color: var(--nx-color-primary, #8145b5);
+  --border-error-color: var(--nx-color-error, #dc2626);
+  --border-success-color: var(--nx-color-success, #16a34a);
 
-  --outline-focus: 2px solid #aedeff;
+  --outline-focus: 2px solid color-mix(in srgb, var(--nx-color-primary) 24%, transparent);
 
   --border-width: 1px;
   --border-style: solid;
@@ -23,7 +24,7 @@
 
   --padding-top: 12px;
   --padding-bottom: 12px;
-  --padding-start: 12px;
+  --padding-start: 14px;
   --padding-end: 30px;
 
   /* Start Slot */
@@ -41,11 +42,11 @@
   --end-border-left: none;
 
   --font-family: var(--font-rubik, sans-serif);
-  --font-size: var(--FontSize-14, 14px);
+  --font-size: var(--FontSize-16, 16px);
   --font-weight: 400;
   --line-height: 20px;
 
-  --caret-color: #72acf2;
+  --caret-color: var(--nx-color-primary, #8145b5);
 
   display: block;
   width: 100%;
@@ -115,7 +116,7 @@
 
   width: 100%;
 
-  min-height: 46px;
+  min-height: 48px;
 
   overflow: hidden;
 
@@ -136,9 +137,9 @@
 .native-wrapper:focus-within {
   background: var(--background-focus);
 
-  outline: var(--outline-focus);
+  // outline: var(--outline-focus);
 
-  border: 2px solid var(--neutralGray);
+  border: 2px solid var(--border-focus-color);
 }
 
 /* Disabled */
@@ -311,7 +312,7 @@
    ========================================== */
 
 :host(.success) .native-wrapper {
-  border-color: var(--border-focus-color);
+  border-color: var(--border-success-color);
 }
 
 /* ==========================================

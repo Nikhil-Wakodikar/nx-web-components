@@ -1,0 +1,40 @@
+@use './breakpoints' as breakpoints;
+
+@mixin focus-ring {
+  outline: 2px solid var(--nx-color-primary);
+  outline-offset: 2px;
+}
+
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin respond-to($size) {
+  @if $size == sm {
+    @media (min-width: breakpoints.$nx-breakpoint-sm) {
+      @content;
+    }
+  } @else if $size == md {
+    @media (min-width: breakpoints.$nx-breakpoint-md) {
+      @content;
+    }
+  } @else if $size == lg {
+    @media (min-width: breakpoints.$nx-breakpoint-lg) {
+      @content;
+    }
+  } @else if $size == xl {
+    @media (min-width: breakpoints.$nx-breakpoint-xl) {
+      @content;
+    }
+  } @else {
+    @error 'Unknown breakpoint: #{$size}';
+  }
+}

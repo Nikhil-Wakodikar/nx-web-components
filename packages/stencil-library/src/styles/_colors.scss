@@ -1,0 +1,74 @@
+:root {
+  --nx-color-blue-100: #dbeafe;
+  --nx-color-blue-200: #bfdbfe;
+  --nx-color-blue-300: #93c5fd;
+  --nx-color-blue-400: #60a5fa;
+  --nx-color-blue-500: #3b82f6;
+  --nx-color-blue-600: #2563eb;
+  --nx-color-blue-700: #1d4ed8;
+  --nx-color-blue-800: #1e40af;
+  --nx-color-blue-900: #1e3a8a;
+
+  --nx-color-purple-100: #f6f0fa;
+  --nx-color-purple-200: #ebdef4;
+  --nx-color-purple-300: #dcc3eb;
+  --nx-color-purple-400: #c49bdc;
+  --nx-color-purple-500: #a973c8;
+  --nx-color-purple-600: #8145b5;
+  --nx-color-purple-700: #6e389c;
+  --nx-color-purple-800: #5b2e81;
+  --nx-color-purple-900: #452261;
+
+  --nx-color-gray-100: #f1f5f9;
+  --nx-color-gray-200: #e2e8f0;
+  --nx-color-gray-300: #cbd5e1;
+  --nx-color-gray-400: #94a3b8;
+  --nx-color-gray-500: #64748b;
+  --nx-color-gray-600: #475569;
+  --nx-color-gray-700: #334155;
+  --nx-color-gray-800: #1e293b;
+  --nx-color-gray-900: #0f172a;
+
+  --nx-color-red-100: #fee2e2;
+  --nx-color-red-200: #fecaca;
+  --nx-color-red-300: #fca5a5;
+  --nx-color-red-400: #f87171;
+  --nx-color-red-500: #ef4444;
+  --nx-color-red-600: #dc2626;
+  --nx-color-red-700: #b91c1c;
+  --nx-color-red-800: #991b1b;
+  --nx-color-red-900: #7f1d1d;
+
+  --nx-color-green-100: #dcfce7;
+  --nx-color-green-200: #bbf7d0;
+  --nx-color-green-300: #86efac;
+  --nx-color-green-400: #4ade80;
+  --nx-color-green-500: #22c55e;
+  --nx-color-green-600: #16a34a;
+  --nx-color-green-700: #15803d;
+  --nx-color-green-800: #166534;
+  --nx-color-green-900: #14532d;
+
+  --nx-color-amber-100: #fef3c7;
+  --nx-color-amber-200: #fde68a;
+  --nx-color-amber-300: #fcd34d;
+  --nx-color-amber-400: #fbbf24;
+  --nx-color-amber-500: #f59e0b;
+  --nx-color-amber-600: #d97706;
+  --nx-color-amber-700: #b45309;
+  --nx-color-amber-800: #92400e;
+  --nx-color-amber-900: #78350f;
+
+  --nx-color-primary: var(--nx-color-purple-600);
+  --nx-color-primary-hover: var(--nx-color-purple-700);
+  --nx-color-primary-active: var(--nx-color-purple-800);
+  --nx-color-secondary: var(--nx-color-gray-600);
+  --nx-color-success: var(--nx-color-green-600);
+  --nx-color-warning: var(--nx-color-amber-600);
+  --nx-color-error: var(--nx-color-red-600);
+  --nx-color-info: var(--nx-color-blue-600);
+  --nx-color-white: #ffffff;
+  --nx-color-black: #000000;
+  --nx-color-orange: #ff6700;
+  --nx-color-gray-50: #f8fafc;
+}

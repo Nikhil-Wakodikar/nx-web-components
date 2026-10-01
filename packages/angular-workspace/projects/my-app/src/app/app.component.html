@@ -33,13 +33,13 @@
     </nx-row>
   </nx-grid>
 
-  <div>
+  <!-- <div>
     <nx-checkbox class="my-checkbox"> AcceptTerms&Conditions </nx-checkbox>
   </div>
 
-  <nx-button class="btn">Continue</nx-button>
+  <nx-button class="btn">Continue</nx-button> -->
   <form [formGroup]="tcnForm" (ngSubmit)="onSubmitTnc()">
-    <h2>{{ tcnForm.value | json }}</h2>
+    <strong>{{ tcnForm.value | json }}</strong>
     {{ tcnForm.status }}
 
     <nx-input
@@ -85,6 +85,8 @@
       I agree to the Terms,Conditions,and Notices(TCN).
     </nx-checkbox>
 
-    <nx-button class="btn-green" type="submit"> Continue </nx-button>
+    <nx-button class="btn-green" type="submit" [disabled]="tcnForm.invalid">
+      Continue
+    </nx-button>
   </form>
 </div>

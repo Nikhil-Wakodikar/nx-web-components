@@ -3,9 +3,9 @@
      Public Styling API
      =============================== */
 
-  --background: #3880ff;
-  --background-hover: var(--background);
-  --background-active: var(--background);
+  --background: var(--nx-color-primary, #8145b5);
+  --background-hover: var(--nx-color-primary-hover, #6e389c);
+  --background-active: var(--nx-color-primary-active, #5b2e81);
 
   --color: #fff;
 

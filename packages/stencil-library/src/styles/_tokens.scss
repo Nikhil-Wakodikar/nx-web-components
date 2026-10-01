@@ -1,0 +1,12 @@
+@forward './colors';
+@forward './typography';
+@forward './spacing';
+@forward './radius';
+@forward './shadows';
+@forward './breakpoints';
+
+:root {
+  --nx-z-dropdown: 1000;
+  --nx-z-modal: 2000;
+  --nx-z-tooltip: 3000;
+}

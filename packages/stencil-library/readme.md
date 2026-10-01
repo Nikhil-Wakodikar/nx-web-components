@@ -14,6 +14,16 @@ Stencil combines the best concepts of the most popular frontend frameworks into 
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
+## Global Styles
+
+Import the packaged stylesheet once in the consuming application's global styles entry point:
+
+```scss
+@import 'stencil-library/styles.css';
+```
+
+This stylesheet provides the `--nx-*` design tokens, document reset and typography, font faces, and shared global utilities. Sass component mixins and breakpoint values are available from `src/styles/_mixins.scss` and `src/styles/_breakpoints.scss` while developing this library.
+
 ## Getting Started
 
 To start building a new web component using Stencil, clone this repo to a new directory:
@@ -99,11 +109,7 @@ function App() {
   return (
     <>
       <div>
-        <my-component
-          first="Stencil"
-          middle="'Don't call me a framework'"
-          last="JS"
-        ></my-component>
+        <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
       </div>
     </>
   );

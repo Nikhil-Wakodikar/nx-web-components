@@ -2,13 +2,13 @@
   --size: 20px;
   --border-width: 2px;
 
-  --border-color: #b5b5b5;
-  --border-color-checked: var(--primary, #0054e9);
+  --border-color: var(--nx-color-gray-400, #94a3b8);
+  --border-color-checked: var(--nx-color-primary, #8145b5);
 
-  --background: #fff;
-  --background-checked: var(--primary, #0054e9);
+  --background: var(--nx-color-white, #fff);
+  --background-checked: var(--nx-color-primary, #8145b5);
 
-  --label-color: #222;
+  --label-color: var(--nx-color-gray-900, #0f172a);
   --disabled-opacity: 0.5;
 
   display: inline-flex;
@@ -63,7 +63,7 @@
 
   border-radius: 50%;
 
-  background: white;
+  background: var(--nx-color-white, white);
 
   transform: scale(0);
 
@@ -80,7 +80,7 @@
 }
 
 :host(:focus-visible) .radio-icon {
-  box-shadow: 0 0 0 4px rgba(0, 84, 233, 0.15);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--nx-color-primary) 20%, transparent);
 }
 
 /* ---------- Label Placement ---------- */

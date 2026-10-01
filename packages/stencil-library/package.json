@@ -22,7 +22,8 @@
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
       "types": "./loader/index.d.ts"
-    }
+    },
+    "./styles.css": "./dist/stencil-library/stencil-library.css"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,61 @@
+:root {
+  --nx-font-family-base: 'Rubik-Regular', sans-serif;
+  --nx-font-family-medium: 'Rubik-Medium', sans-serif;
+  --nx-font-family-semibold: 'Rubik-SemiBold', sans-serif;
+  --nx-font-family-bold: 'Rubik-Bold', sans-serif;
+  --nx-font-size-xs: 1.2rem;
+  --nx-font-size-sm: 1.4rem;
+  --nx-font-size-md: 1.6rem;
+  --nx-font-size-lg: 1.8rem;
+  --nx-font-size-xl: 2rem;
+  --nx-font-size-2xl: 2.4rem;
+  --nx-font-size-3xl: 3rem;
+  --nx-font-weight-regular: 400;
+  --nx-font-weight-medium: 500;
+  --nx-font-weight-semibold: 600;
+  --nx-font-weight-bold: 700;
+  --nx-line-height-body: 1.5;
+}
+
+:root[lang='hi'] {
+  --nx-font-family-base: 'Mukta-Regular', sans-serif;
+  --nx-font-family-medium: 'Mukta-Medium', sans-serif;
+  --nx-font-family-semibold: 'Mukta-SemiBold', sans-serif;
+  --nx-font-family-bold: 'Mukta-Bold', sans-serif;
+}
+
+body {
+  color: var(--nx-color-gray-900);
+  font-family: var(--nx-font-family-base);
+  font-size: var(--nx-font-size-md);
+  line-height: var(--nx-line-height-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--nx-font-size-3xl);
+  font-weight: var(--nx-font-weight-bold);
+}
+
+h2 {
+  font-size: var(--nx-font-size-2xl);
+  font-weight: var(--nx-font-weight-bold);
+}
+
+h3 {
+  font-size: var(--nx-font-size-xl);
+  font-weight: var(--nx-font-weight-semibold);
+}
+
+p {
+  font-size: var(--nx-font-size-md);
+}

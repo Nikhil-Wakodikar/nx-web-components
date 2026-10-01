@@ -4,7 +4,7 @@ import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'stencil-library',
-  globalStyle: 'src/global/common.scss',
+  globalStyle: 'src/styles/global.scss',
   outputTargets: [
     // By default, the generated proxy components will
     // leverage the output from the `dist` target, so we
@@ -13,6 +13,7 @@ export const config: Config = {
     {
       type: 'dist',
       esmLoaderPath: '../loader',
+      copy: [{ src: 'global/fonts', dest: 'fonts' }],
     },
     {
       type: 'www',
@@ -28,9 +29,11 @@ export const config: Config = {
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
   ],
-  plugins: [sass({
-    injectGlobalPaths: ["src/global/common.scss" ]
-  })],
+  plugins: [
+    sass({
+      injectGlobalPaths: ['src/global/variables.scss'],
+    }),
+  ],
   testing: {
     browserHeadless: 'new',
   },
