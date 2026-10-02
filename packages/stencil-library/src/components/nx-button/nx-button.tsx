@@ -21,6 +21,8 @@ export class NxButton {
 
   @Prop({ reflect: true }) fill: 'clear' | 'outline' | 'solid' = 'solid';
 
+  @Prop({ reflect: true }) size: 'small' | 'default' | 'large' = 'default';
+
   @Watch('disabled')
   disabledChanged() {
     if (this.formButtonEl) {
@@ -99,6 +101,7 @@ export class NxButton {
           'button': true,
           [`button-${this.expand}`]: this.expand !== undefined,
           [`button-${this.shape}`]: this.shape !== undefined,
+          [`button-${this.size}`]: true,
           [`button-${this.fill}`]: true,
           'button-disabled': this.disabled,
         }}>
