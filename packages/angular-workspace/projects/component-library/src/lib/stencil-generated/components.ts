@@ -8,14 +8,14 @@ import { Components } from 'stencil-library';
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'expand', 'fill', 'shape', 'type']
+  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type']
 })
 @Component({
   selector: 'nx-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'expand', 'fill', 'shape', 'type'],
+  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type'],
 })
 export class NxButton {
   protected el: HTMLNxButtonElement;
@@ -211,5 +211,66 @@ export class NxRow {
 
 
 export declare interface NxRow extends Components.NxRow {}
+
+
+@ProxyCmp({
+  inputs: ['disabled', 'invalid', 'label', 'name', 'placeholder', 'required', 'success', 'value'],
+  methods: ['setFocus']
+})
+@Component({
+  selector: 'nx-select',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['disabled', 'invalid', 'label', 'name', 'placeholder', 'required', 'success', 'value'],
+})
+export class NxSelect {
+  protected el: HTMLNxSelectElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxInput', 'nxChange', 'nxFocus', 'nxBlur']);
+  }
+}
+
+
+export declare interface NxSelect extends Components.NxSelect {
+
+  nxInput: EventEmitter<CustomEvent<string>>;
+
+  nxChange: EventEmitter<CustomEvent<string>>;
+
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['active', 'disabled', 'selected', 'value']
+})
+@Component({
+  selector: 'nx-select-option',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['active', 'disabled', 'selected', 'value'],
+})
+export class NxSelectOption {
+  protected el: HTMLNxSelectOptionElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxSelectOptionSelect']);
+  }
+}
+
+
+import type { NxSelectOptionSelectDetail as INxSelectOptionNxSelectOptionSelectDetail } from 'stencil-library';
+
+export declare interface NxSelectOption extends Components.NxSelectOption {
+
+  nxSelectOptionSelect: EventEmitter<CustomEvent<INxSelectOptionNxSelectOptionSelectDetail>>;
+}
 
 

@@ -1,5 +1,5 @@
 <div style="padding: 1rem">
-  <nx-button>Default</nx-button>
+  <!-- <nx-button>Default</nx-button>
 
   <nx-button fill="outline"> Outline </nx-button>
 
@@ -15,7 +15,7 @@
 
   <nx-button>Default</nx-button>
 
-  <nx-button size="large">Large</nx-button>
+  <nx-button size="large">Large</nx-button> -->
 
   <div style="margin: 20px">
     <nx-checkbox>
@@ -65,6 +65,18 @@
 
     <nx-input type="text" formControlName="price" appInrFormat label="Price">
     </nx-input>
+
+    <nx-select
+      formControlName="plan"
+      label="Plan"
+      placeholder="Open this select menu"
+      name="plan"
+      required
+    >
+      <nx-select-option value="standard">Standard</nx-select-option>
+      <nx-select-option value="premium">Premium</nx-select-option>
+      <nx-select-option value="flexible" disabled>Flexible</nx-select-option>
+    </nx-select>
 
     <nx-radio-group value="male" formControlName="gender" name="gender">
       <nx-radio value="male">Male</nx-radio>

@@ -9,5 +9,7 @@ export const DIRECTIVES = [
   d.NxInput,
   d.NxRadio,
   d.NxRadioGroup,
-  d.NxRow
+  d.NxRow,
+  d.NxSelect,
+  d.NxSelectOption
 ];

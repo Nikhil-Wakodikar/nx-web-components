@@ -14,6 +14,7 @@ export class AppComponent {
     password: ['', Validators.required],
     acceptTcn: [false, Validators.requiredTrue],
     gender: ['', Validators.required],
+    plan: ['', Validators.required],
     price: ['115000'],
   });
 

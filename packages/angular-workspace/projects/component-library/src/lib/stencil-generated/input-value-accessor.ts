@@ -20,7 +20,10 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
   selector: `
       nx-input[formControlName],
       nx-input[formControl],
-      nx-input[ngModel]
+      nx-input[ngModel],
+      nx-select[formControlName],
+      nx-select[formControl],
+      nx-select[ngModel]
   `,
 })
 export class InputValueAccessor

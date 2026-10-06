@@ -23,6 +23,7 @@ describe('AppComponent', () => {
   it('creates the app with nx components', () => {
     expect(fixture.componentInstance).toBeTruthy();
     expect(fixture.nativeElement.querySelector('nx-input')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('nx-select')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('nx-radio-group')).toBeTruthy();
   });
 
@@ -38,9 +39,9 @@ describe('AppComponent', () => {
     await customElements.whenDefined('nx-button');
     await fixture.whenStable();
 
-    const button = fixture.nativeElement
-      .querySelector('nx-button')
-      .shadowRoot.querySelector('.button-native');
+    const buttonHost = fixture.nativeElement.querySelector('nx-button');
+    await (buttonHost as any).componentOnReady();
+    const button = buttonHost.shadowRoot.querySelector('.button-native');
 
     expect(getComputedStyle(button).backgroundColor).toBe('rgb(129, 69, 181)');
   });
@@ -69,8 +70,53 @@ describe('AppComponent', () => {
       password: 'secret',
       acceptTcn: true,
       gender: 'female',
+      plan: 'standard',
     });
 
     expect(form.valid).toBeTrue();
+  });
+
+  it('updates the reactive form when a select option is chosen', async () => {
+    await customElements.whenDefined('nx-select');
+    await customElements.whenDefined('nx-select-option');
+    await fixture.whenStable();
+
+    const select = fixture.nativeElement.querySelector('nx-select');
+    await (select as any).componentOnReady();
+    const trigger = select.shadowRoot.querySelector(
+      '.select-trigger'
+    ) as HTMLButtonElement;
+    trigger.click();
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve())
+    );
+
+    const option = fixture.nativeElement.querySelector(
+      'nx-select-option[value="premium"]'
+    ) as HTMLElement;
+    option.click();
+
+    await fixture.whenStable();
+    expect(fixture.componentInstance.tcnForm.controls.plan.value).toBe(
+      'premium'
+    );
+  });
+
+  it('uses the primary border whenever nx-select is focused', async () => {
+    await customElements.whenDefined('nx-select');
+    await fixture.whenStable();
+
+    const select = fixture.nativeElement.querySelector('nx-select');
+    await (select as any).componentOnReady();
+    const trigger = select.shadowRoot.querySelector(
+      '.select-trigger'
+    ) as HTMLButtonElement;
+    trigger.focus();
+    await new Promise<void>((resolve) =>
+      requestAnimationFrame(() => resolve())
+    );
+
+    expect(trigger.matches(':focus')).toBeTrue();
+    expect(getComputedStyle(trigger).borderTopColor).toBe('rgb(129, 69, 181)');
   });
 });
