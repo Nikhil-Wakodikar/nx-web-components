@@ -17,6 +17,7 @@
 
   --check-color: #fff;
   --check-size: 5px;
+  --checkmark-width: 2px;
 
   --label-color: var(--nx-color-gray-900, #0f172a);
   --label-font-size: 16px;
@@ -29,8 +30,9 @@
   --transition-duration: 0.2s;
 }
 
-// Justify Content
-// ---------------------------------------------
+/* ==============================
+   Justify Content
+   ============================== */
 
 :host(.checkbox-justify-space-between) .checkbox-wrapper {
   justify-content: space-between;
@@ -44,8 +46,9 @@
   justify-content: end;
 }
 
-// Align Items
-// ---------------------------------------------
+/* ==============================
+   Align Items
+   ============================== */
 
 :host(.checkbox-alignment-start) .checkbox-wrapper {
   align-items: start;
@@ -54,6 +57,7 @@
 :host(.checkbox-alignment-center) .checkbox-wrapper {
   align-items: center;
 }
+
 /* ==============================
    Wrapper
    ============================== */
@@ -61,6 +65,7 @@
 .checkbox-wrapper {
   display: flex;
   width: 100%;
+
   align-items: center;
   gap: var(--gap);
 
@@ -132,7 +137,7 @@
   height: calc(var(--check-size) * 2);
 
   border: solid var(--check-color);
-  border-width: 0 2px 2px 0;
+  border-width: 0 var(--checkmark-width) var(--checkmark-width) 0;
 
   transform: translate(-50%, -60%) rotate(45deg) scale(0);
 
