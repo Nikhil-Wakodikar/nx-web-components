@@ -71,6 +71,7 @@
   "license": "MIT",
   "dependencies": {
     "@stencil/sass": "^3.0.12",
+    "lucide": "^1.52.0",
     "sass": "^1.85.1"
   }
 }

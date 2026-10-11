@@ -7,6 +7,7 @@ export default {
 export const Buttons = {
   render: () => html`
     <section style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+      <nx-icon name="settings" label="Settings"></nx-icon>
       <nx-button>Primary</nx-button>
       <nx-button fill="outline">Outline</nx-button>
       <nx-button fill="clear">Clear</nx-button>
@@ -47,5 +48,16 @@ export const Layout = {
         <nx-col size-xs="12" size-sm="6"><div style="padding:16px;background:#f1f5f9">Column 2</div></nx-col>
       </nx-row>
     </nx-grid>
+  `,
+};
+
+export const Icons = {
+  render: () => html`
+    <section style="display:flex;align-items:center;gap:20px">
+      <nx-icon name="settings" label="Settings"></nx-icon>
+      <nx-icon name="search" size="large" label="Search"></nx-icon>
+      <nx-icon name="heart" color="primary" label="Favorite"></nx-icon>
+      <nx-icon name="settings-outline" color="secondary" label="Settings outline alias"></nx-icon>
+    </section>
   `,
 };

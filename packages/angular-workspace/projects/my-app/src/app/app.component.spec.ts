@@ -1,7 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
+import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentLibraryModule } from 'component-library';
+import { ComponentLibraryModule, InputValueAccessor } from 'component-library';
 import { defineCustomElements } from 'stencil-library/loader';
 import { AppComponent } from './app.component';
 
@@ -23,6 +24,9 @@ describe('AppComponent', () => {
   it('creates the app with nx components', () => {
     expect(fixture.componentInstance).toBeTruthy();
     expect(fixture.nativeElement.querySelector('nx-input')).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelector('nx-icon[name="settings"]')
+    ).toBeTruthy();
     expect(fixture.nativeElement.querySelector('nx-select')).toBeTruthy();
     expect(fixture.nativeElement.querySelector('nx-radio-group')).toBeTruthy();
   });
@@ -33,6 +37,17 @@ describe('AppComponent', () => {
         .getPropertyValue('--nx-color-primary')
         .trim()
     ).toBe('#8145b5');
+  });
+
+  it('renders the named settings icon', async () => {
+    await customElements.whenDefined('nx-icon');
+    const icon = fixture.nativeElement.querySelector(
+      'nx-icon[name="settings"]'
+    );
+    await (icon as any).componentOnReady();
+
+    expect(icon.shadowRoot.querySelector('svg path')).toBeTruthy();
+    expect(icon.getAttribute('aria-label')).toBe('Settings');
   });
 
   it('uses the semantic primary color for nx-button', async () => {
@@ -81,8 +96,20 @@ describe('AppComponent', () => {
     await customElements.whenDefined('nx-select-option');
     await fixture.whenStable();
 
-    const select = fixture.nativeElement.querySelector('nx-select');
+    const select = fixture.nativeElement.querySelector(
+      'nx-select[formControlName="plan"]'
+    );
+    const selectDebugElement = fixture.debugElement.query(
+      By.css('nx-select[formControlName="plan"]')
+    );
+    expect(
+      selectDebugElement.injector.get(InputValueAccessor, null)
+    ).toBeTruthy();
     await (select as any).componentOnReady();
+    const emittedValues: string[] = [];
+    select.addEventListener('nxChange', (event: CustomEvent<string>) => {
+      emittedValues.push(event.detail);
+    });
     const trigger = select.shadowRoot.querySelector(
       '.select-trigger'
     ) as HTMLButtonElement;
@@ -90,13 +117,19 @@ describe('AppComponent', () => {
     await new Promise<void>((resolve) =>
       requestAnimationFrame(() => resolve())
     );
+    expect(
+      select.shadowRoot.querySelector('.options-panel').hidden
+    ).toBeFalse();
 
-    const option = fixture.nativeElement.querySelector(
+    const option = select.querySelector(
       'nx-select-option[value="premium"]'
     ) as HTMLElement;
+    await (option as any).componentOnReady();
     option.click();
 
     await fixture.whenStable();
+    expect(select.value).toBe('premium');
+    expect(emittedValues).toEqual(['premium']);
     expect(fixture.componentInstance.tcnForm.controls.plan.value).toBe(
       'premium'
     );

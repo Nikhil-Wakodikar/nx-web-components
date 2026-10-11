@@ -1,8 +1,7 @@
-import { Component, Element, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import { Component, Element, Host, Prop, h } from '@stencil/core';
 
-export interface NxSelectOptionSelectDetail {
-  value: string;
-  label: string;
+interface SelectParent extends HTMLElement {
+  selectOption(value: string): Promise<void>;
 }
 
 @Component({
@@ -20,21 +19,12 @@ export class NxSelectOption {
   @Prop({ mutable: true, reflect: true }) selected = false;
   @Prop({ mutable: true, reflect: true }) active = false;
 
-  @Event({
-    eventName: 'nxSelectOptionSelect',
-    bubbles: true,
-    composed: true,
-  })
-  optionSelect!: EventEmitter<NxSelectOptionSelectDetail>;
-
-  private chooseOption = (event: MouseEvent) => {
+  private chooseOption = async (event: MouseEvent) => {
     event.preventDefault();
     if (this.disabled) return;
 
-    this.optionSelect.emit({
-      value: this.value,
-      label: this.el.textContent?.trim() || this.value,
-    });
+    const select = this.el.closest('nx-select') as unknown as SelectParent | null;
+    await select?.selectOption(this.value);
   };
 
   private preventFocusChange = (event: MouseEvent) => {
