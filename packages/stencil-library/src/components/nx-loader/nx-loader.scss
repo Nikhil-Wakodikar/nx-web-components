@@ -1,0 +1,254 @@
+:host {
+  /* ===============================
+     Public Styling API
+     =============================== */
+
+  --color: var(--nx-color-primary, #8145b5);
+  --track-color: var(--nx-color-gray-200, #e2e8f0);
+  --size: 24px;
+  --duration: 0.85s;
+
+  --label-color: var(--nx-color-gray-700, #334155);
+  --label-font-size: var(--nx-font-size-sm, 14px);
+  --label-font-weight: var(--nx-font-weight-medium, 500);
+  --gap: 8px;
+
+  --backdrop-background: rgba(255, 255, 255, 0.75);
+  --backdrop-blur: 2px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 1;
+  user-select: none;
+}
+
+/* ===============================
+   Overlay & Fullscreen Modes
+   =============================== */
+
+:host(.loader-overlay) {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--backdrop-background);
+  backdrop-filter: blur(var(--backdrop-blur));
+  z-index: var(--nx-z-dropdown, 1000);
+}
+
+:host(.loader-fullscreen) {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--backdrop-background);
+  backdrop-filter: blur(var(--backdrop-blur));
+  z-index: var(--nx-z-modal, 2000);
+}
+
+/* ===============================
+   Container & Label Placement
+   =============================== */
+
+.loader-container {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+}
+
+:host(.loader-label-bottom) .loader-container {
+  flex-direction: column;
+}
+
+:host(.loader-label-top) .loader-container {
+  flex-direction: column-reverse;
+}
+
+:host(.loader-label-start) .loader-container {
+  flex-direction: row-reverse;
+}
+
+:host(.loader-label-end) .loader-container {
+  flex-direction: row;
+}
+
+.loader-label {
+  color: var(--label-color);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  line-height: 1.4;
+}
+
+.loader-label:empty {
+  display: none;
+}
+
+/* ===============================
+   Variant: Spinner (Circular SVG)
+   =============================== */
+
+.loader-spinner {
+  width: var(--size);
+  height: var(--size);
+  animation: nx-loader-rotate var(--duration) linear infinite;
+  flex-shrink: 0;
+}
+
+.spinner-track {
+  stroke: var(--track-color);
+}
+
+.spinner-head {
+  stroke: var(--color);
+  stroke-linecap: round;
+  stroke-dasharray: 90, 150;
+  stroke-dashoffset: -35;
+}
+
+/* ===============================
+   Variant: Dots
+   =============================== */
+
+.loader-dots {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+}
+
+.loader-dots .dot {
+  width: 24%;
+  height: 24%;
+  border-radius: 50%;
+  background-color: var(--color);
+  animation: nx-loader-bounce calc(var(--duration) * 1.2) ease-in-out infinite both;
+}
+
+.loader-dots .dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loader-dots .dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* ===============================
+   Variant: Bars
+   =============================== */
+
+.loader-bars {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+}
+
+.loader-bars .bar {
+  width: 20%;
+  height: 100%;
+  border-radius: 999px;
+  background-color: var(--color);
+  animation: nx-loader-stretch calc(var(--duration) * 1.1) ease-in-out infinite;
+}
+
+.loader-bars .bar:nth-child(1) {
+  animation-delay: -0.24s;
+}
+
+.loader-bars .bar:nth-child(2) {
+  animation-delay: -0.12s;
+}
+
+/* ===============================
+   Variant: Pulse
+   =============================== */
+
+.loader-pulse {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  flex-shrink: 0;
+}
+
+.loader-pulse .ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid var(--color);
+  opacity: 0;
+  animation: nx-loader-pulse calc(var(--duration) * 1.6) cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.loader-pulse .ring-delayed {
+  animation-delay: calc(var(--duration) * 0.8);
+}
+
+/* ===============================
+   Paused State
+   =============================== */
+
+:host(.loader-paused) .loader-spinner,
+:host(.loader-paused) .dot,
+:host(.loader-paused) .bar,
+:host(.loader-paused) .ring {
+  animation-play-state: paused;
+}
+
+/* ===============================
+   Keyframes
+   =============================== */
+
+@keyframes nx-loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nx-loader-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.4);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes nx-loader-stretch {
+  0%,
+  40%,
+  100% {
+    transform: scaleY(0.45);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes nx-loader-pulse {
+  0% {
+    transform: scale(0.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+

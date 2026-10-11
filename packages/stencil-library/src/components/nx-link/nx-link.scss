@@ -1,0 +1,134 @@
+:host {
+  /* ===============================
+     Public Styling API
+     =============================== */
+
+  --color: var(--nx-color-primary, #8145b5);
+  --color-hover: var(--nx-color-primary-hover, #6e389c);
+  --color-active: var(--nx-color-primary-active, #5b2e81);
+  --color-focused: var(--nx-color-primary-hover, #6e389c);
+
+  --font-size: var(--nx-font-size-md, 16px);
+  --font-weight: var(--nx-font-weight-medium, 500);
+  --line-height: 1.5;
+
+  --gap: 6px;
+  --underline-offset: 3px;
+  --opacity: 1;
+
+  --transition: color 0.2s ease, opacity 0.2s ease, text-decoration-color 0.2s ease;
+
+  display: inline-flex;
+  align-items: center;
+  vertical-align: baseline;
+}
+
+/* ===============================
+   Native Anchor
+   =============================== */
+
+.link-native {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+
+  color: var(--color);
+  font-family: inherit;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+
+  text-decoration: none;
+  text-underline-offset: var(--underline-offset);
+
+  cursor: pointer;
+  opacity: var(--opacity);
+  transition: var(--transition);
+  outline: none;
+}
+
+/* ===============================
+   Link Content
+   =============================== */
+
+.link-inner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--gap);
+}
+
+/* ===============================
+   Underline Variants
+   =============================== */
+
+:host(.link-underline-always) .link-native {
+  text-decoration: underline;
+}
+
+:host(.link-underline-hover) .link-native {
+  text-decoration: none;
+}
+
+:host(.link-underline-hover:not(.link-disabled)) .link-native:hover,
+:host(.link-underline-hover:not(.link-disabled)) .link-native:focus-visible {
+  text-decoration: underline;
+}
+
+:host(.link-underline-none) .link-native {
+  text-decoration: none;
+}
+
+/* ===============================
+   Sizes
+   =============================== */
+
+:host(.link-small) {
+  --font-size: var(--nx-font-size-sm, 14px);
+  --gap: 4px;
+}
+
+:host(.link-default) {
+  --font-size: var(--nx-font-size-md, 16px);
+  --gap: 6px;
+}
+
+:host(.link-large) {
+  --font-size: var(--nx-font-size-lg, 18px);
+  --gap: 8px;
+}
+
+/* ===============================
+   Interactive States
+   =============================== */
+
+:host(:not(.link-disabled)) .link-native:hover {
+  color: var(--color-hover);
+}
+
+:host(:not(.link-disabled)) .link-native:focus-visible {
+  color: var(--color-focused);
+  outline: 2px solid var(--color-focused);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+:host(:not(.link-disabled)) .link-native:active {
+  color: var(--color-active);
+}
+
+/* ===============================
+   Disabled State
+   =============================== */
+
+:host(.link-disabled) {
+  cursor: not-allowed;
+}
+
+:host(.link-disabled) .link-native {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+

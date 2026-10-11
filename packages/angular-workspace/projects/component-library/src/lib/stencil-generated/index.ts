@@ -8,6 +8,8 @@ export const DIRECTIVES = [
   d.NxGrid,
   d.NxIcon,
   d.NxInput,
+  d.NxLink,
+  d.NxLoader,
   d.NxRadio,
   d.NxRadioGroup,
   d.NxRow,
