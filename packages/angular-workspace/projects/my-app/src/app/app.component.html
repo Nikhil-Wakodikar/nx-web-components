@@ -22,6 +22,62 @@
     <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" alt="" />
   </nx-icon>
 
+  <div style="display: flex; gap: 16px; align-items: center; margin: 16px 0; flex-wrap: wrap">
+    <nx-link href="https://example.com">Default Link</nx-link>
+
+    <nx-link href="https://example.com" external underline="always" color="info">
+      External Link
+      <nx-icon slot="end" name="external-link" size="small"></nx-icon>
+    </nx-link>
+
+    <nx-link href="#home" underline="none" color="success">
+      <nx-icon slot="start" name="home" size="small"></nx-icon>
+      Home
+    </nx-link>
+
+    <nx-link href="https://example.com" size="small" color="secondary">Small Link</nx-link>
+
+    <nx-link href="https://example.com" size="large" color="danger">Large Danger Link</nx-link>
+
+    <nx-link href="https://example.com" disabled>Disabled Link</nx-link>
+  </div>
+
+  <!-- nx-loader: Variants, Sizes & Labels -->
+  <div style="display: flex; gap: 24px; align-items: center; margin: 16px 0; flex-wrap: wrap">
+    <nx-loader></nx-loader>
+
+    <nx-loader variant="dots" color="info"></nx-loader>
+
+    <nx-loader variant="bars" color="success"></nx-loader>
+
+    <nx-loader variant="pulse" size="large" color="warning"></nx-loader>
+
+    <nx-loader size="small" color="danger" label="Loading..."></nx-loader>
+
+    <nx-loader size="large" color="primary" label="Please wait..." label-placement="bottom"></nx-loader>
+
+    <nx-button disabled>
+      <nx-loader slot="start" size="small" color="light"></nx-loader>
+      Submitting...
+    </nx-button>
+  </div>
+
+  <!-- nx-loader: Container Overlay Example -->
+  <div
+    style="
+      position: relative;
+      padding: 20px;
+      margin: 16px 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      max-width: 360px;
+    "
+  >
+    <p style="margin: 0 0 8px; font-weight: 600">Account Summary</p>
+    <p style="margin: 0; color: #64748b">Fetching your latest transactions and plan details...</p>
+    <nx-loader overlay variant="spinner" color="primary" label="Syncing data..." label-placement="bottom"></nx-loader>
+  </div>
+
   <!-- <nx-button>Default</nx-button>
 
   <nx-button fill="outline"> Outline </nx-button>
@@ -48,7 +104,7 @@
 
   <div style="margin: 20px">
     <nx-checkbox>
-      I agree to the Terms,Conditions,and Notices(TCN).
+      I agree to the <nx-link href="https://example.com/terms" external underline="always">Terms, Conditions, and Notices (TCN)</nx-link>.
     </nx-checkbox>
   </div>
 

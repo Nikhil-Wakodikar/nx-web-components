@@ -154,6 +154,54 @@ export declare interface NxInput extends Components.NxInput {
 
 
 @ProxyCmp({
+  inputs: ['color', 'disabled', 'download', 'external', 'href', 'label', 'rel', 'size', 'target', 'underline']
+})
+@Component({
+  selector: 'nx-link',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'disabled', 'download', 'external', 'href', 'label', 'rel', 'size', 'target', 'underline'],
+})
+export class NxLink {
+  protected el: HTMLNxLinkElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxClick']);
+  }
+}
+
+
+export declare interface NxLink extends Components.NxLink {
+
+  nxClick: EventEmitter<CustomEvent<MouseEvent>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['color', 'fullscreen', 'label', 'labelPlacement', 'overlay', 'paused', 'size', 'strokeWidth', 'variant']
+})
+@Component({
+  selector: 'nx-loader',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'fullscreen', 'label', 'labelPlacement', 'overlay', 'paused', 'size', 'strokeWidth', 'variant'],
+})
+export class NxLoader {
+  protected el: HTMLNxLoaderElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxLoader extends Components.NxLoader {}
+
+
+@ProxyCmp({
   inputs: ['alignment', 'color', 'disabled', 'justify', 'labelPlacement', 'value'],
   methods: ['setFocus', 'setButtonTabindex']
 })
