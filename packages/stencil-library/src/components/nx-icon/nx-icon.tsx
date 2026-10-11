@@ -1,18 +1,34 @@
 import { Component, Host, Prop, h } from '@stencil/core';
-import { getIconNode } from './icons/icon-registry';
+import { IconNode, icons } from 'lucide';
 
 const colorTokens: Record<string, string> = {
-  primary: 'var(--nx-color-primary)',
-  secondary: 'var(--nx-color-secondary)',
-  success: 'var(--nx-color-success)',
-  warning: 'var(--nx-color-warning)',
-  danger: 'var(--nx-color-error)',
-  error: 'var(--nx-color-error)',
-  info: 'var(--nx-color-info)',
-  light: 'var(--nx-color-white)',
-  medium: 'var(--nx-color-gray-500)',
-  dark: 'var(--nx-color-gray-900)',
+  primary: 'var(--nx-color-primary, #8145b5)',
+  secondary: 'var(--nx-color-secondary, #475569)',
+  success: 'var(--nx-color-success, #16a34a)',
+  warning: 'var(--nx-color-warning, #d97706)',
+  danger: 'var(--nx-color-error, #dc2626)',
+  error: 'var(--nx-color-error, #dc2626)',
+  info: 'var(--nx-color-info, #2563eb)',
+  light: 'var(--nx-color-white, #ffffff)',
+  medium: 'var(--nx-color-gray-500, #64748b)',
+  dark: 'var(--nx-color-gray-900, #0f172a)',
 };
+
+const iconLookup: Record<string, IconNode> = Object.entries(icons).reduce(
+  (acc, [key, node]) => {
+    acc[key.toLowerCase()] = node;
+    return acc;
+  },
+  {
+    arrowback: icons.ArrowLeft,
+    arrowforward: icons.ArrowRight,
+    checkmark: icons.Check,
+    checkmarkcircle: icons.CircleCheck,
+    close: icons.X,
+    help: icons.CircleHelp,
+    person: icons.UserRound,
+  } as Record<string, IconNode>,
+);
 
 @Component({
   tag: 'nx-icon',
@@ -21,13 +37,26 @@ const colorTokens: Record<string, string> = {
 })
 export class NxIcon {
   @Prop({ reflect: true }) name?: string;
+
   @Prop() size: string | number = 'medium';
+
   @Prop() color?: string;
+
   @Prop() strokeWidth = 2;
+
   @Prop() label?: string;
 
-  private get iconNode() {
-    return getIconNode(this.name);
+  private get iconNode(): IconNode | undefined {
+    if (!this.name) return undefined;
+
+    const normalized = this.name
+      .trim()
+      .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+      .toLowerCase()
+      .replace(/-(outline|sharp)$/, '')
+      .replace(/[^a-z0-9]/g, '');
+
+    return iconLookup[normalized];
   }
 
   private get cssSize(): string {
@@ -54,10 +83,14 @@ export class NxIcon {
         role={accessibleLabel ? 'img' : undefined}
         aria-label={accessibleLabel}
         aria-hidden={accessibleLabel ? undefined : 'true'}
-        style={{ fontSize: this.cssSize, color: this.cssColor }}
+        style={{
+          fontSize: this.cssSize,
+          color: this.cssColor,
+        }}
       >
         {icon ? (
           <svg
+            part="svg"
             viewBox="0 0 24 24"
             width="100%"
             height="100%"
@@ -72,9 +105,10 @@ export class NxIcon {
             {icon.map(([tag, attributes]) => h(tag, attributes))}
           </svg>
         ) : (
-          <slot />
+          <slot></slot>
         )}
       </Host>
     );
   }
 }
+

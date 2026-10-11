@@ -1,5 +1,5 @@
 <div style="padding: 1rem">
-  <nx-icon name="users"></nx-icon>
+  <nx-icon name="user-round-key"></nx-icon>
   <nx-icon>
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -126,7 +126,11 @@
       max-width: 420px;
     "
   >
-    <nx-progress [value]="65" label="Profile Completion" [showValue]="true"></nx-progress>
+    <nx-progress
+      [value]="65"
+      label="Profile Completion"
+      [showValue]="true"
+    ></nx-progress>
 
     <nx-progress
       [value]="45"
@@ -146,10 +150,20 @@
       [showValue]="true"
     ></nx-progress>
 
-    <nx-progress [indeterminate]="true" size="small" color="warning" label="Processing..."></nx-progress>
+    <nx-progress
+      [indeterminate]="true"
+      size="small"
+      color="warning"
+      label="Processing..."
+    ></nx-progress>
 
     <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap">
-      <nx-progress variant="circular" size="small" [value]="35" [showValue]="true"></nx-progress>
+      <nx-progress
+        variant="circular"
+        size="small"
+        [value]="35"
+        [showValue]="true"
+      ></nx-progress>
 
       <nx-progress
         variant="circular"
@@ -168,7 +182,11 @@
         label="Quota"
       ></nx-progress>
 
-      <nx-progress variant="circular" [indeterminate]="true" color="info"></nx-progress>
+      <nx-progress
+        variant="circular"
+        [indeterminate]="true"
+        color="info"
+      ></nx-progress>
     </div>
   </div>
 
