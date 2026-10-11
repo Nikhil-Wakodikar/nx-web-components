@@ -15,5 +15,6 @@ export const DIRECTIVES = [
   d.NxRadioGroup,
   d.NxRow,
   d.NxSelect,
-  d.NxSelectOption
+  d.NxSelectOption,
+  d.NxText
 ];

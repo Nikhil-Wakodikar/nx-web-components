@@ -1,0 +1,208 @@
+:host {
+  /* ===============================
+     Public Styling API
+     =============================== */
+
+  --color: inherit;
+  --font-family: var(--nx-font-family-base, 'Rubik-Regular', sans-serif);
+  --font-size: var(--nx-font-size-md, 16px);
+  --font-weight: var(--nx-font-weight-regular, 400);
+  --line-height: var(--nx-line-height-body, 1.5);
+  --letter-spacing: normal;
+  --text-align: inherit;
+  --text-transform: none;
+  --line-clamp: none;
+
+  display: block;
+  color: var(--color);
+  margin: 0;
+}
+
+:host(.text-inline) {
+  display: inline;
+}
+
+/* ===============================
+   Native Typography Element
+   =============================== */
+
+.text-native {
+  margin: 0;
+  padding: 0;
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  letter-spacing: var(--letter-spacing);
+  text-align: var(--text-align);
+  text-transform: var(--text-transform);
+}
+
+:host(.text-inline) .text-native {
+  display: inline;
+}
+
+/* ===============================
+   Typography Variants
+   =============================== */
+
+:host(.text-h1) {
+  --font-family: var(--nx-font-family-bold, 'Rubik-Bold', sans-serif);
+  --font-size: var(--nx-font-size-3xl, 30px);
+  --font-weight: var(--nx-font-weight-bold, 700);
+  --line-height: 1.2;
+  --letter-spacing: -0.02em;
+}
+
+:host(.text-h2) {
+  --font-family: var(--nx-font-family-bold, 'Rubik-Bold', sans-serif);
+  --font-size: var(--nx-font-size-2xl, 24px);
+  --font-weight: var(--nx-font-weight-bold, 700);
+  --line-height: 1.25;
+  --letter-spacing: -0.015em;
+}
+
+:host(.text-h3) {
+  --font-family: var(--nx-font-family-semibold, 'Rubik-SemiBold', sans-serif);
+  --font-size: var(--nx-font-size-xl, 20px);
+  --font-weight: var(--nx-font-weight-semibold, 600);
+  --line-height: 1.3;
+}
+
+:host(.text-h4) {
+  --font-family: var(--nx-font-family-semibold, 'Rubik-SemiBold', sans-serif);
+  --font-size: var(--nx-font-size-lg, 18px);
+  --font-weight: var(--nx-font-weight-semibold, 600);
+  --line-height: 1.35;
+}
+
+:host(.text-h5) {
+  --font-family: var(--nx-font-family-medium, 'Rubik-Medium', sans-serif);
+  --font-size: var(--nx-font-size-md, 16px);
+  --font-weight: var(--nx-font-weight-medium, 500);
+  --line-height: 1.4;
+}
+
+:host(.text-h6) {
+  --font-family: var(--nx-font-family-medium, 'Rubik-Medium', sans-serif);
+  --font-size: var(--nx-font-size-sm, 14px);
+  --font-weight: var(--nx-font-weight-medium, 500);
+  --line-height: 1.4;
+}
+
+:host(.text-subtitle1) {
+  --font-family: var(--nx-font-family-medium, 'Rubik-Medium', sans-serif);
+  --font-size: var(--nx-font-size-lg, 18px);
+  --font-weight: var(--nx-font-weight-medium, 500);
+  --line-height: 1.45;
+}
+
+:host(.text-subtitle2) {
+  --font-family: var(--nx-font-family-medium, 'Rubik-Medium', sans-serif);
+  --font-size: var(--nx-font-size-md, 16px);
+  --font-weight: var(--nx-font-weight-medium, 500);
+  --line-height: 1.45;
+}
+
+:host(.text-body) {
+  --font-family: var(--nx-font-family-base, 'Rubik-Regular', sans-serif);
+  --font-size: var(--nx-font-size-md, 16px);
+  --font-weight: var(--nx-font-weight-regular, 400);
+  --line-height: var(--nx-line-height-body, 1.5);
+}
+
+:host(.text-body-sm) {
+  --font-family: var(--nx-font-family-base, 'Rubik-Regular', sans-serif);
+  --font-size: var(--nx-font-size-sm, 14px);
+  --font-weight: var(--nx-font-weight-regular, 400);
+  --line-height: 1.5;
+}
+
+:host(.text-caption) {
+  --font-family: var(--nx-font-family-base, 'Rubik-Regular', sans-serif);
+  --font-size: var(--nx-font-size-xs, 12px);
+  --font-weight: var(--nx-font-weight-regular, 400);
+  --line-height: 1.4;
+}
+
+:host(.text-overline) {
+  --font-family: var(--nx-font-family-semibold, 'Rubik-SemiBold', sans-serif);
+  --font-size: var(--nx-font-size-xs, 12px);
+  --font-weight: var(--nx-font-weight-semibold, 600);
+  --line-height: 1.4;
+  --letter-spacing: 0.08em;
+  --text-transform: uppercase;
+}
+
+:host(.text-label) {
+  --font-family: var(--nx-font-family-medium, 'Rubik-Medium', sans-serif);
+  --font-size: var(--nx-font-size-sm, 14px);
+  --font-weight: var(--nx-font-weight-medium, 500);
+  --line-height: 1.4;
+}
+
+/* ===============================
+   Font Weight Overrides
+   =============================== */
+
+:host(.text-weight-light) {
+  --font-family: var(--nx-font-family-base, 'Rubik-Regular', sans-serif);
+  --font-weight: 300;
+}
+
+:host(.text-weight-regular) {
+  --font-family: var(--nx-font-family-base, 'Rubik-Regular', sans-serif);
+  --font-weight: var(--nx-font-weight-regular, 400);
+}
+
+:host(.text-weight-medium) {
+  --font-family: var(--nx-font-family-medium, 'Rubik-Medium', sans-serif);
+  --font-weight: var(--nx-font-weight-medium, 500);
+}
+
+:host(.text-weight-semibold) {
+  --font-family: var(--nx-font-family-semibold, 'Rubik-SemiBold', sans-serif);
+  --font-weight: var(--nx-font-weight-semibold, 600);
+}
+
+:host(.text-weight-bold) {
+  --font-family: var(--nx-font-family-bold, 'Rubik-Bold', sans-serif);
+  --font-weight: var(--nx-font-weight-bold, 700);
+}
+
+/* ===============================
+   Modifiers (Italic, Decoration, Truncate)
+   =============================== */
+
+:host(.text-italic) .text-native {
+  font-style: italic;
+}
+
+:host(.text-underline) .text-native {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+:host(.text-strikethrough) .text-native {
+  text-decoration: line-through;
+}
+
+:host(.text-underline.text-strikethrough) .text-native {
+  text-decoration: underline line-through;
+}
+
+:host(.text-truncate) .text-native {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+:host(.text-line-clamp) .text-native {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--line-clamp);
+  overflow: hidden;
+}
+

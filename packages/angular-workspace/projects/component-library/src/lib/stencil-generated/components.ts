@@ -360,3 +360,25 @@ export class NxSelectOption {
 export declare interface NxSelectOption extends Components.NxSelectOption {}
 
 
+@ProxyCmp({
+  inputs: ['align', 'as', 'color', 'inline', 'italic', 'lines', 'size', 'strikethrough', 'transform', 'truncate', 'underline', 'variant', 'weight']
+})
+@Component({
+  selector: 'nx-text',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['align', 'as', 'color', 'inline', 'italic', 'lines', 'size', 'strikethrough', 'transform', 'truncate', 'underline', 'variant', 'weight'],
+})
+export class NxText {
+  protected el: HTMLNxTextElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxText extends Components.NxText {}
+
+
