@@ -1,0 +1,238 @@
+:host {
+  /* ===============================
+     Public Styling API
+     =============================== */
+
+  --color: var(--nx-color-primary, #8145b5);
+  --track-color: var(--nx-color-gray-200, #e2e8f0);
+  --buffer-color: var(--nx-color-purple-200, #ebdef4);
+
+  --height: 8px;
+  --border-radius: 999px;
+  --circular-size: 56px;
+
+  --label-color: var(--nx-color-gray-800, #1e293b);
+  --label-font-size: var(--nx-font-size-sm, 14px);
+  --label-font-weight: var(--nx-font-weight-medium, 500);
+
+  --value-color: var(--nx-color-gray-600, #475569);
+  --value-font-size: var(--nx-font-size-xs, 12px);
+  --value-font-weight: var(--nx-font-weight-semibold, 600);
+
+  --transition: width 0.3s ease, stroke-dashoffset 0.3s ease;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+:host(.progress-circular) {
+  display: inline-flex;
+  width: auto;
+  vertical-align: middle;
+}
+
+/* ===============================
+   Sizes
+   =============================== */
+
+:host(.progress-small) {
+  --height: 4px;
+  --circular-size: 36px;
+  --value-font-size: 10px;
+}
+
+:host(.progress-default) {
+  --height: 8px;
+  --circular-size: 56px;
+  --value-font-size: 12px;
+}
+
+:host(.progress-large) {
+  --height: 12px;
+  --circular-size: 80px;
+  --value-font-size: 14px;
+}
+
+/* ===============================
+   Linear Progress
+   =============================== */
+
+.progress-linear-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.progress-header {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.progress-header-visible {
+  display: flex;
+}
+
+.progress-label {
+  color: var(--label-color);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  line-height: 1.4;
+}
+
+.progress-value {
+  color: var(--value-color);
+  font-size: var(--value-font-size);
+  font-weight: var(--value-font-weight);
+  line-height: 1.4;
+  margin-left: auto;
+}
+
+.progress-track {
+  position: relative;
+  width: 100%;
+  height: var(--height);
+  background-color: var(--track-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.progress-buffer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--buffer-color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.progress-fill {
+  position: relative;
+  height: 100%;
+  width: 0%;
+  background-color: var(--color);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+/* ===============================
+   Striped & Animated Variants
+   =============================== */
+
+:host(.progress-striped) .progress-fill {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 16px 16px;
+}
+
+:host(.progress-animated) .progress-fill {
+  animation: nx-progress-stripes 1s linear infinite;
+}
+
+/* ===============================
+   Indeterminate Linear
+   =============================== */
+
+:host(.progress-indeterminate) .progress-fill {
+  width: 40%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  animation: nx-progress-indeterminate 1.4s cubic-bezier(0.65, 0.815, 0.735, 0.395) infinite;
+}
+
+/* ===============================
+   Circular Progress
+   =============================== */
+
+.progress-circular-wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.progress-circular-box {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--circular-size);
+  height: var(--circular-size);
+}
+
+.progress-circular-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.circular-track {
+  stroke: var(--track-color);
+}
+
+.circular-fill {
+  stroke: var(--color);
+  stroke-linecap: round;
+  transition: var(--transition);
+}
+
+.progress-circular-value {
+  position: absolute;
+  color: var(--label-color);
+  font-size: var(--value-font-size);
+  font-weight: var(--value-font-weight);
+  line-height: 1;
+  user-select: none;
+}
+
+:host(.progress-indeterminate) .progress-circular-svg {
+  animation: nx-progress-rotate 1.4s linear infinite;
+}
+
+:host(.progress-indeterminate) .circular-fill {
+  stroke-dasharray: 80, 150;
+  stroke-dashoffset: -35;
+}
+
+/* ===============================
+   Keyframes
+   =============================== */
+
+@keyframes nx-progress-stripes {
+  0% {
+    background-position: 16px 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes nx-progress-indeterminate {
+  0% {
+    left: -40%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes nx-progress-rotate {
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
