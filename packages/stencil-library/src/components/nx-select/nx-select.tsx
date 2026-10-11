@@ -19,11 +19,6 @@ interface SelectOptionElement extends HTMLElement {
   active: boolean;
 }
 
-interface SelectOptionDetail {
-  value: string;
-  label: string;
-}
-
 @Component({
   tag: 'nx-select',
   styleUrl: 'nx-select.scss',
@@ -138,18 +133,17 @@ export class NxSelect {
     this.el.shadowRoot?.querySelector<HTMLButtonElement>('.select-trigger')?.focus();
   }
 
-  @Listen('nxSelectOptionSelect')
-  handleOptionSelect(event: CustomEvent<SelectOptionDetail>) {
-    event.stopPropagation();
-    const option = this.options.find(item => item.value === event.detail.value);
-    if (option) this.chooseOption(option);
-  }
-
-  @Listen('click', { target: 'window' })
-  handleOutsideClick(event: Event) {
+  @Listen('click', { target: 'document' })
+  handleOutsideClick(event: MouseEvent) {
     if (this.isOpen && !event.composedPath().includes(this.el)) {
       this.closeList();
     }
+  }
+
+  @Method()
+  async selectOption(value: string) {
+    const option = this.options.find(item => item.value === value);
+    if (option) this.chooseOption(option);
   }
 
   private onTriggerClick = () => {

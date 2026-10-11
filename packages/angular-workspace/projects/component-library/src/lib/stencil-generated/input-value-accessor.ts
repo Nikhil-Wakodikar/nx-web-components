@@ -96,6 +96,13 @@ export class InputValueAccessor
     this.syncInvalidState();
   }
 
+  @HostListener('nxChange', ['$event.detail'])
+  handleChange(value: any) {
+    if (this.el.nativeElement.tagName.toLowerCase() !== 'nx-select') return;
+    this.onChange(value);
+    this.syncInvalidState();
+  }
+
   @HostListener('nxBlur')
   handleBlur() {
     this.onTouched();

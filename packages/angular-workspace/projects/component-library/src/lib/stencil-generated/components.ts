@@ -99,6 +99,28 @@ export declare interface NxGrid extends Components.NxGrid {}
 
 
 @ProxyCmp({
+  inputs: ['color', 'label', 'name', 'size', 'strokeWidth']
+})
+@Component({
+  selector: 'nx-icon',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'label', 'name', 'size', 'strokeWidth'],
+})
+export class NxIcon {
+  protected el: HTMLNxIconElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxIcon extends Components.NxIcon {}
+
+
+@ProxyCmp({
   inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'disabled', 'inputmode', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'success', 'type', 'value'],
   methods: ['setInputValue', 'setFocus', 'getInputElement']
 })
@@ -215,7 +237,7 @@ export declare interface NxRow extends Components.NxRow {}
 
 @ProxyCmp({
   inputs: ['disabled', 'invalid', 'label', 'name', 'placeholder', 'required', 'success', 'value'],
-  methods: ['setFocus']
+  methods: ['selectOption', 'setFocus']
 })
 @Component({
   selector: 'nx-select',
@@ -261,16 +283,10 @@ export class NxSelectOption {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['nxSelectOptionSelect']);
   }
 }
 
 
-import type { NxSelectOptionSelectDetail as INxSelectOptionNxSelectOptionSelectDetail } from 'stencil-library';
-
-export declare interface NxSelectOption extends Components.NxSelectOption {
-
-  nxSelectOptionSelect: EventEmitter<CustomEvent<INxSelectOptionNxSelectOptionSelectDetail>>;
-}
+export declare interface NxSelectOption extends Components.NxSelectOption {}
 
 

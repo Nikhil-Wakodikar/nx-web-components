@@ -6,6 +6,7 @@ export const DIRECTIVES = [
   d.NxCheckbox,
   d.NxCol,
   d.NxGrid,
+  d.NxIcon,
   d.NxInput,
   d.NxRadio,
   d.NxRadioGroup,
