@@ -20,7 +20,7 @@ const colorTokens: Record<string, string> = {
   shadow: true,
 })
 export class NxIcon {
-  @Prop({ reflect: true }) name = '';
+  @Prop({ reflect: true }) name?: string;
   @Prop() size: string | number = 'medium';
   @Prop() color?: string;
   @Prop() strokeWidth = 2;
@@ -32,10 +32,12 @@ export class NxIcon {
 
   private get cssSize(): string {
     if (typeof this.size === 'number') return `${this.size}px`;
-    if (this.size === 'small') return '16px';
-    if (this.size === 'medium' || this.size === 'default') return '24px';
-    if (this.size === 'large') return '32px';
-    return this.size;
+    const size = this.size?.toString().trim();
+    if (!size || size === 'medium' || size === 'default') return '24px';
+    if (size === 'small') return '16px';
+    if (size === 'large') return '32px';
+    if (/^\d+(\.\d+)?$/.test(size)) return `${size}px`;
+    return size;
   }
 
   private get cssColor(): string {
@@ -54,7 +56,7 @@ export class NxIcon {
         aria-hidden={accessibleLabel ? undefined : 'true'}
         style={{ fontSize: this.cssSize, color: this.cssColor }}
       >
-        {icon && (
+        {icon ? (
           <svg
             viewBox="0 0 24 24"
             width="100%"
@@ -69,6 +71,8 @@ export class NxIcon {
           >
             {icon.map(([tag, attributes]) => h(tag, attributes))}
           </svg>
+        ) : (
+          <slot />
         )}
       </Host>
     );
