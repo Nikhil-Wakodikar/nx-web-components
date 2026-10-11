@@ -202,6 +202,28 @@ export declare interface NxLoader extends Components.NxLoader {}
 
 
 @ProxyCmp({
+  inputs: ['animated', 'buffer', 'color', 'indeterminate', 'label', 'max', 'showValue', 'size', 'striped', 'strokeWidth', 'value', 'valueText', 'variant']
+})
+@Component({
+  selector: 'nx-progress',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animated', 'buffer', 'color', 'indeterminate', 'label', 'max', 'showValue', 'size', 'striped', 'strokeWidth', 'value', 'valueText', 'variant'],
+})
+export class NxProgress {
+  protected el: HTMLNxProgressElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxProgress extends Components.NxProgress {}
+
+
+@ProxyCmp({
   inputs: ['alignment', 'color', 'disabled', 'justify', 'labelPlacement', 'value'],
   methods: ['setFocus', 'setButtonTabindex']
 })

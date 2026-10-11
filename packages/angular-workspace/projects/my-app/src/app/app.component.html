@@ -22,10 +22,23 @@
     <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" alt="" />
   </nx-icon>
 
-  <div style="display: flex; gap: 16px; align-items: center; margin: 16px 0; flex-wrap: wrap">
+  <div
+    style="
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    "
+  >
     <nx-link href="https://example.com">Default Link</nx-link>
 
-    <nx-link href="https://example.com" external underline="always" color="info">
+    <nx-link
+      href="https://example.com"
+      external
+      underline="always"
+      color="info"
+    >
       External Link
       <nx-icon slot="end" name="external-link" size="small"></nx-icon>
     </nx-link>
@@ -35,15 +48,27 @@
       Home
     </nx-link>
 
-    <nx-link href="https://example.com" size="small" color="secondary">Small Link</nx-link>
+    <nx-link href="https://example.com" size="small" color="secondary"
+      >Small Link</nx-link
+    >
 
-    <nx-link href="https://example.com" size="large" color="danger">Large Danger Link</nx-link>
+    <nx-link href="https://example.com" size="large" color="danger"
+      >Large Danger Link</nx-link
+    >
 
     <nx-link href="https://example.com" disabled>Disabled Link</nx-link>
   </div>
 
   <!-- nx-loader: Variants, Sizes & Labels -->
-  <div style="display: flex; gap: 24px; align-items: center; margin: 16px 0; flex-wrap: wrap">
+  <div
+    style="
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    "
+  >
     <nx-loader></nx-loader>
 
     <nx-loader variant="dots" color="info"></nx-loader>
@@ -54,7 +79,12 @@
 
     <nx-loader size="small" color="danger" label="Loading..."></nx-loader>
 
-    <nx-loader size="large" color="primary" label="Please wait..." label-placement="bottom"></nx-loader>
+    <nx-loader
+      size="large"
+      color="primary"
+      label="Please wait..."
+      label-placement="bottom"
+    ></nx-loader>
 
     <nx-button disabled>
       <nx-loader slot="start" size="small" color="light"></nx-loader>
@@ -74,8 +104,72 @@
     "
   >
     <p style="margin: 0 0 8px; font-weight: 600">Account Summary</p>
-    <p style="margin: 0; color: #64748b">Fetching your latest transactions and plan details...</p>
-    <nx-loader overlay variant="spinner" color="primary" label="Syncing data..." label-placement="bottom"></nx-loader>
+    <p style="margin: 0; color: #64748b">
+      Fetching your latest transactions and plan details...
+    </p>
+    <nx-loader
+      overlay
+      variant="spinner"
+      color="primary"
+      label="Syncing data..."
+      label-placement="bottom"
+    ></nx-loader>
+  </div>
+
+  <!-- nx-progress: Linear & Circular Examples -->
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 16px 0;
+      max-width: 420px;
+    "
+  >
+    <nx-progress [value]="65" label="Profile Completion" [showValue]="true"></nx-progress>
+
+    <nx-progress
+      [value]="45"
+      [buffer]="80"
+      color="info"
+      label="Streaming Buffer"
+      [showValue]="true"
+    ></nx-progress>
+
+    <nx-progress
+      [value]="75"
+      size="large"
+      color="success"
+      [striped]="true"
+      [animated]="true"
+      label="Uploading Document..."
+      [showValue]="true"
+    ></nx-progress>
+
+    <nx-progress [indeterminate]="true" size="small" color="warning" label="Processing..."></nx-progress>
+
+    <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap">
+      <nx-progress variant="circular" size="small" [value]="35" [showValue]="true"></nx-progress>
+
+      <nx-progress
+        variant="circular"
+        [value]="72"
+        color="success"
+        [showValue]="true"
+        label="Completed"
+      ></nx-progress>
+
+      <nx-progress
+        variant="circular"
+        size="large"
+        [value]="90"
+        color="danger"
+        value-text="9/10"
+        label="Quota"
+      ></nx-progress>
+
+      <nx-progress variant="circular" [indeterminate]="true" color="info"></nx-progress>
+    </div>
   </div>
 
   <!-- <nx-button>Default</nx-button>
@@ -104,7 +198,10 @@
 
   <div style="margin: 20px">
     <nx-checkbox>
-      I agree to the <nx-link href="https://example.com/terms" external underline="always">Terms, Conditions, and Notices (TCN)</nx-link>.
+      I agree to the
+      <nx-link href="https://example.com/terms" external underline="none"
+        >Terms, Conditions, and Notices (TCN)</nx-link
+      >.
     </nx-checkbox>
   </div>
 
