@@ -79,7 +79,7 @@
 
 .select-trigger:focus,
 .select-trigger:hover:not(:disabled):focus {
-  border: 2px solid var(--border-focus-color);
+  border: 1px solid var(--border-focus-color);
 }
 
 .select-trigger:disabled {

@@ -139,7 +139,7 @@
 
   // outline: var(--outline-focus);
 
-  border: 2px solid var(--border-focus-color);
+  border: var(--border-width) var(--border-style) var(--border-focus-color);
 }
 
 /* Disabled */
