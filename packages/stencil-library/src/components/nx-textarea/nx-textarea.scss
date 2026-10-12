@@ -124,7 +124,7 @@
 
 .native-wrapper:focus-within {
   background: var(--background-focus);
-  border: 2px solid var(--border-focus-color);
+  border: var(--border-width) var(--border-style) var(--border-focus-color);
 }
 
 /* Disabled */
