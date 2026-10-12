@@ -382,3 +382,36 @@ export class NxText {
 export declare interface NxText extends Components.NxText {}
 
 
+@ProxyCmp({
+  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'counter', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'success', 'value', 'wrap'],
+  methods: ['setInputValue', 'setFocus', 'getInputElement']
+})
+@Component({
+  selector: 'nx-textarea',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'counter', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'success', 'value', 'wrap'],
+})
+export class NxTextarea {
+  protected el: HTMLNxTextareaElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxInput', 'nxChange', 'nxFocus', 'nxBlur']);
+  }
+}
+
+
+export declare interface NxTextarea extends Components.NxTextarea {
+
+  nxInput: EventEmitter<CustomEvent<string>>;
+
+  nxChange: EventEmitter<CustomEvent<string>>;
+
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
+

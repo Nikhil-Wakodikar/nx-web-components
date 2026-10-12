@@ -21,6 +21,9 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
       nx-input[formControlName],
       nx-input[formControl],
       nx-input[ngModel],
+      nx-textarea[formControlName],
+      nx-textarea[formControl],
+      nx-textarea[ngModel],
       nx-select[formControlName],
       nx-select[formControl],
       nx-select[ngModel]
