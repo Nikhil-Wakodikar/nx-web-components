@@ -298,8 +298,8 @@
 
     <nx-input
       formControlName="name"
-      placeholder="FirstName"
-      label="FirstName"
+      placeholder="First name"
+      label="First name"
       autocapitalize="characters"
     >
     </nx-input>
@@ -315,10 +315,7 @@
       label="Description"
       placeholder="Enter your description..."
       [rows]="4"
-      [maxlength]="200"
-      [counter]="true"
       [required]="true"
-      helper-text="Maximum 200 characters"
       error-text="Description is required"
     ></nx-textarea>
 
@@ -352,7 +349,13 @@
       error-text="Please select an appointment time"
     ></nx-time-picker>
 
-    <nx-radio-group value="male" formControlName="gender" name="gender">
+    <nx-radio-group
+      formControlName="gender"
+      name="gender"
+      label="Gender"
+      [required]="true"
+      error-text="Please select a gender"
+    >
       <nx-radio value="male">Male</nx-radio>
 
       <nx-radio value="female">Female</nx-radio>
@@ -360,7 +363,11 @@
       <nx-radio value="other">Other</nx-radio>
     </nx-radio-group>
 
-    <nx-checkbox formControlName="acceptTcn">
+    <nx-checkbox
+      formControlName="acceptTcn"
+      [required]="true"
+      error-text="You must accept the Terms, Conditions, and Notices"
+    >
       I agree to the Terms,Conditions,and Notices(TCN).
     </nx-checkbox>
 

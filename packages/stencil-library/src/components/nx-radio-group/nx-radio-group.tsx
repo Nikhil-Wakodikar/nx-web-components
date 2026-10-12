@@ -20,14 +20,19 @@ export interface NxRadioGroupCustomEvent<T = NxRadioGroupChangeEventDetail>
   shadow: true,
 })
 export class NxRadioGroup {
-
   @Element() el!: HTMLElement;
 
   @Prop({ mutable: true }) value?: any;
 
-  @Prop() name = `nx-radio-group-${Date.now()}`;
+  @Prop() name = `nx-radio-group-${radioGroupIds++}`;
 
-  @Prop() disabled = false;
+  @Prop() label?: string;
+
+  @Prop() required = false;
+
+  @Prop({ reflect: true }) disabled = false;
+
+  @Prop({ reflect: true }) direction: 'horizontal' | 'vertical' = 'horizontal';
 
   @Prop() helperText?: string;
 
@@ -37,25 +42,29 @@ export class NxRadioGroup {
 
   @Prop() compareWith?: string | ((a: any, b: any) => boolean);
 
-  @Prop() invalid = false;
+  @Prop({ reflect: true }) invalid = false;
 
-  @Event()
+  @Event({ bubbles: true, composed: true })
   nxChange!: EventEmitter<NxRadioGroupChangeEventDetail>;
 
-  @Event()
+  @Event({ bubbles: true, composed: true })
   nxValueChange!: EventEmitter<NxRadioGroupValueChangeEventDetail>;
 
+  private labelId = `${this.name}-label`;
   private helperTextId = `${this.name}-helper`;
-
   private errorTextId = `${this.name}-error`;
 
   @Watch('value')
   valueChanged(value: any) {
     this.setRadioTabindex(value);
+    this.nxValueChange.emit({ value });
+  }
 
-    this.nxValueChange.emit({
-      value,
-    });
+  @Watch('disabled')
+  @Watch('invalid')
+  stateChanged() {
+    this.setRadioTabindex(this.value);
+    this.nxValueChange.emit({ value: this.value });
   }
 
   componentDidLoad() {
@@ -78,19 +87,31 @@ export class NxRadioGroup {
     return Array.from(this.el.querySelectorAll('nx-radio'));
   }
 
+  private isRadioMatch(radio: HTMLNxRadioElement, value: any): boolean {
+    if (typeof this.compareWith === 'function') {
+      return this.compareWith(value, radio.value);
+    }
+    if (typeof this.compareWith === 'string' && value && radio.value) {
+      return value[this.compareWith] === radio.value[this.compareWith];
+    }
+    return radio.value === value;
+  }
+
   private setRadioTabindex(value: any) {
-    const radios = this.getRadios().filter(r => !r.disabled);
+    const allRadios = this.getRadios();
+    if (this.disabled) {
+      allRadios.forEach(radio => radio.setButtonTabindex(-1));
+      return;
+    }
 
-    const checked = radios.find(r => r.value === value);
-    const first = radios[0];
+    const enabledRadios = allRadios.filter(r => !r.disabled);
+    const checked = enabledRadios.find(r => this.isRadioMatch(r, value));
+    const focusable = checked || enabledRadios[0];
 
-    const focusable = checked || first;
-
-    radios.forEach(radio => {
+    allRadios.forEach(radio => {
       radio.setButtonTabindex(radio === focusable ? 0 : -1);
     });
   }
-
 
   private emitValueChange() {
     this.nxChange.emit({
@@ -98,18 +119,25 @@ export class NxRadioGroup {
     });
   }
 
+  private onSlotChange = () => {
+    this.setRadioTabindex(this.value);
+    this.nxValueChange.emit({ value: this.value });
+  };
+
   private onClick = (ev: Event) => {
-    const radio = (ev.target as HTMLElement).closest(
-      'nx-radio'
-    ) as HTMLNxRadioElement;
+    if (this.disabled) {
+      return;
+    }
+
+    const radio = (ev.target as HTMLElement).closest('nx-radio') as HTMLNxRadioElement | null;
 
     if (!radio || radio.disabled) {
       return;
     }
 
-    const current = this.value;
+    const isMatched = this.isRadioMatch(radio, this.value);
 
-    if (radio.value !== current) {
+    if (!isMatched) {
       this.value = radio.value;
       this.emitValueChange();
     } else if (this.allowEmptySelection) {
@@ -120,11 +148,17 @@ export class NxRadioGroup {
 
   @Listen('keydown')
   onKeydown(ev: KeyboardEvent) {
-    const radios = this.getRadios().filter(r => !r.disabled);
+    if (this.disabled) {
+      return;
+    }
 
-    const currentIndex = radios.findIndex(
-      r => r === ev.target
-    );
+    const radios = this.getRadios().filter(r => !r.disabled);
+    if (!radios.length) {
+      return;
+    }
+
+    const targetRadio = (ev.target as HTMLElement)?.closest('nx-radio') as HTMLNxRadioElement | null;
+    const currentIndex = radios.findIndex(r => r === targetRadio);
 
     if (currentIndex === -1) {
       return;
@@ -135,70 +169,57 @@ export class NxRadioGroup {
     switch (ev.key) {
       case 'ArrowRight':
       case 'ArrowDown':
-        next =
-          radios[(currentIndex + 1) % radios.length];
+        next = radios[(currentIndex + 1) % radios.length];
         break;
 
       case 'ArrowLeft':
       case 'ArrowUp':
-        next =
-          radios[
-          (currentIndex - 1 + radios.length) %
-          radios.length
-          ];
+        next = radios[(currentIndex - 1 + radios.length) % radios.length];
         break;
 
       case ' ':
-      case 'Spacebar':
-        this.value =
-          this.allowEmptySelection &&
-            this.value === radios[currentIndex].value
-            ? undefined
-            : radios[currentIndex].value;
-
+      case 'Spacebar': {
+        const currentRadio = radios[currentIndex];
+        const isMatched = this.isRadioMatch(currentRadio, this.value);
+        this.value = this.allowEmptySelection && isMatched ? undefined : currentRadio.value;
         this.emitValueChange();
         ev.preventDefault();
         return;
+      }
     }
 
     if (next) {
       next.setFocus();
-
       this.value = next.value;
-
       this.emitValueChange();
-
       ev.preventDefault();
     }
   }
 
   @Method()
   async setFocus() {
-    const radio = this.getRadios().find(
-      r => r.tabIndex === 0
-    );
-
-    radio?.setFocus();
+    const radio = this.getRadios().find(r => r.tabIndex === 0);
+    await radio?.setFocus();
   }
 
   private renderHintText() {
+    const showError = this.invalid && Boolean(this.errorText);
+    const showHelper = !showError && Boolean(this.helperText);
+
+    if (!showError && !showHelper) {
+      return null;
+    }
+
     return (
-      <div class="hint-wrapper">
-        {this.helperText && !this.invalid && (
-          <div
-            id={this.helperTextId}
-            class="helper-text"
-          >
+      <div part="footer" class="hint-wrapper">
+        {showHelper && (
+          <div id={this.helperTextId} part="helper-text" class="helper-text">
             {this.helperText}
           </div>
         )}
 
-        {this.errorText && this.invalid && (
-          <div
-            id={this.errorTextId}
-            class="error-text"
-            role="alert"
-          >
+        {showError && (
+          <div id={this.errorTextId} part="error-text" class="error-text" role="alert">
             {this.errorText}
           </div>
         )}
@@ -210,16 +231,31 @@ export class NxRadioGroup {
     return (
       <Host
         role="radiogroup"
+        aria-labelledby={this.label ? this.labelId : undefined}
         aria-invalid={this.invalid ? 'true' : 'false'}
         aria-describedby={this.hintId}
+        class={{
+          'disabled': this.disabled,
+          'invalid': this.invalid,
+          [`direction-${this.direction}`]: true,
+        }}
         onClick={this.onClick}
       >
-        {this.renderHintText()}
+        {this.label && (
+          <div part="label" class="group-label" id={this.labelId}>
+            {this.label}
+            {this.required && <span class="required">*</span>}
+          </div>
+        )}
 
-        <div class="radio-buttons-container">
-          <slot />
+        <div part="container" class="radio-buttons-container">
+          <slot onSlotchange={this.onSlotChange} />
         </div>
+
+        {this.renderHintText()}
       </Host>
     );
   }
 }
+
+let radioGroupIds = 0;

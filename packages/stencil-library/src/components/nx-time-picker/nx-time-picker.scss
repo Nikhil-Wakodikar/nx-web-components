@@ -34,14 +34,14 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .label-text {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
   color: var(--title, var(--color));
   font-family: var(--font-rubik-medium, var(--font-family));
   font-size: var(--FontSize-14, 14px);
@@ -309,4 +309,3 @@
 .error-text {
   color: var(--border-error-color);
 }
-
