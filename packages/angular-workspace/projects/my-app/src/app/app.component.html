@@ -191,21 +191,48 @@
   </div>
 
   <!-- nx-text: Typography Examples -->
-  <div style="display: flex; flex-direction: column; gap: 8px; margin: 16px 0; max-width: 520px">
+  <div
+    style="
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 16px 0;
+      max-width: 520px;
+    "
+  >
     <nx-text variant="overline" color="primary">Typography System</nx-text>
     <nx-text variant="h1">Heading 1 (30px Bold)</nx-text>
     <nx-text variant="h2">Heading 2 (24px Bold)</nx-text>
     <nx-text variant="h3">Heading 3 (20px SemiBold)</nx-text>
-    <nx-text variant="subtitle1" color="secondary">Subtitle 1 — Medium 18px</nx-text>
+    <nx-text variant="subtitle1" color="secondary"
+      >Subtitle 1 — Medium 18px</nx-text
+    >
     <nx-text variant="body">
-      Body text using Rubik-Regular with <nx-text as="strong" weight="bold" color="primary">inline bold primary</nx-text> and
-      <nx-text as="span" [italic]="true" [underline]="true" color="info">italic underlined</nx-text> spans.
+      Body text using Rubik-Regular with
+      <nx-text as="strong" weight="bold" color="primary"
+        >inline bold primary</nx-text
+      >
+      and
+      <nx-text as="span" [italic]="true" [underline]="true" color="info"
+        >italic underlined</nx-text
+      >
+      spans.
     </nx-text>
     <nx-text variant="body-sm" color="muted" [truncate]="true">
-      Truncated single-line text example that will automatically show an ellipsis when it overflows its container width.
+      Truncated single-line text example that will automatically show an
+      ellipsis when it overflows its container width.
     </nx-text>
-    <nx-text variant="caption" color="success">Caption text (12px) — All changes saved</nx-text>
+    <nx-text variant="caption" color="success"
+      >Caption text (12px) — All changes saved</nx-text
+    >
   </div>
+
+  <nx-date-picker
+    label="Select Date"
+    min="2026-10-15"
+    max="2026-10-31"
+    placeholder="Choose a date"
+  ></nx-date-picker>
 
   <!-- <nx-button>Default</nx-button>
 
@@ -277,7 +304,7 @@
     >
     </nx-input>
 
-    <nx-input type="text" formControlName="password" label="Password">
+    <nx-input type="password" formControlName="password" label="Password">
     </nx-input>
 
     <nx-input type="text" formControlName="price" appInrFormat label="Price">
@@ -306,6 +333,24 @@
       <nx-select-option value="premium">Premium</nx-select-option>
       <nx-select-option value="flexible" disabled>Flexible</nx-select-option>
     </nx-select>
+
+    <nx-date-picker
+      formControlName="appointmentDate"
+      label="Appointment Date"
+      placeholder="DD/MM/YYYY"
+      format="DD/MM/YYYY"
+      min="04/10/2026"
+    ></nx-date-picker>
+
+    <nx-time-picker
+      formControlName="appointmentTime"
+      label="Appointment Time"
+      placeholder="Select time"
+      format="12h"
+      [minuteStep]="5"
+      [required]="true"
+      error-text="Please select an appointment time"
+    ></nx-time-picker>
 
     <nx-radio-group value="male" formControlName="gender" name="gender">
       <nx-radio value="male">Male</nx-radio>

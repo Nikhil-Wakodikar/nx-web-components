@@ -78,6 +78,39 @@ export declare interface NxCol extends Components.NxCol {}
 
 
 @ProxyCmp({
+  inputs: ['clearable', 'disabled', 'errorText', 'firstDayOfWeek', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'name', 'placeholder', 'readonly', 'required', 'showTodayButton', 'success', 'value'],
+  methods: ['setFocus', 'open', 'close']
+})
+@Component({
+  selector: 'nx-date-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clearable', 'disabled', 'errorText', 'firstDayOfWeek', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'name', 'placeholder', 'readonly', 'required', 'showTodayButton', 'success', 'value'],
+})
+export class NxDatePicker {
+  protected el: HTMLNxDatePickerElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxInput', 'nxChange', 'nxFocus', 'nxBlur']);
+  }
+}
+
+
+export declare interface NxDatePicker extends Components.NxDatePicker {
+
+  nxInput: EventEmitter<CustomEvent<string>>;
+
+  nxChange: EventEmitter<CustomEvent<string>>;
+
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
+
+@ProxyCmp({
 })
 @Component({
   selector: 'nx-grid',
@@ -404,6 +437,39 @@ export class NxTextarea {
 
 
 export declare interface NxTextarea extends Components.NxTextarea {
+
+  nxInput: EventEmitter<CustomEvent<string>>;
+
+  nxChange: EventEmitter<CustomEvent<string>>;
+
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['clearable', 'disabled', 'errorText', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'minuteStep', 'name', 'placeholder', 'readonly', 'required', 'secondStep', 'showNowButton', 'showSeconds', 'success', 'value'],
+  methods: ['setFocus', 'open', 'close']
+})
+@Component({
+  selector: 'nx-time-picker',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clearable', 'disabled', 'errorText', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'minuteStep', 'name', 'placeholder', 'readonly', 'required', 'secondStep', 'showNowButton', 'showSeconds', 'success', 'value'],
+})
+export class NxTimePicker {
+  protected el: HTMLNxTimePickerElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxInput', 'nxChange', 'nxFocus', 'nxBlur']);
+  }
+}
+
+
+export declare interface NxTimePicker extends Components.NxTimePicker {
 
   nxInput: EventEmitter<CustomEvent<string>>;
 

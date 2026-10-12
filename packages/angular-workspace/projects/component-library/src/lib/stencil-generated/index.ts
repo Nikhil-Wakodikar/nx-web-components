@@ -5,6 +5,7 @@ export const DIRECTIVES = [
   d.NxButton,
   d.NxCheckbox,
   d.NxCol,
+  d.NxDatePicker,
   d.NxGrid,
   d.NxIcon,
   d.NxInput,
@@ -18,5 +19,6 @@ export const DIRECTIVES = [
   d.NxSelectOption,
   d.NxText,
   d.NxTextarea,
+  d.NxTimePicker,
   d.NxToggle
 ];
