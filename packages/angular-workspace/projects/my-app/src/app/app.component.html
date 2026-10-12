@@ -283,6 +283,18 @@
     <nx-input type="text" formControlName="price" appInrFormat label="Price">
     </nx-input>
 
+    <nx-textarea
+      formControlName="description"
+      label="Description"
+      placeholder="Enter your description..."
+      [rows]="4"
+      [maxlength]="200"
+      [counter]="true"
+      [required]="true"
+      helper-text="Maximum 200 characters"
+      error-text="Description is required"
+    ></nx-textarea>
+
     <nx-select
       formControlName="plan"
       label="Plan"

@@ -12,6 +12,7 @@ export class AppComponent {
   tcnForm = this.fb.group({
     name: ['', Validators.required],
     password: ['', Validators.required],
+    description: ['', Validators.required],
     acceptTcn: [false, Validators.requiredTrue],
     gender: ['', Validators.required],
     plan: ['', Validators.required],

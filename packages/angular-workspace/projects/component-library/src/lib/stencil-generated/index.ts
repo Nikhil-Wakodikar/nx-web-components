@@ -16,5 +16,6 @@ export const DIRECTIVES = [
   d.NxRow,
   d.NxSelect,
   d.NxSelectOption,
-  d.NxText
+  d.NxText,
+  d.NxTextarea
 ];
