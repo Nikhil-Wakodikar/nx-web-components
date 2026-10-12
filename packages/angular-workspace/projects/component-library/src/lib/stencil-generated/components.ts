@@ -415,3 +415,36 @@ export declare interface NxTextarea extends Components.NxTextarea {
 }
 
 
+@ProxyCmp({
+  inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'size', 'value'],
+  methods: ['toggle', 'setFocus']
+})
+@Component({
+  selector: 'nx-toggle',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'size', 'value'],
+})
+export class NxToggle {
+  protected el: HTMLNxToggleElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['checkedChange', 'nxChange', 'nxFocus', 'nxBlur']);
+  }
+}
+
+
+export declare interface NxToggle extends Components.NxToggle {
+
+  checkedChange: EventEmitter<CustomEvent<boolean>>;
+
+  nxChange: EventEmitter<CustomEvent<boolean>>;
+
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+}
+
+

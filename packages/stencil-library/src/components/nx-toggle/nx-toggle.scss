@@ -1,0 +1,223 @@
+:host {
+  display: block;
+
+  /* ==============================
+     Public CSS API
+     ============================== */
+
+  --track-width: 44px;
+  --track-height: 24px;
+  --thumb-size: 18px;
+  --thumb-offset: 2px;
+
+  --border-width: 1px;
+  --border-color: var(--nx-color-gray-300, #cbd5e1);
+  --border-color-checked: var(--nx-color-primary, #8145b5);
+  --border-error-color: var(--nx-color-error, #dc2626);
+  --border-radius: 999px;
+
+  --track-background: var(--nx-color-gray-200, #e2e8f0);
+  --track-background-checked: var(--nx-color-primary, #8145b5);
+
+  --thumb-background: var(--nx-color-white, #ffffff);
+  --thumb-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  --label-color: var(--nx-color-gray-900, #0f172a);
+  --label-font-size: 16px;
+  --label-font-weight: 400;
+
+  --gap: 10px;
+  --disabled-opacity: 0.5;
+  --transition-duration: 0.2s;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ==============================
+   Sizes
+   ============================== */
+
+:host(.toggle-small) {
+  --track-width: 36px;
+  --track-height: 20px;
+  --thumb-size: 14px;
+  --label-font-size: 14px;
+}
+
+:host(.toggle-default) {
+  --track-width: 44px;
+  --track-height: 24px;
+  --thumb-size: 18px;
+  --label-font-size: 16px;
+}
+
+:host(.toggle-large) {
+  --track-width: 52px;
+  --track-height: 28px;
+  --thumb-size: 22px;
+  --label-font-size: 18px;
+}
+
+/* ==============================
+   Justify & Alignment
+   ============================== */
+
+:host(.toggle-justify-space-between) .toggle-wrapper {
+  justify-content: space-between;
+}
+
+:host(.toggle-justify-start) .toggle-wrapper {
+  justify-content: flex-start;
+}
+
+:host(.toggle-justify-end) .toggle-wrapper {
+  justify-content: flex-end;
+}
+
+:host(.toggle-alignment-start) .toggle-wrapper {
+  align-items: flex-start;
+}
+
+:host(.toggle-alignment-center) .toggle-wrapper {
+  align-items: center;
+}
+
+/* ==============================
+   Label Placement
+   ============================== */
+
+:host(.toggle-label-start) .toggle-wrapper {
+  flex-direction: row-reverse;
+}
+
+:host(.toggle-label-end) .toggle-wrapper {
+  flex-direction: row;
+}
+
+/* ==============================
+   Wrapper
+   ============================== */
+
+.toggle-wrapper {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  gap: var(--gap);
+  cursor: pointer;
+  user-select: none;
+}
+
+/* ==============================
+   Track & Thumb
+   ============================== */
+
+.toggle-track {
+  position: relative;
+  width: var(--track-width);
+  height: var(--track-height);
+  flex-shrink: 0;
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--track-background);
+  transition: background var(--transition-duration) ease, border-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+}
+
+.toggle-thumb {
+  position: absolute;
+  top: 50%;
+  left: var(--thumb-offset);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
+  border-radius: 50%;
+  background: var(--thumb-background);
+  box-shadow: var(--thumb-shadow);
+  transform: translateY(-50%);
+  transition: transform var(--transition-duration) ease;
+  pointer-events: none;
+}
+
+/* ==============================
+   Native Input
+   ============================== */
+
+.toggle-track input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* ==============================
+   Checked State
+   ============================== */
+
+:host(.checked) .toggle-track {
+  background: var(--track-background-checked);
+  border-color: var(--border-color-checked);
+}
+
+:host(.checked) .toggle-thumb {
+  transform: translate(calc(var(--track-width) - var(--thumb-size) - (var(--thumb-offset) * 2) - (var(--border-width) * 2)), -50%);
+}
+
+:host(.invalid) .toggle-track {
+  border-color: var(--border-error-color);
+}
+
+/* ==============================
+   Label & Footer
+   ============================== */
+
+.toggle-label-container {
+  color: var(--label-color);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.toggle-label-container:empty {
+  display: none;
+}
+
+.required {
+  color: var(--border-error-color);
+  margin-left: 2px;
+}
+
+.toggle-footer {
+  margin-top: 4px;
+}
+
+.helper-text,
+.error-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.helper-text {
+  color: var(--nx-color-gray-500, #64748b);
+}
+
+.error-text {
+  color: var(--border-error-color);
+}
+
+/* ==============================
+   Disabled State
+   ============================== */
+
+:host(.disabled) {
+  opacity: var(--disabled-opacity);
+}
+
+:host(.disabled) .toggle-wrapper,
+:host(.disabled) .toggle-label-container,
+:host(.disabled) input {
+  cursor: not-allowed;
+}

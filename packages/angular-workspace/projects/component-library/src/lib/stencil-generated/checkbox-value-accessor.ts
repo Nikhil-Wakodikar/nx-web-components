@@ -18,7 +18,7 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
 
 @Directive({
   selector:
-    'nx-checkbox[formControlName],nx-checkbox[formControl],nx-checkbox[ngModel]',
+    'nx-checkbox[formControlName],nx-checkbox[formControl],nx-checkbox[ngModel],nx-toggle[formControlName],nx-toggle[formControl],nx-toggle[ngModel]',
 })
 export class NxCheckboxValueAccessor
   implements ControlValueAccessor, OnInit, OnDestroy
