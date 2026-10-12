@@ -87,8 +87,9 @@ export class RadioGroupValueAccessorDirective
     this.el.nativeElement.disabled = isDisabled;
   }
 
-  @HostListener('nxChange', ['$event.target.value'])
-  handleChange(value: any) {
+  @HostListener('nxChange', ['$event'])
+  handleChange(event: any) {
+    const value = event?.detail?.value !== undefined ? event.detail.value : event?.target?.value;
     this.onChange(value);
     this.syncInvalidState();
   }

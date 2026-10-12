@@ -9,6 +9,8 @@
 
   --border-width: 1px;
   --border-color: var(--nx-color-gray-400, #94a3b8);
+  --border-hover-color: var(--nx-color-gray-600, #475569);
+  --border-error-color: var(--nx-color-error, #dc2626);
   --border-radius: 4px;
 
   --background: var(--nx-color-white, #fff);
@@ -30,6 +32,10 @@
   --transition-duration: 0.2s;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /* ==============================
    Justify Content
    ============================== */
@@ -39,11 +45,11 @@
 }
 
 :host(.checkbox-justify-start) .checkbox-wrapper {
-  justify-content: start;
+  justify-content: flex-start;
 }
 
 :host(.checkbox-justify-end) .checkbox-wrapper {
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 /* ==============================
@@ -51,7 +57,7 @@
    ============================== */
 
 :host(.checkbox-alignment-start) .checkbox-wrapper {
-  align-items: start;
+  align-items: flex-start;
 }
 
 :host(.checkbox-alignment-center) .checkbox-wrapper {
@@ -59,16 +65,26 @@
 }
 
 /* ==============================
+   Label Placement
+   ============================== */
+
+:host(.checkbox-label-start) .checkbox-wrapper {
+  flex-direction: row-reverse;
+}
+
+:host(.checkbox-label-end) .checkbox-wrapper {
+  flex-direction: row;
+}
+
+/* ==============================
    Wrapper
    ============================== */
 
 .checkbox-wrapper {
-  display: flex;
+  display: inline-flex;
   width: 100%;
-
   align-items: center;
   gap: var(--gap);
-
   cursor: pointer;
   user-select: none;
 }
@@ -79,18 +95,17 @@
 
 .checkbox-box-wrapper {
   position: relative;
-
   width: var(--size);
   height: var(--size);
-
   flex-shrink: 0;
-
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
-
   background: var(--background);
+  transition: background var(--transition-duration) ease, border-color var(--transition-duration) ease, box-shadow var(--transition-duration) ease;
+}
 
-  transition: background var(--transition-duration) ease, border-color var(--transition-duration) ease;
+:host(:not(.disabled):not(.checked):not(.invalid)) .checkbox-wrapper:hover .checkbox-box-wrapper {
+  border-color: var(--border-hover-color);
 }
 
 /* ==============================
@@ -99,24 +114,20 @@
 
 .checkbox-box-wrapper input {
   position: absolute;
-
   inset: 0;
-
   width: 100%;
   height: 100%;
-
   margin: 0;
-
   opacity: 0;
-
   cursor: pointer;
 }
 
 /* ==============================
-   Checked State
+   Checked & Indeterminate States
    ============================== */
 
-:host(.checked) .checkbox-box-wrapper {
+:host(.checked) .checkbox-box-wrapper,
+:host(.indeterminate) .checkbox-box-wrapper {
   background: var(--checked-background);
   border-color: var(--checked-border-color);
 }
@@ -127,22 +138,15 @@
 
 .checkbox-box-wrapper::after {
   content: '';
-
   position: absolute;
-
   left: 50%;
   top: 50%;
-
   width: var(--check-size);
   height: calc(var(--check-size) * 2);
-
   border: solid var(--check-color);
   border-width: 0 var(--checkmark-width) var(--checkmark-width) 0;
-
   transform: translate(-50%, -60%) rotate(45deg) scale(0);
-
   transition: transform 0.15s ease;
-
   pointer-events: none;
 }
 
@@ -150,17 +154,54 @@
   transform: translate(-50%, -60%) rotate(45deg) scale(1);
 }
 
+:host(.indeterminate) .checkbox-box-wrapper::after {
+  width: calc(var(--size) * 0.5);
+  height: 0;
+  border-width: 0 0 var(--checkmark-width) 0;
+  transform: translate(-50%, -50%) rotate(0deg) scale(1);
+}
+
+:host(.invalid) .checkbox-box-wrapper {
+  border-color: var(--border-error-color);
+}
+
 /* ==============================
-   Label
+   Label & Footer
    ============================== */
 
 .checkbox-label-container {
   color: var(--label-color);
-
   font-size: var(--label-font-size);
   font-weight: var(--label-font-weight);
-
   line-height: 1.4;
+  cursor: pointer;
+}
+
+.checkbox-label-container:empty {
+  display: none;
+}
+
+.required {
+  color: var(--border-error-color);
+  margin-left: 2px;
+}
+
+.checkbox-footer {
+  margin-top: 4px;
+}
+
+.helper-text,
+.error-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.helper-text {
+  color: var(--nx-color-gray-500, #64748b);
+}
+
+.error-text {
+  color: var(--border-error-color);
 }
 
 /* ==============================
@@ -171,10 +212,8 @@
   opacity: var(--disabled-opacity);
 }
 
-:host(.disabled) .checkbox-wrapper {
-  cursor: not-allowed;
-}
-
+:host(.disabled) .checkbox-wrapper,
+:host(.disabled) .checkbox-label-container,
 :host(.disabled) input {
   cursor: not-allowed;
 }

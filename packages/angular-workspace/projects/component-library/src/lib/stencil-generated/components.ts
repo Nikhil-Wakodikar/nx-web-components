@@ -30,21 +30,22 @@ export declare interface NxButton extends Components.NxButton {}
 
 
 @ProxyCmp({
-  inputs: ['alignment', 'checked', 'disabled', 'justify']
+  inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'indeterminate', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'value'],
+  methods: ['setFocus']
 })
 @Component({
   selector: 'nx-checkbox',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alignment', 'checked', 'disabled', 'justify'],
+  inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'indeterminate', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'value'],
 })
 export class NxCheckbox {
   protected el: HTMLNxCheckboxElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['checkedChange']);
+    proxyOutputs(this, this.el, ['checkedChange', 'nxChange', 'nxFocus', 'nxBlur']);
   }
 }
 
@@ -52,6 +53,12 @@ export class NxCheckbox {
 export declare interface NxCheckbox extends Components.NxCheckbox {
 
   checkedChange: EventEmitter<CustomEvent<boolean>>;
+
+  nxChange: EventEmitter<CustomEvent<boolean>>;
+
+  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+
+  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
 }
 
 
@@ -257,7 +264,7 @@ export declare interface NxProgress extends Components.NxProgress {}
 
 
 @ProxyCmp({
-  inputs: ['alignment', 'color', 'disabled', 'justify', 'labelPlacement', 'value'],
+  inputs: ['alignment', 'color', 'disabled', 'invalid', 'justify', 'labelPlacement', 'value'],
   methods: ['setFocus', 'setButtonTabindex']
 })
 @Component({
@@ -265,7 +272,7 @@ export declare interface NxProgress extends Components.NxProgress {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['alignment', 'color', 'disabled', 'justify', 'labelPlacement', 'value'],
+  inputs: ['alignment', 'color', 'disabled', 'invalid', 'justify', 'labelPlacement', 'value'],
 })
 export class NxRadio {
   protected el: HTMLNxRadioElement;
@@ -286,7 +293,7 @@ export declare interface NxRadio extends Components.NxRadio {
 
 
 @ProxyCmp({
-  inputs: ['allowEmptySelection', 'compareWith', 'disabled', 'errorText', 'helperText', 'invalid', 'name', 'value'],
+  inputs: ['allowEmptySelection', 'compareWith', 'direction', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'name', 'required', 'value'],
   methods: ['setFocus']
 })
 @Component({
@@ -294,7 +301,7 @@ export declare interface NxRadio extends Components.NxRadio {
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['allowEmptySelection', 'compareWith', 'disabled', 'errorText', 'helperText', 'invalid', 'name', 'value'],
+  inputs: ['allowEmptySelection', 'compareWith', 'direction', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'name', 'required', 'value'],
 })
 export class NxRadioGroup {
   protected el: HTMLNxRadioGroupElement;

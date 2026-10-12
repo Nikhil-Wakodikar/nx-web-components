@@ -69,7 +69,7 @@ export class NxCheckboxValueAccessor
   }
 
   writeValue(value: boolean) {
-    (this.el.nativeElement as any).checked = value;
+    (this.el.nativeElement as any).checked = Boolean(value);
   }
 
   registerOnChange(fn: any) {
@@ -90,7 +90,8 @@ export class NxCheckboxValueAccessor
     this.syncInvalidState();
   }
 
-  @HostListener('blur')
+  @HostListener('nxBlur')
+  @HostListener('focusout')
   handleBlur() {
     this.onTouched();
     this.syncInvalidState();

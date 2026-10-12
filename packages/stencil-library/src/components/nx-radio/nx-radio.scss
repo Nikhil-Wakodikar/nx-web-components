@@ -3,7 +3,9 @@
   --border-width: 1px;
 
   --border-color: var(--nx-color-gray-400, #94a3b8);
+  --border-hover-color: var(--nx-color-gray-600, #475569);
   --border-color-checked: var(--nx-color-primary, #8145b5);
+  --border-error-color: var(--nx-color-error, #dc2626);
 
   --background: var(--nx-color-white, #fff);
   --background-checked: var(--nx-color-primary, #8145b5);
@@ -17,6 +19,10 @@
   user-select: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 :host(.disabled) {
   opacity: var(--disabled-opacity);
   cursor: not-allowed;
@@ -25,7 +31,7 @@
 .radio-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .label-wrapper {
@@ -40,33 +46,28 @@
 
 .radio-icon {
   position: relative;
-
   width: var(--size);
   height: var(--size);
-
+  flex-shrink: 0;
   border-radius: 50%;
-
   border: var(--border-width) solid var(--border-color);
-
   background: var(--background);
-
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
 
-  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+:host(:not(.disabled):not(.checked):not(.invalid)):hover .radio-icon {
+  border-color: var(--border-hover-color);
 }
 
 .radio-inner {
   width: 10px;
   height: 10px;
-
   border-radius: 50%;
-
-  background: var(--nx-color-white, white);
-
+  background: var(--nx-color-white, #ffffff);
   transform: scale(0);
-
   transition: transform 0.18s ease;
 }
 
@@ -79,18 +80,22 @@
   transform: scale(1);
 }
 
+:host(.invalid) .radio-icon {
+  border-color: var(--border-error-color);
+}
+
 :host(:focus-visible) .radio-icon {
-  box-shadow: 0 0 0 4px color-mix(in srgb, var(--nx-color-primary) 20%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--border-color-checked) 20%, transparent);
 }
 
 /* ---------- Label Placement ---------- */
 
-:host(.label-start) .radio-wrapper {
-  flex-direction: row-reverse;
-}
-
 :host(.label-end) .radio-wrapper {
   flex-direction: row;
+}
+
+:host(.label-start) .radio-wrapper {
+  flex-direction: row-reverse;
 }
 
 :host(.label-stacked) .radio-wrapper {
@@ -116,6 +121,11 @@
 
 :host(.justify-space-between) {
   display: flex;
+  justify-content: space-between;
+}
+
+:host(.justify-space-between) .radio-wrapper {
+  width: 100%;
   justify-content: space-between;
 }
 
