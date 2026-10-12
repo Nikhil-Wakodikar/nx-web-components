@@ -26,7 +26,13 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
       nx-textarea[ngModel],
       nx-select[formControlName],
       nx-select[formControl],
-      nx-select[ngModel]
+      nx-select[ngModel],
+      nx-date-picker[formControlName],
+      nx-date-picker[formControl],
+      nx-date-picker[ngModel],
+      nx-time-picker[formControlName],
+      nx-time-picker[formControl],
+      nx-time-picker[ngModel]
   `,
 })
 export class InputValueAccessor

@@ -13,6 +13,8 @@ export class AppComponent {
     name: ['', Validators.required],
     password: ['', Validators.required],
     description: ['', Validators.required],
+    appointmentDate: ['', Validators.required],
+    appointmentTime: ['', Validators.required],
     notifications: [false, Validators.requiredTrue],
     acceptTcn: [false, Validators.requiredTrue],
     gender: ['', Validators.required],
