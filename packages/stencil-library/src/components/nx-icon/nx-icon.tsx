@@ -62,7 +62,7 @@ export class NxIcon {
   private get cssSize(): string {
     if (typeof this.size === 'number') return `${this.size}px`;
     const size = this.size?.toString().trim();
-    if (!size || size === 'medium' || size === 'default') return 'var(--nx-icon-size, 24px)';
+    if (!size || size === 'medium' || size === 'default') return 'var(--nx-icon-size, 20px)';
     if (size === 'small') return '16px';
     if (size === 'large') return '32px';
     if (/^\d+(\.\d+)?$/.test(size)) return `${size}px`;
