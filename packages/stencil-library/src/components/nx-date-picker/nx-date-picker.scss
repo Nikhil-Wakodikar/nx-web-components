@@ -19,6 +19,8 @@
   --font-size: var(--FontSize-16, 16px);
   --font-weight: 400;
   --control-height: 48px;
+  --icon-size: 20px;
+  --nx-icon-size: var(--icon-size, 20px);
 
   display: block;
   width: 100%;
@@ -140,8 +142,8 @@
 }
 
 .picker-icon {
-  width: 18px;
-  height: 18px;
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
   color: var(--color);
   fill: none;
   stroke: currentColor;

@@ -27,6 +27,9 @@
   --padding-start: 14px;
   --padding-end: 14px;
 
+  --icon-size: 20px;
+  --nx-icon-size: var(--icon-size, 20px);
+
   /* Start Slot */
   --start-background: transparent;
   --start-color: inherit;
@@ -149,6 +152,8 @@
   padding-left: var(--start-padding-start);
   padding-right: var(--start-padding-end);
   border-right: var(--start-border-right);
+  font-size: var(--icon-size, 20px);
+  --nx-icon-size: var(--icon-size, 20px);
 }
 
 .input-start[hidden] {
@@ -160,6 +165,17 @@
   align-items: center;
   justify-content: center;
   margin: 0;
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  font-size: var(--icon-size, 20px);
+  --nx-icon-size: var(--icon-size, 20px);
+}
+
+::slotted(nx-icon[slot='start']),
+::slotted(svg[slot='start']) {
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  font-size: var(--icon-size, 20px);
 }
 
 :host(.has-start-slot) .native-input {
@@ -182,6 +198,8 @@
   padding-right: var(--end-padding-end);
   border-right: none;
   border-left: var(--end-border-left);
+  font-size: var(--icon-size, 20px);
+  --nx-icon-size: var(--icon-size, 20px);
 }
 
 .input-end[hidden] {
@@ -193,6 +211,17 @@
   align-items: center;
   justify-content: center;
   margin: 0;
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  font-size: var(--icon-size, 20px);
+  --nx-icon-size: var(--icon-size, 20px);
+}
+
+::slotted(nx-icon[slot='end']),
+::slotted(svg[slot='end']) {
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  font-size: var(--icon-size, 20px);
 }
 
 :host(.has-end-slot) .native-input {
