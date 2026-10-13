@@ -161,7 +161,7 @@ export declare interface NxIcon extends Components.NxIcon {}
 
 
 @ProxyCmp({
-  inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'disabled', 'inputmode', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'success', 'type', 'value'],
+  inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'counter', 'disabled', 'errorText', 'helperText', 'inputmode', 'invalid', 'label', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'step', 'success', 'type', 'value'],
   methods: ['setInputValue', 'setFocus', 'getInputElement']
 })
 @Component({
@@ -169,7 +169,7 @@ export declare interface NxIcon extends Components.NxIcon {}
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'disabled', 'inputmode', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'success', 'type', 'value'],
+  inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'counter', 'disabled', 'errorText', 'helperText', 'inputmode', 'invalid', 'label', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'step', 'success', 'type', 'value'],
 })
 export class NxInput {
   protected el: HTMLNxInputElement;

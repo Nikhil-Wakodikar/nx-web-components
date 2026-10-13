@@ -62,15 +62,15 @@ export class NxIcon {
   private get cssSize(): string {
     if (typeof this.size === 'number') return `${this.size}px`;
     const size = this.size?.toString().trim();
-    if (!size || size === 'medium' || size === 'default') return '24px';
+    if (!size || size === 'medium' || size === 'default') return 'var(--nx-icon-size, 20px)';
     if (size === 'small') return '16px';
     if (size === 'large') return '32px';
     if (/^\d+(\.\d+)?$/.test(size)) return `${size}px`;
     return size;
   }
 
-  private get cssColor(): string {
-    if (!this.color) return 'currentColor';
+  private get cssColor(): string | undefined {
+    if (!this.color) return undefined;
     return colorTokens[this.color.toLowerCase()] || this.color;
   }
 
@@ -85,7 +85,7 @@ export class NxIcon {
         aria-hidden={accessibleLabel ? undefined : 'true'}
         style={{
           fontSize: this.cssSize,
-          color: this.cssColor,
+          ...(this.cssColor ? { color: this.cssColor } : {}),
         }}
       >
         {icon ? (

@@ -302,6 +302,7 @@
       label="First name"
       autocapitalize="characters"
     >
+      <nx-icon slot="start" name="user-round-key"></nx-icon>
     </nx-input>
 
     <nx-input type="password" formControlName="password" label="Password">
@@ -317,7 +318,9 @@
       [rows]="4"
       [required]="true"
       error-text="Description is required"
-    ></nx-textarea>
+    >
+      <nx-icon slot="start" name="user-round-key"></nx-icon>
+    </nx-textarea>
 
     <nx-select
       formControlName="plan"

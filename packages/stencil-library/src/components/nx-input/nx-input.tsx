@@ -18,6 +18,8 @@ export class NxInput {
 
   @State() hasFocus = false;
   @State() hasSlottedLabel = false;
+  @State() hasStartSlot = false;
+  @State() hasEndSlot = false;
 
   @Prop({ mutable: true }) value: string = '';
 
@@ -32,6 +34,9 @@ export class NxInput {
 
   @Prop() maxlength?: number;
   @Prop() minlength?: number;
+  @Prop() min?: string | number;
+  @Prop() max?: string | number;
+  @Prop() step?: string | number;
 
   @Prop() autocomplete = 'off';
   @Prop() autocapitalize = 'off';
@@ -41,8 +46,12 @@ export class NxInput {
   @Prop() pattern?: string;
   @Prop() spellcheck = false;
 
-  @Prop() invalid = false;
-  @Prop() success = false;
+  @Prop() counter = false;
+  @Prop() helperText?: string;
+  @Prop() errorText?: string;
+
+  @Prop({ reflect: true }) invalid = false;
+  @Prop({ reflect: true }) success = false;
 
   @Event({ bubbles: true, composed: true }) nxInput!: EventEmitter<string>;
 
@@ -57,11 +66,11 @@ export class NxInput {
       this.el,
       ['label', 'start', 'end'],
       () => {
-        this.checkSlottedLabel();
-      }
+        this.checkSlots();
+      },
     );
 
-    this.checkSlottedLabel();
+    this.checkSlots();
   }
 
   disconnectedCallback() {
@@ -93,19 +102,20 @@ export class NxInput {
   }
 
   @Method()
-  async getInputElement() {
+  async getInputElement(): Promise<HTMLInputElement> {
     return this.nativeInput;
   }
 
-  private checkSlottedLabel() {
-    const slot = this.el.querySelector('[slot="label"]');
-
-    this.hasSlottedLabel = !!slot;
-
-    if (slot && !slot.id) {
-      slot.id = this.labelTextId;
+  private checkSlots = () => {
+    const labelSlot = this.el.querySelector('[slot="label"]');
+    this.hasSlottedLabel = !!labelSlot;
+    if (labelSlot && !labelSlot.id) {
+      labelSlot.id = this.labelTextId;
     }
-  }
+
+    this.hasStartSlot = !!this.el.querySelector('[slot="start"]');
+    this.hasEndSlot = !!this.el.querySelector('[slot="end"]');
+  };
 
   private get hasLabel() {
     return this.label !== undefined || this.hasSlottedLabel;
@@ -127,23 +137,50 @@ export class NxInput {
     }
 
     return (
-      <div
-        class="label-text-wrapper"
-        part="label"
-      >
+      <div class="label-text-wrapper" part="label">
         {this.label !== undefined ? (
-          <div
-            class="label-text"
-            id={this.labelTextId}
-          >
+          <div class="label-text" id={this.labelTextId}>
             {this.label}
-
-            {this.required && (
-              <span class="required">*</span>
-            )}
+            {this.required && <span class="required">*</span>}
           </div>
         ) : (
-          <slot name="label"></slot>
+          <slot name="label" onSlotchange={this.checkSlots}></slot>
+        )}
+      </div>
+    );
+  }
+
+  private renderFooter() {
+    const showError = this.invalid && Boolean(this.errorText);
+    const showHelper = !showError && Boolean(this.helperText);
+    const showCounter = this.counter;
+
+    if (!showError && !showHelper && !showCounter) {
+      return null;
+    }
+
+    const currentLength = (this.value ?? '').length;
+    const counterText =
+      this.maxlength !== undefined ? `${currentLength} / ${this.maxlength}` : `${currentLength}`;
+
+    return (
+      <div class="input-footer" part="footer">
+        <div class="footer-message">
+          {showError && (
+            <div class="error-text" part="error-text">
+              {this.errorText}
+            </div>
+          )}
+          {showHelper && (
+            <div class="helper-text" part="helper-text">
+              {this.helperText}
+            </div>
+          )}
+        </div>
+        {showCounter && (
+          <div class="counter-text" part="counter">
+            {counterText}
+          </div>
         )}
       </div>
     );
@@ -182,8 +219,11 @@ export class NxInput {
       <Host
         class={{
           'has-focus': this.hasFocus,
-          invalid: this.invalid,
-          success: this.success,
+          'has-start-slot': this.hasStartSlot,
+          'has-end-slot': this.hasEndSlot,
+          'invalid': this.invalid,
+          'success': this.success,
+          'disabled': this.disabled,
         }}
       >
         <label
@@ -193,23 +233,16 @@ export class NxInput {
         >
           {this.renderLabel()}
 
-          <div
-            class="native-wrapper"
-            part="input-box"
-          >
-            <div
-              class="input-start"
-              part="start"
-            >
-              <slot name="start"></slot>
+          <div class="native-wrapper" part="input-box">
+            <div class="input-start" part="start" hidden={!this.hasStartSlot}>
+              <slot name="start" onSlotchange={this.checkSlots}></slot>
             </div>
 
             <input
-              ref={el => (
-                this.nativeInput = el as HTMLInputElement
-              )}
+              ref={el => (this.nativeInput = el as HTMLInputElement)}
               id={this.inputId}
               aria-labelledby={this.getLabelledById()}
+              aria-invalid={this.invalid ? 'true' : undefined}
               class="native-input"
               part="input"
               type={this.type}
@@ -221,6 +254,9 @@ export class NxInput {
               required={this.required}
               maxLength={this.maxlength}
               minLength={this.minlength}
+              min={this.min}
+              max={this.max}
+              step={this.step}
               autoComplete={this.autocomplete}
               autoCapitalize={this.autocapitalize}
               autoFocus={this.autofocus}
@@ -233,13 +269,12 @@ export class NxInput {
               onBlur={this.onBlur}
             />
 
-            <div
-              class="input-end"
-              part="end"
-            >
-              <slot name="end"></slot>
+            <div class="input-end" part="end" hidden={!this.hasEndSlot}>
+              <slot name="end" onSlotchange={this.checkSlots}></slot>
             </div>
           </div>
+
+          {this.renderFooter()}
         </label>
       </Host>
     );
