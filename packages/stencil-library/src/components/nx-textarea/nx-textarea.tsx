@@ -1,5 +1,4 @@
 import { Component, Element, Event, EventEmitter, Host, Method, Prop, State, Watch, h } from '@stencil/core';
-import { createSlotMutationController, SlotMutationController } from '../../utils/slot-mutation-controller';
 
 @Component({
   tag: 'nx-textarea',
@@ -14,7 +13,7 @@ export class NxTextarea {
   private textareaId = `nx-textarea-${textareaIds++}`;
   private labelTextId = `${this.textareaId}-label`;
 
-  private slotMutationController?: SlotMutationController;
+  private slotObserver?: MutationObserver;
 
   @State() hasFocus = false;
   @State() hasSlottedLabel = false;
@@ -61,15 +60,11 @@ export class NxTextarea {
   @Event({ bubbles: true, composed: true }) nxBlur!: EventEmitter<FocusEvent>;
 
   connectedCallback() {
-    this.slotMutationController = createSlotMutationController(
-      this.el,
-      ['label', 'start', 'end'],
-      () => {
-        this.checkSlots();
-      },
-    );
-
     this.checkSlots();
+    if (typeof MutationObserver !== 'undefined') {
+      this.slotObserver = new MutationObserver(() => this.checkSlots());
+      this.slotObserver.observe(this.el, { childList: true });
+    }
   }
 
   componentDidLoad() {
@@ -79,8 +74,8 @@ export class NxTextarea {
   }
 
   disconnectedCallback() {
-    this.slotMutationController?.destroy();
-    this.slotMutationController = undefined;
+    this.slotObserver?.disconnect();
+    this.slotObserver = undefined;
   }
 
   @Watch('value')
