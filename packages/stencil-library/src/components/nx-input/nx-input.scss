@@ -25,20 +25,20 @@
   --padding-top: 12px;
   --padding-bottom: 12px;
   --padding-start: 14px;
-  --padding-end: 30px;
+  --padding-end: 14px;
 
   /* Start Slot */
   --start-background: transparent;
-  --start-color: var(--color);
-  --start-padding-start: 0px;
+  --start-color: inherit;
+  --start-padding-start: 12px;
   --start-padding-end: 0px;
   --start-border-right: none;
 
   /* End Slot */
   --end-background: transparent;
-  --end-color: var(--color);
+  --end-color: inherit;
   --end-padding-start: 0px;
-  --end-padding-end: 0px;
+  --end-padding-end: 12px;
   --end-border-left: none;
 
   --font-family: var(--font-rubik, sans-serif);
@@ -62,12 +62,10 @@
 
 .input-wrapper {
   position: relative;
-
   display: flex;
   flex-direction: column;
-
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 
   &:has(.native-input:disabled) {
     pointer-events: none;
@@ -81,19 +79,15 @@
 .label-text-wrapper {
   display: flex;
   align-items: center;
-
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .label-text {
   display: inline-flex;
   align-items: center;
   gap: 4px;
-
   user-select: none;
-
   color: var(--title);
-
   font-family: var(--font-rubik-medium);
   font-size: var(--FontSize-14);
   font-weight: 500;
@@ -110,18 +104,12 @@
 
 .native-wrapper {
   position: relative;
-
   display: flex;
   align-items: stretch;
-
   width: 100%;
-
   min-height: 48px;
-
   overflow: hidden;
-
   background: var(--background);
-
   border: var(--border-width) var(--border-style) var(--border-color);
   border-radius: var(--border-radius);
 }
@@ -136,9 +124,6 @@
 
 .native-wrapper:focus-within {
   background: var(--background-focus);
-
-  // outline: var(--outline-focus);
-
   border: var(--border-width) var(--border-style) var(--border-focus-color);
 }
 
@@ -146,7 +131,6 @@
 
 .native-wrapper:has(.native-input:disabled) {
   background: var(--background-disabled);
-
   cursor: not-allowed;
 }
 
@@ -158,36 +142,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
-  /*
-   * Height comes from .native-wrapper.
-   * Do not set height here.
-   */
   min-height: 0;
-
   background: var(--start-background);
   color: var(--start-color);
-
   padding-left: var(--start-padding-start);
   padding-right: var(--start-padding-end);
-
   border-right: var(--start-border-right);
 }
 
-/*
- * Style the actual slotted content only for
- * basic layout. Avoid setting padding/background
- * here so the consumer can control it.
- */
+.input-start[hidden] {
+  display: none;
+}
 
 ::slotted([slot='start']) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+}
 
-  color: inherit;
+:host(.has-start-slot) .native-input {
+  padding-left: 10px;
 }
 
 /* ==========================================
@@ -198,26 +174,29 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   min-height: 0;
-
   background: var(--end-background);
   color: var(--end-color);
-
   padding-left: var(--end-padding-start);
   padding-right: var(--end-padding-end);
-
+  border-right: none;
   border-left: var(--end-border-left);
 }
 
+.input-end[hidden] {
+  display: none;
+}
+
 ::slotted([slot='end']) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  margin: 0;
+}
 
-  color: inherit;
+:host(.has-end-slot) .native-input {
+  padding-right: 10px;
 }
 
 /* ==========================================
@@ -226,30 +205,21 @@
 
 .native-input {
   flex: 1;
-
   min-width: 0;
-
   width: 100%;
-
   min-height: 0;
-
   background: transparent;
-
   color: var(--color);
-
   border: 0;
   outline: none;
-
+  margin: 0;
   padding: var(--padding-top) var(--padding-end) var(--padding-bottom) var(--padding-start);
-
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
   line-height: var(--line-height);
-
   appearance: none;
   resize: none;
-
   caret-color: var(--caret-color);
 
   &::placeholder {
@@ -258,10 +228,8 @@
 
   &:focus {
     background: transparent;
-
     outline: none;
     border: 0;
-
     color: var(--color);
 
     &::placeholder {
@@ -271,11 +239,8 @@
 
   &:disabled {
     background: transparent;
-
     cursor: not-allowed;
-
     color: var(--color);
-
     -webkit-text-fill-color: var(--color);
 
     &::placeholder {
@@ -295,59 +260,54 @@
 }
 
 /* ==========================================
-   Invalid State
+   Invalid & Success States
    ========================================== */
 
-:host(.invalid) .native-wrapper {
-  border-color: var(--border-error-color);
-}
-
+:host(.invalid) .native-wrapper,
 :host(.invalid) .native-wrapper:focus-within {
   border-color: var(--border-error-color);
   outline: none;
 }
-
-/* ==========================================
-   Success State
-   ========================================== */
 
 :host(.success) .native-wrapper {
   border-color: var(--border-success-color);
 }
 
 /* ==========================================
-   Error Icon
+   Footer (Helper, Error & Character Counter)
    ========================================== */
 
-.error-icon {
-  position: absolute;
-
-  right: 12px;
-
-  width: 16px;
-  height: 16px;
-
-  color: var(--border-error-color);
+.input-footer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
 }
 
-/* ==========================================
-   Helper / Error Text
-   ========================================== */
-
 .helper-text,
-.error-text {
-  margin-top: 4px;
-
+.error-text,
+.counter-text {
   font-family: var(--font-family);
   font-size: 12px;
   line-height: 16px;
 }
 
-.helper-text {
+.helper-text,
+.counter-text {
   color: var(--placeholder-color);
 }
 
 .error-text {
+  color: var(--border-error-color);
+}
+
+.counter-text {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+:host(.invalid) .counter-text {
   color: var(--border-error-color);
 }
 

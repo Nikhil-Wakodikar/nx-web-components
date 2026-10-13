@@ -69,8 +69,8 @@ export class NxIcon {
     return size;
   }
 
-  private get cssColor(): string {
-    if (!this.color) return 'currentColor';
+  private get cssColor(): string | undefined {
+    if (!this.color) return undefined;
     return colorTokens[this.color.toLowerCase()] || this.color;
   }
 
@@ -85,7 +85,7 @@ export class NxIcon {
         aria-hidden={accessibleLabel ? undefined : 'true'}
         style={{
           fontSize: this.cssSize,
-          color: this.cssColor,
+          ...(this.cssColor ? { color: this.cssColor } : {}),
         }}
       >
         {icon ? (

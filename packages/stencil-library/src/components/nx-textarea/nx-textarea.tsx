@@ -18,6 +18,8 @@ export class NxTextarea {
 
   @State() hasFocus = false;
   @State() hasSlottedLabel = false;
+  @State() hasStartSlot = false;
+  @State() hasEndSlot = false;
 
   @Prop({ mutable: true }) value: string = '';
 
@@ -29,7 +31,7 @@ export class NxTextarea {
   @Prop({ reflect: true }) disabled = false;
   @Prop({ reflect: true }) readonly = false;
 
-  @Prop() rows :number= 4;
+  @Prop() rows = 4;
   @Prop() cols?: number;
 
   @Prop() maxlength?: number;
@@ -47,8 +49,8 @@ export class NxTextarea {
   @Prop() helperText?: string;
   @Prop() errorText?: string;
 
-  @Prop() invalid = false;
-  @Prop() success = false;
+  @Prop({ reflect: true }) invalid = false;
+  @Prop({ reflect: true }) success = false;
 
   @Event({ bubbles: true, composed: true }) nxInput!: EventEmitter<string>;
 
@@ -63,11 +65,11 @@ export class NxTextarea {
       this.el,
       ['label', 'start', 'end'],
       () => {
-        this.checkSlottedLabel();
+        this.checkSlots();
       },
     );
 
-    this.checkSlottedLabel();
+    this.checkSlots();
   }
 
   componentDidLoad() {
@@ -122,15 +124,16 @@ export class NxTextarea {
     this.nativeTextarea.style.height = `${this.nativeTextarea.scrollHeight}px`;
   }
 
-  private checkSlottedLabel() {
-    const slot = this.el.querySelector('[slot="label"]');
-
-    this.hasSlottedLabel = !!slot;
-
-    if (slot && !slot.id) {
-      slot.id = this.labelTextId;
+  private checkSlots = () => {
+    const labelSlot = this.el.querySelector('[slot="label"]');
+    this.hasSlottedLabel = !!labelSlot;
+    if (labelSlot && !labelSlot.id) {
+      labelSlot.id = this.labelTextId;
     }
-  }
+
+    this.hasStartSlot = !!this.el.querySelector('[slot="start"]');
+    this.hasEndSlot = !!this.el.querySelector('[slot="end"]');
+  };
 
   private get hasLabel() {
     return this.label !== undefined || this.hasSlottedLabel;
@@ -159,7 +162,7 @@ export class NxTextarea {
             {this.required && <span class="required">*</span>}
           </div>
         ) : (
-          <slot name="label"></slot>
+          <slot name="label" onSlotchange={this.checkSlots}></slot>
         )}
       </div>
     );
@@ -168,9 +171,9 @@ export class NxTextarea {
   private renderFooter() {
     const showError = this.invalid && Boolean(this.errorText);
     const showHelper = !showError && Boolean(this.helperText);
-    const showCounter = this.counter || (this.maxlength !== undefined && this.counter !== false);
+    const showCounter = this.counter;
 
-    if (!showError && !showHelper && !this.counter) {
+    if (!showError && !showHelper && !showCounter) {
       return null;
     }
 
@@ -238,8 +241,11 @@ export class NxTextarea {
       <Host
         class={{
           'has-focus': this.hasFocus,
+          'has-start-slot': this.hasStartSlot,
+          'has-end-slot': this.hasEndSlot,
           'invalid': this.invalid,
           'success': this.success,
+          'disabled': this.disabled,
           'auto-grow': this.autoGrow,
           [`resize-${this.resize}`]: true,
         }}
@@ -252,8 +258,8 @@ export class NxTextarea {
           {this.renderLabel()}
 
           <div class="native-wrapper" part="textarea-box">
-            <div class="textarea-start" part="start">
-              <slot name="start"></slot>
+            <div class="textarea-start" part="start" hidden={!this.hasStartSlot}>
+              <slot name="start" onSlotchange={this.checkSlots}></slot>
             </div>
 
             <textarea
@@ -283,8 +289,8 @@ export class NxTextarea {
               onBlur={this.onBlur}
             ></textarea>
 
-            <div class="textarea-end" part="end">
-              <slot name="end"></slot>
+            <div class="textarea-end" part="end" hidden={!this.hasEndSlot}>
+              <slot name="end" onSlotchange={this.checkSlots}></slot>
             </div>
           </div>
 
@@ -296,4 +302,3 @@ export class NxTextarea {
 }
 
 let textareaIds = 0;
-

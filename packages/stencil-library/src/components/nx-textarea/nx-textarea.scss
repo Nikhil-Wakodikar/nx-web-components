@@ -29,16 +29,20 @@
 
   /* Start Slot */
   --start-background: transparent;
-  --start-color: var(--color);
-  --start-padding-start: 0px;
+  --start-color: inherit;
+  --start-padding-top: var(--padding-top);
+  --start-padding-bottom: var(--padding-bottom);
+  --start-padding-start: 12px;
   --start-padding-end: 0px;
   --start-border-right: none;
 
   /* End Slot */
   --end-background: transparent;
-  --end-color: var(--color);
+  --end-color: inherit;
+  --end-padding-top: var(--padding-top);
+  --end-padding-bottom: var(--padding-bottom);
   --end-padding-start: 0px;
-  --end-padding-end: 0px;
+  --end-padding-end: 12px;
   --end-border-left: none;
 
   --font-family: var(--font-rubik, sans-serif);
@@ -65,7 +69,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 
   &:has(.native-textarea:disabled) {
     pointer-events: none;
@@ -79,7 +83,7 @@
 .label-text-wrapper {
   display: flex;
   align-items: center;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 }
 
 .label-text {
@@ -145,16 +149,26 @@
   flex-shrink: 0;
   background: var(--start-background);
   color: var(--start-color);
+  padding-top: var(--start-padding-top);
+  padding-bottom: var(--start-padding-bottom);
   padding-left: var(--start-padding-start);
   padding-right: var(--start-padding-end);
   border-right: var(--start-border-right);
 }
 
+.textarea-start[hidden] {
+  display: none;
+}
+
 ::slotted([slot='start']) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: inherit;
+  margin: 0;
+}
+
+:host(.has-start-slot) .native-textarea {
+  padding-left: 10px;
 }
 
 .textarea-end {
@@ -164,16 +178,26 @@
   flex-shrink: 0;
   background: var(--end-background);
   color: var(--end-color);
+  padding-top: var(--end-padding-top);
+  padding-bottom: var(--end-padding-bottom);
   padding-left: var(--end-padding-start);
   padding-right: var(--end-padding-end);
   border-left: var(--end-border-left);
 }
 
+.textarea-end[hidden] {
+  display: none;
+}
+
 ::slotted([slot='end']) {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: inherit;
+  margin: 0;
+}
+
+:host(.has-end-slot) .native-textarea {
+  padding-right: 10px;
 }
 
 /* ==========================================
@@ -189,6 +213,7 @@
   color: var(--color);
   border: 0;
   outline: none;
+  margin: 0;
   padding: var(--padding-top) var(--padding-end) var(--padding-bottom) var(--padding-start);
   font-family: var(--font-family);
   font-size: var(--font-size);
@@ -259,10 +284,7 @@
    Invalid & Success States
    ========================================== */
 
-:host(.invalid) .native-wrapper {
-  border-color: var(--border-error-color);
-}
-
+:host(.invalid) .native-wrapper,
 :host(.invalid) .native-wrapper:focus-within {
   border-color: var(--border-error-color);
   outline: none;

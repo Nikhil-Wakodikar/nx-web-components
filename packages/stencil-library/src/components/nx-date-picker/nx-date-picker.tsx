@@ -158,13 +158,33 @@ export class NxDatePicker {
     this.viewMode = 'days';
   }
 
-  private parseIsoDate(iso?: string): Date | null {
-    if (!iso) return null;
-    const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso.trim());
-    if (!match) return null;
-    const year = Number(match[1]);
-    const month = Number(match[2]) - 1;
-    const day = Number(match[3]);
+  private parseIsoDate(input?: string): Date | null {
+    if (!input) return null;
+    const trimmed = input.trim();
+    const isoMatch = /^(\d{4})-(\d{2})-(\d{2})$/.exec(trimmed);
+    const slashMatch = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(trimmed);
+
+    let year: number;
+    let month: number;
+    let day: number;
+
+    if (isoMatch) {
+      year = Number(isoMatch[1]);
+      month = Number(isoMatch[2]) - 1;
+      day = Number(isoMatch[3]);
+    } else if (slashMatch) {
+      if (this.format === 'MM/DD/YYYY') {
+        month = Number(slashMatch[1]) - 1;
+        day = Number(slashMatch[2]);
+      } else {
+        day = Number(slashMatch[1]);
+        month = Number(slashMatch[2]) - 1;
+      }
+      year = Number(slashMatch[3]);
+    } else {
+      return null;
+    }
+
     const date = new Date(year, month, day);
     if (
       date.getFullYear() !== year ||
@@ -174,6 +194,11 @@ export class NxDatePicker {
       return null;
     }
     return date;
+  }
+
+  private normalizeToIso(input?: string): string {
+    const date = this.parseIsoDate(input);
+    return date ? this.toIsoDate(date) : '';
   }
 
   private toIsoDate(date: Date): string {
@@ -212,8 +237,10 @@ export class NxDatePicker {
   }
 
   private isDateDisabled(iso: string): boolean {
-    if (this.min && iso < this.min) return true;
-    if (this.max && iso > this.max) return true;
+    const minIso = this.normalizeToIso(this.min);
+    const maxIso = this.normalizeToIso(this.max);
+    if (minIso && iso < minIso) return true;
+    if (maxIso && iso > maxIso) return true;
     return false;
   }
 
