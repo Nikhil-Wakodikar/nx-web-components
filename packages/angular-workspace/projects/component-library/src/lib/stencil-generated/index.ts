@@ -3,6 +3,7 @@ import * as d from './components';
 
 export const DIRECTIVES = [
   d.NxButton,
+  d.NxCard,
   d.NxCheckbox,
   d.NxCol,
   d.NxDatePicker,
