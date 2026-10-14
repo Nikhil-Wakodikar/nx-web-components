@@ -381,4 +381,58 @@
 
     <nx-button class="btn-green" type="submit"> Continue </nx-button>
   </form>
+
+  <div
+    style="
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    "
+  >
+    <nx-card
+      header-title="Elevated Card"
+      subtitle="Default with 1px border & shadow"
+    >
+      <p style="margin: 0; color: #475569">
+        This is an elevated card component with customizable slots for media,
+        header, content, and footer.
+      </p>
+      <div
+        slot="footer"
+        style="display: flex; gap: 8px; justify-content: flex-end"
+      >
+        <nx-button fill="outline" size="small">Cancel</nx-button>
+        <nx-button size="small">Confirm</nx-button>
+      </div>
+    </nx-card>
+
+    <nx-card
+      variant="outlined"
+      hoverable
+      header-title="Outlined & Hoverable"
+      subtitle="Interactive card"
+    >
+      <p style="margin: 0; color: #475569">
+        Hover over this card to see smooth elevation lifting and shadow
+        transition.
+      </p>
+      <div slot="footer">
+        <nx-link href="https://example.com" external color="primary"
+          >Learn more</nx-link
+        >
+      </div>
+    </nx-card>
+
+    <nx-card variant="flat" padding="large">
+      <div slot="header">
+        <h3 style="margin: 0; font-size: 18px; color: #0f172a">
+          Custom Header Slot
+        </h3>
+      </div>
+      <p style="margin: 0; color: #475569">
+        Flat card with custom header slot and large padding.
+      </p>
+    </nx-card>
+  </div>
 </div>
