@@ -1,0 +1,189 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+  --background: var(--nx-color-white, #ffffff);
+  --color: var(--nx-color-gray-900, #0f172a);
+  --border-color: var(--nx-color-gray-200, #e2e8f0);
+  --border-width: 1px;
+  --header-padding: 16px;
+  --content-padding: 16px;
+  --icon-size: 20px;
+  --icon-color: var(--nx-color-gray-500, #64748b);
+  --hover-background: var(--nx-color-gray-50, #f8fafc);
+  --accent-color: var(--nx-color-primary, #8145b5);
+  --font-family: var(--font-rubik, sans-serif);
+  --title-font-family: var(--font-rubik-medium, var(--font-family));
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--background);
+  color: var(--color);
+  font-family: var(--font-family);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Standalone Bordered Accordion (when not inside a joined group) */
+:host(.accordion-bordered) {
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+:host(.accordion-borderless) {
+  border: none;
+}
+
+:host(.accordion-accent.is-open) {
+  border-left: 3px solid var(--accent-color);
+}
+
+/* ==========================================
+   Header Button
+   ========================================== */
+
+.accordion-header-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: var(--header-padding);
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  gap: 12px;
+  transition: background-color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background-color: var(--hover-background);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: -2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+.header-text-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.header-title {
+  font-family: var(--title-font-family);
+  font-size: var(--FontSize-16, 16px);
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--title, var(--color));
+}
+
+.header-subtitle {
+  margin-top: 2px;
+  font-size: var(--FontSize-13, 13px);
+  color: var(--nx-color-gray-500, #64748b);
+  line-height: 1.35;
+}
+
+/* Start and End Slots */
+
+.slot-start,
+.slot-end {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+::slotted([slot='start']),
+::slotted([slot='end']) {
+  font-size: var(--icon-size, 20px);
+  --nx-icon-size: var(--icon-size, 20px);
+}
+
+/* Toggle Icon */
+
+.accordion-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--icon-size, 20px);
+  height: var(--icon-size, 20px);
+  color: var(--icon-color);
+}
+
+.chevron-svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+:host(.is-open) .chevron-svg {
+  transform: rotate(180deg);
+}
+
+/* ==========================================
+   Collapsible Content Animation
+   ========================================== */
+
+.accordion-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  overflow: hidden;
+}
+
+:host(.is-open) .accordion-collapse {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.accordion-body {
+  min-height: 0;
+  padding: 0 var(--content-padding) var(--content-padding) var(--content-padding);
+  font-size: var(--FontSize-15, 15px);
+  line-height: 1.6;
+  color: var(--nx-color-gray-700, #334155);
+}
+
+/* ==========================================
+   Disabled State
+   ========================================== */
+
+:host(.is-disabled) {
+  opacity: 0.6;
+  cursor: not-allowed;
+
+  .accordion-header-btn {
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .accordion-collapse,
+  .chevron-svg,
+  .accordion-header-btn {
+    transition: none !important;
+  }
+}
+
