@@ -17,6 +17,7 @@ import { Components } from 'stencil-library';
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
+  outputs: ['nxToggle'],
 })
 export class NxAccordion {
   protected el: HTMLNxAccordionElement;
@@ -32,7 +33,7 @@ import type { NxAccordionToggleEventDetail as INxAccordionNxAccordionToggleEvent
 
 export declare interface NxAccordion extends Components.NxAccordion {
 
-  nxToggle: EventEmitter<CustomEvent<INxAccordionNxAccordionToggleEventDetail>>;
+  nxToggle: EventEmitter<INxAccordionNxAccordionToggleEventDetail>;
 }
 
 
@@ -46,6 +47,7 @@ export declare interface NxAccordion extends Components.NxAccordion {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disabled', 'displayMode', 'expandIconPosition', 'multiple', 'value', 'variant'],
+  outputs: ['nxChange'],
 })
 export class NxAccordionGroup {
   protected el: HTMLNxAccordionGroupElement;
@@ -61,7 +63,7 @@ import type { NxAccordionGroupChangeEventDetail as INxAccordionGroupNxAccordionG
 
 export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
 
-  nxChange: EventEmitter<CustomEvent<INxAccordionGroupNxAccordionGroupChangeEventDetail>>;
+  nxChange: EventEmitter<INxAccordionGroupNxAccordionGroupChangeEventDetail>;
 }
 
 
@@ -96,6 +98,7 @@ export declare interface NxButton extends Components.NxButton {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disabled', 'headerTitle', 'hoverable', 'href', 'padding', 'rel', 'subtitle', 'target', 'variant'],
+  outputs: ['nxClick'],
 })
 export class NxCard {
   protected el: HTMLNxCardElement;
@@ -109,7 +112,7 @@ export class NxCard {
 
 export declare interface NxCard extends Components.NxCard {
 
-  nxClick: EventEmitter<CustomEvent<MouseEvent>>;
+  nxClick: EventEmitter<MouseEvent>;
 }
 
 
@@ -123,6 +126,7 @@ export declare interface NxCard extends Components.NxCard {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'indeterminate', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'value'],
+  outputs: ['checkedChange', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxCheckbox {
   protected el: HTMLNxCheckboxElement;
@@ -136,13 +140,13 @@ export class NxCheckbox {
 
 export declare interface NxCheckbox extends Components.NxCheckbox {
 
-  checkedChange: EventEmitter<CustomEvent<boolean>>;
+  checkedChange: EventEmitter<boolean>;
 
-  nxChange: EventEmitter<CustomEvent<boolean>>;
+  nxChange: EventEmitter<boolean>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 
@@ -178,6 +182,7 @@ export declare interface NxCol extends Components.NxCol {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clearable', 'disabled', 'errorText', 'firstDayOfWeek', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'name', 'placeholder', 'readonly', 'required', 'showTodayButton', 'success', 'value'],
+  outputs: ['nxInput', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxDatePicker {
   protected el: HTMLNxDatePickerElement;
@@ -191,13 +196,13 @@ export class NxDatePicker {
 
 export declare interface NxDatePicker extends Components.NxDatePicker {
 
-  nxInput: EventEmitter<CustomEvent<string>>;
+  nxInput: EventEmitter<string>;
 
-  nxChange: EventEmitter<CustomEvent<string>>;
+  nxChange: EventEmitter<string>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 
@@ -254,6 +259,7 @@ export declare interface NxIcon extends Components.NxIcon {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'counter', 'disabled', 'errorText', 'helperText', 'inputmode', 'invalid', 'label', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'step', 'success', 'type', 'value'],
+  outputs: ['nxInput', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxInput {
   protected el: HTMLNxInputElement;
@@ -267,13 +273,13 @@ export class NxInput {
 
 export declare interface NxInput extends Components.NxInput {
 
-  nxInput: EventEmitter<CustomEvent<string>>;
+  nxInput: EventEmitter<string>;
 
-  nxChange: EventEmitter<CustomEvent<string>>;
+  nxChange: EventEmitter<string>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 
@@ -286,6 +292,7 @@ export declare interface NxInput extends Components.NxInput {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'disabled', 'download', 'external', 'href', 'label', 'rel', 'size', 'target', 'underline'],
+  outputs: ['nxClick'],
 })
 export class NxLink {
   protected el: HTMLNxLinkElement;
@@ -299,7 +306,7 @@ export class NxLink {
 
 export declare interface NxLink extends Components.NxLink {
 
-  nxClick: EventEmitter<CustomEvent<MouseEvent>>;
+  nxClick: EventEmitter<MouseEvent>;
 }
 
 
@@ -357,6 +364,7 @@ export declare interface NxProgress extends Components.NxProgress {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignment', 'color', 'disabled', 'invalid', 'justify', 'labelPlacement', 'value'],
+  outputs: ['nxFocus', 'nxBlur'],
 })
 export class NxRadio {
   protected el: HTMLNxRadioElement;
@@ -370,9 +378,9 @@ export class NxRadio {
 
 export declare interface NxRadio extends Components.NxRadio {
 
-  nxFocus: EventEmitter<CustomEvent<void>>;
+  nxFocus: EventEmitter<void>;
 
-  nxBlur: EventEmitter<CustomEvent<void>>;
+  nxBlur: EventEmitter<void>;
 }
 
 
@@ -386,6 +394,7 @@ export declare interface NxRadio extends Components.NxRadio {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['allowEmptySelection', 'compareWith', 'direction', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'name', 'required', 'value'],
+  outputs: ['nxChange', 'nxValueChange'],
 })
 export class NxRadioGroup {
   protected el: HTMLNxRadioGroupElement;
@@ -402,9 +411,9 @@ import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupVal
 
 export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
-  nxChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupChangeEventDetail>>;
+  nxChange: EventEmitter<INxRadioGroupNxRadioGroupChangeEventDetail>;
 
-  nxValueChange: EventEmitter<CustomEvent<INxRadioGroupNxRadioGroupValueChangeEventDetail>>;
+  nxValueChange: EventEmitter<INxRadioGroupNxRadioGroupValueChangeEventDetail>;
 }
 
 
@@ -439,6 +448,7 @@ export declare interface NxRow extends Components.NxRow {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disabled', 'invalid', 'label', 'name', 'placeholder', 'required', 'success', 'value'],
+  outputs: ['nxInput', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxSelect {
   protected el: HTMLNxSelectElement;
@@ -452,13 +462,13 @@ export class NxSelect {
 
 export declare interface NxSelect extends Components.NxSelect {
 
-  nxInput: EventEmitter<CustomEvent<string>>;
+  nxInput: EventEmitter<string>;
 
-  nxChange: EventEmitter<CustomEvent<string>>;
+  nxChange: EventEmitter<string>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 
@@ -516,6 +526,7 @@ export declare interface NxText extends Components.NxText {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'counter', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'success', 'value', 'wrap'],
+  outputs: ['nxInput', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxTextarea {
   protected el: HTMLNxTextareaElement;
@@ -529,13 +540,13 @@ export class NxTextarea {
 
 export declare interface NxTextarea extends Components.NxTextarea {
 
-  nxInput: EventEmitter<CustomEvent<string>>;
+  nxInput: EventEmitter<string>;
 
-  nxChange: EventEmitter<CustomEvent<string>>;
+  nxChange: EventEmitter<string>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 
@@ -549,6 +560,7 @@ export declare interface NxTextarea extends Components.NxTextarea {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clearable', 'disabled', 'errorText', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'minuteStep', 'name', 'placeholder', 'readonly', 'required', 'secondStep', 'showNowButton', 'showSeconds', 'success', 'value'],
+  outputs: ['nxInput', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxTimePicker {
   protected el: HTMLNxTimePickerElement;
@@ -562,13 +574,13 @@ export class NxTimePicker {
 
 export declare interface NxTimePicker extends Components.NxTimePicker {
 
-  nxInput: EventEmitter<CustomEvent<string>>;
+  nxInput: EventEmitter<string>;
 
-  nxChange: EventEmitter<CustomEvent<string>>;
+  nxChange: EventEmitter<string>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 
@@ -582,6 +594,7 @@ export declare interface NxTimePicker extends Components.NxTimePicker {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'size', 'value'],
+  outputs: ['checkedChange', 'nxChange', 'nxFocus', 'nxBlur'],
 })
 export class NxToggle {
   protected el: HTMLNxToggleElement;
@@ -595,13 +608,13 @@ export class NxToggle {
 
 export declare interface NxToggle extends Components.NxToggle {
 
-  checkedChange: EventEmitter<CustomEvent<boolean>>;
+  checkedChange: EventEmitter<boolean>;
 
-  nxChange: EventEmitter<CustomEvent<boolean>>;
+  nxChange: EventEmitter<boolean>;
 
-  nxFocus: EventEmitter<CustomEvent<FocusEvent>>;
+  nxFocus: EventEmitter<FocusEvent>;
 
-  nxBlur: EventEmitter<CustomEvent<FocusEvent>>;
+  nxBlur: EventEmitter<FocusEvent>;
 }
 
 

@@ -26,7 +26,11 @@ export class AppComponent {
     console.log('Form submitted:', this.tcnForm.value);
   }
 
-  change(event: any) {
+  changeAcc(event: any) {
     console.log('Accordion changed:', event);
+  }
+
+  changeRadio(event: any) {
+    console.log('Radio changed:', event);
   }
 }

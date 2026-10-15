@@ -8,11 +8,6 @@ export interface NxRadioGroupValueChangeEventDetail {
   value: any;
 }
 
-export interface NxRadioGroupCustomEvent<T = NxRadioGroupChangeEventDetail>
-  extends CustomEvent<T> {
-  detail: T;
-  target: HTMLElement;
-}
 
 @Component({
   tag: 'nx-radio-group',
