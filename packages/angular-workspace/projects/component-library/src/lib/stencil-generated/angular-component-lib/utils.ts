@@ -41,9 +41,6 @@ export const proxyOutputs = (instance: any, el: any, events: string[]) => {
     instance[eventName] = emitter;
     fromEvent(el, eventName).subscribe((ev: any) => {
       const data = ev && typeof ev === 'object' && 'detail' in ev ? ev.detail : ev;
-      if (ev && typeof ev.stopImmediatePropagation === 'function') {
-        ev.stopImmediatePropagation();
-      }
       if (instance.z) {
         instance.z.run(() => emitter.emit(data));
       } else {
