@@ -875,7 +875,7 @@
 // Error Message
 .error {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   margin: 4px 0px 0px;
   color: var(--color-dark-red);
   font-size: var(--FontSize-12);

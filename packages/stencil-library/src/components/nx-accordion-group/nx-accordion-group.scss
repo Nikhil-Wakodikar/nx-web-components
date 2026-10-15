@@ -34,6 +34,13 @@
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
   overflow: hidden;
+  box-shadow: var(--nx-shadow-sm, 0 1px 2px rgb(0 0 0 / 0.05));
+}
+
+:host(.group-bordered.display-default) ::slotted(nx-accordion) {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 :host(.group-bordered.display-default) ::slotted(nx-accordion:not(:last-child)) {
@@ -49,6 +56,7 @@
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
   overflow: hidden;
+  box-shadow: var(--nx-shadow-sm, 0 1px 2px rgb(0 0 0 / 0.05));
 }
 
 /* Disabled state */
@@ -57,4 +65,3 @@
   pointer-events: none;
   cursor: not-allowed;
 }
-

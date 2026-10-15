@@ -42,7 +42,14 @@ export class NxAccordion {
 
   @Prop() header?: string;
 
-  @Prop() subHeader?: string;
+  /** Name of the leading icon (e.g. 'circle-help', 'settings', 'user-round-key') */
+  @Prop() icon?: string;
+
+  /** Custom icon for the expand toggle (defaults to chevron) */
+  @Prop() toggleIcon?: string;
+
+  /** Optional alternate icon shown when expanded (e.g. 'minus' vs 'plus') */
+  @Prop() collapseIcon?: string;
 
   @Prop({ reflect: true, mutable: true }) open = false;
 
@@ -54,9 +61,14 @@ export class NxAccordion {
 
   @Prop() hideToggleIcon = false;
 
-  @State() hasStartSlot = false;
-  @State() hasEndSlot = false;
+  /** Optional custom padding for the accordion content when open (defaults to 12px) */
+  @Prop() contentPadding?: string;
+
   @State() hasHeaderSlot = false;
+  @State() hasContentSlot = false;
+  @State() hasIconSlot = false;
+  @State() hasEndSlot = false;
+  @State() hasToggleIconSlot = false;
 
   @Event({ bubbles: true, composed: true })
   nxToggle!: EventEmitter<NxAccordionToggleEventDetail>;
@@ -75,9 +87,11 @@ export class NxAccordion {
   }
 
   private checkSlots = () => {
-    this.hasStartSlot = !!this.el.querySelector('[slot="start"]');
-    this.hasEndSlot = !!this.el.querySelector('[slot="end"]');
     this.hasHeaderSlot = !!this.el.querySelector('[slot="header"]');
+    this.hasContentSlot = !!this.el.querySelector('[slot="content"]');
+    this.hasIconSlot = !!this.el.querySelector('[slot="icon"]') || !!this.el.querySelector('[slot="start"]');
+    this.hasEndSlot = !!this.el.querySelector('[slot="end"]');
+    this.hasToggleIconSlot = !!this.el.querySelector('[slot="toggle-icon"]');
   };
 
   @Method()
@@ -129,11 +143,53 @@ export class NxAccordion {
     }
   };
 
+  private get hasLeadingIcon(): boolean {
+    return this.hasIconSlot || !!this.icon;
+  }
+
+  private renderLeadingIcon() {
+    if (!this.hasLeadingIcon) return null;
+
+    return (
+      <span class="accordion-icon" part="icon" aria-hidden="true">
+        <slot name="icon">
+          <slot name="start" onSlotchange={this.checkSlots}>
+            {this.icon && <nx-icon name={this.icon} size="20px"></nx-icon>}
+          </slot>
+        </slot>
+      </span>
+    );
+  }
+
   private renderToggleIcon() {
     if (this.hideToggleIcon) return null;
 
+    if (this.hasToggleIconSlot) {
+      return (
+        <span class="accordion-toggle-icon" part="toggle-icon" aria-hidden="true">
+          <slot name="toggle-icon" onSlotchange={this.checkSlots}></slot>
+        </span>
+      );
+    }
+
+    if (this.open && this.collapseIcon) {
+      return (
+        <span class="accordion-toggle-icon has-collapse-icon" part="toggle-icon" aria-hidden="true">
+          <nx-icon name={this.collapseIcon} size="20px"></nx-icon>
+        </span>
+      );
+    }
+
+    if (this.toggleIcon) {
+      return (
+        <span class="accordion-toggle-icon is-custom-toggle" part="toggle-icon" aria-hidden="true">
+          <nx-icon name={this.toggleIcon} size="20px"></nx-icon>
+        </span>
+      );
+    }
+
     return (
-      <span class="accordion-icon" aria-hidden="true" part="icon">
+      <span class="accordion-toggle-icon" part="toggle-icon" aria-hidden="true">
         <svg
           class="chevron-svg"
           viewBox="0 0 24 24"
@@ -151,10 +207,9 @@ export class NxAccordion {
 
   private renderHeaderContent() {
     return (
-      <div class="header-text-container" part="header-content">
+      <div class="accordion-header-content" part="header">
         <slot name="header" onSlotchange={this.checkSlots}>
-          {this.header && <span class="header-title" part="title">{this.header}</span>}
-          {this.subHeader && <span class="header-subtitle" part="subtitle">{this.subHeader}</span>}
+          {this.header}
         </slot>
       </div>
     );
@@ -169,7 +224,9 @@ export class NxAccordion {
           'is-open': this.open,
           'is-disabled': this.disabled,
           [`icon-${this.expandIconPosition}`]: true,
+          'has-leading-icon': this.hasLeadingIcon,
         }}
+        style={this.contentPadding ? { '--content-padding': this.contentPadding } : undefined}
       >
         <button
           type="button"
@@ -184,9 +241,7 @@ export class NxAccordion {
         >
           {this.expandIconPosition === 'start' && this.renderToggleIcon()}
 
-          <span class="slot-start" part="start" hidden={!this.hasStartSlot}>
-            <slot name="start" onSlotchange={this.checkSlots}></slot>
-          </span>
+          {this.renderLeadingIcon()}
 
           {this.renderHeaderContent()}
 
@@ -205,11 +260,11 @@ export class NxAccordion {
           part="collapse"
         >
           <div class="accordion-body" part="body">
-            <slot></slot>
+            <slot name="content" onSlotchange={this.checkSlots}></slot>
+            {!this.hasContentSlot && <slot></slot>}
           </div>
         </div>
       </Host>
     );
   }
 }
-

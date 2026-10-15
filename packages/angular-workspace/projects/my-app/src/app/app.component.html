@@ -447,34 +447,39 @@
     >
       Accordion Group (Single Select)
     </h2>
-    <nx-accordion-group value="first">
-      <nx-accordion
-        value="first"
-        header="What is NX Web Components?"
-        sub-header="General information"
-      >
-        <p style="margin: 0">
-          NX Web Components is a framework-agnostic design system built with
-          Stencil and distributed with first-class Angular bindings.
-        </p>
+    <nx-accordion-group (nxChange)="change($event)">
+      <nx-accordion value="first">
+        <span slot="header"> What is NX Web Components? </span>
+        <div slot="content">
+          <p style="margin: 0">
+            NX Web Components is a framework-agnostic design system built with
+            Stencil and distributed with first-class Angular bindings.
+          </p>
+        </div>
       </nx-accordion>
 
-      <nx-accordion value="second" header="How does multi-expansion work?">
-        <p style="margin: 0">
-          Set the <code>[multiple]="true"</code> property on
-          <code>&lt;nx-accordion-group&gt;</code> to allow multiple items to
-          expand simultaneously.
-        </p>
+      <nx-accordion value="second" icon="user-round-key">
+        <span slot="header">User Authentication & Security</span>
+        <div slot="content">
+          <p style="margin: 0">
+            Easily manage multi-factor authentication, sessions, and security
+            permissions.
+          </p>
+        </div>
       </nx-accordion>
 
-      <nx-accordion value="third" header="Can I customize header and slots?">
-        <span slot="start">
-          <nx-icon name="circle-help"></nx-icon>
-        </span>
-        <p style="margin: 0">
-          Yes! You can use <code>slot="start"</code>, <code>slot="end"</code>,
-          or a custom <code>slot="header"</code> for complete control.
-        </p>
+      <nx-accordion value="third" toggleIcon="panel-bottom-open">
+        <span slot="header">
+          <nx-icon style="margin-right: 8ox" name="user-round-key"></nx-icon>
+          Custom Header via slot="header"</span
+        >
+        <div slot="content">
+          <p style="margin: 0">
+            Both header and body content are provided cleanly via
+            <code>slot="header"</code> and <code>slot="content"</code> with 12px
+            padding.
+          </p>
+        </div>
       </nx-accordion>
     </nx-accordion-group>
   </div>

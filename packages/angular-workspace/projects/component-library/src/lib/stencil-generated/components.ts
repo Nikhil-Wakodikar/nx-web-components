@@ -8,7 +8,7 @@ import { Components } from 'stencil-library';
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'open', 'subHeader', 'value', 'variant'],
+  inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
   methods: ['expand', 'collapse', 'toggle']
 })
 @Component({
@@ -16,7 +16,7 @@ import { Components } from 'stencil-library';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'open', 'subHeader', 'value', 'variant'],
+  inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
 })
 export class NxAccordion {
   protected el: HTMLNxAccordionElement;
