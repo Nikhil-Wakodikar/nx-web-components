@@ -267,7 +267,7 @@
     </nx-checkbox>
   </div>
 
-  <nx-radio-group value="male">
+  <nx-radio-group value="male" (nxChange)="changeRadio($event)">
     <nx-radio value="male">Male</nx-radio>
 
     <nx-radio value="female">Female</nx-radio>
@@ -447,7 +447,7 @@
     >
       Accordion Group (Single Select)
     </h2>
-    <nx-accordion-group (nxChange)="change($event)">
+    <nx-accordion-group (nxChange)="changeAcc($event)">
       <nx-accordion value="first">
         <span slot="header"> What is NX Web Components? </span>
         <div slot="content">

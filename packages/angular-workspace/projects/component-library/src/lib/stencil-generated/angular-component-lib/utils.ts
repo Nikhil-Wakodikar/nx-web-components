@@ -1,6 +1,7 @@
 /* eslint-disable */
 /* tslint:disable */
-import { fromEvent } from 'rxjs';
+import { EventEmitter } from '@angular/core';
+import { fromEvent, map } from 'rxjs';
 
 export const proxyInputs = (Cmp: any, inputs: string[]) => {
   const Prototype = Cmp.prototype;
@@ -35,7 +36,21 @@ export const proxyMethods = (Cmp: any, methods: string[]) => {
 };
 
 export const proxyOutputs = (instance: any, el: any, events: string[]) => {
-  events.forEach((eventName) => (instance[eventName] = fromEvent(el, eventName)));
+  events.forEach((eventName) => {
+    const emitter = new EventEmitter();
+    instance[eventName] = emitter;
+    fromEvent(el, eventName).subscribe((ev: any) => {
+      const data = ev && typeof ev === 'object' && 'detail' in ev ? ev.detail : ev;
+      if (ev && typeof ev.stopImmediatePropagation === 'function') {
+        ev.stopImmediatePropagation();
+      }
+      if (instance.z) {
+        instance.z.run(() => emitter.emit(data));
+      } else {
+        emitter.emit(data);
+      }
+    });
+  });
 };
 
 export const defineCustomElement = (tagName: string, customElement: any) => {
