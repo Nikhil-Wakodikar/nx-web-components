@@ -435,4 +435,52 @@
       </p>
     </nx-card>
   </div>
+
+  <div style="margin-top: 32px">
+    <h2
+      style="
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 16px;
+        color: #0f172a;
+      "
+    >
+      Accordion Group (Single Select)
+    </h2>
+    <nx-accordion-group (nxChange)="change($event)">
+      <nx-accordion value="first">
+        <span slot="header"> What is NX Web Components? </span>
+        <div slot="content">
+          <p style="margin: 0">
+            NX Web Components is a framework-agnostic design system built with
+            Stencil and distributed with first-class Angular bindings.
+          </p>
+        </div>
+      </nx-accordion>
+
+      <nx-accordion value="second" icon="user-round-key">
+        <span slot="header">User Authentication & Security</span>
+        <div slot="content">
+          <p style="margin: 0">
+            Easily manage multi-factor authentication, sessions, and security
+            permissions.
+          </p>
+        </div>
+      </nx-accordion>
+
+      <nx-accordion value="third" toggleIcon="panel-bottom-open">
+        <span slot="header">
+          <nx-icon style="margin-right: 8ox" name="user-round-key"></nx-icon>
+          Custom Header via slot="header"</span
+        >
+        <div slot="content">
+          <p style="margin: 0">
+            Both header and body content are provided cleanly via
+            <code>slot="header"</code> and <code>slot="content"</code> with 12px
+            padding.
+          </p>
+        </div>
+      </nx-accordion>
+    </nx-accordion-group>
+  </div>
 </div>

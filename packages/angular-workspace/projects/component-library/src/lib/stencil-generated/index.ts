@@ -2,6 +2,8 @@
 import * as d from './components';
 
 export const DIRECTIVES = [
+  d.NxAccordion,
+  d.NxAccordionGroup,
   d.NxButton,
   d.NxCard,
   d.NxCheckbox,

@@ -1,0 +1,67 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+  --gap: 0px;
+  --border-radius: var(--border-radius-8, 8px);
+  --border-color: var(--nx-color-gray-200, #e2e8f0);
+  --border-width: 1px;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.accordion-group-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: var(--gap);
+}
+
+/* ==========================================
+   Display Modes
+   ========================================== */
+
+/* Default Bordered: joined border container */
+:host(.group-bordered.display-default) {
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--nx-shadow-sm, 0 1px 2px rgb(0 0 0 / 0.05));
+}
+
+:host(.group-bordered.display-default) ::slotted(nx-accordion) {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+:host(.group-bordered.display-default) ::slotted(nx-accordion:not(:last-child)) {
+  border-bottom: var(--border-width) solid var(--border-color);
+}
+
+/* Flat / Card mode: separate items with gap */
+:host(.display-flat) {
+  --gap: 12px;
+}
+
+:host(.display-flat) ::slotted(nx-accordion) {
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--nx-shadow-sm, 0 1px 2px rgb(0 0 0 / 0.05));
+}
+
+/* Disabled state */
+:host(.is-disabled) {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}

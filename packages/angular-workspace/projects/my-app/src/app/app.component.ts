@@ -25,4 +25,8 @@ export class AppComponent {
   onSubmitTnc() {
     console.log('Form submitted:', this.tcnForm.value);
   }
+
+  change(event: any) {
+    console.log('Accordion changed:', event);
+  }
 }

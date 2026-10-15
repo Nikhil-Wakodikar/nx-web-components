@@ -8,6 +8,64 @@ import { Components } from 'stencil-library';
 
 
 @ProxyCmp({
+  inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
+  methods: ['expand', 'collapse', 'toggle']
+})
+@Component({
+  selector: 'nx-accordion',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
+})
+export class NxAccordion {
+  protected el: HTMLNxAccordionElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxToggle']);
+  }
+}
+
+
+import type { NxAccordionToggleEventDetail as INxAccordionNxAccordionToggleEventDetail } from 'stencil-library';
+
+export declare interface NxAccordion extends Components.NxAccordion {
+
+  nxToggle: EventEmitter<CustomEvent<INxAccordionNxAccordionToggleEventDetail>>;
+}
+
+
+@ProxyCmp({
+  inputs: ['disabled', 'displayMode', 'expandIconPosition', 'multiple', 'value', 'variant'],
+  methods: ['getAccordions', 'requestToggle']
+})
+@Component({
+  selector: 'nx-accordion-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['disabled', 'displayMode', 'expandIconPosition', 'multiple', 'value', 'variant'],
+})
+export class NxAccordionGroup {
+  protected el: HTMLNxAccordionGroupElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxChange']);
+  }
+}
+
+
+import type { NxAccordionGroupChangeEventDetail as INxAccordionGroupNxAccordionGroupChangeEventDetail } from 'stencil-library';
+
+export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
+
+  nxChange: EventEmitter<CustomEvent<INxAccordionGroupNxAccordionGroupChangeEventDetail>>;
+}
+
+
+@ProxyCmp({
   inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type']
 })
 @Component({
