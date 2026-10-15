@@ -6,7 +6,7 @@ const componentsPath = path.resolve(root, 'packages/angular-workspace/projects/c
 const utilsPath = path.resolve(root, 'packages/angular-workspace/projects/component-library/src/lib/stencil-generated/angular-component-lib/utils.ts');
 const templateUtilsPath = path.resolve(root, 'node_modules/@stencil/angular-output-target/angular-component-lib/utils.ts');
 
-// 1. Patch utils.ts files to use EventEmitter and unwrap detail
+// 1. Patch utils.ts files to use EventEmitter and unwrap detail cleanly without stopImmediatePropagation
 function patchUtils(filePath) {
   if (!fs.existsSync(filePath)) return;
   let content = fs.readFileSync(filePath, 'utf8');
@@ -27,9 +27,6 @@ function patchUtils(filePath) {
     instance[eventName] = emitter;
     fromEvent(el, eventName).subscribe((ev: any) => {
       const data = ev && typeof ev === 'object' && 'detail' in ev ? ev.detail : ev;
-      if (ev && typeof ev.stopImmediatePropagation === 'function') {
-        ev.stopImmediatePropagation();
-      }
       if (instance.z) {
         instance.z.run(() => emitter.emit(data));
       } else {
@@ -53,7 +50,7 @@ function patchUtils(filePath) {
 patchUtils(utilsPath);
 patchUtils(templateUtilsPath);
 
-// 2. Patch node_modules generator files to include outputs: [...] in @Component
+// 2. Ensure node_modules generator files DO NOT include outputs: [...] in @Component
 const generatorFiles = [
   path.resolve(root, 'node_modules/@stencil/angular-output-target/dist/generate-angular-component.js'),
   path.resolve(root, 'node_modules/@stencil/angular-output-target/dist/index.cjs.js'),
@@ -63,13 +60,13 @@ const generatorFiles = [
 generatorFiles.forEach((file) => {
   if (fs.existsSync(file)) {
     let content = fs.readFileSync(file, 'utf8');
-    if (!content.includes('outputs: [${formattedOutputs}]')) {
+    if (content.includes('outputs: [${formattedOutputs}]')) {
       content = content.replace(
-        /inputs: \[\$\{formattedInputs\}\],(\$\{standaloneOption\})/g,
-        'inputs: [${formattedInputs}],${hasOutputs ? `\\n  outputs: [${formattedOutputs}],` : \'\'}$1'
+        /\$\{hasOutputs \? `\\n  outputs: \[\$\{formattedOutputs\}\],` : ''\}/g,
+        ''
       );
       fs.writeFileSync(file, content, 'utf8');
-      console.log('[clean-angular-events] Patched generator file:', file);
+      console.log('[clean-angular-events] Reverted outputs in generator file:', file);
     }
   }
 });
@@ -85,23 +82,9 @@ if (fs.existsSync(componentsPath)) {
     content = content.replace(/EventEmitter<CustomEvent<([^<>]+)>>/g, 'EventEmitter<$1>');
   }
 
-  // 3b. Ensure outputs: [...] is declared on @Component whenever proxyOutputs is present
-  const classBlocks = content.split(/(@Component\(\{[\s\S]*?export class \w+ \{[\s\S]*?\n\})/g);
-  for (let i = 0; i < classBlocks.length; i++) {
-    const block = classBlocks[i];
-    if (block.startsWith('@Component({')) {
-      const proxyMatch = block.match(/proxyOutputs\(this,\s*this\.el,\s*(\[[^\]]+\])\);/);
-      if (proxyMatch && !block.includes('outputs:')) {
-        const outputsStr = proxyMatch[1];
-        classBlocks[i] = block.replace(
-          /(inputs:\s*\[[^\]]*\],?)/,
-          `$1\n  outputs: ${outputsStr},`
-        );
-      }
-    }
-  }
-  content = classBlocks.join('');
+  // 3b. Remove outputs: [...] from @Component metadata to prevent double firing in Ivy
+  content = content.replace(/\n\s*outputs:\s*\[[^\]]*\],/g, '');
 
   fs.writeFileSync(componentsPath, content, 'utf8');
-  console.log('[clean-angular-events] Ensured outputs metadata and cleaned EventEmitters in components.ts.');
+  console.log('[clean-angular-events] Cleaned EventEmitters and removed outputs metadata from components.ts.');
 }

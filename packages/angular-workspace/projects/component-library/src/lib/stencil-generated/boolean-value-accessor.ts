@@ -17,10 +17,16 @@ import { Subscription } from 'rxjs';
 import { handleSharedFormSubmit } from '../utils/form-validation.helper';
 
 @Directive({
-  selector:
-    'nx-checkbox[formControlName],nx-checkbox[formControl],nx-checkbox[ngModel],nx-toggle[formControlName],nx-toggle[formControl],nx-toggle[ngModel]',
+  selector: `
+    nx-checkbox[formControlName],
+    nx-checkbox[formControl],
+    nx-checkbox[ngModel],
+    nx-toggle[formControlName],
+    nx-toggle[formControl],
+    nx-toggle[ngModel]
+  `,
 })
-export class NxCheckboxValueAccessor
+export class BooleanValueAccessor
   implements ControlValueAccessor, OnInit, OnDestroy
 {
   private statusSub!: Subscription;
@@ -68,7 +74,7 @@ export class NxCheckboxValueAccessor
     if (this.submitSub) this.submitSub.unsubscribe();
   }
 
-  writeValue(value: boolean) {
+  writeValue(value: any) {
     (this.el.nativeElement as any).checked = Boolean(value);
   }
 
@@ -84,9 +90,14 @@ export class NxCheckboxValueAccessor
     (this.el.nativeElement as any).disabled = isDisabled;
   }
 
-  @HostListener('checkedChange', ['$event.detail'])
-  handleCheckedChange(value: boolean) {
-    this.onChange(value);
+  @HostListener('checkedChange', ['$event'])
+  @HostListener('nxChange', ['$event'])
+  handleCheckedChange(event: any) {
+    const value =
+      event && typeof event === 'object' && 'detail' in event
+        ? event.detail
+        : event;
+    this.onChange(Boolean(value));
     this.syncInvalidState();
   }
 
@@ -106,6 +117,9 @@ export class NxCheckboxValueAccessor
       this.ngControl.invalid &&
       (this.ngControl.touched || this.ngControl.dirty || isSubmitted)
     );
-    (this.el.nativeElement as any).invalid = isInvalid;
+    this.el.nativeElement.invalid = isInvalid;
   }
 }
+
+export { BooleanValueAccessor as NxCheckboxValueAccessor };
+

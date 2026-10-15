@@ -18,12 +18,24 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
 
 @Directive({
   selector: `
-      nx-radio-group[formControlName],
-      nx-radio-group[formControl],
-      nx-radio-group[ngModel]
+    nx-input[formControlName],
+    nx-input[formControl],
+    nx-input[ngModel],
+    nx-textarea[formControlName],
+    nx-textarea[formControl],
+    nx-textarea[ngModel],
+    nx-select[formControlName],
+    nx-select[formControl],
+    nx-select[ngModel],
+    nx-date-picker[formControlName],
+    nx-date-picker[formControl],
+    nx-date-picker[ngModel],
+    nx-time-picker[formControlName],
+    nx-time-picker[formControl],
+    nx-time-picker[ngModel]
   `,
 })
-export class RadioGroupValueAccessorDirective
+export class TextValueAccessor
   implements ControlValueAccessor, OnInit, OnDestroy
 {
   private statusSub!: Subscription;
@@ -72,7 +84,7 @@ export class RadioGroupValueAccessorDirective
   }
 
   writeValue(value: any): void {
-    this.el.nativeElement.value = value;
+    this.el.nativeElement.value = value ?? '';
   }
 
   registerOnChange(fn: any): void {
@@ -87,13 +99,18 @@ export class RadioGroupValueAccessorDirective
     this.el.nativeElement.disabled = isDisabled;
   }
 
+  @HostListener('nxInput', ['$event'])
   @HostListener('nxChange', ['$event'])
-  handleChange(event: any) {
-    const value = event?.detail?.value !== undefined ? event.detail.value : event?.target?.value;
-    this.onChange(value);
+  handleInput(event: any) {
+    const value =
+      event && typeof event === 'object' && 'detail' in event
+        ? event.detail
+        : event;
+    this.onChange(value ?? '');
     this.syncInvalidState();
   }
 
+  @HostListener('nxBlur')
   @HostListener('focusout')
   handleBlur() {
     this.onTouched();
@@ -112,3 +129,6 @@ export class RadioGroupValueAccessorDirective
     this.el.nativeElement.invalid = isInvalid;
   }
 }
+
+export { TextValueAccessor as InputValueAccessor };
+

@@ -3,22 +3,24 @@ import { DIRECTIVES } from './stencil-generated';
 import { defineCustomElements } from 'stencil-library/loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NxCheckboxValueAccessor } from './stencil-generated/checkbox-value-accessor';
-import { InputValueAccessor } from './stencil-generated/input-value-accessor';
-import { RadioGroupValueAccessorDirective } from './stencil-generated/radio-group-value-accessor';
+import { EVENT_MANAGER_PLUGINS } from '@angular/platform-browser';
+import { BooleanValueAccessor } from './stencil-generated/boolean-value-accessor';
+import { TextValueAccessor } from './stencil-generated/text-value-accessor';
+import { RadioValueAccessor } from './stencil-generated/radio-value-accessor';
+import { NxEventPlugin } from './plugins/nx-event.plugin';
 
 @NgModule({
   declarations: [
-    RadioGroupValueAccessorDirective,
-    InputValueAccessor,
-    NxCheckboxValueAccessor,
+    RadioValueAccessor,
+    TextValueAccessor,
+    BooleanValueAccessor,
     ...DIRECTIVES,
   ],
   imports: [CommonModule, FormsModule, ReactiveFormsModule],
   exports: [
-    RadioGroupValueAccessorDirective,
-    NxCheckboxValueAccessor,
-    InputValueAccessor,
+    RadioValueAccessor,
+    BooleanValueAccessor,
+    TextValueAccessor,
     ...DIRECTIVES,
   ],
   providers: [
@@ -27,6 +29,11 @@ import { RadioGroupValueAccessorDirective } from './stencil-generated/radio-grou
       useFactory: () => {
         return defineCustomElements;
       },
+      multi: true,
+    },
+    {
+      provide: EVENT_MANAGER_PLUGINS,
+      useClass: NxEventPlugin,
       multi: true,
     },
   ],
