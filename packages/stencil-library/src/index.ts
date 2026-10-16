@@ -14,3 +14,4 @@ export {AmountVariant} from "./models/componentVariants.model";
 export {RadiochipInputList, RadiochipLayoutVariant, RadiochipSizeVariant} from "./models/componentProps.model"
 export { format } from './utils/utils';
 export type * from './components.d.ts';
+export type { NxToastPosition, NxToastVariant, NxToastDismissDetail } from './components/nx-toast/nx-toast';

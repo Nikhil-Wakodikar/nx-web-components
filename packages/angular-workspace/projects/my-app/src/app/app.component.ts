@@ -33,4 +33,29 @@ export class AppComponent {
   changeRadio(event: any) {
     console.log('Radio changed:', event);
   }
+
+  toastOpen = false;
+  toastVariant:
+    | 'default'
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'danger'
+    | 'info' = 'success';
+  toastMessage = 'Operation completed successfully!';
+  toastHeader = 'Success';
+  toastPosition: any = 'top-right';
+
+  showToast(
+    variant: 'default' | 'primary' | 'success' | 'warning' | 'danger' | 'info',
+    message: string,
+    header: string,
+    position: string = 'top-right'
+  ) {
+    this.toastVariant = variant;
+    this.toastMessage = message;
+    this.toastHeader = header;
+    this.toastPosition = position;
+    this.toastOpen = true;
+  }
 }
