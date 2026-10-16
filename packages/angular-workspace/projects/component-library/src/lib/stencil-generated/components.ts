@@ -573,6 +573,49 @@ export declare interface NxTimePicker extends Components.NxTimePicker {
 
 
 @ProxyCmp({
+  inputs: ['actionText', 'animated', 'dismissible', 'duration', 'header', 'icon', 'isOpen', 'message', 'pauseOnHover', 'position', 'showIcon', 'showProgressBar', 'translucent', 'variant'],
+  methods: ['present', 'dismiss']
+})
+@Component({
+  selector: 'nx-toast',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['actionText', 'animated', 'dismissible', 'duration', 'header', 'icon', 'isOpen', 'message', 'pauseOnHover', 'position', 'showIcon', 'showProgressBar', 'translucent', 'variant'],
+})
+export class NxToast {
+  protected el: HTMLNxToastElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxPresent', 'nxDismiss', 'nxAction', 'nxClose']);
+  }
+}
+
+
+import type { NxToastDismissDetail as INxToastNxToastDismissDetail } from 'stencil-library';
+
+export declare interface NxToast extends Components.NxToast {
+  /**
+   * Emitted when the toast is presented
+   */
+  nxPresent: EventEmitter<void>;
+  /**
+   * Emitted when the toast is dismissed
+   */
+  nxDismiss: EventEmitter<INxToastNxToastDismissDetail>;
+  /**
+   * Emitted when the action button is clicked
+   */
+  nxAction: EventEmitter<void>;
+  /**
+   * Emitted when the close button is clicked
+   */
+  nxClose: EventEmitter<void>;
+}
+
+
+@ProxyCmp({
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'size', 'value'],
   methods: ['toggle', 'setFocus']
 })

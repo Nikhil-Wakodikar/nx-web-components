@@ -23,5 +23,6 @@ export const DIRECTIVES = [
   d.NxText,
   d.NxTextarea,
   d.NxTimePicker,
+  d.NxToast,
   d.NxToggle
 ];
