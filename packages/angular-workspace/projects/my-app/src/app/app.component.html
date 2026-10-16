@@ -496,36 +496,64 @@
   >
     <h2 style="margin-top: 0">NX Toast Notifications</h2>
     <p style="color: #64748b; margin-bottom: 20px">
-      Trigger dynamic toasts with icons, headers, progress countdowns, and multiple positions:
+      Trigger dynamic toasts with icons, headers, progress countdowns, and
+      multiple positions:
     </p>
 
     <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 24px">
       <nx-button
-        (click)="showToast('success', 'Your changes have been saved!', 'Success')"
+        (click)="
+          showToast('success', 'Your changes have been saved!', 'Success')
+        "
       >
         Success Toast
       </nx-button>
 
       <nx-button
-        (click)="showToast('info', 'A new software update is available.', 'Information')"
+        (click)="
+          showToast(
+            'info',
+            'A new software update is available.',
+            'Information'
+          )
+        "
       >
         Info Toast
       </nx-button>
 
       <nx-button
-        (click)="showToast('warning', 'Cloud storage is nearing capacity (88%).', 'Warning')"
+        (click)="
+          showToast(
+            'warning',
+            'Cloud storage is nearing capacity (88%).',
+            'Warning'
+          )
+        "
       >
         Warning Toast
       </nx-button>
 
       <nx-button
-        (click)="showToast('danger', 'Failed to connect to the database.', 'Error Occurred')"
+        (click)="
+          showToast(
+            'danger',
+            'Failed to connect to the database.',
+            'Error Occurred'
+          )
+        "
       >
         Error Toast
       </nx-button>
 
       <nx-button
-        (click)="showToast('primary', 'Document has been uploaded to drive.', 'Uploaded', 'top-end')"
+        (click)="
+          showToast(
+            'primary',
+            'Document has been uploaded to drive.',
+            'Uploaded',
+            'top-end'
+          )
+        "
       >
         Top-Right Toast
       </nx-button>
@@ -544,4 +572,3 @@
     ></nx-toast>
   </div>
 </div>
-

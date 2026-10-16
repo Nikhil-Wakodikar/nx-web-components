@@ -298,12 +298,11 @@ export class NxToast {
             height="20"
             fill="none"
             stroke="currentColor"
-            stroke-width="2.2"
+            stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         );
       case 'warning':
@@ -334,13 +333,12 @@ export class NxToast {
             height="20"
             fill="none"
             stroke="currentColor"
-            stroke-width="2.2"
+            stroke-width="2.5"
             stroke-linecap="round"
             stroke-linejoin="round"
           >
-            <circle cx="12" cy="12" r="10"></circle>
-            <line x1="12" y1="8" x2="12" y2="12"></line>
-            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         );
       case 'info':
@@ -362,9 +360,40 @@ export class NxToast {
           </svg>
         );
       case 'primary':
-        return <nx-icon name="bell" size="20px"></nx-icon>;
+        return (
+          <svg
+            class="toast-default-svg toast-svg-primary"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
+            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
+          </svg>
+        );
       default:
-        return null;
+        return (
+          <svg
+            class="toast-default-svg toast-svg-default"
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        );
     }
   }
 
@@ -374,6 +403,7 @@ export class NxToast {
     }
 
     const pos = this.normalizedPosition;
+    const hasHeader = !!(this.hasHeaderSlot || this.header);
 
     return (
       <Host
@@ -384,6 +414,7 @@ export class NxToast {
           [`position-${pos}`]: true,
           [`variant-${this.variant}`]: true,
           'has-icon': this.shouldShowIcon,
+          'has-header': hasHeader,
           'is-translucent': this.translucent,
         }}
         aria-hidden={!this.isOpen ? 'true' : 'false'}
