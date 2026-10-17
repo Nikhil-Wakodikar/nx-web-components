@@ -58,4 +58,16 @@ export class AppComponent {
     this.toastPosition = position;
     this.toastOpen = true;
   }
+
+  modalOpen = false;
+  modalSize: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
+
+  openModal(size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md') {
+    this.modalSize = size;
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+  }
 }

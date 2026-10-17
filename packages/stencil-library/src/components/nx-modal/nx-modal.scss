@@ -1,0 +1,314 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+  --nx-modal-bg: var(--nx-color-white, #ffffff);
+  --nx-modal-color: var(--nx-color-gray-900, #0f172a);
+  --nx-modal-border: var(--nx-color-gray-200, #e2e8f0);
+  --nx-modal-radius: var(--nx-radius-xl, 12px);
+  --nx-modal-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  --nx-modal-backdrop-bg: rgba(15, 23, 42, 0.55);
+  --nx-modal-backdrop-blur: 4px;
+  --nx-modal-body-padding: 20px 24px;
+  --nx-modal-header-padding: 18px 24px;
+  --nx-modal-footer-padding: 16px 24px;
+  --nx-modal-z-index: 1050;
+  --nx-modal-font-family: var(--font-rubik, sans-serif);
+  --nx-modal-title-font: var(--font-rubik-medium, var(--nx-modal-font-family));
+
+  display: none !important;
+  pointer-events: none !important;
+}
+
+:host(.is-open),
+:host(.is-closing) {
+  display: block !important;
+  pointer-events: auto !important;
+  position: fixed;
+  inset: 0;
+  z-index: var(--nx-modal-z-index);
+  box-sizing: border-box;
+  font-family: var(--nx-modal-font-family);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   Backdrop Overlay
+   ========================================== */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--nx-modal-backdrop-bg);
+  backdrop-filter: blur(var(--nx-modal-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--nx-modal-backdrop-blur));
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+:host(.is-centered) .modal-backdrop {
+  align-items: center;
+}
+
+/* ==========================================
+   Modal Dialog Card
+   ========================================== */
+
+.modal-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--nx-modal-bg);
+  color: var(--nx-modal-color);
+  border: 1px solid var(--nx-modal-border);
+  border-radius: var(--nx-modal-radius);
+  box-shadow: var(--nx-modal-shadow);
+  overflow: hidden;
+  box-sizing: border-box;
+  outline: none;
+  margin: auto 0;
+}
+
+:host(:not(.is-centered)) .modal-dialog {
+  margin: 32px 0;
+}
+
+/* ==========================================
+   Modal Sizes
+   ========================================== */
+
+:host(.size-sm) .modal-dialog {
+  max-width: 400px;
+}
+
+:host(.size-md) .modal-dialog {
+  max-width: 560px;
+}
+
+:host(.size-lg) .modal-dialog {
+  max-width: 800px;
+}
+
+:host(.size-xl) .modal-dialog {
+  max-width: 1140px;
+}
+
+:host(.size-full) {
+  --nx-modal-radius: 0;
+
+  .modal-backdrop {
+    padding: 0;
+  }
+
+  .modal-dialog {
+    max-width: 100%;
+    width: 100vw;
+    min-height: 100vh;
+    height: 100%;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+  }
+}
+
+/* ==========================================
+   Modal Header
+   ========================================== */
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--nx-modal-header-padding);
+  border-bottom: 1px solid var(--nx-modal-border);
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+.modal-title-group {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.modal-title {
+  font-family: var(--nx-modal-title-font);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--nx-modal-color);
+  line-height: 24px;
+  margin: 0;
+  word-break: break-word;
+}
+
+.modal-subtitle {
+  font-family: var(--nx-modal-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--nx-color-gray-500, #64748b);
+  line-height: 20px;
+  margin: 0;
+  word-break: break-word;
+}
+
+/* Close Button */
+.modal-close-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 0;
+  color: var(--nx-color-gray-400, #94a3b8);
+  cursor: pointer;
+  margin-top: -2px;
+  margin-right: -4px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    color: var(--nx-modal-color);
+    background-color: var(--nx-color-gray-100, #f1f5f9);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--nx-color-primary, #8145b5);
+    outline-offset: 1px;
+  }
+}
+
+.modal-close-svg {
+  display: block;
+}
+
+/* ==========================================
+   Modal Body
+   ========================================== */
+
+.modal-body {
+  flex: 1 1 auto;
+  padding: var(--nx-modal-body-padding);
+  font-family: var(--nx-modal-font-family);
+  font-size: 14px;
+  color: var(--nx-color-gray-700, #334155);
+  line-height: 1.6;
+  box-sizing: border-box;
+}
+
+:host(.is-scrollable) .modal-body {
+  max-height: calc(100vh - 220px);
+  overflow-y: auto;
+}
+
+/* ==========================================
+   Modal Footer
+   ========================================== */
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: var(--nx-modal-footer-padding);
+  border-top: 1px solid var(--nx-modal-border);
+  flex-shrink: 0;
+}
+
+/* ==========================================
+   Static Backdrop Shake Animation
+   ========================================== */
+
+@keyframes modalShake {
+  0%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.02);
+  }
+  40%, 80% {
+    transform: scale(0.99);
+  }
+}
+
+.modal-dialog.is-static-animating {
+  animation: modalShake 0.28s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* ==========================================
+   Entrance & Exit Animations
+   ========================================== */
+
+:host(.is-open:not(.is-closing)) .modal-backdrop {
+  animation: modalBackdropFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+:host(.is-open:not(.is-closing)) .modal-dialog:not(.is-static-animating) {
+  animation: modalDialogScaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+:host(.is-closing) .modal-backdrop {
+  animation: modalBackdropFadeOut 0.18s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+:host(.is-closing) .modal-dialog {
+  animation: modalDialogScaleOut 0.18s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+@keyframes modalBackdropFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalBackdropFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes modalDialogScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalDialogScaleOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.96) translateY(-4px);
+  }
+}
+
