@@ -103,7 +103,7 @@
       max-width: 360px;
     "
   >
-    <p style="margin: 0 0 8px; font-weight: 600">Account Summary</p>
+    <p style="margin: 0 0 8px; font-weight: 500">Account Summary</p>
     <p style="margin: 0; color: #64748b">
       Fetching your latest transactions and plan details...
     </p>
@@ -582,6 +582,9 @@
       <nx-button (click)="openModal('sm')">Open Small Modal</nx-button>
       <nx-button (click)="openModal('md')">Open Medium Modal</nx-button>
       <nx-button (click)="openModal('lg')">Open Large Modal</nx-button>
+      <nx-button fill="outline" (click)="openUserProfileProgrammatic()">
+        Open Programmatic Dialog (dialog.open)
+      </nx-button>
     </div>
 
     <nx-modal

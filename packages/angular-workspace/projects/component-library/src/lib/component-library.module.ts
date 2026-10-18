@@ -9,6 +9,8 @@ import { TextValueAccessor } from './stencil-generated/text-value-accessor';
 import { RadioValueAccessor } from './stencil-generated/radio-value-accessor';
 import { NxEventPlugin } from './plugins/nx-event.plugin';
 
+import { NxDialogService, NxModalService } from './services/nx-dialog.service';
+
 @NgModule({
   declarations: [
     RadioValueAccessor,
@@ -24,6 +26,8 @@ import { NxEventPlugin } from './plugins/nx-event.plugin';
     ...DIRECTIVES,
   ],
   providers: [
+    NxDialogService,
+    NxModalService,
     {
       provide: APP_INITIALIZER,
       useFactory: () => {
