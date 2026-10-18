@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NxDialogService } from 'component-library';
+import { UserProfileDialogComponent } from './user-profile-dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,10 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private dialog: NxDialogService
+  ) {}
 
   tcnForm = this.fb.group({
     name: ['', Validators.required],
@@ -57,5 +62,40 @@ export class AppComponent {
     this.toastHeader = header;
     this.toastPosition = position;
     this.toastOpen = true;
+  }
+
+  modalOpen = false;
+  modalSize: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md';
+
+  openModal(size: 'sm' | 'md' | 'lg' | 'xl' | 'full' = 'md') {
+    this.modalSize = size;
+    this.modalOpen = true;
+  }
+
+  closeModal() {
+    this.modalOpen = false;
+  }
+
+  openUserProfileProgrammatic() {
+    const dialogRef = this.dialog.open(UserProfileDialogComponent, {
+      header: 'Edit User Profile',
+      subHeader: 'Demonstrating dialog.open(UserProfileDialogComponent, config)',
+      size: 'md',
+      data: {
+        name: 'Jane Doe',
+        email: 'jane.doe@example.com',
+        role: 'Senior Developer',
+      },
+      backdrop: true,
+      keyboard: true,
+      dismissible: true,
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('Programmatic dialog closed:', result);
+      if (result?.saved) {
+        this.showToast('success', `Saved: ${result.name} (${result.email})`, 'Profile Updated');
+      }
+    });
   }
 }

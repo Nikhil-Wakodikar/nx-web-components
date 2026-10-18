@@ -103,7 +103,7 @@
       max-width: 360px;
     "
   >
-    <p style="margin: 0 0 8px; font-weight: 600">Account Summary</p>
+    <p style="margin: 0 0 8px; font-weight: 500">Account Summary</p>
     <p style="margin: 0; color: #64748b">
       Fetching your latest transactions and plan details...
     </p>
@@ -570,5 +570,42 @@
       (nxClose)="toastOpen = false"
       (nxDismiss)="toastOpen = false"
     ></nx-toast>
+  </div>
+
+  <div style="margin-top: 36px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff">
+    <h3 style="margin-top: 0; margin-bottom: 8px">Modal Component (&lt;nx-modal&gt;)</h3>
+    <p style="color: #64748b; margin-bottom: 16px">
+      Accessible, responsive dialog modal with customizable sizes, backdrop modes, keyboard controls, and header/footer slots:
+    </p>
+
+    <div style="display: flex; gap: 12px; flex-wrap: wrap">
+      <nx-button (click)="openModal('sm')">Open Small Modal</nx-button>
+      <nx-button (click)="openModal('md')">Open Medium Modal</nx-button>
+      <nx-button (click)="openModal('lg')">Open Large Modal</nx-button>
+      <nx-button fill="outline" (click)="openUserProfileProgrammatic()">
+        Open Programmatic Dialog (dialog.open)
+      </nx-button>
+    </div>
+
+    <nx-modal
+      [isOpen]="modalOpen"
+      [size]="modalSize"
+      header="Confirm Account Changes"
+      subHeader="Please review your details before proceeding"
+      (nxClose)="closeModal()"
+      (nxDismiss)="closeModal()"
+    >
+      <p style="margin: 0 0 12px 0">
+        You are about to update your workspace preferences and profile settings. These changes will be applied immediately across all active sessions.
+      </p>
+      <p style="margin: 0; color: #64748b; font-size: 13px">
+        Need help? Contact support or check the documentation for guidance.
+      </p>
+
+      <div slot="footer" style="display: flex; gap: 8px; justify-content: flex-end; width: 100%">
+        <nx-button variant="outline" (click)="closeModal()">Cancel</nx-button>
+        <nx-button (click)="closeModal()">Confirm Changes</nx-button>
+      </div>
+    </nx-modal>
   </div>
 </div>

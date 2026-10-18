@@ -326,6 +326,45 @@ export declare interface NxLoader extends Components.NxLoader {}
 
 
 @ProxyCmp({
+  inputs: ['animated', 'backdrop', 'centered', 'dismissible', 'header', 'isOpen', 'keyboard', 'scrollable', 'size', 'subHeader', 'zIndex'],
+  methods: ['present', 'dismiss']
+})
+@Component({
+  selector: 'nx-modal',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animated', 'backdrop', 'centered', 'dismissible', 'header', 'isOpen', 'keyboard', 'scrollable', 'size', 'subHeader', 'zIndex'],
+})
+export class NxModal {
+  protected el: HTMLNxModalElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxPresent', 'nxDismiss', 'nxClose']);
+  }
+}
+
+
+import type { NxModalDismissDetail as INxModalNxModalDismissDetail } from 'stencil-library';
+
+export declare interface NxModal extends Components.NxModal {
+  /**
+   * Emitted when the modal has opened and is presented
+   */
+  nxPresent: EventEmitter<void>;
+  /**
+   * Emitted when the modal has closed
+   */
+  nxDismiss: EventEmitter<INxModalNxModalDismissDetail>;
+  /**
+   * Emitted specifically when the close button is clicked
+   */
+  nxClose: EventEmitter<void>;
+}
+
+
+@ProxyCmp({
   inputs: ['animated', 'buffer', 'color', 'indeterminate', 'label', 'max', 'showValue', 'size', 'striped', 'strokeWidth', 'value', 'valueText', 'variant']
 })
 @Component({
