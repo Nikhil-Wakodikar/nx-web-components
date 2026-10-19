@@ -25,3 +25,10 @@ export type {
   NxBadgeShape,
   NxBadgePlacement,
 } from './components/nx-badge/nx-badge';
+export type {
+  NxChipVariant,
+  NxChipColor,
+  NxChipSize,
+  NxChipShape,
+  NxChipSelectEventDetail,
+} from './components/nx-chip/nx-chip';

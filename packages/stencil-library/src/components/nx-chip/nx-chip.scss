@@ -1,0 +1,241 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+  --nx-chip-font-family: var(--font-rubik, sans-serif);
+  --nx-chip-font-weight: 500;
+  --nx-chip-bg: var(--nx-color-purple-100, #f6f0fa);
+  --nx-chip-text-color: var(--nx-color-primary, #8145b5);
+  --nx-chip-border-color: transparent;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  vertical-align: middle;
+  font-family: var(--nx-chip-font-family);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+  background-color: var(--nx-chip-bg);
+  color: var(--nx-chip-text-color);
+  border: 1px solid var(--nx-chip-border-color);
+  outline: none;
+  transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.12s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   Interactive States
+   ========================================== */
+
+:host(.is-clickable) {
+  cursor: pointer;
+
+  &:hover:not(.is-disabled) {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    filter: brightness(0.96);
+  }
+
+  &:active:not(.is-disabled) {
+    transform: scale(0.97);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--nx-color-primary, #8145b5);
+    outline-offset: 2px;
+  }
+}
+
+:host(.is-disabled) {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================
+   Sizes
+   ========================================== */
+
+:host(.size-sm) {
+  height: 24px;
+  font-size: 12px;
+  padding: 0 8px;
+  gap: 4px;
+
+  ::slotted(img[slot="start"]) {
+    width: 18px;
+    height: 18px;
+  }
+
+  ::slotted([slot="start"]),
+  ::slotted([slot="end"]) {
+    --nx-icon-size: 14px;
+    font-size: 14px;
+  }
+
+  .chip-remove-btn {
+    width: 16px;
+    height: 16px;
+    margin-right: -4px;
+    margin-left: 1px;
+  }
+}
+
+:host(.size-md) {
+  height: 32px;
+  font-size: 13px;
+  padding: 0 12px;
+  gap: 6px;
+
+  ::slotted(img[slot="start"]) {
+    width: 24px;
+    height: 24px;
+  }
+
+  ::slotted([slot="start"]),
+  ::slotted([slot="end"]) {
+    --nx-icon-size: 16px;
+    font-size: 16px;
+  }
+
+  .chip-remove-btn {
+    width: 18px;
+    height: 18px;
+    margin-right: -4px;
+    margin-left: 2px;
+  }
+}
+
+:host(.size-lg) {
+  height: 38px;
+  font-size: 14px;
+  padding: 0 16px;
+  gap: 8px;
+
+  ::slotted(img[slot="start"]) {
+    width: 28px;
+    height: 28px;
+  }
+
+  ::slotted([slot="start"]),
+  ::slotted([slot="end"]) {
+    --nx-icon-size: 18px;
+    font-size: 18px;
+  }
+
+  .chip-remove-btn {
+    width: 20px;
+    height: 20px;
+    margin-right: -6px;
+    margin-left: 3px;
+  }
+}
+
+/* ==========================================
+   Shapes
+   ========================================== */
+
+:host(.shape-pill) {
+  border-radius: 9999px;
+}
+
+:host(.shape-rounded.size-sm) {
+  border-radius: 4px;
+}
+
+:host(.shape-rounded.size-md),
+:host(.shape-rounded:not(.size-sm):not(.size-lg)) {
+  border-radius: 6px;
+}
+
+:host(.shape-rounded.size-lg) {
+  border-radius: 8px;
+}
+
+/* ==========================================
+   Internal Elements
+   ========================================== */
+
+.chip-label {
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  line-height: 1;
+}
+
+::slotted(img[slot="start"]) {
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  display: block;
+}
+
+::slotted([slot="start"]),
+::slotted([slot="end"]),
+.chip-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.chip-check {
+  animation: nx-chip-check-in 0.15s ease-out;
+}
+
+@keyframes nx-chip-check-in {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ==========================================
+   Remove Button
+   ========================================== */
+
+.chip-remove-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: inherit;
+  opacity: 0.65;
+  cursor: pointer;
+  flex-shrink: 0;
+  outline: none;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  &:focus-visible {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+}
+
+:host(.variant-solid) .chip-remove-btn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+

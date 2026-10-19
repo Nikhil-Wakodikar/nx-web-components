@@ -98,4 +98,11 @@ export class AppComponent {
       }
     });
   }
+
+  chipTags = ['Angular', 'TypeScript', 'Stencil', 'Web Components'];
+
+  removeChipTag(tag: string) {
+    this.chipTags = this.chipTags.filter((t) => t !== tag);
+    this.showToast('info', `Removed tag: ${tag}`, 'Chip Removed');
+  }
 }

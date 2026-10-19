@@ -169,6 +169,44 @@ export declare interface NxCheckbox extends Components.NxCheckbox {
 
 
 @ProxyCmp({
+  inputs: ['clickable', 'color', 'disabled', 'label', 'removable', 'selectable', 'selected', 'shape', 'size', 'value', 'variant']
+})
+@Component({
+  selector: 'nx-chip',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clickable', 'color', 'disabled', 'label', 'removable', 'selectable', 'selected', 'shape', 'size', 'value', 'variant'],
+})
+export class NxChip {
+  protected el: HTMLNxChipElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxClick', 'nxSelect', 'nxRemove']);
+  }
+}
+
+
+import type { NxChipSelectEventDetail as INxChipNxChipSelectEventDetail } from 'stencil-library';
+
+export declare interface NxChip extends Components.NxChip {
+  /**
+   * Emitted when a clickable or selectable chip is clicked
+   */
+  nxClick: EventEmitter<any>;
+  /**
+   * Emitted when selection state changes on a selectable chip
+   */
+  nxSelect: EventEmitter<INxChipNxChipSelectEventDetail>;
+  /**
+   * Emitted when the remove/close button is clicked
+   */
+  nxRemove: EventEmitter<any>;
+}
+
+
+@ProxyCmp({
   inputs: ['size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs']
 })
 @Component({
