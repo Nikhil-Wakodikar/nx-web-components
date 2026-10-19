@@ -8,6 +8,7 @@ export const DIRECTIVES = [
   d.NxButton,
   d.NxCard,
   d.NxCheckbox,
+  d.NxChip,
   d.NxCol,
   d.NxDatePicker,
   d.NxGrid,
