@@ -1,0 +1,29 @@
+:host {
+  display: none !important;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--font-rubik, sans-serif);
+  color: var(--nx-color-gray-900, #0f172a);
+}
+
+:host(.is-active),
+:host([active]) {
+  display: block !important;
+}
+
+:host(:focus-visible) {
+  outline: 2px solid var(--nx-color-primary, #8145b5);
+  outline-offset: 2px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.tab-panel-content {
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.6;
+}

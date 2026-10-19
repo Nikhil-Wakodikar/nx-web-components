@@ -11,3 +11,10 @@ export { format } from './utils/utils';
 export type * from './components.d.ts';
 export type { NxToastPosition, NxToastVariant, NxToastDismissDetail } from './components/nx-toast/nx-toast';
 export type { NxModalSize, NxModalDismissDetail } from './components/nx-modal/nx-modal';
+export type {
+  NxTabGroupPlacement,
+  NxTabGroupSize,
+  NxTabGroupColor,
+  NxTabChangeEventDetail,
+  NxTabElement,
+} from './components/nx-tab-group/nx-tab-group';

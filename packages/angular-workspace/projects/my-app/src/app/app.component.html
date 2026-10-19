@@ -572,10 +572,21 @@
     ></nx-toast>
   </div>
 
-  <div style="margin-top: 36px; padding: 24px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff">
-    <h3 style="margin-top: 0; margin-bottom: 8px">Modal Component (&lt;nx-modal&gt;)</h3>
+  <div
+    style="
+      margin-top: 36px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+    "
+  >
+    <h3 style="margin-top: 0; margin-bottom: 8px">
+      Modal Component (&lt;nx-modal&gt;)
+    </h3>
     <p style="color: #64748b; margin-bottom: 16px">
-      Accessible, responsive dialog modal with customizable sizes, backdrop modes, keyboard controls, and header/footer slots:
+      Accessible, responsive dialog modal with customizable sizes, backdrop
+      modes, keyboard controls, and header/footer slots:
     </p>
 
     <div style="display: flex; gap: 12px; flex-wrap: wrap">
@@ -596,16 +607,148 @@
       (nxDismiss)="closeModal()"
     >
       <p style="margin: 0 0 12px 0">
-        You are about to update your workspace preferences and profile settings. These changes will be applied immediately across all active sessions.
+        You are about to update your workspace preferences and profile settings.
+        These changes will be applied immediately across all active sessions.
       </p>
       <p style="margin: 0; color: #64748b; font-size: 13px">
         Need help? Contact support or check the documentation for guidance.
       </p>
 
-      <div slot="footer" style="display: flex; gap: 8px; justify-content: flex-end; width: 100%">
+      <div
+        slot="footer"
+        style="display: flex; gap: 8px; justify-content: flex-end; width: 100%"
+      >
         <nx-button variant="outline" (click)="closeModal()">Cancel</nx-button>
         <nx-button (click)="closeModal()">Confirm Changes</nx-button>
       </div>
     </nx-modal>
+  </div>
+
+  <!-- Tab Group Component -->
+  <div
+    style="
+      margin-top: 36px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+    "
+  >
+    <h3 style="margin-top: 0; margin-bottom: 8px">
+      Tab Group Component (&lt;nx-tab-group&gt; &amp; &lt;nx-tab&gt;)
+    </h3>
+    <p style="color: #64748b; margin-bottom: 24px">
+      Accessible tab navigation with equal-width distribution, sliding active
+      underline indicator, and keyboard navigation:
+    </p>
+
+    <!-- Primary Tab Group (Default) matching UI specification -->
+    <nx-tab-group color="primary" style="margin-bottom: 32px">
+      <nx-tab label="Link 1">
+        <div style="padding: 20px 0">
+          <p
+            style="
+              margin: 0 0 8px 0;
+              font-weight: 500;
+              font-size: 16px;
+              color: #1a1b1f;
+            "
+          >
+            Link 1 Content
+          </p>
+          <p style="margin: 0; color: #64748b">
+            Active tab panel content for Link 1 with project primary purple
+            underline indicator.
+          </p>
+        </div>
+      </nx-tab>
+
+      <nx-tab label="Link 2">
+        <div style="padding: 20px 0">
+          <p
+            style="
+              margin: 0 0 8px 0;
+              font-weight: 500;
+              font-size: 16px;
+              color: #1a1b1f;
+            "
+          >
+            Link 2 Content
+          </p>
+          <p style="margin: 0; color: #64748b">
+            Secondary tab panel content for Link 2.
+          </p>
+        </div>
+      </nx-tab>
+
+      <nx-tab label="Link 3">
+        <div style="padding: 20px 0">
+          <p
+            style="
+              margin: 0 0 8px 0;
+              font-weight: 500;
+              font-size: 16px;
+              color: #1a1b1f;
+            "
+          >
+            Link 3 Content
+          </p>
+          <p style="margin: 0; color: #64748b">
+            Third tab panel content for Link 3.
+          </p>
+        </div>
+      </nx-tab>
+
+      <nx-tab label="Disabled Link" [disabled]="true">
+        <div style="padding: 20px 0">
+          <p style="margin: 0; color: #a0a0a4">
+            Disabled tab is not accessible or selectable.
+          </p>
+        </div>
+      </nx-tab>
+    </nx-tab-group>
+
+    <!-- Tab Group with 'color' prop demo (info, secondary, success, etc.) -->
+    <div
+      style="
+        margin-top: 16px;
+        padding-top: 16px;
+        border-top: 1px dashed #e2e8f0;
+      "
+    >
+      <p
+        style="
+          margin: 0 0 16px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: #475569;
+        "
+      >
+        Tab Group with <code>color="info"</code> prop:
+      </p>
+      <nx-tab-group color="info">
+        <nx-tab label="Overview">
+          <div style="padding: 16px 0">
+            <p style="margin: 0; color: #64748b">
+              Overview panel styled with <code>color="info"</code> indicator.
+            </p>
+          </div>
+        </nx-tab>
+        <nx-tab label="Analytics">
+          <div style="padding: 16px 0">
+            <p style="margin: 0; color: #64748b">
+              Analytics panel styled with <code>color="info"</code> indicator.
+            </p>
+          </div>
+        </nx-tab>
+        <nx-tab label="Reports">
+          <div style="padding: 16px 0">
+            <p style="margin: 0; color: #64748b">
+              Reports panel styled with <code>color="info"</code> indicator.
+            </p>
+          </div>
+        </nx-tab>
+      </nx-tab-group>
+    </div>
   </div>
 </div>
