@@ -21,6 +21,8 @@ export const DIRECTIVES = [
   d.NxRow,
   d.NxSelect,
   d.NxSelectOption,
+  d.NxTab,
+  d.NxTabGroup,
   d.NxText,
   d.NxTextarea,
   d.NxTimePicker,

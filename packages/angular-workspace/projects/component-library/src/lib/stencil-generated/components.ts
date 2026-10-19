@@ -524,6 +524,66 @@ export declare interface NxSelectOption extends Components.NxSelectOption {}
 
 
 @ProxyCmp({
+  inputs: ['active', 'badge', 'closable', 'disabled', 'icon', 'label', 'value'],
+  methods: ['select', 'close']
+})
+@Component({
+  selector: 'nx-tab',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['active', 'badge', 'closable', 'disabled', 'icon', 'label', 'value'],
+})
+export class NxTab {
+  protected el: HTMLNxTabElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxClose']);
+  }
+}
+
+
+export declare interface NxTab extends Components.NxTab {
+  /**
+   * Emitted when the tab's close button is clicked
+   */
+  nxClose: EventEmitter<string>;
+}
+
+
+@ProxyCmp({
+  inputs: ['color', 'disabled', 'placement', 'scrollable', 'size', 'stretch', 'value'],
+  methods: ['getTabs', 'getSelectedTab', 'selectTab', 'registerTab', 'unregisterTab']
+})
+@Component({
+  selector: 'nx-tab-group',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'disabled', 'placement', 'scrollable', 'size', 'stretch', 'value'],
+})
+export class NxTabGroup {
+  protected el: HTMLNxTabGroupElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxChange']);
+  }
+}
+
+
+import type { NxTabChangeEventDetail as INxTabGroupNxTabChangeEventDetail } from 'stencil-library';
+
+export declare interface NxTabGroup extends Components.NxTabGroup {
+  /**
+   * Emitted when the active tab changes
+   */
+  nxChange: EventEmitter<INxTabGroupNxTabChangeEventDetail>;
+}
+
+
+@ProxyCmp({
   inputs: ['align', 'as', 'color', 'inline', 'italic', 'lines', 'size', 'strikethrough', 'transform', 'truncate', 'underline', 'variant', 'weight']
 })
 @Component({
