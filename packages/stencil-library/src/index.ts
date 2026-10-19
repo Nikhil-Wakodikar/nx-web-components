@@ -18,3 +18,10 @@ export type {
   NxTabChangeEventDetail,
   NxTabElement,
 } from './components/nx-tab-group/nx-tab-group';
+export type {
+  NxBadgeVariant,
+  NxBadgeColor,
+  NxBadgeSize,
+  NxBadgeShape,
+  NxBadgePlacement,
+} from './components/nx-badge/nx-badge';

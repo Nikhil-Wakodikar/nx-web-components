@@ -751,4 +751,164 @@
       </nx-tab-group>
     </div>
   </div>
+
+  <!-- Badge Component Showcase -->
+  <div
+    style="
+      margin-top: 36px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+    "
+  >
+    <h3 style="margin-top: 0; margin-bottom: 8px">
+      Badge Component (&lt;nx-badge&gt;)
+    </h3>
+    <p style="color: #64748b; margin-bottom: 24px">
+      Badges for counts, labels, status dots, and notification indicators across themes, variants, and placements:
+    </p>
+
+    <!-- Colors & Solid Variant -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Colors (Solid Variant):
+      </p>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+        <nx-badge color="primary">Primary</nx-badge>
+        <nx-badge color="secondary">Secondary</nx-badge>
+        <nx-badge color="success">Success</nx-badge>
+        <nx-badge color="warning">Warning</nx-badge>
+        <nx-badge color="danger">Danger</nx-badge>
+        <nx-badge color="info">Info</nx-badge>
+        <nx-badge color="dark">Dark</nx-badge>
+        <nx-badge color="light">Light</nx-badge>
+      </div>
+    </div>
+
+    <!-- Subtle Variant -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Subtle / Soft Variant:
+      </p>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+        <nx-badge variant="subtle" color="primary">Primary</nx-badge>
+        <nx-badge variant="subtle" color="secondary">Secondary</nx-badge>
+        <nx-badge variant="subtle" color="success">Success</nx-badge>
+        <nx-badge variant="subtle" color="warning">Warning</nx-badge>
+        <nx-badge variant="subtle" color="danger">Danger</nx-badge>
+        <nx-badge variant="subtle" color="info">Info</nx-badge>
+        <nx-badge variant="subtle" color="dark">Dark</nx-badge>
+      </div>
+    </div>
+
+    <!-- Outline Variant -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Outline Variant:
+      </p>
+      <div style="display: flex; gap: 12px; align-items: center; flex-wrap: wrap">
+        <nx-badge variant="outline" color="primary">Primary</nx-badge>
+        <nx-badge variant="outline" color="secondary">Secondary</nx-badge>
+        <nx-badge variant="outline" color="success">Success</nx-badge>
+        <nx-badge variant="outline" color="warning">Warning</nx-badge>
+        <nx-badge variant="outline" color="danger">Danger</nx-badge>
+        <nx-badge variant="outline" color="info">Info</nx-badge>
+        <nx-badge variant="outline" color="dark">Dark</nx-badge>
+      </div>
+    </div>
+
+    <!-- Sizes & Shapes -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Sizes &amp; Shapes:
+      </p>
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap">
+        <nx-badge size="sm" color="primary">Small Pill</nx-badge>
+        <nx-badge size="md" color="primary">Medium Pill</nx-badge>
+        <nx-badge size="lg" color="primary">Large Pill</nx-badge>
+        <nx-badge shape="rounded" color="secondary">Rounded</nx-badge>
+        <nx-badge shape="circle" color="danger" [value]="8"></nx-badge>
+      </div>
+    </div>
+
+    <!-- Numerical Counters with Max cap -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Numerical Counters (with Max cap):
+      </p>
+      <div style="display: flex; gap: 14px; align-items: center; flex-wrap: wrap">
+        <nx-badge [value]="5" color="primary"></nx-badge>
+        <nx-badge [value]="24" color="info"></nx-badge>
+        <nx-badge [value]="99" color="success"></nx-badge>
+        <nx-badge [value]="145" [max]="99" color="danger"></nx-badge>
+        <nx-badge [value]="500" [max]="99" variant="subtle" color="primary"></nx-badge>
+      </div>
+    </div>
+
+    <!-- Status Dots & Pulse -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Status Dots &amp; Live Pulse:
+      </p>
+      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap">
+        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #334155">
+          <nx-badge dot color="success" [pulse]="true"></nx-badge>
+          Live Online
+        </span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #334155">
+          <nx-badge dot color="warning"></nx-badge>
+          Away
+        </span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #334155">
+          <nx-badge dot color="danger"></nx-badge>
+          Busy / DND
+        </span>
+        <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: #334155">
+          <nx-badge dot color="secondary"></nx-badge>
+          Offline
+        </span>
+      </div>
+    </div>
+
+    <!-- Floating / Overlaid Placement on Elements -->
+    <div>
+      <p style="margin: 0 0 12px 0; font-size: 14px; font-weight: 500; color: #475569">
+        Overlay Badges on Icons &amp; Buttons:
+      </p>
+      <div style="display: flex; gap: 28px; align-items: center; flex-wrap: wrap">
+        <!-- Badge on user icon -->
+        <nx-badge [value]="3" color="danger" placement="top-end">
+          <div style="width: 40px; height: 40px; border-radius: 8px; background: #f1f5f9; display: flex; align-items: center; justify-content: center">
+            <nx-icon name="user-round-key" size="20px"></nx-icon>
+          </div>
+        </nx-badge>
+
+        <!-- Dot on avatar box -->
+        <nx-badge dot color="success" [pulse]="true" placement="bottom-end">
+          <div style="width: 40px; height: 40px; border-radius: 50%; background: #ebdef4; display: flex; align-items: center; justify-content: center; font-weight: 500; color: #8145b5">
+            JD
+          </div>
+        </nx-badge>
+
+        <!-- Floating badge on a button -->
+        <nx-badge [value]="5" color="danger" placement="top-end">
+          <nx-button fill="outline">Notifications</nx-button>
+        </nx-badge>
+
+        <!-- Badge in solid button -->
+        <nx-button>
+          Inbox
+          <nx-badge slot="end" [value]="12" variant="subtle" color="light" size="sm"></nx-badge>
+        </nx-button>
+
+        <!-- Dot in outline button -->
+        <nx-button fill="outline">
+          Alerts
+          <nx-badge slot="end" dot color="danger" [pulse]="true"></nx-badge>
+        </nx-button>
+      </div>
+    </div>
+  </div>
 </div>
+

@@ -21,6 +21,9 @@ export class NxButton {
 
   @Prop({ reflect: true }) fill: 'clear' | 'outline' | 'solid' = 'solid';
 
+  /** Visual variant alias for fill ('clear', 'outline', 'solid') */
+  @Prop({ reflect: true }) variant?: 'clear' | 'outline' | 'solid';
+
   @Prop({ reflect: true }) size: 'small' | 'default' | 'large' = 'default';
 
   @Watch('disabled')
@@ -95,6 +98,7 @@ export class NxButton {
   }
 
   render() {
+    const fillStyle = this.variant || this.fill || 'solid';
     return (
       <Host onClick={this.handleClick}
         class={{
@@ -102,7 +106,7 @@ export class NxButton {
           [`button-${this.expand}`]: this.expand !== undefined,
           [`button-${this.shape}`]: this.shape !== undefined,
           [`button-${this.size}`]: true,
-          [`button-${this.fill}`]: true,
+          [`button-${fillStyle}`]: true,
           'button-disabled': this.disabled,
         }}>
         <button class="button-native" type={this.type} disabled={this.disabled}>

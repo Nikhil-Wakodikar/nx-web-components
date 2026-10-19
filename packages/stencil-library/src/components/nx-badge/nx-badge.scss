@@ -1,0 +1,222 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+  --nx-badge-font-family: var(--font-rubik, sans-serif);
+  --nx-badge-font-weight: 500;
+  --nx-badge-bg: var(--nx-color-primary, #8145b5);
+  --nx-badge-text-color: #ffffff;
+  --nx-badge-border-color: transparent;
+  --nx-badge-pulse-color: var(--nx-badge-bg);
+
+  display: inline-flex;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-family: var(--nx-badge-font-family);
+  font-weight: 500;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:host(.is-floating) {
+  position: relative;
+  display: inline-flex;
+}
+
+.badge-anchor {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/* ==========================================
+   Badge Base Element
+   ========================================== */
+
+.badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 1;
+  font-family: var(--nx-badge-font-family);
+  font-weight: 500;
+  user-select: none;
+  background-color: var(--nx-badge-bg);
+  color: var(--nx-badge-text-color);
+  border: 1px solid var(--nx-badge-border-color);
+  transition: all 0.18s ease;
+
+  &--floating {
+    position: absolute;
+    z-index: 2;
+    box-shadow: 0 0 0 2px var(--nx-color-white, #ffffff);
+  }
+}
+
+/* ==========================================
+   Placements (When Floating)
+   ========================================== */
+
+:host(.placement-top-end) .badge--floating {
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  transform-origin: 100% 0%;
+}
+
+:host(.placement-top-start) .badge--floating {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, -50%);
+  transform-origin: 0% 0%;
+}
+
+:host(.placement-bottom-end) .badge--floating {
+  bottom: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  transform-origin: 100% 100%;
+}
+
+:host(.placement-bottom-start) .badge--floating {
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+  transform-origin: 0% 100%;
+}
+
+/* When a dot is floating on bottom-end or top-end */
+:host(.is-dot.placement-bottom-end) .badge--floating {
+  bottom: 2px;
+  right: 2px;
+  transform: translate(25%, 25%);
+}
+
+:host(.is-dot.placement-top-end) .badge--floating {
+  top: 2px;
+  right: 2px;
+  transform: translate(25%, -25%);
+}
+
+/* ==========================================
+   Sizes
+   ========================================== */
+
+:host(.size-sm) .badge {
+  font-size: 11px;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 6px;
+}
+
+:host(.size-md) .badge,
+:host(:not(.size-sm):not(.size-lg)) .badge {
+  font-size: 12px;
+  height: 22px;
+  min-width: 22px;
+  padding: 0 8px;
+}
+
+:host(.size-lg) .badge {
+  font-size: 14px;
+  height: 26px;
+  min-width: 26px;
+  padding: 0 10px;
+}
+
+/* ==========================================
+   Shapes
+   ========================================== */
+
+:host(.shape-pill) .badge {
+  border-radius: 9999px;
+}
+
+:host(.shape-rounded.size-sm) .badge {
+  border-radius: 4px;
+}
+
+:host(.shape-rounded.size-md) .badge,
+:host(.shape-rounded:not(.size-sm):not(.size-lg)) .badge {
+  border-radius: 6px;
+}
+
+:host(.shape-rounded.size-lg) .badge {
+  border-radius: 8px;
+}
+
+:host(.shape-circle) .badge {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: 0;
+}
+
+/* ==========================================
+   Dot Mode
+   ========================================== */
+
+.badge--dot {
+  border-radius: 50% !important;
+  aspect-ratio: 1 !important;
+  padding: 0 !important;
+  min-width: 0 !important;
+  line-height: 0 !important;
+}
+
+:host(.size-sm) .badge--dot {
+  width: 6px !important;
+  height: 6px !important;
+  min-width: 6px !important;
+  min-height: 6px !important;
+}
+
+:host(.size-md) .badge--dot,
+:host(:not(.size-sm):not(.size-lg)) .badge--dot {
+  width: 8px !important;
+  height: 8px !important;
+  min-width: 8px !important;
+  min-height: 8px !important;
+}
+
+:host(.size-lg) .badge--dot {
+  width: 10px !important;
+  height: 10px !important;
+  min-width: 10px !important;
+  min-height: 10px !important;
+}
+
+/* ==========================================
+   Pulse Ring Animation
+   ========================================== */
+
+.badge-pulse-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  border: 1.5px solid var(--nx-badge-pulse-color, var(--nx-badge-bg));
+  animation: nx-badge-pulse 1.8s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+  pointer-events: none;
+}
+
+@keyframes nx-badge-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.65);
+    opacity: 0;
+  }
+}

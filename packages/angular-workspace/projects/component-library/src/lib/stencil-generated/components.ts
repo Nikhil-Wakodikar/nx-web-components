@@ -66,14 +66,36 @@ export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type']
+  inputs: ['color', 'dot', 'max', 'placement', 'pulse', 'shape', 'size', 'value', 'variant']
+})
+@Component({
+  selector: 'nx-badge',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'dot', 'max', 'placement', 'pulse', 'shape', 'size', 'value', 'variant'],
+})
+export class NxBadge {
+  protected el: HTMLNxBadgeElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxBadge extends Components.NxBadge {}
+
+
+@ProxyCmp({
+  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type', 'variant']
 })
 @Component({
   selector: 'nx-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type'],
+  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type', 'variant'],
 })
 export class NxButton {
   protected el: HTMLNxButtonElement;
