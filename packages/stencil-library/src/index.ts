@@ -32,3 +32,10 @@ export type {
   NxChipShape,
   NxChipSelectEventDetail,
 } from './components/nx-chip/nx-chip';
+export type {
+  NxRowJustify,
+  NxRowAlign,
+  NxRowAlignContent,
+  NxRowWrap,
+} from './components/nx-row/nx-row';
+export type { NxColAlignSelf } from './components/nx-col/nx-col';

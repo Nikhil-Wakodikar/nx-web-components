@@ -26,8 +26,20 @@
   width: 100%;
   box-sizing: border-box;
 }
+
 *,
 *::before,
 *::after {
   box-sizing: inherit;
+}
+
+:host([no-gutters]),
+:host(.no-gutters) {
+  --gap: 0 !important;
+  --row-gap: 0 !important;
+  --column-gap: 0 !important;
+
+  ::slotted(nx-col) {
+    --padding: 0 !important;
+  }
 }
