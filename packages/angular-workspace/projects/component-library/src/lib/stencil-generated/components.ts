@@ -207,14 +207,14 @@ export declare interface NxChip extends Components.NxChip {
 
 
 @ProxyCmp({
-  inputs: ['size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs']
+  inputs: ['alignSelf', 'offset', 'offsetLg', 'offsetMd', 'offsetSm', 'offsetXl', 'offsetXs', 'offsetXxl', 'order', 'size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs', 'sizeXxl']
 })
 @Component({
   selector: 'nx-col',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs'],
+  inputs: ['alignSelf', 'offset', 'offsetLg', 'offsetMd', 'offsetSm', 'offsetXl', 'offsetXs', 'offsetXxl', 'order', 'size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs', 'sizeXxl'],
 })
 export class NxCol {
   protected el: HTMLNxColElement;
@@ -262,13 +262,14 @@ export declare interface NxDatePicker extends Components.NxDatePicker {
 
 
 @ProxyCmp({
+  inputs: ['fixed', 'fluid', 'noPadding', 'padding']
 })
 @Component({
   selector: 'nx-grid',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: [],
+  inputs: ['fixed', 'fluid', 'noPadding', 'padding'],
 })
 export class NxGrid {
   protected el: HTMLNxGridElement;
@@ -508,13 +509,14 @@ export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
 
 @ProxyCmp({
+  inputs: ['align', 'alignContent', 'columnGap', 'gap', 'justify', 'noGutters', 'rowGap', 'wrap']
 })
 @Component({
   selector: 'nx-row',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: [],
+  inputs: ['align', 'alignContent', 'columnGap', 'gap', 'justify', 'noGutters', 'rowGap', 'wrap'],
 })
 export class NxRow {
   protected el: HTMLNxRowElement;
