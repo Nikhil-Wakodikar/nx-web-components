@@ -1947,4 +1947,130 @@
       </nx-grid>
     </div>
   </div>
+
+  <!-- ========================================== -->
+  <!-- nx-table: Data & Slotted Table Component    -->
+  <!-- ========================================== -->
+  <div
+    style="
+      margin-top: 32px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+    "
+  >
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 4px">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
+        Data Table (nx-table)
+      </h3>
+      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
+        <nx-badge *ngIf="tableSelectedCount > 0" variant="subtle" color="primary">
+          {{ tableSelectedCount }} Selected
+        </nx-badge>
+        <nx-button size="small" variant="outline" (nxClick)="toggleTableLoading()">
+          Test Loading Overlay
+        </nx-button>
+      </div>
+    </div>
+    <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
+      A powerful enterprise data table supporting sorting, row selection checkboxes, built-in pagination, loading overlay, sizes, variants, and custom slot fallbacks.
+    </p>
+
+    <!-- 1. Interactive Data-Driven Table -->
+    <div style="margin-bottom: 28px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        1. Full Interactive Table (Sorting, Selection, Pagination &amp; Clickable Rows):
+      </p>
+      <nx-table
+        variant="card"
+        [columns]="tableColumns"
+        [data]="tableData"
+        [sortable]="true"
+        [selectable]="true"
+        [clickableRows]="true"
+        [paginated]="true"
+        [pageSize]="5"
+        [striped]="tableStriped"
+        [hoverable]="tableHoverable"
+        [loading]="tableLoading"
+        (nxSort)="onTableSort($event)"
+        (nxSelectionChange)="onTableSelectionChange($event)"
+        (nxRowClick)="onTableRowClick($event)"
+      >
+        <div slot="header" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #e2e8f0; background: #ffffff">
+          <span style="font-size: 14px; font-weight: 500; color: #1e293b">Team Directory</span>
+          <nx-chip size="sm" color="info">10 Members</nx-chip>
+        </div>
+      </nx-table>
+    </div>
+
+    <!-- 2. Compact Bordered Table -->
+    <div style="margin-bottom: 28px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        2. Compact Density (size="sm" with [bordered]="true"):
+      </p>
+      <nx-table
+        size="sm"
+        [bordered]="true"
+        [columns]="tableColumns"
+        [data]="tableData.slice(0, 4)"
+        [sortable]="true"
+        [striped]="true"
+      ></nx-table>
+    </div>
+
+    <!-- 3. Slotted HTML Table Mode -->
+    <div style="margin-bottom: 28px">
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        3. Declarative Slotted HTML Table (Custom elements inside &lt;nx-table&gt;):
+      </p>
+      <nx-table variant="default" [striped]="true" [hoverable]="true">
+        <table>
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Owner</th>
+              <th>Status</th>
+              <th>Progress</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Design System 2.0</td>
+              <td>Sarah Connor</td>
+              <td><nx-badge variant="subtle" color="success">In Progress</nx-badge></td>
+              <td>85%</td>
+            </tr>
+            <tr>
+              <td>Cloud Migration</td>
+              <td>Michael Chang</td>
+              <td><nx-badge variant="subtle" color="primary">Review</nx-badge></td>
+              <td>95%</td>
+            </tr>
+            <tr>
+              <td>Mobile App Refresh</td>
+              <td>James Wilson</td>
+              <td><nx-badge variant="subtle" color="warning">Planning</nx-badge></td>
+              <td>30%</td>
+            </tr>
+          </tbody>
+        </table>
+      </nx-table>
+    </div>
+
+    <!-- 4. Empty State -->
+    <div>
+      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+        4. Empty State ([data]="[]"):
+      </p>
+      <nx-table
+        variant="card"
+        [columns]="tableColumns"
+        [data]="[]"
+        emptyText="No employees found matching current filter."
+      ></nx-table>
+    </div>
+  </div>
+
 </div>

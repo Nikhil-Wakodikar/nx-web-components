@@ -105,4 +105,55 @@ export class AppComponent {
     this.chipTags = this.chipTags.filter((t) => t !== tag);
     this.showToast('info', `Removed tag: ${tag}`, 'Chip Removed');
   }
+
+  tableColumns = [
+    { key: 'id', title: 'ID', width: '70px', align: 'center' },
+    { key: 'name', title: 'Employee', sortable: true },
+    { key: 'role', title: 'Role', sortable: true },
+    { key: 'department', title: 'Department', sortable: true },
+    { key: 'status', title: 'Status', sortable: true },
+    { key: 'salary', title: 'Salary', align: 'right', sortable: true },
+  ];
+
+  tableData = [
+    { id: 101, name: 'Sarah Connor', role: 'DevOps Lead', department: 'Engineering', status: 'Active', salary: '$135,000' },
+    { id: 102, name: 'James Wilson', role: 'Frontend Engineer', department: 'Product UI', status: 'Active', salary: '$110,000' },
+    { id: 103, name: 'Elena Rostova', role: 'Data Scientist', department: 'Analytics', status: 'On Leave', salary: '$125,000' },
+    { id: 104, name: 'Michael Chang', role: 'Security Architect', department: 'Infrastructure', status: 'Active', salary: '$145,000' },
+    { id: 105, name: 'Amina Diallo', role: 'UX Designer', department: 'Design', status: 'Active', salary: '$105,000' },
+    { id: 106, name: 'Lucas Silva', role: 'Fullstack Dev', department: 'Engineering', status: 'Active', salary: '$118,000' },
+    { id: 107, name: 'Rachel Green', role: 'Product Manager', department: 'Management', status: 'Active', salary: '$140,000' },
+    { id: 108, name: 'David Kim', role: 'QA Automation', department: 'Quality', status: 'Inactive', salary: '$98,000' },
+    { id: 109, name: 'Olivia Taylor', role: 'Cloud Engineer', department: 'Infrastructure', status: 'Active', salary: '$130,000' },
+    { id: 110, name: 'Marcus Brody', role: 'Backend Dev', department: 'Engineering', status: 'Active', salary: '$122,000' },
+  ];
+
+  tableStriped = true;
+  tableHoverable = true;
+  tableBordered = false;
+  tableLoading = false;
+  tableSize: 'sm' | 'md' | 'lg' = 'md';
+  tableSelectedCount = 0;
+
+  toggleTableLoading() {
+    this.tableLoading = true;
+    setTimeout(() => {
+      this.tableLoading = false;
+    }, 1200);
+  }
+
+  onTableSort(event: any) {
+    console.log('Table sorted:', event);
+    this.showToast('info', `Sorted by ${event.column} (${event.direction})`, 'Table Sort');
+  }
+
+  onTableSelectionChange(event: any) {
+    console.log('Table selection:', event);
+    this.tableSelectedCount = event.selectedKeys?.length || 0;
+  }
+
+  onTableRowClick(event: any) {
+    console.log('Row clicked:', event);
+    this.showToast('primary', `Clicked row: ${event.row.name} (${event.row.role})`, 'Row Selected');
+  }
 }

@@ -39,3 +39,13 @@ export type {
   NxRowWrap,
 } from './components/nx-row/nx-row';
 export type { NxColAlignSelf } from './components/nx-col/nx-col';
+export type {
+  NxTableVariant,
+  NxTableSize,
+  NxTableColor,
+  NxTableColumn,
+  NxTableSortEventDetail,
+  NxTableSelectionEventDetail,
+  NxTablePageChangeEventDetail,
+  NxTableRowClickEventDetail,
+} from './components/nx-table/nx-table';

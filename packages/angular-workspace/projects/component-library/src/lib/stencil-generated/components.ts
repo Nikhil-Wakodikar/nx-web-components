@@ -646,6 +646,52 @@ export declare interface NxTabGroup extends Components.NxTabGroup {
 
 
 @ProxyCmp({
+  inputs: ['bordered', 'caption', 'clickableRows', 'color', 'columns', 'currentPage', 'data', 'emptyText', 'hoverable', 'loading', 'loadingText', 'maxHeight', 'pageSize', 'pageSizeOptions', 'paginated', 'rowKey', 'selectable', 'selectedRows', 'selectionMode', 'size', 'sortColumn', 'sortDirection', 'sortable', 'stickyHeader', 'striped', 'totalItems', 'variant'],
+  methods: ['selectAll', 'deselectAll', 'getSelectedRows', 'getSelectedKeys', 'setPage', 'sort']
+})
+@Component({
+  selector: 'nx-table',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['bordered', 'caption', 'clickableRows', 'color', 'columns', 'currentPage', 'data', 'emptyText', 'hoverable', 'loading', 'loadingText', 'maxHeight', 'pageSize', 'pageSizeOptions', 'paginated', 'rowKey', 'selectable', 'selectedRows', 'selectionMode', 'size', 'sortColumn', 'sortDirection', 'sortable', 'stickyHeader', 'striped', 'totalItems', 'variant'],
+})
+export class NxTable {
+  protected el: HTMLNxTableElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxSort', 'nxSelectionChange', 'nxPageChange', 'nxRowClick']);
+  }
+}
+
+
+import type { NxTableSortEventDetail as INxTableNxTableSortEventDetail } from 'stencil-library';
+import type { NxTableSelectionEventDetail as INxTableNxTableSelectionEventDetail } from 'stencil-library';
+import type { NxTablePageChangeEventDetail as INxTableNxTablePageChangeEventDetail } from 'stencil-library';
+import type { NxTableRowClickEventDetail as INxTableNxTableRowClickEventDetail } from 'stencil-library';
+
+export declare interface NxTable extends Components.NxTable {
+  /**
+   * Emitted when a sortable column header is clicked
+   */
+  nxSort: EventEmitter<INxTableNxTableSortEventDetail>;
+  /**
+   * Emitted when row selection changes
+   */
+  nxSelectionChange: EventEmitter<INxTableNxTableSelectionEventDetail>;
+  /**
+   * Emitted when current page or page size changes
+   */
+  nxPageChange: EventEmitter<INxTableNxTablePageChangeEventDetail>;
+  /**
+   * Emitted when a table row is clicked
+   */
+  nxRowClick: EventEmitter<INxTableNxTableRowClickEventDetail>;
+}
+
+
+@ProxyCmp({
   inputs: ['align', 'as', 'color', 'inline', 'italic', 'lines', 'size', 'strikethrough', 'transform', 'truncate', 'underline', 'variant', 'weight']
 })
 @Component({
