@@ -339,6 +339,34 @@ export declare interface NxInput extends Components.NxInput {
 
 
 @ProxyCmp({
+  inputs: ['color', 'disabled', 'fontFamily', 'htmlFor', 'optional', 'position', 'required', 'size', 'truncate', 'weight']
+})
+@Component({
+  selector: 'nx-label',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['color', 'disabled', 'fontFamily', 'htmlFor', 'optional', 'position', 'required', 'size', 'truncate', 'weight'],
+})
+export class NxLabel {
+  protected el: HTMLNxLabelElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxClick']);
+  }
+}
+
+
+export declare interface NxLabel extends Components.NxLabel {
+  /**
+   * Emitted when the label is clicked
+   */
+  nxClick: EventEmitter<MouseEvent>;
+}
+
+
+@ProxyCmp({
   inputs: ['color', 'disabled', 'download', 'external', 'href', 'label', 'rel', 'size', 'target', 'underline']
 })
 @Component({

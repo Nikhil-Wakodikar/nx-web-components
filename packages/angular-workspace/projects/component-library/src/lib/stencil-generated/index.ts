@@ -14,6 +14,7 @@ export const DIRECTIVES = [
   d.NxGrid,
   d.NxIcon,
   d.NxInput,
+  d.NxLabel,
   d.NxLink,
   d.NxList,
   d.NxListItem,

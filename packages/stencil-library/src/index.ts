@@ -57,3 +57,10 @@ export type {
   NxListItemLines,
   NxListItemClickEventDetail,
 } from './components/nx-list-item/nx-list-item';
+export type {
+  NxLabelSize,
+  NxLabelWeight,
+  NxLabelColor,
+  NxLabelPosition,
+  NxLabelFontFamily,
+} from './components/nx-label/nx-label';
