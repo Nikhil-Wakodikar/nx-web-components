@@ -13,6 +13,8 @@ const config = {
   stories: [
     '../src/stories/**/*.mdx',
     '../src/stories/**/*.stories.@(ts|tsx)',
+    '../src/components/**/*.mdx',
+    '../src/components/**/*.stories.@(ts|tsx)',
   ],
   addons: [
     getAbsolutePath('@storybook/addon-webpack5-compiler-swc'),
@@ -21,6 +23,9 @@ const config = {
   framework: {
     name: getAbsolutePath('@storybook/web-components-webpack5'),
     options: {},
+  },
+  docs: {
+    autodocs: 'tag',
   },
 };
 export default config;

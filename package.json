@@ -4,6 +4,10 @@
   "workspaces": [
     "packages/*"
   ],
+  "scripts": {
+    "storybook": "npm --workspace=stencil-library run storybook",
+    "build-storybook": "npm --workspace=stencil-library run build-storybook"
+  },
   "devDependencies": {
     "@types/jasmine": "^5.1.8",
     "@types/jasminewd2": "^2.0.13",

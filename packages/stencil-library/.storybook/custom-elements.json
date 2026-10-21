@@ -1,0 +1,6810 @@
+{
+  "tags": [
+    {
+      "name": "nx-accordion",
+      "description": "",
+      "attributes": [
+        {
+          "name": "collapse-icon",
+          "type": "string",
+          "description": "Optional alternate icon shown when expanded (e.g. 'minus' vs 'plus')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "content-padding",
+          "type": "string",
+          "description": "Optional custom padding for the accordion content when open (defaults to 12px)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "expand-icon-position",
+          "type": "NxAccordionExpandIconPosition",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "hide-toggle-icon",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Name of the leading icon (e.g. 'circle-help', 'settings', 'user-round-key')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "toggle-icon",
+          "type": "string",
+          "description": "Custom icon for the expand toggle (defaults to chevron)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "this.accordionId",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxAccordionVariant",
+          "description": "",
+          "default": "'bordered'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "collapseIcon",
+          "type": "string",
+          "description": "Optional alternate icon shown when expanded (e.g. 'minus' vs 'plus')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "contentPadding",
+          "type": "string",
+          "description": "Optional custom padding for the accordion content when open (defaults to 12px)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "expandIconPosition",
+          "type": "NxAccordionExpandIconPosition",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "hideToggleIcon",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Name of the leading icon (e.g. 'circle-help', 'settings', 'user-round-key')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "open",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "toggleIcon",
+          "type": "string",
+          "description": "Custom icon for the expand toggle (defaults to chevron)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "this.accordionId",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxAccordionVariant",
+          "description": "",
+          "default": "'bordered'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxToggle",
+          "description": "",
+          "type": "NxAccordionToggleEventDetail"
+        }
+      ],
+      "methods": [
+        {
+          "name": "collapse",
+          "description": "",
+          "type": "collapse() => Promise<void>"
+        },
+        {
+          "name": "expand",
+          "description": "",
+          "type": "expand() => Promise<void>"
+        },
+        {
+          "name": "toggle",
+          "description": "",
+          "type": "toggle() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        },
+        {
+          "name": "toggle-icon",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "body",
+          "description": ""
+        },
+        {
+          "name": "collapse",
+          "description": ""
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "header-button",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "toggle-icon",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-accordion-group",
+      "description": "",
+      "attributes": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "display-mode",
+          "type": "NxAccordionDisplayMode",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "expand-icon-position",
+          "type": "NxAccordionExpandIconPosition",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | string[]",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxAccordionVariant",
+          "description": "",
+          "default": "'bordered'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "displayMode",
+          "type": "NxAccordionDisplayMode",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "expandIconPosition",
+          "type": "NxAccordionExpandIconPosition",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "multiple",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | string[]",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxAccordionVariant",
+          "description": "",
+          "default": "'bordered'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "NxAccordionGroupChangeEventDetail"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getAccordions",
+          "description": "",
+          "type": "getAccordions() => Promise<AccordionElement[]>"
+        },
+        {
+          "name": "requestToggle",
+          "description": "",
+          "type": "requestToggle(accordion: AccordionElement, targetOpen: boolean) => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-badge",
+      "description": "",
+      "attributes": [
+        {
+          "name": "color",
+          "type": "NxBadgeColor",
+          "description": "Color theme or custom CSS color string",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "description": "When true, renders a small dot badge indicator without text",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Maximum numerical count to display. If value > max, displays `${max}+`",
+          "default": "99",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "NxBadgePlacement",
+          "description": "Corner placement when badging / wrapping target content",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "pulse",
+          "type": "boolean",
+          "description": "When true, displays an animated pulsing ring around the badge",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "NxBadgeShape",
+          "description": "Shape of the badge corners",
+          "default": "'pill'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxBadgeSize",
+          "description": "Sizing of the badge",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | number",
+          "description": "Value/content displayed inside the badge",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxBadgeVariant",
+          "description": "Visual style variant of the badge",
+          "default": "'solid'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "NxBadgeColor",
+          "description": "Color theme or custom CSS color string",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "description": "When true, renders a small dot badge indicator without text",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "Maximum numerical count to display. If value > max, displays `${max}+`",
+          "default": "99",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "NxBadgePlacement",
+          "description": "Corner placement when badging / wrapping target content",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "pulse",
+          "type": "boolean",
+          "description": "When true, displays an animated pulsing ring around the badge",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "NxBadgeShape",
+          "description": "Shape of the badge corners",
+          "default": "'pill'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxBadgeSize",
+          "description": "Sizing of the badge",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string | number",
+          "description": "Value/content displayed inside the badge",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxBadgeVariant",
+          "description": "Visual style variant of the badge",
+          "default": "'solid'",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "badge",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "anchor",
+          "description": ""
+        },
+        {
+          "name": "badge",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-button",
+      "description": "",
+      "attributes": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "expand",
+          "type": "'block' | 'full'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "fill",
+          "type": "'clear' | 'outline' | 'solid'",
+          "description": "",
+          "default": "'solid'",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "'round'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'button' | 'submit' | 'reset'",
+          "description": "",
+          "default": "'button'",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'clear' | 'outline' | 'solid'",
+          "description": "Visual variant alias for fill ('clear', 'outline', 'solid')",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "expand",
+          "type": "'block' | 'full'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "fill",
+          "type": "'clear' | 'outline' | 'solid'",
+          "description": "",
+          "default": "'solid'",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "'round'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "'button' | 'submit' | 'reset'",
+          "description": "",
+          "default": "'button'",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'clear' | 'outline' | 'solid'",
+          "description": "Visual variant alias for fill ('clear', 'outline', 'solid')",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-card",
+      "description": "",
+      "attributes": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "header-title",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "NxCardPadding",
+          "description": "",
+          "default": "'medium'",
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxCardVariant",
+          "description": "",
+          "default": "'elevated'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "headerTitle",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "NxCardPadding",
+          "description": "",
+          "default": "'medium'",
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxCardVariant",
+          "description": "",
+          "default": "'elevated'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClick",
+          "description": "",
+          "type": "MouseEvent"
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "media",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "body",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "media",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "description": ""
+        },
+        {
+          "name": "title",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-checkbox",
+      "description": "",
+      "attributes": [
+        {
+          "name": "alignment",
+          "type": "'start' | 'center'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'end' | 'space-between'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label-placement",
+          "type": "'start' | 'end'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "'on'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "alignment",
+          "type": "'start' | 'center'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'end' | 'space-between'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "'start' | 'end'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "'on'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "checkedChange",
+          "description": "",
+          "type": "boolean"
+        },
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "boolean"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "mark",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-chip",
+      "description": "",
+      "attributes": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": "Whether the chip is interactive and clickable",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "NxChipColor",
+          "description": "Color theme or custom CSS color string",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the chip is disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Text label of the chip (alternative to default slot)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "removable",
+          "type": "boolean",
+          "description": "Whether the chip displays a close / remove button",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "description": "Whether the chip acts as a toggleable filter chip",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Current selection state when selectable",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "NxChipShape",
+          "description": "Shape of the chip",
+          "default": "'pill'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxChipSize",
+          "description": "Size of the chip",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Value associated with the chip",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxChipVariant",
+          "description": "Visual variant of the chip",
+          "default": "'subtle'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": "Whether the chip is interactive and clickable",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "NxChipColor",
+          "description": "Color theme or custom CSS color string",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the chip is disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Text label of the chip (alternative to default slot)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "removable",
+          "type": "boolean",
+          "description": "Whether the chip displays a close / remove button",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "description": "Whether the chip acts as a toggleable filter chip",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Current selection state when selectable",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "shape",
+          "type": "NxChipShape",
+          "description": "Shape of the chip",
+          "default": "'pill'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxChipSize",
+          "description": "Size of the chip",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "Value associated with the chip",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxChipVariant",
+          "description": "Visual variant of the chip",
+          "default": "'subtle'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClick",
+          "description": "Emitted when a clickable or selectable chip is clicked",
+          "type": "any"
+        },
+        {
+          "name": "nxRemove",
+          "description": "Emitted when the remove/close button is clicked",
+          "type": "any"
+        },
+        {
+          "name": "nxSelect",
+          "description": "Emitted when selection state changes on a selectable chip",
+          "type": "NxChipSelectEventDetail"
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "check",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "remove-button",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-col",
+      "description": "",
+      "attributes": [
+        {
+          "name": "align-self",
+          "type": "NxColAlignSelf",
+          "description": "Self vertical alignment within the row",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "string | number",
+          "description": "Default column offset: 1 to 11",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset-lg",
+          "type": "string | number",
+          "description": "Column offset for large screens >= 992px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset-md",
+          "type": "string | number",
+          "description": "Column offset for medium screens >= 768px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset-sm",
+          "type": "string | number",
+          "description": "Column offset for small screens >= 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset-xl",
+          "type": "string | number",
+          "description": "Column offset for extra large screens >= 1200px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset-xs",
+          "type": "string | number",
+          "description": "Column offset for extra small screens < 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset-xxl",
+          "type": "string | number",
+          "description": "Column offset for extra extra large screens >= 1400px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "order",
+          "type": "string | number",
+          "description": "Flex order of the column ('first', 'last', or 1-12)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string | number",
+          "description": "Column span for default (xs) screens: 1 to 12, or 'auto'",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size-lg",
+          "type": "string | number",
+          "description": "Column span for large screens >= 992px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size-md",
+          "type": "string | number",
+          "description": "Column span for medium screens >= 768px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size-sm",
+          "type": "string | number",
+          "description": "Column span for small screens >= 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size-xl",
+          "type": "string | number",
+          "description": "Column span for extra large screens >= 1200px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size-xs",
+          "type": "string | number",
+          "description": "Column span for extra small screens < 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size-xxl",
+          "type": "string | number",
+          "description": "Column span for extra extra large screens >= 1400px",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "alignSelf",
+          "type": "NxColAlignSelf",
+          "description": "Self vertical alignment within the row",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "type": "string | number",
+          "description": "Default column offset: 1 to 11",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offsetLg",
+          "type": "string | number",
+          "description": "Column offset for large screens >= 992px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offsetMd",
+          "type": "string | number",
+          "description": "Column offset for medium screens >= 768px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offsetSm",
+          "type": "string | number",
+          "description": "Column offset for small screens >= 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offsetXl",
+          "type": "string | number",
+          "description": "Column offset for extra large screens >= 1200px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offsetXs",
+          "type": "string | number",
+          "description": "Column offset for extra small screens < 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "offsetXxl",
+          "type": "string | number",
+          "description": "Column offset for extra extra large screens >= 1400px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "order",
+          "type": "string | number",
+          "description": "Flex order of the column ('first', 'last', or 1-12)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string | number",
+          "description": "Column span for default (xs) screens: 1 to 12, or 'auto'",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sizeLg",
+          "type": "string | number",
+          "description": "Column span for large screens >= 992px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sizeMd",
+          "type": "string | number",
+          "description": "Column span for medium screens >= 768px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sizeSm",
+          "type": "string | number",
+          "description": "Column span for small screens >= 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sizeXl",
+          "type": "string | number",
+          "description": "Column span for extra large screens >= 1200px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sizeXs",
+          "type": "string | number",
+          "description": "Column span for extra small screens < 576px",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sizeXxl",
+          "type": "string | number",
+          "description": "Column span for extra extra large screens >= 1400px",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-date-picker",
+      "description": "",
+      "attributes": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "first-day-of-week",
+          "type": "0 | 1",
+          "description": "",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY-MM-DD' | 'DD MMM YYYY'",
+          "description": "",
+          "default": "'DD/MM/YYYY'",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "'Select date'",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "show-today-button",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "firstDayOfWeek",
+          "type": "0 | 1",
+          "description": "",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "'DD/MM/YYYY' | 'MM/DD/YYYY' | 'YYYY-MM-DD' | 'DD MMM YYYY'",
+          "description": "",
+          "default": "'DD/MM/YYYY'",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "'Select date'",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "showTodayButton",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxInput",
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "description": "",
+          "type": "close() => Promise<void>"
+        },
+        {
+          "name": "open",
+          "description": "",
+          "type": "open() => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "panel",
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-grid",
+      "description": "",
+      "attributes": [
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "description": "When true, creates a fixed-width container with responsive max-width",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "fluid",
+          "type": "boolean",
+          "description": "When true, creates a full-width container (100% width across all viewports)",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "no-padding",
+          "type": "boolean",
+          "description": "When true, removes padding from the grid container",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "string | number",
+          "description": "Custom padding for the grid container",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "fixed",
+          "type": "boolean",
+          "description": "When true, creates a fixed-width container with responsive max-width",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "fluid",
+          "type": "boolean",
+          "description": "When true, creates a full-width container (100% width across all viewports)",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "noPadding",
+          "type": "boolean",
+          "description": "When true, removes padding from the grid container",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "padding",
+          "type": "string | number",
+          "description": "Custom padding for the grid container",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-icon",
+      "description": "",
+      "attributes": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string | number",
+          "description": "",
+          "default": "'medium'",
+          "required": false
+        },
+        {
+          "name": "stroke-width",
+          "type": "number",
+          "description": "",
+          "default": "2",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string | number",
+          "description": "",
+          "default": "'medium'",
+          "required": false
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "description": "",
+          "default": "2",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "svg",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-input",
+      "description": "",
+      "attributes": [
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "description": "",
+          "default": "'off'",
+          "required": false
+        },
+        {
+          "name": "autocomplete",
+          "type": "string",
+          "description": "",
+          "default": "'off'",
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "counter",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "inputmode",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "default": "'text'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "description": "",
+          "default": "'off'",
+          "required": false
+        },
+        {
+          "name": "autocomplete",
+          "type": "string",
+          "description": "",
+          "default": "'off'",
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "counter",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "inputmode",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "pattern",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "step",
+          "type": "string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "",
+          "default": "'text'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxInput",
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getInputElement",
+          "description": "",
+          "type": "getInputElement() => Promise<HTMLInputElement>"
+        },
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        },
+        {
+          "name": "setInputValue",
+          "description": "",
+          "type": "setInputValue(value: string) => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "counter",
+          "description": ""
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "input",
+          "description": ""
+        },
+        {
+          "name": "input-box",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-label",
+      "description": "",
+      "attributes": [
+        {
+          "name": "color",
+          "type": "NxLabelColor",
+          "description": "Color theme or custom CSS color",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disabled state",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "font-family",
+          "type": "NxLabelFontFamily",
+          "description": "Font family variant: 'regular' (default, Rubik-Regular) or 'rubik-medium' / 'medium'",
+          "default": "'regular'",
+          "required": false
+        },
+        {
+          "name": "for",
+          "type": "string",
+          "description": "Target element ID that this label is associated with",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "optional",
+          "type": "boolean",
+          "description": "Whether to display an (optional) badge or indicator",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "NxLabelPosition",
+          "description": "Position / layout mode: 'inline' or 'stacked'",
+          "default": "'inline'",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Whether the associated input/field is required",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxLabelSize",
+          "description": "Font size / density: 'sm', 'md', 'lg'",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "description": "Whether long text should truncate with an ellipsis",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "NxLabelWeight",
+          "description": "Font weight: 'regular' (400) or 'medium' (500)",
+          "default": "'medium'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "NxLabelColor",
+          "description": "Color theme or custom CSS color",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disabled state",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "fontFamily",
+          "type": "NxLabelFontFamily",
+          "description": "Font family variant: 'regular' (default, Rubik-Regular) or 'rubik-medium' / 'medium'",
+          "default": "'regular'",
+          "required": false
+        },
+        {
+          "name": "htmlFor",
+          "type": "string",
+          "description": "Target element ID that this label is associated with",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "optional",
+          "type": "boolean",
+          "description": "Whether to display an (optional) badge or indicator",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "NxLabelPosition",
+          "description": "Position / layout mode: 'inline' or 'stacked'",
+          "default": "'inline'",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Whether the associated input/field is required",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxLabelSize",
+          "description": "Font size / density: 'sm', 'md', 'lg'",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "description": "Whether long text should truncate with an ellipsis",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "NxLabelWeight",
+          "description": "Font weight: 'regular' (400) or 'medium' (500)",
+          "default": "'medium'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClick",
+          "description": "Emitted when the label is clicked",
+          "type": "MouseEvent"
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "optional",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "optional",
+          "description": ""
+        },
+        {
+          "name": "required",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        },
+        {
+          "name": "text",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-link",
+      "description": "",
+      "attributes": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "download",
+          "type": "string | boolean",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "external",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "'_self' | '_blank' | '_parent' | '_top' | string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "underline",
+          "type": "'always' | 'hover' | 'none'",
+          "description": "",
+          "default": "'hover'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "download",
+          "type": "string | boolean",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "external",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "'_self' | '_blank' | '_parent' | '_top' | string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "underline",
+          "type": "'always' | 'hover' | 'none'",
+          "description": "",
+          "default": "'hover'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClick",
+          "description": "",
+          "type": "MouseEvent"
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "native",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-list",
+      "description": "",
+      "attributes": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": "When true, child items in this list become clickable (hover/focus/active) unless overridden on item",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "When true, list and its items become disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "NxListLines",
+          "description": "Divider line style for items in this list: 'full', 'inset', or 'none'",
+          "default": "'full'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Currently selected item value",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": "When true, child items in this list become clickable (hover/focus/active) unless overridden on item",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "When true, list and its items become disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "NxListLines",
+          "description": "Divider line style for items in this list: 'full', 'inset', or 'none'",
+          "default": "'full'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Currently selected item value",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxChange",
+          "description": "Emitted when the selected item value changes",
+          "type": "NxListChangeEventDetail"
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-list-item",
+      "description": "",
+      "attributes": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": "When true, item has hover, active, and focus states",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disabled state",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "download",
+          "type": "string",
+          "description": "Link download attribute",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Link URL (renders semantic <a> tag)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "NxListItemLines",
+          "description": "Divider line style below this item: 'full', 'inset', or 'none'",
+          "default": "'full'",
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "Link rel",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Whether this item is currently selected",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "Link target (e.g. '_blank')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Unique value identifier",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "clickable",
+          "type": "boolean",
+          "description": "When true, item has hover, active, and focus states",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Disabled state",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "download",
+          "type": "string",
+          "description": "Link download attribute",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "href",
+          "type": "string",
+          "description": "Link URL (renders semantic <a> tag)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "NxListItemLines",
+          "description": "Divider line style below this item: 'full', 'inset', or 'none'",
+          "default": "'full'",
+          "required": false
+        },
+        {
+          "name": "rel",
+          "type": "string",
+          "description": "Link rel",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Whether this item is currently selected",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "target",
+          "type": "string",
+          "description": "Link target (e.g. '_blank')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Unique value identifier",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClick",
+          "description": "Emitted when the item is clicked",
+          "type": "NxListItemClickEventDetail"
+        }
+      ],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "inner",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-loader",
+      "description": "",
+      "attributes": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "fullscreen",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label-placement",
+          "type": "'end' | 'bottom' | 'start' | 'top'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "paused",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large' | 'xlarge' | string | number",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "stroke-width",
+          "type": "number",
+          "description": "",
+          "default": "3",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'spinner' | 'dots' | 'pulse' | 'bars'",
+          "description": "",
+          "default": "'spinner'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "fullscreen",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "'end' | 'bottom' | 'start' | 'top'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "overlay",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "paused",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large' | 'xlarge' | string | number",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "description": "",
+          "default": "3",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'spinner' | 'dots' | 'pulse' | 'bars'",
+          "description": "",
+          "default": "'spinner'",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "indicator",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "indicator",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-modal",
+      "description": "",
+      "attributes": [
+        {
+          "name": "animated",
+          "type": "boolean",
+          "description": "Whether entrance and exit animations are enabled",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "backdrop",
+          "type": "'static' | boolean",
+          "description": "Backdrop behavior:\r\n- true: Clicking backdrop dismisses the modal\r\n- false / 'static': Clicking backdrop does not dismiss and triggers a subtle pulse animation",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "centered",
+          "type": "boolean",
+          "description": "Whether to vertically center the modal in the viewport",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "description": "Whether to display the close (X) button in the header",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "description": "Title text displayed in the modal header",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "is-open",
+          "type": "boolean",
+          "description": "Whether the modal is currently open",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "keyboard",
+          "type": "boolean",
+          "description": "Whether pressing the Escape key dismisses the modal",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "scrollable",
+          "type": "boolean",
+          "description": "Whether the modal body should scroll internally when content exceeds viewport",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxModalSize",
+          "description": "Size of the modal dialog",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "sub-header",
+          "type": "string",
+          "description": "Optional subtitle or description text below the title",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "z-index",
+          "type": "number",
+          "description": "Base z-index for the modal and backdrop",
+          "default": "1050",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "animated",
+          "type": "boolean",
+          "description": "Whether entrance and exit animations are enabled",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "backdrop",
+          "type": "'static' | boolean",
+          "description": "Backdrop behavior:\r\n- true: Clicking backdrop dismisses the modal\r\n- false / 'static': Clicking backdrop does not dismiss and triggers a subtle pulse animation",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "centered",
+          "type": "boolean",
+          "description": "Whether to vertically center the modal in the viewport",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "description": "Whether to display the close (X) button in the header",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "description": "Title text displayed in the modal header",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Whether the modal is currently open",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "keyboard",
+          "type": "boolean",
+          "description": "Whether pressing the Escape key dismisses the modal",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "scrollable",
+          "type": "boolean",
+          "description": "Whether the modal body should scroll internally when content exceeds viewport",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxModalSize",
+          "description": "Size of the modal dialog",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "subHeader",
+          "type": "string",
+          "description": "Optional subtitle or description text below the title",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "zIndex",
+          "type": "number",
+          "description": "Base z-index for the modal and backdrop",
+          "default": "1050",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClose",
+          "description": "Emitted specifically when the close button is clicked",
+          "type": "void"
+        },
+        {
+          "name": "nxDismiss",
+          "description": "Emitted when the modal has closed",
+          "type": "NxModalDismissDetail"
+        },
+        {
+          "name": "nxPresent",
+          "description": "Emitted when the modal has opened and is presented",
+          "type": "void"
+        }
+      ],
+      "methods": [
+        {
+          "name": "dismiss",
+          "description": "Dismisses the modal programmatically",
+          "type": "dismiss(role?: string) => Promise<void>"
+        },
+        {
+          "name": "present",
+          "description": "Opens the modal programmatically",
+          "type": "present() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "backdrop",
+          "description": ""
+        },
+        {
+          "name": "body",
+          "description": ""
+        },
+        {
+          "name": "close-button",
+          "description": ""
+        },
+        {
+          "name": "dialog",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "subtitle",
+          "description": ""
+        },
+        {
+          "name": "title",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-progress",
+      "description": "",
+      "attributes": [
+        {
+          "name": "animated",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "buffer",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "",
+          "default": "100",
+          "required": false
+        },
+        {
+          "name": "show-value",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "stroke-width",
+          "type": "number",
+          "description": "",
+          "default": "4",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "value-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'linear' | 'circular'",
+          "description": "",
+          "default": "'linear'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "animated",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "buffer",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "indeterminate",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "description": "",
+          "default": "100",
+          "required": false
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "strokeWidth",
+          "type": "number",
+          "description": "",
+          "default": "4",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "number",
+          "description": "",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "valueText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "'linear' | 'circular'",
+          "description": "",
+          "default": "'linear'",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "buffer",
+          "description": ""
+        },
+        {
+          "name": "circular",
+          "description": ""
+        },
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "fill",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "track",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-radio",
+      "description": "",
+      "attributes": [
+        {
+          "name": "alignment",
+          "type": "'start' | 'center'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'end' | 'space-between'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label-placement",
+          "type": "'start' | 'end' | 'fixed' | 'stacked'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "alignment",
+          "type": "'start' | 'center'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'end' | 'space-between'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "'start' | 'end' | 'fixed' | 'stacked'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "void"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "void"
+        }
+      ],
+      "methods": [
+        {
+          "name": "setButtonTabindex",
+          "description": "",
+          "type": "setButtonTabindex(index: number) => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "mark",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-radio-group",
+      "description": "",
+      "attributes": [
+        {
+          "name": "allow-empty-selection",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "compare-with",
+          "type": "string | ((a: any, b: any) => boolean)",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "description": "",
+          "default": "'horizontal'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "`nx-radio-group-${radioGroupIds++}`",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "allowEmptySelection",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "compareWith",
+          "type": "string | ((a: any, b: any) => boolean)",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "direction",
+          "type": "'horizontal' | 'vertical'",
+          "description": "",
+          "default": "'horizontal'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "`nx-radio-group-${radioGroupIds++}`",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "NxRadioGroupChangeEventDetail"
+        },
+        {
+          "name": "nxValueChange",
+          "description": "",
+          "type": "NxRadioGroupValueChangeEventDetail"
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-row",
+      "description": "",
+      "attributes": [
+        {
+          "name": "align",
+          "type": "NxRowAlign",
+          "description": "Align items (vertical alignment of columns)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "align-content",
+          "type": "NxRowAlignContent",
+          "description": "Align content (multi-row vertical alignment)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "column-gap",
+          "type": "string | number",
+          "description": "Horizontal column gap",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "gap",
+          "type": "string | number",
+          "description": "Gap between columns and rows (e.g. '16px', '1rem', 16)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "NxRowJustify",
+          "description": "Justify content (horizontal alignment of columns)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "no-gutters",
+          "type": "boolean",
+          "description": "When true, removes gutters/padding from child columns",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "row-gap",
+          "type": "string | number",
+          "description": "Vertical row gap",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "NxRowWrap",
+          "description": "Flex wrap mode",
+          "default": "'wrap'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "align",
+          "type": "NxRowAlign",
+          "description": "Align items (vertical alignment of columns)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "alignContent",
+          "type": "NxRowAlignContent",
+          "description": "Align content (multi-row vertical alignment)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "columnGap",
+          "type": "string | number",
+          "description": "Horizontal column gap",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "gap",
+          "type": "string | number",
+          "description": "Gap between columns and rows (e.g. '16px', '1rem', 16)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "NxRowJustify",
+          "description": "Justify content (horizontal alignment of columns)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "noGutters",
+          "type": "boolean",
+          "description": "When true, removes gutters/padding from child columns",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "rowGap",
+          "type": "string | number",
+          "description": "Vertical row gap",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "NxRowWrap",
+          "description": "Flex wrap mode",
+          "default": "'wrap'",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-select",
+      "description": "",
+      "attributes": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "'Select an option'",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "'Select an option'",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxInput",
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "methods": [
+        {
+          "name": "selectOption",
+          "description": "",
+          "type": "selectOption(value: string) => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-select-option",
+      "description": "",
+      "attributes": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": []
+    },
+    {
+      "name": "nx-tab",
+      "description": "",
+      "attributes": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "Whether this tab is currently selected and active",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "string | number",
+          "description": "Optional badge count or text indicator (e.g. '3', 'New')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "description": "Whether this tab can be closed/dismissed with a close button",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether this tab is disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Optional icon name displayed before the label (e.g. 'settings', 'user-round-key')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Header title text displayed on the tab button",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Unique identifier or value for this tab.\r\nIf omitted, a unique ID is automatically generated.",
+          "default": "this.tabId",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "Whether this tab is currently selected and active",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "badge",
+          "type": "string | number",
+          "description": "Optional badge count or text indicator (e.g. '3', 'New')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "closable",
+          "type": "boolean",
+          "description": "Whether this tab can be closed/dismissed with a close button",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether this tab is disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Optional icon name displayed before the label (e.g. 'settings', 'user-round-key')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Header title text displayed on the tab button",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Unique identifier or value for this tab.\r\nIf omitted, a unique ID is automatically generated.",
+          "default": "this.tabId",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxClose",
+          "description": "Emitted when the tab's close button is clicked",
+          "type": "string"
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "description": "Closes this tab",
+          "type": "close() => Promise<void>"
+        },
+        {
+          "name": "select",
+          "description": "Selects this tab in the parent tab group",
+          "type": "select() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "panel",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-tab-group",
+      "description": "",
+      "attributes": [
+        {
+          "name": "color",
+          "type": "NxTabGroupColor",
+          "description": "Color theme for active indicator and hover states (e.g. 'primary', 'secondary', 'success', etc.)",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether all tabs in the group are disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "NxTabGroupPlacement",
+          "description": "Placement position of the tab navigation relative to panels",
+          "default": "'top'",
+          "required": false
+        },
+        {
+          "name": "scrollable",
+          "type": "boolean",
+          "description": "Whether the tab bar allows horizontal scrolling when tabs overflow",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxTabGroupSize",
+          "description": "Sizing of the tab buttons",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "stretch",
+          "type": "boolean",
+          "description": "Whether tab buttons should stretch to fill the container width evenly",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Value of the currently active/selected tab",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "color",
+          "type": "NxTabGroupColor",
+          "description": "Color theme for active indicator and hover states (e.g. 'primary', 'secondary', 'success', etc.)",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether all tabs in the group are disabled",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "placement",
+          "type": "NxTabGroupPlacement",
+          "description": "Placement position of the tab navigation relative to panels",
+          "default": "'top'",
+          "required": false
+        },
+        {
+          "name": "scrollable",
+          "type": "boolean",
+          "description": "Whether the tab bar allows horizontal scrolling when tabs overflow",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxTabGroupSize",
+          "description": "Sizing of the tab buttons",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "stretch",
+          "type": "boolean",
+          "description": "Whether tab buttons should stretch to fill the container width evenly",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "Value of the currently active/selected tab",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxChange",
+          "description": "Emitted when the active tab changes",
+          "type": "NxTabChangeEventDetail"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getSelectedTab",
+          "description": "Gets the value of the currently selected tab",
+          "type": "getSelectedTab() => Promise<string | undefined>"
+        },
+        {
+          "name": "getTabs",
+          "description": "Returns all child nx-tab elements",
+          "type": "getTabs() => Promise<NxTabElement[]>"
+        },
+        {
+          "name": "registerTab",
+          "description": "Called by child nx-tab to register or update",
+          "type": "registerTab(_tab?: any) => Promise<void>"
+        },
+        {
+          "name": "selectTab",
+          "description": "Programmatically selects a tab by its value",
+          "type": "selectTab(value: string) => Promise<void>"
+        },
+        {
+          "name": "unregisterTab",
+          "description": "Called by child nx-tab when removed",
+          "type": "unregisterTab(_tab?: any) => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "badge",
+          "description": ""
+        },
+        {
+          "name": "indicator",
+          "description": ""
+        },
+        {
+          "name": "nav",
+          "description": ""
+        },
+        {
+          "name": "panels-wrapper",
+          "description": ""
+        },
+        {
+          "name": "tablist",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-table",
+      "description": "",
+      "attributes": [
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "description": "Add borders between all cells",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "description": "Table caption for accessibility",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "clickable-rows",
+          "type": "boolean",
+          "description": "Makes rows interactive and clickable",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "NxTableColor",
+          "description": "Theme color for selection, active sort, and pagination",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "type": "NxTableColumn[] | string",
+          "description": "Column definitions for data-driven mode",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "current-page",
+          "type": "number",
+          "description": "Current active page index (1-based)",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "any[] | string",
+          "description": "Row data array for data-driven mode",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "empty-text",
+          "type": "string",
+          "description": "Text displayed when no data is found",
+          "default": "'No data available'",
+          "required": false
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "description": "Highlight rows on hover",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "Show loading overlay spinner",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "loading-text",
+          "type": "string",
+          "description": "Text displayed during loading state",
+          "default": "'Loading data...'",
+          "required": false
+        },
+        {
+          "name": "max-height",
+          "type": "string",
+          "description": "Maximum height for scrollable table container",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "page-size",
+          "type": "number",
+          "description": "Number of items per page",
+          "default": "10",
+          "required": false
+        },
+        {
+          "name": "page-size-options",
+          "type": "number[] | string",
+          "description": "Page size options in dropdown",
+          "default": "[5, 10, 25, 50]",
+          "required": false
+        },
+        {
+          "name": "paginated",
+          "type": "boolean",
+          "description": "Enable built-in bottom pagination bar",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "row-key",
+          "type": "string",
+          "description": "Property key used as unique row identifier (defaults to 'id' or array index)",
+          "default": "'id'",
+          "required": false
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "description": "Enable row selection with checkboxes",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selectedRows",
+          "type": "(string | number)[]",
+          "description": "Array of selected row keys",
+          "default": "[]",
+          "required": false
+        },
+        {
+          "name": "selection-mode",
+          "type": "'multiple' | 'single'",
+          "description": "Selection mode: multi-row or single-row selection",
+          "default": "'multiple'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxTableSize",
+          "description": "Table density / row height",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "sort-column",
+          "type": "string",
+          "description": "Column key currently sorted by",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sort-direction",
+          "type": "'asc' | 'desc' | 'none'",
+          "description": "Current sort direction: 'asc', 'desc', or 'none'",
+          "default": "'none'",
+          "required": false
+        },
+        {
+          "name": "sortable",
+          "type": "boolean",
+          "description": "Global switch to enable column sorting",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "sticky-header",
+          "type": "boolean",
+          "description": "Keep table header pinned when scrolling vertically",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "description": "Enable subtle alternating zebra stripe background on rows",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "total-items",
+          "type": "number",
+          "description": "Total number of items (for server-side pagination)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxTableVariant",
+          "description": "Visual appearance variant",
+          "default": "'default'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "bordered",
+          "type": "boolean",
+          "description": "Add borders between all cells",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "caption",
+          "type": "string",
+          "description": "Table caption for accessibility",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "clickableRows",
+          "type": "boolean",
+          "description": "Makes rows interactive and clickable",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "NxTableColor",
+          "description": "Theme color for selection, active sort, and pagination",
+          "default": "'primary'",
+          "required": false
+        },
+        {
+          "name": "columns",
+          "type": "NxTableColumn[] | string",
+          "description": "Column definitions for data-driven mode",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "currentPage",
+          "type": "number",
+          "description": "Current active page index (1-based)",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "data",
+          "type": "any[] | string",
+          "description": "Row data array for data-driven mode",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "emptyText",
+          "type": "string",
+          "description": "Text displayed when no data is found",
+          "default": "'No data available'",
+          "required": false
+        },
+        {
+          "name": "hoverable",
+          "type": "boolean",
+          "description": "Highlight rows on hover",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "Show loading overlay spinner",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "loadingText",
+          "type": "string",
+          "description": "Text displayed during loading state",
+          "default": "'Loading data...'",
+          "required": false
+        },
+        {
+          "name": "maxHeight",
+          "type": "string",
+          "description": "Maximum height for scrollable table container",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "type": "number",
+          "description": "Number of items per page",
+          "default": "10",
+          "required": false
+        },
+        {
+          "name": "pageSizeOptions",
+          "type": "number[] | string",
+          "description": "Page size options in dropdown",
+          "default": "[5, 10, 25, 50]",
+          "required": false
+        },
+        {
+          "name": "paginated",
+          "type": "boolean",
+          "description": "Enable built-in bottom pagination bar",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "rowKey",
+          "type": "string",
+          "description": "Property key used as unique row identifier (defaults to 'id' or array index)",
+          "default": "'id'",
+          "required": false
+        },
+        {
+          "name": "selectable",
+          "type": "boolean",
+          "description": "Enable row selection with checkboxes",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "selectedRows",
+          "type": "(string | number)[]",
+          "description": "Array of selected row keys",
+          "default": "[]",
+          "required": false
+        },
+        {
+          "name": "selectionMode",
+          "type": "'multiple' | 'single'",
+          "description": "Selection mode: multi-row or single-row selection",
+          "default": "'multiple'",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "NxTableSize",
+          "description": "Table density / row height",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "sortColumn",
+          "type": "string",
+          "description": "Column key currently sorted by",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "sortDirection",
+          "type": "'asc' | 'desc' | 'none'",
+          "description": "Current sort direction: 'asc', 'desc', or 'none'",
+          "default": "'none'",
+          "required": false
+        },
+        {
+          "name": "sortable",
+          "type": "boolean",
+          "description": "Global switch to enable column sorting",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "stickyHeader",
+          "type": "boolean",
+          "description": "Keep table header pinned when scrolling vertically",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "striped",
+          "type": "boolean",
+          "description": "Enable subtle alternating zebra stripe background on rows",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "totalItems",
+          "type": "number",
+          "description": "Total number of items (for server-side pagination)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxTableVariant",
+          "description": "Visual appearance variant",
+          "default": "'default'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxPageChange",
+          "description": "Emitted when current page or page size changes",
+          "type": "NxTablePageChangeEventDetail"
+        },
+        {
+          "name": "nxRowClick",
+          "description": "Emitted when a table row is clicked",
+          "type": "NxTableRowClickEventDetail"
+        },
+        {
+          "name": "nxSelectionChange",
+          "description": "Emitted when row selection changes",
+          "type": "NxTableSelectionEventDetail"
+        },
+        {
+          "name": "nxSort",
+          "description": "Emitted when a sortable column header is clicked",
+          "type": "NxTableSortEventDetail"
+        }
+      ],
+      "methods": [
+        {
+          "name": "deselectAll",
+          "description": "Deselects all rows",
+          "type": "deselectAll() => Promise<void>"
+        },
+        {
+          "name": "getSelectedKeys",
+          "description": "Returns array of currently selected keys",
+          "type": "getSelectedKeys() => Promise<(string | number)[]>"
+        },
+        {
+          "name": "getSelectedRows",
+          "description": "Returns array of currently selected full row objects",
+          "type": "getSelectedRows() => Promise<any[]>"
+        },
+        {
+          "name": "selectAll",
+          "description": "Selects all rows currently displayed on this page",
+          "type": "selectAll() => Promise<void>"
+        },
+        {
+          "name": "setPage",
+          "description": "Programmatically sets active page",
+          "type": "setPage(page: number) => Promise<void>"
+        },
+        {
+          "name": "sort",
+          "description": "Programmatically sets column sort",
+          "type": "sort(column: string, direction?: \"asc\" | \"desc\" | \"none\") => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "empty",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "loading-overlay",
+          "description": ""
+        },
+        {
+          "name": "pagination",
+          "description": ""
+        },
+        {
+          "name": "scroll-container",
+          "description": ""
+        },
+        {
+          "name": "table",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-text",
+      "description": "",
+      "attributes": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right' | 'justify'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "as",
+          "type": "NxTextTag",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "italic",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'small' | 'default' | 'medium' | 'large' | string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "strikethrough",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "transform",
+          "type": "'uppercase' | 'lowercase' | 'capitalize' | 'none'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "underline",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxTextVariant",
+          "description": "",
+          "default": "'body'",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "'light' | 'regular' | 'medium' | 'semibold' | 'bold'",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "align",
+          "type": "'left' | 'center' | 'right' | 'justify'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "as",
+          "type": "NxTextTag",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "inline",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "italic",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "lines",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'small' | 'default' | 'medium' | 'large' | string | number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "strikethrough",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "transform",
+          "type": "'uppercase' | 'lowercase' | 'capitalize' | 'none'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "truncate",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "underline",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxTextVariant",
+          "description": "",
+          "default": "'body'",
+          "required": false
+        },
+        {
+          "name": "weight",
+          "type": "'light' | 'regular' | 'medium' | 'semibold' | 'bold'",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "text",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-textarea",
+      "description": "",
+      "attributes": [
+        {
+          "name": "auto-grow",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "description": "",
+          "default": "'off'",
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "counter",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "resize",
+          "type": "'none' | 'vertical' | 'horizontal' | 'both'",
+          "description": "",
+          "default": "'vertical'",
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "description": "",
+          "default": "4",
+          "required": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "'hard' | 'soft' | 'off'",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "autoGrow",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "autocapitalize",
+          "type": "string",
+          "description": "",
+          "default": "'off'",
+          "required": false
+        },
+        {
+          "name": "autofocus",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "cols",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "counter",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "maxlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "minlength",
+          "type": "number",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "resize",
+          "type": "'none' | 'vertical' | 'horizontal' | 'both'",
+          "description": "",
+          "default": "'vertical'",
+          "required": false
+        },
+        {
+          "name": "rows",
+          "type": "number",
+          "description": "",
+          "default": "4",
+          "required": false
+        },
+        {
+          "name": "spellcheck",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "wrap",
+          "type": "'hard' | 'soft' | 'off'",
+          "description": "",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxInput",
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "methods": [
+        {
+          "name": "getInputElement",
+          "description": "",
+          "type": "getInputElement() => Promise<HTMLTextAreaElement>"
+        },
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        },
+        {
+          "name": "setInputValue",
+          "description": "",
+          "type": "setInputValue(value: string) => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "counter",
+          "description": ""
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        },
+        {
+          "name": "textarea",
+          "description": ""
+        },
+        {
+          "name": "textarea-box",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-time-picker",
+      "description": "",
+      "attributes": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "'12h' | '24h'",
+          "description": "",
+          "default": "'12h'",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "minute-step",
+          "type": "number",
+          "description": "",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "'Select time'",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "second-step",
+          "type": "number",
+          "description": "",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "show-now-button",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "show-seconds",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "format",
+          "type": "'12h' | '24h'",
+          "description": "",
+          "default": "'12h'",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "max",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "min",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "minuteStep",
+          "type": "number",
+          "description": "",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "",
+          "default": "'Select time'",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "secondStep",
+          "type": "number",
+          "description": "",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "showNowButton",
+          "type": "boolean",
+          "description": "",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "showSeconds",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "string"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxInput",
+          "description": "",
+          "type": "string"
+        }
+      ],
+      "methods": [
+        {
+          "name": "close",
+          "description": "",
+          "type": "close() => Promise<void>"
+        },
+        {
+          "name": "open",
+          "description": "",
+          "type": "open() => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
+      "slots": [],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "panel",
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-toast",
+      "description": "",
+      "attributes": [
+        {
+          "name": "action-text",
+          "type": "string",
+          "description": "Text label for the action button",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "animated",
+          "type": "boolean",
+          "description": "Whether opening/closing animations are enabled",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "description": "Whether to show a close (X) button",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "description": "Duration in milliseconds before the toast automatically dismisses.\r\nSet to 0 to disable auto-dismiss.",
+          "default": "3000",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "description": "Optional title or header text displayed above the message",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Custom icon name to display (overrides default variant icon)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "is-open",
+          "type": "boolean",
+          "description": "Whether the toast is currently visible",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Primary text message to display",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "pause-on-hover",
+          "type": "boolean",
+          "description": "Whether hovering over the toast pauses the auto-dismiss timer",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "NxToastPosition",
+          "description": "Position of the toast on screen",
+          "default": "'bottom'",
+          "required": false
+        },
+        {
+          "name": "show-icon",
+          "type": "boolean",
+          "description": "Whether to show a leading icon",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "show-progress-bar",
+          "type": "boolean",
+          "description": "Whether to display an animated countdown progress bar at the bottom",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "description": "Whether the toast card has a translucent backdrop-blur effect",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxToastVariant",
+          "description": "Visual variant of the toast",
+          "default": "'default'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "actionText",
+          "type": "string",
+          "description": "Text label for the action button",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "animated",
+          "type": "boolean",
+          "description": "Whether opening/closing animations are enabled",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "dismissible",
+          "type": "boolean",
+          "description": "Whether to show a close (X) button",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "number",
+          "description": "Duration in milliseconds before the toast automatically dismisses.\r\nSet to 0 to disable auto-dismiss.",
+          "default": "3000",
+          "required": false
+        },
+        {
+          "name": "header",
+          "type": "string",
+          "description": "Optional title or header text displayed above the message",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": "Custom icon name to display (overrides default variant icon)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "isOpen",
+          "type": "boolean",
+          "description": "Whether the toast is currently visible",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "description": "Primary text message to display",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "pauseOnHover",
+          "type": "boolean",
+          "description": "Whether hovering over the toast pauses the auto-dismiss timer",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "position",
+          "type": "NxToastPosition",
+          "description": "Position of the toast on screen",
+          "default": "'bottom'",
+          "required": false
+        },
+        {
+          "name": "showIcon",
+          "type": "boolean",
+          "description": "Whether to show a leading icon",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "showProgressBar",
+          "type": "boolean",
+          "description": "Whether to display an animated countdown progress bar at the bottom",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "translucent",
+          "type": "boolean",
+          "description": "Whether the toast card has a translucent backdrop-blur effect",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxToastVariant",
+          "description": "Visual variant of the toast",
+          "default": "'default'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxAction",
+          "description": "Emitted when the action button is clicked",
+          "type": "void"
+        },
+        {
+          "name": "nxClose",
+          "description": "Emitted when the close button is clicked",
+          "type": "void"
+        },
+        {
+          "name": "nxDismiss",
+          "description": "Emitted when the toast is dismissed",
+          "type": "NxToastDismissDetail"
+        },
+        {
+          "name": "nxPresent",
+          "description": "Emitted when the toast is presented",
+          "type": "void"
+        }
+      ],
+      "methods": [
+        {
+          "name": "dismiss",
+          "description": "Dismisses the toast",
+          "type": "dismiss(role?: string) => Promise<void>"
+        },
+        {
+          "name": "present",
+          "description": "Shows the toast",
+          "type": "present() => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "action",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "action",
+          "description": ""
+        },
+        {
+          "name": "card",
+          "description": ""
+        },
+        {
+          "name": "close-button",
+          "description": ""
+        },
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "content",
+          "description": ""
+        },
+        {
+          "name": "header",
+          "description": ""
+        },
+        {
+          "name": "icon",
+          "description": ""
+        },
+        {
+          "name": "message",
+          "description": ""
+        },
+        {
+          "name": "progress-bar",
+          "description": ""
+        },
+        {
+          "name": "progress-container",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-toggle",
+      "description": "",
+      "attributes": [
+        {
+          "name": "alignment",
+          "type": "'start' | 'center'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'end' | 'space-between'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label-placement",
+          "type": "'start' | 'end'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "'on'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "alignment",
+          "type": "'start' | 'center'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "checked",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "justify",
+          "type": "'start' | 'end' | 'space-between'",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "labelPlacement",
+          "type": "'start' | 'end'",
+          "description": "",
+          "default": "'end'",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "'small' | 'default' | 'medium' | 'large'",
+          "description": "",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "",
+          "default": "'on'",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "checkedChange",
+          "description": "",
+          "type": "boolean"
+        },
+        {
+          "name": "nxBlur",
+          "description": "",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "",
+          "type": "boolean"
+        },
+        {
+          "name": "nxFocus",
+          "description": "",
+          "type": "FocusEvent"
+        }
+      ],
+      "methods": [
+        {
+          "name": "setFocus",
+          "description": "",
+          "type": "setFocus() => Promise<void>"
+        },
+        {
+          "name": "toggle",
+          "description": "",
+          "type": "toggle() => Promise<boolean>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "thumb",
+          "description": ""
+        },
+        {
+          "name": "track",
+          "description": ""
+        }
+      ]
+    }
+  ]
+}
