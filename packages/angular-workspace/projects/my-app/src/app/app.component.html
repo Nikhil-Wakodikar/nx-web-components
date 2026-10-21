@@ -2156,4 +2156,122 @@
     </div>
   </div>
 
+
+  <!-- ========================================== -->
+  <!-- nx-label: Label Component                  -->
+  <!-- ========================================== -->
+  <div
+    style="
+      margin-top: 32px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+    "
+  >
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 4px">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
+        Label Component (nx-label)
+      </h3>
+      <nx-badge variant="subtle" color="primary">Accessible Form Label</nx-badge>
+    </div>
+    <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
+      Semantic form labels supporting sizes, weights, required/optional indicators, slotted icons/tooltips, and accessible control association.
+    </p>
+
+    <!-- 1. Sizes & Weights -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        1. Sizes &amp; Font Weights
+      </p>
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px">
+        <nx-label size="sm">Small (12px)</nx-label>
+        <nx-label size="md">Medium / Default (14px)</nx-label>
+        <nx-label size="lg">Large (16px)</nx-label>
+        <nx-label size="md" weight="regular">Regular Weight (400)</nx-label>
+        <nx-label size="md" weight="medium">Medium Weight (500)</nx-label>
+        <nx-label size="md" font-family="rubik">Default (Rubik-Regular)</nx-label>
+        <nx-label size="md" font-family="rubik-medium">Rubik-Medium Font</nx-label>
+      </div>
+    </div>
+
+    <!-- 2. Required & Optional States -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        2. Required &amp; Optional Indicators
+      </p>
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px">
+        <nx-label [required]="true">Full Legal Name</nx-label>
+        <nx-label [optional]="true">Phone Number</nx-label>
+        <nx-label [required]="true" [disabled]="true">Required &amp; Disabled</nx-label>
+      </div>
+    </div>
+
+    <!-- 3. Slotted Start & End Adornments -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        3. Slotted Start &amp; End Decorators (Icons, Badges, Tooltips)
+      </p>
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px">
+        <nx-label [required]="true">
+          <nx-icon slot="start" name="mail" style="color: #8145b5"></nx-icon>
+          Email Address
+        </nx-label>
+
+        <nx-label>
+          <nx-icon slot="start" name="lock" style="color: #64748b"></nx-icon>
+          Master Password
+          <nx-badge slot="end" variant="subtle" color="primary">Protected</nx-badge>
+        </nx-label>
+
+        <nx-label [optional]="true">
+          Tax Identification Number
+          <nx-icon slot="end" name="help-circle" style="color: #94a3b8; cursor: pointer"></nx-icon>
+        </nx-label>
+      </div>
+    </div>
+
+    <!-- 4. Color Themes -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        4. Theme Colors
+      </p>
+      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 16px">
+        <nx-label color="default">Default</nx-label>
+        <nx-label color="primary">Primary</nx-label>
+        <nx-label color="secondary">Secondary</nx-label>
+        <nx-label color="success">Success</nx-label>
+        <nx-label color="warning">Warning</nx-label>
+        <nx-label color="error">Error / Danger</nx-label>
+        <nx-label color="info">Info</nx-label>
+        <nx-label color="muted">Muted</nx-label>
+      </div>
+    </div>
+
+    <!-- 5. Form Field Pairing (Accessible Target Linking) -->
+    <div>
+      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        5. Form Control Pairing (Clicking label focuses the control)
+      </p>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+        <div style="display: flex; flex-direction: column">
+          <nx-label for="demo-email-input" [required]="true" position="stacked">
+            <nx-icon slot="start" name="mail" style="color: #8145b5"></nx-icon>
+            Work Email Address
+          </nx-label>
+          <nx-input id="demo-email-input" placeholder="you@company.com" type="email"></nx-input>
+        </div>
+
+        <div style="display: flex; flex-direction: column">
+          <nx-label for="demo-username-input" [optional]="true" position="stacked">
+            <nx-icon slot="start" name="user" style="color: #64748b"></nx-icon>
+            Preferred Username
+            <span slot="end" style="font-size: 11px; color: #94a3b8">Public</span>
+          </nx-label>
+          <nx-input id="demo-username-input" placeholder="e.g. johndoe"></nx-input>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

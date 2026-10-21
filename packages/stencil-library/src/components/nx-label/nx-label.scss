@@ -1,0 +1,195 @@
+// SCSS variables for font-family
+$nx-label-font-family-regular: var(--font-rubik, 'Rubik-Regular', sans-serif) !default;
+$nx-label-font-family-medium: var(--font-rubik-medium, 'Rubik-Medium', sans-serif) !default;
+$nx-label-font-family: $nx-label-font-family-regular !default;
+
+:host {
+  --nx-label-font-family: #{$nx-label-font-family};
+  --nx-label-color: var(--nx-color-gray-700, #334155);
+  --nx-label-font-size: 14px;
+  --nx-label-line-height: 20px;
+  --nx-label-font-weight: 500;
+  --nx-label-required-color: var(--nx-color-error, #dc2626);
+  --nx-label-optional-color: var(--nx-color-gray-400, #94a3b8);
+  --nx-label-gap: 6px;
+
+  display: inline-flex;
+  box-sizing: border-box;
+  font-family: var(--nx-label-font-family);
+  vertical-align: middle;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:host(.position-stacked) {
+  display: flex;
+  width: 100%;
+  margin-bottom: 6px;
+}
+
+:host(.position-inline) {
+  display: inline-flex;
+}
+
+/* Font Family Variants */
+:host(.font-family-medium),
+:host(.font-family-rubik-medium),
+:host([font-family='medium']),
+:host([font-family='rubik-medium']) {
+  --nx-label-font-family: #{$nx-label-font-family-medium};
+}
+
+:host(.font-family-regular),
+:host(.font-family-rubik),
+:host([font-family='regular']),
+:host([font-family='rubik']) {
+  --nx-label-font-family: #{$nx-label-font-family-regular};
+}
+
+.label-inner {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--nx-label-gap);
+  color: var(--nx-label-color);
+  font-family: var(--nx-label-font-family);
+  font-size: var(--nx-label-font-size);
+  line-height: var(--nx-label-line-height);
+  font-weight: var(--nx-label-font-weight);
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  width: 100%;
+  transition: color 0.15s ease;
+}
+
+/* Sizes */
+:host(.size-sm) {
+  --nx-label-font-size: 12px;
+  --nx-label-line-height: 16px;
+  --nx-label-gap: 4px;
+}
+
+:host(.size-md) {
+  --nx-label-font-size: 14px;
+  --nx-label-line-height: 20px;
+  --nx-label-gap: 6px;
+}
+
+:host(.size-lg) {
+  --nx-label-font-size: 16px;
+  --nx-label-line-height: 24px;
+  --nx-label-gap: 8px;
+}
+
+/* Weights */
+:host(.weight-regular) {
+  --nx-label-font-weight: 400;
+}
+
+:host(.weight-medium) {
+  --nx-label-font-weight: 500;
+}
+
+/* Interactive */
+:host(.is-interactive) .label-inner {
+  cursor: pointer;
+
+  &:hover {
+    color: var(--nx-color-primary, #8145b5);
+  }
+}
+
+/* Disabled */
+:host(.is-disabled) {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* Truncation */
+:host(.is-truncated) {
+  max-width: 100%;
+
+  .label-inner {
+    overflow: hidden;
+  }
+
+  .label-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.label-text {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Start Slot */
+.label-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  ::slotted(*) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+:host(.size-sm) .label-start ::slotted(nx-icon) {
+  font-size: 14px;
+}
+
+:host(.size-md) .label-start ::slotted(nx-icon) {
+  font-size: 16px;
+}
+
+:host(.size-lg) .label-start ::slotted(nx-icon) {
+  font-size: 18px;
+}
+
+/* End Slot */
+.label-end {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: 2px;
+
+  ::slotted(*) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Required Asterisk */
+.label-required {
+  color: var(--nx-label-required-color);
+  font-weight: 500;
+  margin-left: 2px;
+  user-select: none;
+  line-height: 1;
+}
+
+/* Optional Hint */
+.label-optional {
+  color: var(--nx-label-optional-color);
+  font-size: 0.85em;
+  font-weight: 400;
+  margin-left: 4px;
+  user-select: none;
+}
+
+.label-start.is-hidden,
+.label-end.is-hidden {
+  display: none !important;
+}
