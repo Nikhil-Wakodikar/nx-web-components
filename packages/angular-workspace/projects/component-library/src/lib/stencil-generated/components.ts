@@ -365,6 +365,58 @@ export declare interface NxLink extends Components.NxLink {
 
 
 @ProxyCmp({
+  inputs: ['lines']
+})
+@Component({
+  selector: 'nx-list',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['lines'],
+})
+export class NxList {
+  protected el: HTMLNxListElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxList extends Components.NxList {}
+
+
+@ProxyCmp({
+  inputs: ['clickable', 'disabled', 'download', 'href', 'lines', 'rel', 'selected', 'target', 'value']
+})
+@Component({
+  selector: 'nx-list-item',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clickable', 'disabled', 'download', 'href', 'lines', 'rel', 'selected', 'target', 'value'],
+})
+export class NxListItem {
+  protected el: HTMLNxListItemElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxClick']);
+  }
+}
+
+
+import type { NxListItemClickEventDetail as INxListItemNxListItemClickEventDetail } from 'stencil-library';
+
+export declare interface NxListItem extends Components.NxListItem {
+  /**
+   * Emitted when the item is clicked
+   */
+  nxClick: EventEmitter<INxListItemNxListItemClickEventDetail>;
+}
+
+
+@ProxyCmp({
   inputs: ['color', 'fullscreen', 'label', 'labelPlacement', 'overlay', 'paused', 'size', 'strokeWidth', 'variant']
 })
 @Component({

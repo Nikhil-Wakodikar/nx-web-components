@@ -49,3 +49,11 @@ export type {
   NxTablePageChangeEventDetail,
   NxTableRowClickEventDetail,
 } from './components/nx-table/nx-table';
+export type {
+  NxListLines,
+  NxListItemElement,
+} from './components/nx-list/nx-list';
+export type {
+  NxListItemLines,
+  NxListItemClickEventDetail,
+} from './components/nx-list-item/nx-list-item';

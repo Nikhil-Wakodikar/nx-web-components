@@ -156,4 +156,17 @@ export class AppComponent {
     console.log('Row clicked:', event);
     this.showToast('primary', `Clicked row: ${event.row.name} (${event.row.role})`, 'Row Selected');
   }
+
+  selectedListItem = 'security';
+
+  onListChange(event: any) {
+    console.log('List selection changed:', event);
+    this.selectedListItem = event.value;
+    this.showToast('primary', `Selected item: ${event.value}`, 'List Selection');
+  }
+
+  onListItemClick(event: any) {
+    console.log('List item clicked:', event);
+    this.showToast('info', `Clicked: ${event.value || 'Item'}`, 'List Item Click');
+  }
 }
