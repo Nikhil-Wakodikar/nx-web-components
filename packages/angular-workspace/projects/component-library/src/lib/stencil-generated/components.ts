@@ -393,25 +393,33 @@ export declare interface NxLink extends Components.NxLink {
 
 
 @ProxyCmp({
-  inputs: ['lines']
+  inputs: ['clickable', 'disabled', 'lines', 'value']
 })
 @Component({
   selector: 'nx-list',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['lines'],
+  inputs: ['clickable', 'disabled', 'lines', 'value'],
 })
 export class NxList {
   protected el: HTMLNxListElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxChange']);
   }
 }
 
 
-export declare interface NxList extends Components.NxList {}
+import type { NxListChangeEventDetail as INxListNxListChangeEventDetail } from 'stencil-library';
+
+export declare interface NxList extends Components.NxList {
+  /**
+   * Emitted when the selected item value changes
+   */
+  nxChange: EventEmitter<INxListNxListChangeEventDetail>;
+}
 
 
 @ProxyCmp({
