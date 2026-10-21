@@ -2073,4 +2073,87 @@
     </div>
   </div>
 
+
+  <!-- ========================================== -->
+  <!-- nx-list & nx-list-item: List Components    -->
+  <!-- ========================================== -->
+  <div
+    style="
+      margin-top: 32px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+    "
+  >
+    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 4px">
+      <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
+        List Component (nx-list, nx-list-item)
+      </h3>
+      <nx-badge variant="subtle" color="primary">Slotted Content &amp; Divider Modes</nx-badge>
+    </div>
+    <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
+      A clean, flat list system with customizable divider lines (full, inset, none) where all content is passed via slots.
+    </p>
+
+    <!-- 1. Full Lines -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        Full Lines
+      </p>
+      <nx-list lines="full">
+        <nx-list-item (nxClick)="onListItemClick($event)">Full Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)">Full Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)">Full Lines</nx-list-item>
+      </nx-list>
+    </div>
+
+    <!-- 2. Inset Lines -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        Inset Lines
+      </p>
+      <nx-list lines="inset">
+        <nx-list-item (nxClick)="onListItemClick($event)">Inset Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)">Inset Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)">Inset Lines</nx-list-item>
+      </nx-list>
+    </div>
+
+    <!-- 3. No Lines -->
+    <div style="margin-bottom: 24px">
+      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        No Lines
+      </p>
+      <nx-list lines="none">
+        <nx-list-item (nxClick)="onListItemClick($event)">No Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)">No Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)">No Lines</nx-list-item>
+      </nx-list>
+    </div>
+
+    <!-- 4. Slotted Start & End Content -->
+    <div>
+      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+        Slotted Start &amp; End Content
+      </p>
+      <nx-list lines="full">
+        <nx-list-item [clickable]="true" value="inbox" (nxClick)="onListItemClick($event)">
+          <nx-icon slot="start" name="mail" style="color: #2563eb"></nx-icon>
+          Inbox
+          <nx-badge slot="end" variant="subtle" color="primary">12</nx-badge>
+        </nx-list-item>
+        <nx-list-item [clickable]="true" value="settings" (nxClick)="onListItemClick($event)">
+          <nx-icon slot="start" name="settings" style="color: #64748b"></nx-icon>
+          Settings
+          <span slot="end" style="font-size: 12px; color: #94a3b8">Manage</span>
+        </nx-list-item>
+        <nx-list-item [clickable]="true" value="help" (nxClick)="onListItemClick($event)">
+          <nx-icon slot="start" name="help-circle" style="color: #16a34a"></nx-icon>
+          Help &amp; Support
+        </nx-list-item>
+      </nx-list>
+    </div>
+  </div>
+
 </div>

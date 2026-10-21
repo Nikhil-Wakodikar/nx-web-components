@@ -15,6 +15,8 @@ export const DIRECTIVES = [
   d.NxIcon,
   d.NxInput,
   d.NxLink,
+  d.NxList,
+  d.NxListItem,
   d.NxLoader,
   d.NxModal,
   d.NxProgress,

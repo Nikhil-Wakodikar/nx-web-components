@@ -1,0 +1,24 @@
+:host {
+  --nx-list-bg: #ffffff;
+  --nx-list-border-color: #e5e7eb;
+
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+  background-color: var(--nx-list-bg);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+.nx-list-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--nx-list-bg);
+  box-sizing: border-box;
+}
