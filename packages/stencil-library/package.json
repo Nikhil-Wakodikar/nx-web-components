@@ -35,7 +35,7 @@
   ],
   "scripts": {
     "build": "stencil build",
-    "postbuild": "node scripts/clean-angular-events.js",
+    "postbuild": "node scripts/clean-angular-events.js && node scripts/generate-storybook-custom-elements.js",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",

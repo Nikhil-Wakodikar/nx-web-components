@@ -28,6 +28,10 @@ export const config: Config = {
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),
+    {
+      type: 'docs-json',
+      file: 'dist/docs.json',
+    },
   ],
   plugins: [
     sass({
