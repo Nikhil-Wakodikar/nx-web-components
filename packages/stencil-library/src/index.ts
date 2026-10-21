@@ -52,6 +52,7 @@ export type {
 export type {
   NxListLines,
   NxListItemElement,
+  NxListChangeEventDetail,
 } from './components/nx-list/nx-list';
 export type {
   NxListItemLines,

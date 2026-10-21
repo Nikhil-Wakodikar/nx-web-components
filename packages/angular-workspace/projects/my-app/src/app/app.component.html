@@ -1960,27 +1960,56 @@
       background: #ffffff;
     "
   >
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 4px">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 4px;
+      "
+    >
       <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
         Data Table (nx-table)
       </h3>
-      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap">
-        <nx-badge *ngIf="tableSelectedCount > 0" variant="subtle" color="primary">
+      <div
+        style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap"
+      >
+        <nx-badge
+          *ngIf="tableSelectedCount > 0"
+          variant="subtle"
+          color="primary"
+        >
           {{ tableSelectedCount }} Selected
         </nx-badge>
-        <nx-button size="small" variant="outline" (nxClick)="toggleTableLoading()">
+        <nx-button
+          size="small"
+          variant="outline"
+          (nxClick)="toggleTableLoading()"
+        >
           Test Loading Overlay
         </nx-button>
       </div>
     </div>
     <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
-      A powerful enterprise data table supporting sorting, row selection checkboxes, built-in pagination, loading overlay, sizes, variants, and custom slot fallbacks.
+      A powerful enterprise data table supporting sorting, row selection
+      checkboxes, built-in pagination, loading overlay, sizes, variants, and
+      custom slot fallbacks.
     </p>
 
     <!-- 1. Interactive Data-Driven Table -->
     <div style="margin-bottom: 28px">
-      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
-        1. Full Interactive Table (Sorting, Selection, Pagination &amp; Clickable Rows):
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: #475569;
+        "
+      >
+        1. Full Interactive Table (Sorting, Selection, Pagination &amp;
+        Clickable Rows):
       </p>
       <nx-table
         variant="card"
@@ -1998,8 +2027,20 @@
         (nxSelectionChange)="onTableSelectionChange($event)"
         (nxRowClick)="onTableRowClick($event)"
       >
-        <div slot="header" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; border-bottom: 1px solid #e2e8f0; background: #ffffff">
-          <span style="font-size: 14px; font-weight: 500; color: #1e293b">Team Directory</span>
+        <div
+          slot="header"
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e2e8f0;
+            background: #ffffff;
+          "
+        >
+          <span style="font-size: 14px; font-weight: 500; color: #1e293b"
+            >Team Directory</span
+          >
           <nx-chip size="sm" color="info">10 Members</nx-chip>
         </div>
       </nx-table>
@@ -2007,7 +2048,14 @@
 
     <!-- 2. Compact Bordered Table -->
     <div style="margin-bottom: 28px">
-      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: #475569;
+        "
+      >
         2. Compact Density (size="sm" with [bordered]="true"):
       </p>
       <nx-table
@@ -2022,8 +2070,16 @@
 
     <!-- 3. Slotted HTML Table Mode -->
     <div style="margin-bottom: 28px">
-      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
-        3. Declarative Slotted HTML Table (Custom elements inside &lt;nx-table&gt;):
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: #475569;
+        "
+      >
+        3. Declarative Slotted HTML Table (Custom elements inside
+        &lt;nx-table&gt;):
       </p>
       <nx-table variant="default" [striped]="true" [hoverable]="true">
         <table>
@@ -2039,19 +2095,27 @@
             <tr>
               <td>Design System 2.0</td>
               <td>Sarah Connor</td>
-              <td><nx-badge variant="subtle" color="success">In Progress</nx-badge></td>
+              <td>
+                <nx-badge variant="subtle" color="success"
+                  >In Progress</nx-badge
+                >
+              </td>
               <td>85%</td>
             </tr>
             <tr>
               <td>Cloud Migration</td>
               <td>Michael Chang</td>
-              <td><nx-badge variant="subtle" color="primary">Review</nx-badge></td>
+              <td>
+                <nx-badge variant="subtle" color="primary">Review</nx-badge>
+              </td>
               <td>95%</td>
             </tr>
             <tr>
               <td>Mobile App Refresh</td>
               <td>James Wilson</td>
-              <td><nx-badge variant="subtle" color="warning">Planning</nx-badge></td>
+              <td>
+                <nx-badge variant="subtle" color="warning">Planning</nx-badge>
+              </td>
               <td>30%</td>
             </tr>
           </tbody>
@@ -2061,7 +2125,14 @@
 
     <!-- 4. Empty State -->
     <div>
-      <p style="margin: 0 0 10px 0; font-size: 14px; font-weight: 500; color: #475569">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 14px;
+          font-weight: 500;
+          color: #475569;
+        "
+      >
         4. Empty State ([data]="[]"):
       </p>
       <nx-table
@@ -2072,7 +2143,6 @@
       ></nx-table>
     </div>
   </div>
-
 
   <!-- ========================================== -->
   <!-- nx-list & nx-list-item: List Components    -->
@@ -2086,76 +2156,228 @@
       background: #ffffff;
     "
   >
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 4px">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 4px;
+      "
+    >
       <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
         List Component (nx-list, nx-list-item)
       </h3>
-      <nx-badge variant="subtle" color="primary">Slotted Content &amp; Divider Modes</nx-badge>
+      <nx-badge variant="subtle" color="primary"
+        >Slotted Content &amp; Divider Modes</nx-badge
+      >
     </div>
     <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
-      A clean, flat list system with customizable divider lines (full, inset, none) where all content is passed via slots.
+      A clean, flat list system with customizable divider lines (full, inset,
+      none) where all content is passed via slots.
     </p>
 
     <!-- 1. Full Lines -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 8px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         Full Lines
       </p>
-      <nx-list lines="full">
-        <nx-list-item (nxClick)="onListItemClick($event)">Full Lines</nx-list-item>
-        <nx-list-item (nxClick)="onListItemClick($event)">Full Lines</nx-list-item>
-        <nx-list-item (nxClick)="onListItemClick($event)">Full Lines</nx-list-item>
+      <nx-list lines="full" [clickable]="true">
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >Full Lines</nx-list-item
+        >
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >Full Lines</nx-list-item
+        >
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >Full Lines</nx-list-item
+        >
       </nx-list>
     </div>
 
     <!-- 2. Inset Lines -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 8px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         Inset Lines
       </p>
       <nx-list lines="inset">
-        <nx-list-item (nxClick)="onListItemClick($event)">Inset Lines</nx-list-item>
-        <nx-list-item (nxClick)="onListItemClick($event)">Inset Lines</nx-list-item>
-        <nx-list-item (nxClick)="onListItemClick($event)">Inset Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >Inset Lines</nx-list-item
+        >
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >Inset Lines</nx-list-item
+        >
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >Inset Lines</nx-list-item
+        >
       </nx-list>
     </div>
 
     <!-- 3. No Lines -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 8px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         No Lines
       </p>
       <nx-list lines="none">
-        <nx-list-item (nxClick)="onListItemClick($event)">No Lines</nx-list-item>
-        <nx-list-item (nxClick)="onListItemClick($event)">No Lines</nx-list-item>
-        <nx-list-item (nxClick)="onListItemClick($event)">No Lines</nx-list-item>
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >No Lines</nx-list-item
+        >
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >No Lines</nx-list-item
+        >
+        <nx-list-item (nxClick)="onListItemClick($event)"
+          >No Lines</nx-list-item
+        >
       </nx-list>
     </div>
 
     <!-- 4. Slotted Start & End Content -->
     <div>
-      <p style="margin: 0 0 8px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 8px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         Slotted Start &amp; End Content
       </p>
       <nx-list lines="full">
-        <nx-list-item [clickable]="true" value="inbox" (nxClick)="onListItemClick($event)">
+        <nx-list-item
+          [clickable]="true"
+          value="inbox"
+          (nxClick)="onListItemClick($event)"
+        >
           <nx-icon slot="start" name="mail" style="color: #2563eb"></nx-icon>
           Inbox
           <nx-badge slot="end" variant="subtle" color="primary">12</nx-badge>
         </nx-list-item>
-        <nx-list-item [clickable]="true" value="settings" (nxClick)="onListItemClick($event)">
-          <nx-icon slot="start" name="settings" style="color: #64748b"></nx-icon>
+        <nx-list-item
+          [clickable]="true"
+          value="settings"
+          (nxClick)="onListItemClick($event)"
+        >
+          <nx-icon
+            slot="start"
+            name="settings"
+            style="color: #64748b"
+          ></nx-icon>
           Settings
           <span slot="end" style="font-size: 12px; color: #94a3b8">Manage</span>
         </nx-list-item>
-        <nx-list-item [clickable]="true" value="help" (nxClick)="onListItemClick($event)">
-          <nx-icon slot="start" name="help-circle" style="color: #16a34a"></nx-icon>
+        <nx-list-item
+          [clickable]="true"
+          value="help"
+          (nxClick)="onListItemClick($event)"
+        >
+          <nx-icon
+            slot="start"
+            name="help-circle"
+            style="color: #16a34a"
+          ></nx-icon>
           Help &amp; Support
         </nx-list-item>
       </nx-list>
     </div>
-  </div>
 
+    <!-- 5. Parent Controlled Selection & Clickable ([clickable]="true", [value]="selectedListItem", (nxChange)="onListChange($event)") -->
+    <div style="margin-top: 24px; margin-bottom: 24px">
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+        "
+      >
+        <p
+          style="
+            margin: 0;
+            font-size: 13px;
+            font-weight: 500;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+          "
+        >
+          5. Parent Selection ([clickable]="true", [value]="selectedListItem")
+        </p>
+        <nx-badge variant="subtle" color="primary"
+          >Active Selection: {{ selectedListItem }}</nx-badge
+        >
+      </div>
+      <nx-list
+        lines="full"
+        [clickable]="true"
+        [value]="selectedListItem"
+        (nxChange)="onListChange($event)"
+      >
+        <nx-list-item value="standard">
+          Standard Plan
+          <span slot="end" style="font-size: 13px; color: #64748b">$9/mo</span>
+        </nx-list-item>
+        <nx-list-item value="security">
+          Enterprise Security Plan
+          <span slot="end" style="font-size: 13px; color: #64748b">$29/mo</span>
+        </nx-list-item>
+        <nx-list-item value="dedicated">
+          Dedicated Infrastructure
+          <span slot="end" style="font-size: 13px; color: #64748b">$99/mo</span>
+        </nx-list-item>
+      </nx-list>
+    </div>
+
+    <!-- 6. Disabled List via Parent ([disabled]="true") -->
+    <div>
+      <p
+        style="
+          margin: 0 0 8px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        6. Disabled List ([disabled]="true" on parent)
+      </p>
+      <nx-list lines="full" [disabled]="true">
+        <nx-list-item value="archived-1">Archived Repository 2024</nx-list-item>
+        <nx-list-item value="archived-2">Legacy API Documentation</nx-list-item>
+      </nx-list>
+    </div>
+  </div>
 
   <!-- ========================================== -->
   <!-- nx-label: Label Component                  -->
@@ -2169,50 +2391,177 @@
       background: #ffffff;
     "
   >
-    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 4px">
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-bottom: 4px;
+      "
+    >
       <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
         Label Component (nx-label)
       </h3>
-      <nx-badge variant="subtle" color="primary">Accessible Form Label</nx-badge>
+      <nx-badge variant="subtle" color="primary"
+        >Accessible Form Label</nx-badge
+      >
     </div>
     <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
-      Semantic form labels supporting sizes, weights, required/optional indicators, slotted icons/tooltips, and accessible control association.
+      Semantic form labels supporting sizes, weights, required/optional
+      indicators, slotted icons/tooltips, and accessible control association.
     </p>
 
     <!-- 1. Sizes & Weights -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         1. Sizes &amp; Font Weights
       </p>
-      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px">
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px"
+      >
         <nx-label size="sm">Small (12px)</nx-label>
         <nx-label size="md">Medium / Default (14px)</nx-label>
         <nx-label size="lg">Large (16px)</nx-label>
         <nx-label size="md" weight="regular">Regular Weight (400)</nx-label>
         <nx-label size="md" weight="medium">Medium Weight (500)</nx-label>
-        <nx-label size="md" font-family="rubik">Default (Rubik-Regular)</nx-label>
-        <nx-label size="md" font-family="rubik-medium">Rubik-Medium Font</nx-label>
+      </div>
+    </div>
+
+    <!-- 2. Font Family Options (Rubik-Regular vs Rubik-Medium) -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        2. Font Family Options (Default Rubik-Regular vs Rubik-Medium)
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 16px">
+        <div
+          style="display: flex; align-items: center; gap: 24px; flex-wrap: wrap"
+        >
+          <div>
+            <nx-label font-family="regular"
+              >Default Font (Rubik-Regular)</nx-label
+            >
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 2px">
+              font-family="regular"
+            </div>
+          </div>
+          <div>
+            <nx-label font-family="rubik-medium">Rubik-Medium Font</nx-label>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 2px">
+              font-family="rubik-medium"
+            </div>
+          </div>
+          <div>
+            <nx-label style="--nx-label-font-family: var(--font-rubik-medium)"
+              >Via CSS Variable</nx-label
+            >
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 2px">
+              style="--nx-label-font-family: var(--font-rubik-medium)"
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 4px;
+          "
+        >
+          <div style="display: flex; flex-direction: column">
+            <nx-label
+              for="rubik-reg-input"
+              font-family="regular"
+              [required]="true"
+              position="stacked"
+            >
+              Account Username (Rubik-Regular)
+            </nx-label>
+            <nx-input
+              id="rubik-reg-input"
+              placeholder="Regular font label"
+            ></nx-input>
+          </div>
+          <div style="display: flex; flex-direction: column">
+            <nx-label
+              for="rubik-med-input"
+              font-family="rubik-medium"
+              [required]="true"
+              position="stacked"
+            >
+              Account Username (Rubik-Medium)
+            </nx-label>
+            <nx-input
+              id="rubik-med-input"
+              placeholder="Rubik-Medium font label"
+            ></nx-input>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- 2. Required & Optional States -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         2. Required &amp; Optional Indicators
       </p>
-      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px">
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px"
+      >
         <nx-label [required]="true">Full Legal Name</nx-label>
         <nx-label [optional]="true">Phone Number</nx-label>
-        <nx-label [required]="true" [disabled]="true">Required &amp; Disabled</nx-label>
+        <nx-label [required]="true" [disabled]="true"
+          >Required &amp; Disabled</nx-label
+        >
       </div>
     </div>
 
     <!-- 3. Slotted Start & End Adornments -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         3. Slotted Start &amp; End Decorators (Icons, Badges, Tooltips)
       </p>
-      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px">
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px"
+      >
         <nx-label [required]="true">
           <nx-icon slot="start" name="mail" style="color: #8145b5"></nx-icon>
           Email Address
@@ -2221,22 +2570,39 @@
         <nx-label>
           <nx-icon slot="start" name="lock" style="color: #64748b"></nx-icon>
           Master Password
-          <nx-badge slot="end" variant="subtle" color="primary">Protected</nx-badge>
+          <nx-badge slot="end" variant="subtle" color="primary"
+            >Protected</nx-badge
+          >
         </nx-label>
 
         <nx-label [optional]="true">
           Tax Identification Number
-          <nx-icon slot="end" name="help-circle" style="color: #94a3b8; cursor: pointer"></nx-icon>
+          <nx-icon
+            slot="end"
+            name="help-circle"
+            style="color: #94a3b8; cursor: pointer"
+          ></nx-icon>
         </nx-label>
       </div>
     </div>
 
     <!-- 4. Color Themes -->
     <div style="margin-bottom: 24px">
-      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         4. Theme Colors
       </p>
-      <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 16px">
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 16px"
+      >
         <nx-label color="default">Default</nx-label>
         <nx-label color="primary">Primary</nx-label>
         <nx-label color="secondary">Secondary</nx-label>
@@ -2250,28 +2616,55 @@
 
     <!-- 5. Form Field Pairing (Accessible Target Linking) -->
     <div>
-      <p style="margin: 0 0 10px 0; font-size: 13px; font-weight: 500; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
         5. Form Control Pairing (Clicking label focuses the control)
       </p>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+      <div
+        style="
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 16px;
+        "
+      >
         <div style="display: flex; flex-direction: column">
           <nx-label for="demo-email-input" [required]="true" position="stacked">
             <nx-icon slot="start" name="mail" style="color: #8145b5"></nx-icon>
             Work Email Address
           </nx-label>
-          <nx-input id="demo-email-input" placeholder="you@company.com" type="email"></nx-input>
+          <nx-input
+            id="demo-email-input"
+            placeholder="you@company.com"
+            type="email"
+          ></nx-input>
         </div>
 
         <div style="display: flex; flex-direction: column">
-          <nx-label for="demo-username-input" [optional]="true" position="stacked">
+          <nx-label
+            for="demo-username-input"
+            [optional]="true"
+            position="stacked"
+          >
             <nx-icon slot="start" name="user" style="color: #64748b"></nx-icon>
             Preferred Username
-            <span slot="end" style="font-size: 11px; color: #94a3b8">Public</span>
+            <span slot="end" style="font-size: 11px; color: #94a3b8"
+              >Public</span
+            >
           </nx-label>
-          <nx-input id="demo-username-input" placeholder="e.g. johndoe"></nx-input>
+          <nx-input
+            id="demo-username-input"
+            placeholder="e.g. johndoe"
+          ></nx-input>
         </div>
       </div>
     </div>
   </div>
-
 </div>
