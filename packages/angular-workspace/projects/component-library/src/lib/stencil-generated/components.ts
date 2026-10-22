@@ -88,25 +88,36 @@ export declare interface NxBadge extends Components.NxBadge {}
 
 
 @ProxyCmp({
-  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type', 'variant']
+  inputs: ['color', 'disabled', 'expand', 'fill', 'form', 'name', 'shape', 'size', 'type', 'value', 'variant'],
+  methods: ['setFocus', 'setBlur']
 })
 @Component({
   selector: 'nx-button',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
-  inputs: ['disabled', 'expand', 'fill', 'shape', 'size', 'type', 'variant'],
+  inputs: ['color', 'disabled', 'expand', 'fill', 'form', 'name', 'shape', 'size', 'type', 'value', 'variant'],
 })
 export class NxButton {
   protected el: HTMLNxButtonElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxFocus', 'nxBlur']);
   }
 }
 
 
-export declare interface NxButton extends Components.NxButton {}
+export declare interface NxButton extends Components.NxButton {
+  /**
+   * Emitted when the button gains focus
+   */
+  nxFocus: EventEmitter<FocusEvent>;
+  /**
+   * Emitted when the button loses focus
+   */
+  nxBlur: EventEmitter<FocusEvent>;
+}
 
 
 @ProxyCmp({
