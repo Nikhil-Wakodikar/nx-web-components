@@ -1,4 +1,5 @@
 {
+  "version": "experimental",
   "tags": [
     {
       "name": "nx-accordion",
@@ -528,108 +529,186 @@
       "description": "",
       "attributes": [
         {
+          "name": "color",
+          "type": "NxButtonColor",
+          "description": "Color theme ('primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'medium', 'dark') or custom CSS color string",
+          "default": "",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
-          "description": "",
+          "description": "Whether the button is disabled",
           "default": "false",
           "required": false
         },
         {
           "name": "expand",
-          "type": "'block' | 'full'",
-          "description": "",
+          "type": "NxButtonExpand",
+          "description": "Width expansion behavior ('block' or 'full')",
           "default": "",
           "required": false
         },
         {
           "name": "fill",
-          "type": "'clear' | 'outline' | 'solid'",
-          "description": "",
+          "type": "NxButtonFill",
+          "description": "Fill style variant ('solid', 'outline', 'clear')",
           "default": "'solid'",
           "required": false
         },
         {
+          "name": "form",
+          "type": "string",
+          "description": "The ID of the form that the button belongs to",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The name of the button submitted with form data",
+          "default": "",
+          "required": false
+        },
+        {
           "name": "shape",
-          "type": "'round'",
-          "description": "",
+          "type": "NxButtonShape",
+          "description": "Corner shape ('round' / 'pill' or 'square')",
           "default": "",
           "required": false
         },
         {
           "name": "size",
-          "type": "'small' | 'default' | 'large'",
-          "description": "",
+          "type": "NxButtonSize",
+          "description": "Size of the button ('small', 'default', 'large', or 'sm', 'md', 'lg')",
           "default": "'default'",
           "required": false
         },
         {
           "name": "type",
           "type": "'button' | 'submit' | 'reset'",
-          "description": "",
+          "description": "HTML button type",
           "default": "'button'",
           "required": false
         },
         {
+          "name": "value",
+          "type": "string",
+          "description": "The value of the button submitted with form data",
+          "default": "",
+          "required": false
+        },
+        {
           "name": "variant",
-          "type": "'clear' | 'outline' | 'solid'",
-          "description": "Visual variant alias for fill ('clear', 'outline', 'solid')",
+          "type": "'solid' | 'outline' | 'clear' | 'ghost' | 'text'",
+          "description": "Visual variant alias for fill ('solid', 'outline', 'clear', 'ghost', 'text')",
           "default": "",
           "required": false
         }
       ],
       "properties": [
         {
+          "name": "color",
+          "type": "NxButtonColor",
+          "description": "Color theme ('primary', 'secondary', 'success', 'warning', 'danger', 'info', 'light', 'medium', 'dark') or custom CSS color string",
+          "default": "",
+          "required": false
+        },
+        {
           "name": "disabled",
           "type": "boolean",
-          "description": "",
+          "description": "Whether the button is disabled",
           "default": "false",
           "required": false
         },
         {
           "name": "expand",
-          "type": "'block' | 'full'",
-          "description": "",
+          "type": "NxButtonExpand",
+          "description": "Width expansion behavior ('block' or 'full')",
           "default": "",
           "required": false
         },
         {
           "name": "fill",
-          "type": "'clear' | 'outline' | 'solid'",
-          "description": "",
+          "type": "NxButtonFill",
+          "description": "Fill style variant ('solid', 'outline', 'clear')",
           "default": "'solid'",
           "required": false
         },
         {
+          "name": "form",
+          "type": "string",
+          "description": "The ID of the form that the button belongs to",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "The name of the button submitted with form data",
+          "default": "",
+          "required": false
+        },
+        {
           "name": "shape",
-          "type": "'round'",
-          "description": "",
+          "type": "NxButtonShape",
+          "description": "Corner shape ('round' / 'pill' or 'square')",
           "default": "",
           "required": false
         },
         {
           "name": "size",
-          "type": "'small' | 'default' | 'large'",
-          "description": "",
+          "type": "NxButtonSize",
+          "description": "Size of the button ('small', 'default', 'large', or 'sm', 'md', 'lg')",
           "default": "'default'",
           "required": false
         },
         {
           "name": "type",
           "type": "'button' | 'submit' | 'reset'",
-          "description": "",
+          "description": "HTML button type",
           "default": "'button'",
           "required": false
         },
         {
+          "name": "value",
+          "type": "string",
+          "description": "The value of the button submitted with form data",
+          "default": "",
+          "required": false
+        },
+        {
           "name": "variant",
-          "type": "'clear' | 'outline' | 'solid'",
-          "description": "Visual variant alias for fill ('clear', 'outline', 'solid')",
+          "type": "'solid' | 'outline' | 'clear' | 'ghost' | 'text'",
+          "description": "Visual variant alias for fill ('solid', 'outline', 'clear', 'ghost', 'text')",
           "default": "",
           "required": false
         }
       ],
-      "events": [],
-      "methods": [],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "Emitted when the button loses focus",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxFocus",
+          "description": "Emitted when the button gains focus",
+          "type": "FocusEvent"
+        }
+      ],
+      "methods": [
+        {
+          "name": "setBlur",
+          "description": "Removes focus from native button",
+          "type": "setBlur() => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "Sets focus on native button",
+          "type": "setFocus() => Promise<void>"
+        }
+      ],
       "slots": [
         {
           "name": "default",
@@ -645,7 +724,16 @@
         }
       ],
       "cssProperties": [],
-      "cssParts": []
+      "cssParts": [
+        {
+          "name": "inner",
+          "description": ""
+        },
+        {
+          "name": "native",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "nx-card",

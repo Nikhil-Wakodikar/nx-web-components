@@ -23,12 +23,9 @@ const preview = {
         date: /Date$/i,
       },
     },
-    docs: {
-      extractArgTypes: true,
-    },
     options: {
       storySort: {
-        order: ['NX Web Components', ['Overview', 'Components']],
+        order: ['NX Web Components', ['Overview', 'Components', 'Button']],
       },
     },
   },

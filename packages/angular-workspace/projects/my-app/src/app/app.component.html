@@ -2667,4 +2667,359 @@
       </div>
     </div>
   </div>
+
+  <!-- ==========================================
+       Button Component (nx-button) Showcase
+       ========================================== -->
+  <div
+    style="
+      margin-top: 32px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    "
+  >
+    <div
+      style="display: flex; align-items: center; gap: 12px; margin-bottom: 4px"
+    >
+      <h3 style="margin: 0; font-size: 18px; font-weight: 500; color: #1e293b">
+        Button Component (nx-button)
+      </h3>
+      <nx-badge variant="subtle" color="primary">Interactive Buttons</nx-badge>
+    </div>
+    <p style="margin: 0 0 24px 0; font-size: 13px; color: #64748b">
+      Versatile web component button supporting fills, theme colors, sizes,
+      shapes, slotted icons, and full-width expand modes.
+    </p>
+
+    <!-- 1. Fill Styles -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        <nx-button>Default</nx-button>
+
+        <nx-button fill="outline"> Outline </nx-button>
+
+        <nx-button fill="clear"> Clear </nx-button>
+
+        <nx-button shape="round"> Round </nx-button>
+
+        <nx-button expand="full"> Full </nx-button>
+
+        <nx-button expand="block"> Block </nx-button>
+
+        <nx-button size="small">Small</nx-button>
+
+        <nx-button>Default</nx-button>
+
+        <nx-button size="large">Large</nx-button>
+        1. Fill Styles (Solid, Outline, Clear)
+      </p>
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px"
+      >
+        <nx-button (click)="onButtonClick('Solid Button')"
+          >Solid (Default)</nx-button
+        >
+        <nx-button fill="outline" (click)="onButtonClick('Outline Button')"
+          >Outline</nx-button
+        >
+        <nx-button fill="clear" (click)="onButtonClick('Clear Button')"
+          >Clear / Ghost</nx-button
+        >
+      </div>
+    </div>
+
+    <!-- 2. Theme Colors -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        2. Theme Colors (Solid &amp; Outline)
+      </p>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <div
+          style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px"
+        >
+          <nx-button color="primary" (click)="onButtonClick('Primary')"
+            >Primary</nx-button
+          >
+          <nx-button color="secondary" (click)="onButtonClick('Secondary')"
+            >Secondary</nx-button
+          >
+          <nx-button color="success" (click)="onButtonClick('Success')"
+            >Success</nx-button
+          >
+          <nx-button color="warning" (click)="onButtonClick('Warning')"
+            >Warning</nx-button
+          >
+          <nx-button color="danger" (click)="onButtonClick('Danger')"
+            >Danger</nx-button
+          >
+          <nx-button color="info" (click)="onButtonClick('Info')"
+            >Info</nx-button
+          >
+          <nx-button color="dark" (click)="onButtonClick('Dark')"
+            >Dark</nx-button
+          >
+          <nx-button color="medium" (click)="onButtonClick('Medium')"
+            >Medium</nx-button
+          >
+          <nx-button color="light" (click)="onButtonClick('Light')"
+            >Light</nx-button
+          >
+          <nx-button color="#ff6700" (click)="onButtonClick('Custom')"
+            >Custom (#ff6700)</nx-button
+          >
+        </div>
+        <div
+          style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px"
+        >
+          <nx-button
+            color="primary"
+            fill="outline"
+            (click)="onButtonClick('Primary Outline')"
+            >Primary Outline</nx-button
+          >
+          <nx-button
+            color="success"
+            fill="outline"
+            (click)="onButtonClick('Success Outline')"
+            >Success Outline</nx-button
+          >
+          <nx-button
+            color="danger"
+            fill="outline"
+            (click)="onButtonClick('Danger Outline')"
+            >Danger Outline</nx-button
+          >
+          <nx-button
+            color="info"
+            fill="outline"
+            (click)="onButtonClick('Info Outline')"
+            >Info Outline</nx-button
+          >
+          <nx-button
+            color="warning"
+            fill="outline"
+            (click)="onButtonClick('Warning Outline')"
+            >Warning Outline</nx-button
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Sizes -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        3. Sizes (Small, Default, Large)
+      </p>
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px"
+      >
+        <nx-button
+          size="small"
+          color="primary"
+          (click)="onButtonClick('Small Button')"
+          >Small</nx-button
+        >
+        <nx-button
+          size="default"
+          color="primary"
+          (click)="onButtonClick('Default Button')"
+          >Default</nx-button
+        >
+        <nx-button
+          size="large"
+          color="primary"
+          (click)="onButtonClick('Large Button')"
+          >Large</nx-button
+        >
+      </div>
+    </div>
+
+    <!-- 4. Corner Shapes -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        4. Corner Shapes (Square, Default Rounded, Round / Pill)
+      </p>
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px"
+      >
+        <nx-button
+          shape="square"
+          color="primary"
+          (click)="onButtonClick('Square')"
+          >Square (0px)</nx-button
+        >
+        <nx-button color="primary" (click)="onButtonClick('Default Rounded')"
+          >Default (6px)</nx-button
+        >
+        <nx-button
+          shape="round"
+          color="primary"
+          (click)="onButtonClick('Round / Pill')"
+          >Round / Pill (999px)</nx-button
+        >
+        <nx-button
+          shape="round"
+          fill="outline"
+          color="success"
+          (click)="onButtonClick('Outline Pill')"
+          >Outline Pill</nx-button
+        >
+      </div>
+    </div>
+
+    <!-- 5. With Slotted Icons -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        5. With Slotted Icons (Leading &amp; Trailing)
+      </p>
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px"
+      >
+        <nx-button color="primary" (click)="onButtonClick('Settings Button')">
+          <nx-icon slot="start" name="settings" size="small"></nx-icon>
+          Settings
+        </nx-button>
+        <nx-button
+          color="info"
+          fill="outline"
+          (click)="onButtonClick('Next Step')"
+        >
+          Next Step
+          <nx-icon slot="end" name="arrow-right" size="small"></nx-icon>
+        </nx-button>
+        <nx-button
+          color="danger"
+          shape="round"
+          (click)="onButtonClick('Favorites')"
+        >
+          <nx-icon slot="start" name="heart" size="small"></nx-icon>
+          Add to Favorites
+        </nx-button>
+        <nx-button
+          color="success"
+          fill="clear"
+          (click)="onButtonClick('Search')"
+        >
+          <nx-icon slot="start" name="search" size="small"></nx-icon>
+          Quick Search
+        </nx-button>
+      </div>
+    </div>
+
+    <!-- 6. Disabled States -->
+    <div style="margin-bottom: 24px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        6. Disabled States
+      </p>
+      <div
+        style="display: flex; align-items: center; flex-wrap: wrap; gap: 12px"
+      >
+        <nx-button color="primary" [disabled]="true">Solid Disabled</nx-button>
+        <nx-button color="primary" fill="outline" [disabled]="true"
+          >Outline Disabled</nx-button
+        >
+        <nx-button color="primary" fill="clear" [disabled]="true"
+          >Clear Disabled</nx-button
+        >
+        <nx-button color="danger" [disabled]="true">Danger Disabled</nx-button>
+      </div>
+    </div>
+
+    <!-- 7. Full Width Expansion -->
+    <div>
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        7. Full Width Expansion (expand="block")
+      </p>
+      <div
+        style="
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          max-width: 440px;
+        "
+      >
+        <nx-button
+          expand="block"
+          color="primary"
+          (click)="onButtonClick('Block Solid Button')"
+        >
+          Block Button (Full Container Width)
+        </nx-button>
+        <nx-button
+          expand="block"
+          color="secondary"
+          fill="outline"
+          (click)="onButtonClick('Block Outline Button')"
+        >
+          Block Outline Button
+        </nx-button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -12,6 +12,7 @@ if (!fs.existsSync(docsPath)) {
 const docs = JSON.parse(fs.readFileSync(docsPath, 'utf8'));
 
 const customElements = {
+  version: 'experimental',
   tags: (docs.components || []).map((comp) => ({
     name: comp.tag,
     description: comp.docs || '',
@@ -56,4 +57,3 @@ const customElements = {
 
 fs.writeFileSync(outputPath, JSON.stringify(customElements, null, 2), 'utf8');
 console.log(`[generate-custom-elements] Generated ${customElements.tags.length} components into .storybook/custom-elements.json`);
-

@@ -169,4 +169,9 @@ export class AppComponent {
     console.log('List item clicked:', event);
     this.showToast('info', `Clicked: ${event.value || 'Item'}`, 'List Item Click');
   }
+
+  onButtonClick(label: string) {
+    console.log('Button clicked:', label);
+    this.showToast('primary', 'Clicked: ' + label, 'Button Action');
+  }
 }
