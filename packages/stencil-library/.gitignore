@@ -1,7 +1,10 @@
+# Build outputs
 dist/
 www/
 loader/
+storybook-static/
 
+# Temporary & editor files
 *~
 *.sw[mnpcod]
 *.log
@@ -12,6 +15,7 @@ log.txt
 *.sublime-project
 *.sublime-workspace
 
+# Build caches & tools
 .stencil/
 .idea/
 .vscode/
@@ -20,16 +24,22 @@ log.txt
 node_modules/
 $RECYCLE.BIN/
 
+# System files
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
 .env
 
+# Storybook logs
 *storybook.log
 
-# Stencil auto-generated component README files
+# Package archives
+*.tgz
+
+# Code coverage
+coverage/
+
+# Stencil auto-generated component README files & declarations
 src/components/**/readme.md
 src/components/**/README.md
 src/components.d.ts
-packages/angular-workspace/projects/component-library/src/lib/components.ts
-packages/angular-workspace/projects/component-library/src/lib/index.ts
