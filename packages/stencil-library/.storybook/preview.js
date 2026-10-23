@@ -25,7 +25,7 @@ const preview = {
     },
     options: {
       storySort: {
-        order: ['NX Web Components', ['Overview', 'Components', 'Button']],
+        order: ['NX Web Components', ['Overview', 'Components', 'Button', 'Accordion']],
       },
     },
   },
