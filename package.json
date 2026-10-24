@@ -5,8 +5,12 @@
     "packages/*"
   ],
   "scripts": {
-    "storybook": "npm --workspace=stencil-library run storybook",
-    "build-storybook": "npm --workspace=stencil-library run build-storybook"
+    "build:stencil": "npm --workspace=@_nx/stencil-library run build",
+    "build:angular": "npm --workspace=angular-workspace run build",
+    "publish:stencil": "npm publish --workspace=@_nx/stencil-library --access public",
+    "publish:angular": "npm publish ./packages/angular-workspace/dist/component-library --access public",
+    "storybook": "npm --workspace=@_nx/stencil-library run storybook",
+    "build-storybook": "npm --workspace=@_nx/stencil-library run build-storybook"
   },
   "devDependencies": {
     "@types/jasmine": "^5.1.8",

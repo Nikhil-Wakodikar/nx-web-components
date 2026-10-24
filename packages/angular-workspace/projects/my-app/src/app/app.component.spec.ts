@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ComponentLibraryModule, InputValueAccessor } from 'component-library';
-import { defineCustomElements } from 'stencil-library/loader';
+import { defineCustomElements } from '@_nx/stencil-library/loader';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {

@@ -1,121 +1,199 @@
-[![Built With Stencil](https://img.shields.io/badge/-Built%20With%20Stencil-16161d.svg?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjIuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA1MTIgNTEyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI%2BCjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI%2BCgkuc3Qwe2ZpbGw6I0ZGRkZGRjt9Cjwvc3R5bGU%2BCjxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00MjQuNywzNzMuOWMwLDM3LjYtNTUuMSw2OC42LTkyLjcsNjguNkgxODAuNGMtMzcuOSwwLTkyLjctMzAuNy05Mi43LTY4LjZ2LTMuNmgzMzYuOVYzNzMuOXoiLz4KPHBhdGggY2xhc3M9InN0MCIgZD0iTTQyNC43LDI5Mi4xSDE4MC40Yy0zNy42LDAtOTIuNy0zMS05Mi43LTY4LjZ2LTMuNkgzMzJjMzcuNiwwLDkyLjcsMzEsOTIuNyw2OC42VjI5Mi4xeiIvPgo8cGF0aCBjbGFzcz0ic3QwIiBkPSJNNDI0LjcsMTQxLjdIODcuN3YtMy42YzAtMzcuNiw1NC44LTY4LjYsOTIuNy02OC42SDMzMmMzNy45LDAsOTIuNywzMC43LDkyLjcsNjguNlYxNDEuN3oiLz4KPC9zdmc%2BCg%3D%3D&colorA=16161d&style=flat-square)](https://stenciljs.com)
+# NX Web Components (`@_nx/stencil-library`)
 
-# Stencil Component Starter
+[![npm version](https://img.shields.io/npm/v/@_nx/stencil-library.svg)](https://www.npmjs.com/package/@_nx/stencil-library)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This is a starter project for building a standalone Web Component using Stencil.
+A modern, accessible, and framework-independent UI library of Web Components built with [Stencil](https://stenciljs.com).
 
-Stencil is also great for building entire apps. For that, use the [stencil-app-starter](https://github.com/ionic-team/stencil-app-starter) instead.
+---
 
-# Stencil
+## ⚡ Quick Start (Vanilla JS & HTML)
 
-Stencil is a compiler for building fast web apps using Web Components.
-
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than runtime tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
-
-Stencil components are just Web Components, so they work in any major framework or with no framework at all.
-
-## Global Styles
-
-Import the packaged stylesheet once in the consuming application's global styles entry point:
-
-```scss
-@import 'stencil-library/styles.css';
-```
-
-This stylesheet provides the `--nx-*` design tokens, document reset and typography, font faces, and shared global utilities. Sass component mixins and breakpoint values are available from `src/styles/_mixins.scss` and `src/styles/_breakpoints.scss` while developing this library.
-
-## Getting Started
-
-To start building a new web component using Stencil, clone this repo to a new directory:
+### 1. Install
 
 ```bash
-git clone https://github.com/ionic-team/stencil-component-starter.git my-component
-cd my-component
-git remote rm origin
+npm install @_nx/stencil-library
 ```
 
-and run:
+### 2. Register Components & Styles
 
-```bash
-npm install
-npm start
+Import styles and call `defineCustomElements()` in your main entry file (`main.js` or `index.js`):
+
+```javascript
+// Import styles and design tokens
+import '@_nx/stencil-library/styles.css';
+
+// Register web components with browser
+import { defineCustomElements } from '@_nx/stencil-library/loader';
+defineCustomElements();
 ```
 
-To build the component for production, run:
-
-```bash
-npm run build
-```
-
-To run the unit tests for the components, run:
-
-```bash
-npm test
-```
-
-Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
-
-## Naming Components
-
-When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
-
-Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic-generated web components use the prefix `ion`.
-
-## Using this component
-
-There are two strategies we recommend for using web components built with Stencil.
-
-The first step for all two of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
-
-You can read more about these different approaches in the [Stencil docs](https://stenciljs.com/docs/publishing).
-
-### Lazy Loading
-
-If your Stencil project is built with the [`dist`](https://stenciljs.com/docs/distribution) output target, you can import a small bootstrap script that registers all components and allows you to load individual component scripts lazily.
-
-For example, given your Stencil project namespace is called `my-design-system`, to use `my-component` on any website, inject this into your HTML:
+### 3. Use in HTML
 
 ```html
-<script type="module" src="https://unpkg.com/my-design-system"></script>
-<!--
-To avoid unpkg.com redirects to the actual file, you can also directly import:
-https://unpkg.com/foobar-design-system@0.0.1/dist/foobar-design-system/foobar-design-system.esm.js
--->
-<my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+<nx-card>
+  <nx-text variant="h2">Welcome to NX</nx-text>
+  <nx-input label="Full Name" placeholder="John Doe"></nx-input>
+  <nx-button variant="primary">Get Started</nx-button>
+</nx-card>
 ```
 
-This will only load the necessary scripts needed to render `<my-component />`. Once more components of this package are used, they will automatically be loaded lazily.
+---
 
-You can also import the script as part of your `node_modules` in your applications entry file:
+## 🌐 Using via CDN (Plain HTML)
 
-```tsx
-import 'foobar-design-system/dist/foobar-design-system/foobar-design-system.esm.js';
+You can also use the components directly in any HTML file without build tools:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NX Web Components</title>
+
+  <!-- Global Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@_nx/stencil-library/dist/stencil-library/stencil-library.css" />
+
+  <!-- Component Loader -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@_nx/stencil-library/dist/stencil-library/stencil-library.esm.js"></script>
+</head>
+<body>
+  <div style="padding: 24px; max-width: 480px;">
+    <nx-card>
+      <nx-text variant="h3">Sign In</nx-text>
+      <nx-input label="Email" type="email" placeholder="user@example.com"></nx-input>
+      <nx-button variant="primary" id="btn">Submit</nx-button>
+    </nx-card>
+  </div>
+
+  <script>
+    document.getElementById('btn').addEventListener('nxClick', () => {
+      alert('Button clicked!');
+    });
+  </script>
+</body>
+</html>
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-y6v26a?file=src%2Fmain.tsx).
+---
 
-### Standalone
+## 🅰️ Using in Angular
 
-If you are using a Stencil component library with `dist-custom-elements`, we recommend importing Stencil components individually in those files where they are needed.
+For Angular projects, use our official Angular wrapper package **[`@_nx/component-library`](https://www.npmjs.com/package/@_nx/component-library)**:
 
-To export Stencil components as standalone components make sure you have the [`dist-custom-elements`](https://stenciljs.com/docs/custom-elements) output target defined in your `stencil.config.ts`.
+```bash
+npm install @_nx/component-library @_nx/stencil-library
+```
 
-For example, given you'd like to use `<my-component />` as part of a React component, you can import the component directly via:
+### 1. Global Styles
+In `src/styles.css` (or `src/styles.scss`):
+```scss
+@import '@_nx/stencil-library/styles.css';
+```
 
-```tsx
-import 'foobar-design-system/my-component';
+### 2. Register Loader
+In `src/main.ts`:
+```typescript
+import { defineCustomElements } from '@_nx/stencil-library/loader';
+defineCustomElements();
+```
 
-function App() {
-  return (
-    <>
-      <div>
-        <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
-      </div>
-    </>
-  );
+### 3. In Standalone Components (Angular 17, 18, 19, 20+)
+Import `ComponentLibraryModule` in the `imports` array of your component:
+
+```typescript
+import { Component } from '@angular/core';
+import { ComponentLibraryModule } from '@_nx/component-library';
+
+@Component({
+  selector: 'app-root',
+  standalone: true,
+  imports: [ComponentLibraryModule],
+  templateUrl: './app.html',
+  styleUrl: './app.css'
+})
+export class App {}
+```
+
+### 4. Template
+```html
+<nx-card>
+  <nx-input label="Email" placeholder="Enter email"></nx-input>
+  <nx-button variant="primary">Submit</nx-button>
+</nx-card>
+```
+
+---
+
+## 🧩 Common Component Examples
+
+### Buttons
+```html
+<nx-button variant="primary">Primary</nx-button>
+<nx-button variant="secondary">Secondary</nx-button>
+<nx-button variant="outline">Outline</nx-button>
+<nx-button variant="danger">Delete</nx-button>
+<nx-button disabled>Disabled</nx-button>
+```
+
+### Inputs & Toggles
+```html
+<nx-input label="Username" placeholder="Enter username" required></nx-input>
+<nx-checkbox label="Remember me" checked></nx-checkbox>
+<nx-toggle label="Enable notifications"></nx-toggle>
+```
+
+### Accordion
+```html
+<nx-accordion-group>
+  <nx-accordion header="Section 1" open>
+    <p>Content for section 1</p>
+  </nx-accordion>
+  <nx-accordion header="Section 2">
+    <p>Content for section 2</p>
+  </nx-accordion>
+</nx-accordion-group>
+```
+
+### Grid & Layout
+```html
+<nx-grid>
+  <nx-row>
+    <nx-col span="6">Left Column</nx-col>
+    <nx-col span="6">Right Column</nx-col>
+  </nx-row>
+</nx-grid>
+```
+
+---
+
+## 🎨 Theming with CSS Variables
+
+Customise the look & feel using CSS variables:
+
+```css
+:root {
+  --nx-color-primary: #8145b5;
+  --nx-color-primary-hover: #6c32a0;
+  --nx-border-radius: 8px;
+  --nx-font-family: 'Inter', system-ui, sans-serif;
 }
-
-export default App;
 ```
 
-Check out this [Live Demo](https://stackblitz.com/edit/vitejs-vite-b6zuds?file=src%2FApp.tsx).
+---
+
+## 📚 Available Components (32)
+
+| Category | Elements |
+|---|---|
+| **Forms & Input** | `nx-button`, `nx-input`, `nx-checkbox`, `nx-radio`, `nx-radio-group`, `nx-select`, `nx-select-option`, `nx-textarea`, `nx-toggle`, `nx-date-picker`, `nx-time-picker` |
+| **Status & Feedback** | `nx-badge`, `nx-chip`, `nx-loader`, `nx-progress`, `nx-toast` |
+| **Containers & Layout** | `nx-card`, `nx-grid`, `nx-row`, `nx-col`, `nx-list`, `nx-list-item`, `nx-table` |
+| **Navigation & Modals** | `nx-accordion`, `nx-accordion-group`, `nx-tab`, `nx-tab-group`, `nx-link`, `nx-modal` |
+| **Typography & Icons** | `nx-text`, `nx-label`, `nx-icon` |
+
+---
+
+## License
+
+MIT © [Nikhil Wakodikar](https://github.com/Nikhil-Wakodikar/nx-web-components)

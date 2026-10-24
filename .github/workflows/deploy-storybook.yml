@@ -37,10 +37,10 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Build Stencil Library & Metadata
-        run: npm --workspace=stencil-library run build
+        run: npm --workspace=@_nx/stencil-library run build
 
       - name: Build Storybook
-        run: npm --workspace=stencil-library run build-storybook
+        run: npm --workspace=@_nx/stencil-library run build-storybook
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
