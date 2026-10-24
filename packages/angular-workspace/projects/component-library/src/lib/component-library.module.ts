@@ -1,6 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { DIRECTIVES } from './stencil-generated';
-import { defineCustomElements } from 'stencil-library/loader';
+import { defineCustomElements } from '@_nx/stencil-library/loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { EVENT_MANAGER_PLUGINS } from '@angular/platform-browser';
@@ -10,6 +10,10 @@ import { RadioValueAccessor } from './stencil-generated/radio-value-accessor';
 import { NxEventPlugin } from './plugins/nx-event.plugin';
 
 import { NxDialogService, NxModalService } from './services/nx-dialog.service';
+
+if (typeof window !== 'undefined') {
+  defineCustomElements();
+}
 
 @NgModule({
   declarations: [
@@ -42,4 +46,10 @@ import { NxDialogService, NxModalService } from './services/nx-dialog.service';
     },
   ],
 })
-export class ComponentLibraryModule {}
+export class ComponentLibraryModule {
+  constructor() {
+    if (typeof window !== 'undefined') {
+      defineCustomElements();
+    }
+  }
+}

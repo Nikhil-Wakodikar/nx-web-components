@@ -23,7 +23,7 @@ export const config: Config = {
       ],
     },
     angularOutputTarget({
-      componentCorePackage: 'stencil-library',
+      componentCorePackage: '@_nx/stencil-library',
       outputType: 'component',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',

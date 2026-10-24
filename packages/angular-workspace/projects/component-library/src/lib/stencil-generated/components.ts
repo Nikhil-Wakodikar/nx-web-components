@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Even
 
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
-import { Components } from 'stencil-library';
+import { Components } from '@_nx/stencil-library';
 
 
 @ProxyCmp({
@@ -28,7 +28,7 @@ export class NxAccordion {
 }
 
 
-import type { NxAccordionToggleEventDetail as INxAccordionNxAccordionToggleEventDetail } from 'stencil-library';
+import type { NxAccordionToggleEventDetail as INxAccordionNxAccordionToggleEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxAccordion extends Components.NxAccordion {
 
@@ -57,7 +57,7 @@ export class NxAccordionGroup {
 }
 
 
-import type { NxAccordionGroupChangeEventDetail as INxAccordionGroupNxAccordionGroupChangeEventDetail } from 'stencil-library';
+import type { NxAccordionGroupChangeEventDetail as INxAccordionGroupNxAccordionGroupChangeEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
 
@@ -199,7 +199,7 @@ export class NxChip {
 }
 
 
-import type { NxChipSelectEventDetail as INxChipNxChipSelectEventDetail } from 'stencil-library';
+import type { NxChipSelectEventDetail as INxChipNxChipSelectEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxChip extends Components.NxChip {
   /**
@@ -423,7 +423,7 @@ export class NxList {
 }
 
 
-import type { NxListChangeEventDetail as INxListNxListChangeEventDetail } from 'stencil-library';
+import type { NxListChangeEventDetail as INxListNxListChangeEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxList extends Components.NxList {
   /**
@@ -453,7 +453,7 @@ export class NxListItem {
 }
 
 
-import type { NxListItemClickEventDetail as INxListItemNxListItemClickEventDetail } from 'stencil-library';
+import type { NxListItemClickEventDetail as INxListItemNxListItemClickEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxListItem extends Components.NxListItem {
   /**
@@ -506,7 +506,7 @@ export class NxModal {
 }
 
 
-import type { NxModalDismissDetail as INxModalNxModalDismissDetail } from 'stencil-library';
+import type { NxModalDismissDetail as INxModalNxModalDismissDetail } from '@_nx/stencil-library';
 
 export declare interface NxModal extends Components.NxModal {
   /**
@@ -596,8 +596,8 @@ export class NxRadioGroup {
 }
 
 
-import type { NxRadioGroupChangeEventDetail as INxRadioGroupNxRadioGroupChangeEventDetail } from 'stencil-library';
-import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupValueChangeEventDetail } from 'stencil-library';
+import type { NxRadioGroupChangeEventDetail as INxRadioGroupNxRadioGroupChangeEventDetail } from '@_nx/stencil-library';
+import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupValueChangeEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
@@ -734,7 +734,7 @@ export class NxTabGroup {
 }
 
 
-import type { NxTabChangeEventDetail as INxTabGroupNxTabChangeEventDetail } from 'stencil-library';
+import type { NxTabChangeEventDetail as INxTabGroupNxTabChangeEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxTabGroup extends Components.NxTabGroup {
   /**
@@ -765,10 +765,10 @@ export class NxTable {
 }
 
 
-import type { NxTableSortEventDetail as INxTableNxTableSortEventDetail } from 'stencil-library';
-import type { NxTableSelectionEventDetail as INxTableNxTableSelectionEventDetail } from 'stencil-library';
-import type { NxTablePageChangeEventDetail as INxTableNxTablePageChangeEventDetail } from 'stencil-library';
-import type { NxTableRowClickEventDetail as INxTableNxTableRowClickEventDetail } from 'stencil-library';
+import type { NxTableSortEventDetail as INxTableNxTableSortEventDetail } from '@_nx/stencil-library';
+import type { NxTableSelectionEventDetail as INxTableNxTableSelectionEventDetail } from '@_nx/stencil-library';
+import type { NxTablePageChangeEventDetail as INxTableNxTablePageChangeEventDetail } from '@_nx/stencil-library';
+import type { NxTableRowClickEventDetail as INxTableNxTableRowClickEventDetail } from '@_nx/stencil-library';
 
 export declare interface NxTable extends Components.NxTable {
   /**
@@ -899,7 +899,7 @@ export class NxToast {
 }
 
 
-import type { NxToastDismissDetail as INxToastNxToastDismissDetail } from 'stencil-library';
+import type { NxToastDismissDetail as INxToastNxToastDismissDetail } from '@_nx/stencil-library';
 
 export declare interface NxToast extends Components.NxToast {
   /**
