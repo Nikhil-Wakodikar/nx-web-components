@@ -202,3 +202,45 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(mark)`, `::part(label)`, `::part(container)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-radio-parts::part(mark) {
+        box-shadow: 0 0 10px rgba(129, 69, 181, 0.35);
+        border: 2px solid #8145b5;
+        transition: transform 0.15s ease;
+      }
+      .custom-radio-parts:hover::part(mark) {
+        transform: scale(1.1);
+      }
+      .custom-radio-parts::part(label) {
+        font-weight: 600;
+        color: #8145b5;
+        letter-spacing: 0.02em;
+      }
+      .custom-radio-group-parts::part(container) {
+        padding: 16px;
+        border-radius: 12px;
+        background: #faf5ff;
+        border: 1px solid #f0abfc;
+      }
+    </style>
+
+    <div style="max-width: 400px; font-family: sans-serif;">
+      <nx-radio-group
+        class="custom-radio-group-parts"
+        label="Enhanced Plan Selection via Shadow Parts"
+        value="pro"
+      >
+        <nx-radio class="custom-radio-parts" value="starter">Starter Sandbox</nx-radio>
+        <nx-radio class="custom-radio-parts" value="pro">Pro Developer ($29/mo)</nx-radio>
+        <nx-radio class="custom-radio-parts" value="enterprise">Enterprise Cloud</nx-radio>
+      </nx-radio-group>
+    </div>
+  `,
+};
+
+

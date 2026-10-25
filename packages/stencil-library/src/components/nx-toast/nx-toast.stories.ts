@@ -270,3 +270,60 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(card)`, `::part(header)`, `::part(message)`, `::part(progress-bar)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-toast-parts::part(card) {
+        border-radius: 16px;
+        box-shadow: 0 12px 32px rgba(129, 69, 181, 0.25);
+        border: 2px solid #8145b5;
+        background: #faf5ff;
+      }
+      .custom-toast-parts::part(header) {
+        color: #8145b5;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        font-size: 13px;
+      }
+      .custom-toast-parts::part(message) {
+        color: #475569;
+        font-size: 13px;
+      }
+      .custom-toast-parts::part(progress-bar) {
+        background: linear-gradient(90deg, #8145b5, #ec4899);
+        height: 4px;
+      }
+    </style>
+
+    <div>
+      <nx-button
+        color="primary"
+        @click=${() => {
+          const t = document.querySelector('nx-toast#parts-toast') as any;
+          if (t) t.isOpen = true;
+        }}
+      >
+        Trigger Shadow Parts Styled Toast
+      </nx-button>
+
+      <nx-toast
+        id="parts-toast"
+        class="custom-toast-parts"
+        header="Deployment Ready"
+        message="Your production build was released successfully."
+        position="top-end"
+        duration="4000"
+        @nxDismiss=${() => {
+          const t = document.querySelector('nx-toast#parts-toast') as any;
+          if (t) t.isOpen = false;
+        }}
+      ></nx-toast>
+    </div>
+  `,
+};
+
+

@@ -203,3 +203,45 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(mark)`, `::part(label)`, `::part(container)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-checkbox-parts::part(mark) {
+        box-shadow: 0 0 10px rgba(129, 69, 181, 0.4);
+        border: 2px solid #8145b5;
+        transition: transform 0.15s ease;
+      }
+      .custom-checkbox-parts:hover::part(mark) {
+        transform: scale(1.1);
+      }
+      .custom-checkbox-parts::part(label) {
+        font-weight: 600;
+        color: #8145b5;
+        letter-spacing: 0.03em;
+      }
+      .custom-checkbox-parts::part(container) {
+        padding: 8px 12px;
+        border-radius: 8px;
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+      }
+    </style>
+
+    <div style="display: flex; flex-direction: column; gap: 16px; max-width: 380px;">
+      <nx-checkbox
+        class="custom-checkbox-parts"
+        checked
+        label="Enhanced Checkbox with Glowing ::part(mark)"
+      ></nx-checkbox>
+      <nx-checkbox
+        class="custom-checkbox-parts"
+        label="Hover Scale & Custom ::part(label) Typography"
+      ></nx-checkbox>
+    </div>
+  `,
+};
+
+

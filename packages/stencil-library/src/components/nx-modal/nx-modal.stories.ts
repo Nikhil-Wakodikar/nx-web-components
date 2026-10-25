@@ -267,3 +267,89 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(dialog)`, `::part(header)`, `::part(title)`, `::part(body)`, `::part(footer)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-modal-parts::part(header) {
+        background: linear-gradient(135deg, #8145b5, #4f46e5);
+        padding: 20px 24px;
+      }
+      .custom-modal-parts::part(title) {
+        color: #ffffff;
+        font-size: 18px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .custom-modal-parts::part(subtitle) {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .custom-modal-parts::part(close-button) {
+        color: #ffffff;
+      }
+      .custom-modal-parts::part(dialog) {
+        border-radius: 16px;
+        overflow: hidden;
+      }
+      .custom-modal-parts::part(footer) {
+        background: #f8fafc;
+        border-top: 1px solid #e2e8f0;
+      }
+    </style>
+
+    <div>
+      <nx-button
+        color="primary"
+        @click=${() => {
+          const m = document.querySelector('nx-modal#parts-modal') as any;
+          if (m) m.isOpen = true;
+        }}
+      >
+        Open Shadow Parts Styled Modal
+      </nx-button>
+
+      <nx-modal
+        id="parts-modal"
+        class="custom-modal-parts"
+        header="Gradient Header Modal"
+        subHeader="Styled via ::part(header) and ::part(dialog)"
+        @nxDismiss=${() => {
+          const m = document.querySelector('nx-modal#parts-modal') as any;
+          if (m) m.isOpen = false;
+        }}
+      >
+        <p style="margin: 0; font-size: 14px; line-height: 1.6; color: #334155;">
+          Demonstrating deep shadow DOM styling via CSS shadow parts with custom gradient banners, white text, and styled footers.
+        </p>
+
+        <div slot="footer" style="display: flex; justify-content: flex-end; gap: 10px;">
+          <nx-button
+            fill="outline"
+            color="secondary"
+            size="small"
+            @click=${() => {
+              const m = document.querySelector('nx-modal#parts-modal') as any;
+              if (m) m.isOpen = false;
+            }}
+          >
+            Cancel
+          </nx-button>
+          <nx-button
+            color="primary"
+            size="small"
+            @click=${() => {
+              const m = document.querySelector('nx-modal#parts-modal') as any;
+              if (m) m.isOpen = false;
+            }}
+          >
+            Confirm
+          </nx-button>
+        </div>
+      </nx-modal>
+    </div>
+  `,
+};
+
+

@@ -231,3 +231,44 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(track)`, `::part(fill)`, `::part(label)`, `::part(value)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-progress-parts::part(track) {
+        border-radius: 9999px;
+        padding: 2px;
+        background: #f1f5f9;
+        border: 1px solid #cbd5e1;
+      }
+      .custom-progress-parts::part(fill) {
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #8145b5, #ec4899);
+      }
+      .custom-progress-parts::part(label) {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #8145b5;
+        font-size: 11px;
+      }
+      .custom-progress-parts::part(value) {
+        font-weight: 700;
+        color: #ec4899;
+      }
+    </style>
+
+    <div style="max-width: 450px; font-family: sans-serif;">
+      <nx-progress
+        class="custom-progress-parts"
+        label="Encapsulated Gradient Bar via ::part(fill)"
+        value="65"
+        showValue
+      ></nx-progress>
+    </div>
+  `,
+};
+
+

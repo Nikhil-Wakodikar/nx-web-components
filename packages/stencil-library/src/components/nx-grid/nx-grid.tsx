@@ -27,6 +27,7 @@ export class NxGrid {
 
     return (
       <Host
+        part="grid"
         style={hostStyles}
         class={{
           'is-fixed': this.fixed,

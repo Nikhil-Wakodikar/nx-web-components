@@ -301,3 +301,57 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(label)`, `::part(check)`, `::part(remove-button)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-chip-parts::part(label) {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 11px;
+      }
+      .custom-chip-parts::part(remove-button) {
+        background-color: rgba(220, 38, 38, 0.15);
+        color: #dc2626;
+        border-radius: 50%;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+      .custom-chip-parts::part(remove-button):hover {
+        background-color: #dc2626;
+        color: #ffffff;
+        transform: scale(1.15);
+      }
+      .custom-chip-parts::part(check) {
+        background: #16a34a;
+        color: #ffffff;
+        border-radius: 50%;
+        padding: 2px;
+      }
+    </style>
+
+    <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+      <nx-chip
+        class="custom-chip-parts"
+        label="Uppercase Label via ::part(label)"
+      ></nx-chip>
+
+      <nx-chip
+        class="custom-chip-parts"
+        removable
+        label="Hover Scale ::part(remove-button)"
+      ></nx-chip>
+
+      <nx-chip
+        class="custom-chip-parts"
+        selectable
+        selected
+        label="Custom Checked ::part(check)"
+      ></nx-chip>
+    </div>
+  `,
+};
+
+

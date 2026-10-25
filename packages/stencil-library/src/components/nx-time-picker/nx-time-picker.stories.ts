@@ -175,3 +175,40 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(trigger)`, `::part(panel)`, `::part(label)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-time-parts::part(trigger) {
+        border: 2px dashed #8145b5;
+        border-radius: 12px;
+        background: #faf5ff;
+        font-weight: 600;
+        color: #8145b5;
+      }
+      .custom-time-parts::part(panel) {
+        border: 2px solid #8145b5;
+        border-radius: 14px;
+        box-shadow: 0 10px 24px rgba(129, 69, 181, 0.15);
+      }
+      .custom-time-parts::part(label) {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #8145b5;
+      }
+    </style>
+
+    <div style="max-width: 300px; min-height: 320px;">
+      <nx-time-picker
+        class="custom-time-parts"
+        label="Dashed Trigger via ::part(trigger)"
+        value="02:30 PM"
+      ></nx-time-picker>
+    </div>
+  `,
+};
+
+

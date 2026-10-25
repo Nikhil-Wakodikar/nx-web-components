@@ -222,3 +222,36 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(native)`, `::part(content)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-link-parts::part(native) {
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 13px;
+        padding: 6px 14px;
+        border: 1px solid #8145b5;
+        border-radius: 9999px;
+        background: #fdf4ff;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+      .custom-link-parts:hover::part(native) {
+        background: #8145b5;
+        color: #ffffff;
+        transform: translateY(-2px);
+      }
+    </style>
+
+    <div style="display: flex; gap: 20px; align-items: center; font-family: sans-serif;">
+      <nx-link class="custom-link-parts" href="#">
+        Pill Link via ::part(native)
+      </nx-link>
+    </div>
+  `,
+};
+
+

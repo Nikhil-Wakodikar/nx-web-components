@@ -1637,7 +1637,12 @@
         }
       ],
       "cssProperties": [],
-      "cssParts": []
+      "cssParts": [
+        {
+          "name": "col",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "nx-date-picker",
@@ -2203,7 +2208,12 @@
         }
       ],
       "cssProperties": [],
-      "cssParts": []
+      "cssParts": [
+        {
+          "name": "grid",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "nx-icon",
@@ -4507,7 +4517,12 @@
         }
       ],
       "cssProperties": [],
-      "cssParts": []
+      "cssParts": [
+        {
+          "name": "row",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "nx-select",

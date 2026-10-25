@@ -265,3 +265,52 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(header)`, `::part(title)`, `::part(body)`, `::part(footer)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-card-parts::part(header) {
+        background: linear-gradient(135deg, #8145b5 0%, #3b82f6 100%);
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        padding: 18px 24px;
+      }
+      .custom-card-parts::part(title) {
+        color: #ffffff;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-size: 16px;
+      }
+      .custom-card-parts::part(subtitle) {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .custom-card-parts::part(body) {
+        background: #f8fafc;
+        font-family: sans-serif;
+      }
+      .custom-card-parts::part(footer) {
+        background: #f1f5f9;
+        border-top: 1px solid #e2e8f0;
+      }
+    </style>
+
+    <nx-card
+      class="custom-card-parts"
+      headerTitle="Cloud Database Cluster"
+      subtitle="Shadow Parts Header & Footer"
+      style="max-width: 400px; border-radius: 14px; overflow: hidden;"
+    >
+      <p style="margin: 0; font-size: 14px; color: #334155; line-height: 1.5;">
+        This card demonstrates targeting <code>::part(header)</code>, <code>::part(title)</code>,
+        and <code>::part(footer)</code> directly with gradient headers, custom padding, and contrasting backgrounds.
+      </p>
+      <div slot="footer" style="display: flex; justify-content: flex-end; gap: 10px;">
+        <nx-button size="small" fill="outline" color="secondary">Inspect</nx-button>
+        <nx-button size="small" color="primary">Manage</nx-button>
+      </div>
+    </nx-card>
+  `,
+};
+
+

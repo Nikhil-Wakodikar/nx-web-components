@@ -147,3 +147,49 @@ export const AlignmentAndJustification: Story = {
   `,
 };
 
+/**
+ * Demonstrates Custom Styling using CSS Custom Properties (`--padding`, `--gap`, `--row-gap`, `--column-gap`).
+ */
+export const CustomStyling: Story = {
+  render: () => html`
+    <nx-grid fluid style="--padding: 24px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;">
+      <nx-row style="--gap: 20px;">
+        <nx-col size="6">
+          <div style=${boxStyle}>Custom 20px Gutter Column (1)</div>
+        </nx-col>
+        <nx-col size="6">
+          <div style=${boxStyle}>Custom 20px Gutter Column (2)</div>
+        </nx-col>
+      </nx-row>
+    </nx-grid>
+  `,
+};
+
+/**
+ * Demonstrates CSS Shadow Parts (`nx-grid::part(grid)`, `nx-row::part(row)`, `nx-col::part(col)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-grid-parts::part(grid) {
+        border: 2px dashed #8145b5;
+        border-radius: 16px;
+        padding: 20px;
+        background: #faf5ff;
+      }
+      .custom-grid-parts nx-row::part(row) {
+        outline: 1px dashed rgba(129, 69, 181, 0.4);
+      }
+    </style>
+
+    <nx-grid class="custom-grid-parts" fluid>
+      <nx-row gap="16px">
+        <nx-col size="4"><div style=${boxStyle}>Dashed Grid Container</div></nx-col>
+        <nx-col size="4"><div style=${boxStyle}>Styled via ::part(grid)</div></nx-col>
+        <nx-col size="4"><div style=${boxStyle}>And ::part(row)</div></nx-col>
+      </nx-row>
+    </nx-grid>
+  `,
+};
+
+

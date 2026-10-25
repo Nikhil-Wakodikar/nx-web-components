@@ -236,3 +236,34 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(container)`, `::part(table)`, `::part(header)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-table-parts::part(container) {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+        border: 2px solid #8145b5;
+      }
+      .custom-table-parts::part(header) {
+        background: linear-gradient(135deg, #8145b5, #6366f1);
+        color: #ffffff;
+      }
+      .custom-table-parts::part(table) {
+        font-family: sans-serif;
+      }
+    </style>
+
+    <nx-table
+      class="custom-table-parts"
+      .columns=${SAMPLE_COLUMNS.slice(0, 4)}
+      .data=${SAMPLE_DATA.slice(0, 4)}
+      hoverable
+    ></nx-table>
+  `,
+};
+
+
