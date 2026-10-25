@@ -707,6 +707,28 @@ export declare interface NxSelectOption extends Components.NxSelectOption {}
 
 
 @ProxyCmp({
+  inputs: ['animation', 'bg', 'count', 'duration', 'height', 'lastLineWidth', 'loading', 'radius', 'shimmerColor', 'size', 'variant', 'width']
+})
+@Component({
+  selector: 'nx-skeleton',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['animation', 'bg', 'count', 'duration', 'height', 'lastLineWidth', 'loading', 'radius', 'shimmerColor', 'size', 'variant', 'width'],
+})
+export class NxSkeleton {
+  protected el: HTMLNxSkeletonElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxSkeleton extends Components.NxSkeleton {}
+
+
+@ProxyCmp({
   inputs: ['active', 'badge', 'closable', 'disabled', 'icon', 'label', 'value'],
   methods: ['select', 'close']
 })
