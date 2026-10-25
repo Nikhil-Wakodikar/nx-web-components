@@ -273,6 +273,28 @@ export declare interface NxDatePicker extends Components.NxDatePicker {
 
 
 @ProxyCmp({
+  inputs: ['align', 'color', 'dashed', 'dotted', 'inset', 'label', 'orientation', 'spacing', 'thickness', 'variant']
+})
+@Component({
+  selector: 'nx-divider',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['align', 'color', 'dashed', 'dotted', 'inset', 'label', 'orientation', 'spacing', 'thickness', 'variant'],
+})
+export class NxDivider {
+  protected el: HTMLNxDividerElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxDivider extends Components.NxDivider {}
+
+
+@ProxyCmp({
   inputs: ['fixed', 'fluid', 'noPadding', 'padding']
 })
 @Component({

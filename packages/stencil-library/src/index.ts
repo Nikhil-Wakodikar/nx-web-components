@@ -65,3 +65,11 @@ export type {
   NxLabelPosition,
   NxLabelFontFamily,
 } from './components/nx-label/nx-label';
+export type {
+  NxDividerOrientation,
+  NxDividerVariant,
+  NxDividerAlign,
+  NxDividerColor,
+  NxDividerSpacing,
+  NxDividerThickness,
+} from './components/nx-divider/nx-divider';
