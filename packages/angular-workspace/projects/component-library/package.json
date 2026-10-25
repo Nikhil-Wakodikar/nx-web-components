@@ -1,11 +1,12 @@
 {
   "name": "@_nx/component-library",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Angular directive and component wrappers for NX Web Components (@_nx/stencil-library)",
   "publishConfig": {
     "access": "public"
   },
   "author": "Nikhil Wakodikar",
+  "homepage": "https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs",
   "repository": {
     "type": "git",
     "url": "https://github.com/Nikhil-Wakodikar/nx-web-components.git",
@@ -23,7 +24,7 @@
     "@angular/core": ">=16.0.0"
   },
   "dependencies": {
-    "@_nx/stencil-library": "^1.0.2",
+    "@_nx/stencil-library": "^1.0.3",
     "tslib": "^2.3.0"
   },
   "sideEffects": false

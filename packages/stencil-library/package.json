@@ -3,8 +3,9 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "NX Web Components - Reusable, accessible UI components built with Stencil",
+  "homepage": "https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs",
   "author": "Nikhil Wakodikar",
   "keywords": [
     "web-components",

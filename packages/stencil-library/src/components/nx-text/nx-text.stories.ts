@@ -206,7 +206,7 @@ export const TruncationAndClamping: Story = {
         <h4 style="margin: 0 0 8px; font-family: sans-serif; font-size: 14px; color: #64748b;">Multi-Line Clamping (lines=2)</h4>
         <div style="border: 1px dashed #cbd5e1; padding: 12px; border-radius: 6px;">
           <nx-text .lines=${2}>
-            Stencil enables developers to build standards-compliant Web Components that run seamlessly across React, Angular, Vue, and vanilla JavaScript without framework overhead or lock-in.
+            Stencil enables developers to build standards-compliant Web Components that run seamlessly across modern enterprise applications and frameworks without overhead or lock-in.
           </nx-text>
         </div>
       </div>
