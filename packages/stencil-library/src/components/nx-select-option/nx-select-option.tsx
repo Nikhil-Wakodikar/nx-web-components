@@ -43,7 +43,7 @@ export class NxSelectOption {
         onMouseDown={this.preventFocusChange}
       >
         <slot />
-        {this.selected && <span class="checkmark" aria-hidden="true">✓</span>}
+        {this.selected && <span class="checkmark" part="checkmark" aria-hidden="true">✓</span>}
       </Host>
     );
   }

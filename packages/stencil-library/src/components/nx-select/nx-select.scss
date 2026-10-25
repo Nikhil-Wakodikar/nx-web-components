@@ -1,21 +1,69 @@
 :host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+
+  /* Trigger Container */
   --background: transparent;
+  --background-hover: var(--background);
+  --background-focus: var(--background);
   --background-disabled: var(--nx-color-gray-100, #f1f5f9);
+
   --color: var(--nx-color-gray-900, #0f172a);
+  --color-disabled: var(--placeholder-color, var(--nx-color-gray-500, #64748b));
   --placeholder-color: var(--nx-color-gray-500, #64748b);
+
   --border-color: var(--nx-color-gray-300, #cbd5e1);
   --border-hover-color: var(--nx-color-gray-500, #64748b);
   --border-focus-color: var(--nx-color-primary, #8145b5);
   --border-error-color: var(--nx-color-error, #dc2626);
   --border-success-color: var(--nx-color-success, #16a34a);
-  --focus-ring: color-mix(in srgb, var(--nx-color-primary) 20%, transparent);
+
+  --border-width: 1px;
   --border-radius: var(--border-radius-4, 4px);
+  --focus-ring: 2px solid color-mix(in srgb, var(--border-focus-color, #8145b5) 24%, transparent);
+
   --font-family: var(--font-rubik, sans-serif);
   --font-size: var(--FontSize-16, 16px);
   --font-weight: 400;
+  --line-height: 20px;
   --control-height: 48px;
+  --padding: 12px 14px;
+
+  /* Label */
+  --label-color: var(--title, var(--color));
+  --label-font-size: var(--FontSize-14, 14px);
+  --label-font-weight: 500;
+  --label-line-height: 18px;
+  --label-margin-bottom: 6px;
+
+  /* Chevron */
+  --chevron-color: var(--placeholder-color);
+  --chevron-color-hover: var(--color);
   --icon-size: 20px;
   --nx-icon-size: var(--icon-size, 20px);
+
+  /* Dropdown Options Panel */
+  --panel-background: var(--nx-color-white, #ffffff);
+  --panel-border-color: var(--border-color);
+  --panel-border-radius: var(--border-radius);
+  --panel-border-width: 1px;
+  --panel-box-shadow: var(--nx-shadow-md, 0 4px 12px rgba(0, 0, 0, 0.1));
+  --panel-max-height: 240px;
+  --panel-padding: 4px;
+
+  /* Cascading Option Defaults (inherited by slotted nx-select-option) */
+  --option-background: transparent;
+  --option-background-hover: var(--nx-color-purple-100, #f6f0fa);
+  --option-background-selected: var(--nx-color-purple-100, #f6f0fa);
+  --option-color: var(--nx-color-gray-800, #1e293b);
+  --option-color-selected: var(--nx-color-primary, #8145b5);
+  --option-color-disabled: var(--nx-color-gray-400, #94a3b8);
+  --option-checkmark-color: var(--nx-color-primary, #8145b5);
+  --option-border-radius: 4px;
+  --option-font-size: var(--FontSize-14, 14px);
+  --option-padding: 9px 12px;
+  --option-min-height: 40px;
 
   display: block;
   width: 100%;
@@ -38,12 +86,12 @@
   display: inline-flex;
   align-items: center;
   gap: 4px;
-  margin-bottom: 6px;
-  color: var(--title, var(--color));
+  margin-bottom: var(--label-margin-bottom);
+  color: var(--label-color);
   font-family: var(--font-rubik-medium, var(--font-family));
-  font-size: var(--FontSize-14, 14px);
-  font-weight: 500;
-  line-height: 18px;
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  line-height: var(--label-line-height);
   user-select: none;
 }
 
@@ -62,32 +110,45 @@
   justify-content: space-between;
   width: 100%;
   min-height: var(--control-height);
-  padding: 12px 14px;
-  border: 1px solid var(--border-color);
+  padding: var(--padding);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
   background: var(--background);
   color: var(--color);
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
-  line-height: 20px;
+  line-height: var(--line-height);
   text-align: left;
   cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
 .select-trigger:hover:not(:disabled) {
+  background: var(--background-hover);
   border-color: var(--border-hover-color);
+
+  .chevron {
+    color: var(--chevron-color-hover);
+  }
 }
 
 .select-trigger:focus,
 .select-trigger:hover:not(:disabled):focus {
-  border: 1px solid var(--border-focus-color);
+  background: var(--background-focus);
+  border-color: var(--border-focus-color);
+  outline: var(--focus-ring);
 }
 
 .select-trigger:disabled {
   background: var(--background-disabled);
-  color: var(--placeholder-color);
+  color: var(--color-disabled);
   cursor: not-allowed;
+
+  .chevron {
+    opacity: 0.5;
+  }
 }
 
 .selected-label {
@@ -108,10 +169,11 @@
   margin-left: 12px;
   fill: none;
   stroke: currentColor;
+  color: var(--chevron-color);
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.5;
-  transition: transform 120ms ease;
+  transition: transform 120ms ease, color 0.15s ease;
 }
 
 .select-trigger[aria-expanded='true'] .chevron {
@@ -124,13 +186,14 @@
   top: calc(100% + 4px);
   right: 0;
   left: 0;
-  max-height: 240px;
+  max-height: var(--panel-max-height);
   overflow-y: auto;
-  padding: 4px;
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius);
-  background: var(--nx-color-white, #fff);
-  box-shadow: var(--nx-shadow-md, 0 4px 6px rgb(0 0 0 / 0.1));
+  padding: var(--panel-padding);
+  border: var(--panel-border-width) solid var(--panel-border-color);
+  border-radius: var(--panel-border-radius);
+  background: var(--panel-background);
+  box-shadow: var(--panel-box-shadow);
+  box-sizing: border-box;
 }
 
 .options-panel[hidden] {

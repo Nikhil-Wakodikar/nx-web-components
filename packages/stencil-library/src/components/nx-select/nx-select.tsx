@@ -228,15 +228,16 @@ export class NxSelect {
       >
         <div class="select-field">
           {label && (
-            <label class="label-text" id={this.labelId} htmlFor={this.selectId}>
+            <label class="label-text" part="label" id={this.labelId} htmlFor={this.selectId}>
               {label}
               {this.required && <span class="required">*</span>}
             </label>
           )}
 
-          <div class="select-control">
+          <div class="select-control" part="control">
             <button
               class="select-trigger"
+              part="trigger"
               id={this.selectId}
               type="button"
               role="combobox"
@@ -253,16 +254,17 @@ export class NxSelect {
               onBlur={this.onTriggerBlur}
               onKeyDown={this.onTriggerKeyDown}
             >
-              <span class={{ 'selected-label': true, placeholder: !selectedLabel }}>
+              <span class={{ 'selected-label': true, placeholder: !selectedLabel }} part="value">
                 {selectedLabel || this.placeholder}
               </span>
-              <svg class="chevron" viewBox="0 0 16 16" aria-hidden="true">
+              <svg class="chevron" part="chevron" viewBox="0 0 16 16" aria-hidden="true">
                 <path d="m4 6 4 4 4-4" />
               </svg>
             </button>
 
             <div
               class="options-panel"
+              part="panel"
               id={this.listboxId}
               role="listbox"
               aria-labelledby={label ? this.labelId : undefined}
