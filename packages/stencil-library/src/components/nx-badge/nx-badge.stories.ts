@@ -274,32 +274,224 @@ export const MaxThreshold: Story = {
 
 export const CustomStyling: Story = {
   render: () => html`
-    <div style="display: flex; flex-direction: column; gap: 24px;">
+    <div style="display: flex; flex-direction: column; gap: 28px; font-family: sans-serif;">
+      <!-- 1. CSS Custom Properties -->
       <div>
-        <h4 style="margin: 0 0 12px; font-family: sans-serif; font-size: 14px; color: #64748b;">Custom CSS Variables</h4>
-        <div style="display: flex; gap: 16px; align-items: center;">
+        <h4 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #475569;">
+          1. CSS Custom Properties (--nx-badge-bg, --nx-badge-text-color, --nx-badge-border-color)
+        </h4>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
           <nx-badge
             value="Neon Amber"
-            style="--nx-badge-bg: #f59e0b; --nx-badge-text-color: #000000; font-weight: 600;"
+            style="--nx-badge-bg: #f59e0b; --nx-badge-text-color: #000000; font-weight: 700;"
           ></nx-badge>
+
           <nx-badge
             value="Cyber Gradient"
             style="--nx-badge-bg: linear-gradient(135deg, #6366f1, #ec4899); --nx-badge-text-color: #ffffff; font-weight: 600;"
           ></nx-badge>
+
+          <nx-badge
+            value="Sunset Glow"
+            style="--nx-badge-bg: linear-gradient(135deg, #f97316, #e11d48); --nx-badge-text-color: #ffffff; font-weight: 600;"
+          ></nx-badge>
+
           <nx-badge
             variant="outline"
-            value="Custom Border & Text"
+            value="Custom Cyan Border &amp; Text"
             style="--nx-badge-border-color: #06b6d4; --nx-badge-text-color: #0891b2; font-weight: 600;"
+          ></nx-badge>
+
+          <nx-badge
+            value="CODE MONO"
+            style="--nx-badge-bg: #1e293b; --nx-badge-text-color: #38bdf8; --nx-badge-font-family: monospace; --nx-badge-font-weight: 700;"
           ></nx-badge>
         </div>
       </div>
 
+      <!-- 2. Custom Pulse Glow Colors -->
       <div>
-        <h4 style="margin: 0 0 12px; font-family: sans-serif; font-size: 14px; color: #64748b;">Custom Color Prop (Arbitrary Hex / RGB)</h4>
-        <div style="display: flex; gap: 16px; align-items: center;">
+        <h4 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #475569;">
+          2. Custom Pulsing Ring Colors (--nx-badge-pulse-color)
+        </h4>
+        <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px;">
+            <nx-badge
+              dot
+              pulse
+              style="--nx-badge-bg: #06b6d4; --nx-badge-pulse-color: #06b6d4;"
+            ></nx-badge>
+            Cyan Live Stream
+          </span>
+
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px;">
+            <nx-badge
+              dot
+              pulse
+              style="--nx-badge-bg: #ec4899; --nx-badge-pulse-color: #ec4899;"
+            ></nx-badge>
+            Hot Pink Alert
+          </span>
+
+          <nx-badge
+            pulse
+            value="EXCLUSIVE OFFER"
+            style="--nx-badge-bg: #8b5cf6; --nx-badge-pulse-color: #8b5cf6; font-weight: 700;"
+          ></nx-badge>
+        </div>
+      </div>
+
+      <!-- 3. Arbitrary Hex / RGB Colors -->
+      <div>
+        <h4 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #475569;">
+          3. Custom Color Prop (Arbitrary Hex / RGB)
+        </h4>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
           <nx-badge color="#8b5cf6" value="#8b5cf6 Solid"></nx-badge>
           <nx-badge variant="subtle" color="#8b5cf6" value="#8b5cf6 Subtle"></nx-badge>
           <nx-badge variant="outline" color="#8b5cf6" value="#8b5cf6 Outline"></nx-badge>
+          <nx-badge color="#059669" value="Emerald #059669"></nx-badge>
+          <nx-badge color="#db2777" value="Rose #db2777"></nx-badge>
+        </div>
+      </div>
+    </div>
+  `,
+};
+
+/**
+ * Custom Styling for Dark Mode Containers
+ * High-contrast indicators and translucent glassmorphism tags on dark backgrounds.
+ */
+export const CustomStylingDarkMode: Story = {
+  render: () => html`
+    <div
+      style="
+        max-width: 600px;
+        padding: 24px;
+        background: #0f172a;
+        border-radius: 14px;
+        border: 1px solid #1e293b;
+        font-family: sans-serif;
+      "
+    >
+      <h4 style="margin: 0 0 16px; font-size: 13px; font-weight: 600; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">
+        Dark Mode Theme Customization
+      </h4>
+
+      <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; margin-bottom: 24px;">
+        <!-- Translucent frosted badge -->
+        <nx-badge
+          value="Glassmorphic Pill"
+          style="
+            --nx-badge-bg: rgba(255, 255, 255, 0.12);
+            --nx-badge-text-color: #f1f5f9;
+            --nx-badge-border-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+          "
+        ></nx-badge>
+
+        <!-- Neon green online dot -->
+        <nx-badge
+          dot
+          pulse
+          style="--nx-badge-bg: #10b981; --nx-badge-pulse-color: #10b981;"
+        ></nx-badge>
+        <span style="color: #cbd5e1; font-size: 13px;">Active Session</span>
+
+        <!-- Dark outline badge -->
+        <nx-badge
+          variant="outline"
+          value="Dark Border"
+          style="--nx-badge-border-color: #475569; --nx-badge-text-color: #94a3b8;"
+        ></nx-badge>
+      </div>
+
+      <!-- Anchored in dark container -->
+      <div style="display: flex; gap: 32px; align-items: center;">
+        <nx-badge
+          placement="bottom-end"
+          dot
+          pulse
+          style="--nx-badge-bg: #22c55e; --nx-badge-pulse-color: #22c55e;"
+        >
+          <div
+            style="
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              background: #1e293b;
+              color: #f8fafc;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-weight: 600;
+              font-size: 14px;
+              border: 1px solid #334155;
+            "
+          >
+            JD
+          </div>
+        </nx-badge>
+
+        <nx-badge
+          placement="top-end"
+          value="99+"
+          style="
+            --nx-badge-bg: #f43f5e;
+            --nx-badge-text-color: #ffffff;
+            font-weight: 700;
+          "
+        >
+          <nx-button color="dark" fill="outline">Notifications</nx-button>
+        </nx-badge>
+      </div>
+    </div>
+  `,
+};
+
+/**
+ * Custom Styling via Shadow Parts (::part)
+ * Deeply style badge internals (typography, glow effects, letter spacing).
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .badge-glow::part(badge) {
+        box-shadow: 0 0 12px rgba(129, 69, 181, 0.7);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .badge-amber-glow::part(badge) {
+        box-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
+        border: 1px solid #fde68a;
+        letter-spacing: 0.05em;
+      }
+      .badge-pill-spacing::part(badge) {
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-size: 11px;
+      }
+    </style>
+
+    <div style="display: flex; flex-direction: column; gap: 20px; font-family: sans-serif;">
+      <div>
+        <h4 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #475569;">
+          Glowing Drop Shadow via ::part(badge)
+        </h4>
+        <div style="display: flex; gap: 20px; align-items: center;">
+          <nx-badge class="badge-glow" color="primary" value="PRO FEATURE"></nx-badge>
+          <nx-badge class="badge-amber-glow" color="warning" value="EARLY ACCESS"></nx-badge>
+        </div>
+      </div>
+
+      <div>
+        <h4 style="margin: 0 0 12px; font-size: 14px; font-weight: 600; color: #475569;">
+          Custom Letter Spacing via ::part(badge)
+        </h4>
+        <div style="display: flex; gap: 16px; align-items: center;">
+          <nx-badge class="badge-pill-spacing" color="info" value="TRACKING ACTIVE"></nx-badge>
+          <nx-badge class="badge-pill-spacing" color="secondary" value="RELEASE V2.4"></nx-badge>
         </div>
       </div>
     </div>

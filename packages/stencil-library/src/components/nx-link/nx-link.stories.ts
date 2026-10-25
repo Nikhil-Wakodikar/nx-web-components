@@ -115,37 +115,57 @@ export const Default: Story = {
       ?external=${args.external}
       ?disabled=${args.disabled}
       @nxClick=${(e: CustomEvent) => console.log('nxClick:', e)}
-    ></nx-link>
+    >
+      ${args.label || 'Explore Documentation'}
+    </nx-link>
   `,
 };
 
 export const UnderlineVariants: Story = {
   render: () => html`
-    <div style="display: flex; gap: 24px; align-items: center;">
-      <nx-link href="#" underline="hover" label="Hover Underline (Default)"></nx-link>
-      <nx-link href="#" underline="always" label="Always Underlined"></nx-link>
-      <nx-link href="#" underline="none" label="Never Underlined"></nx-link>
+    <div style="display: flex; gap: 24px; align-items: center; font-family: sans-serif;">
+      <nx-link href="#" underline="hover">Hover Underline (Default)</nx-link>
+      <nx-link href="#" underline="always">Always Underlined</nx-link>
+      <nx-link href="#" underline="none">Never Underlined</nx-link>
     </div>
   `,
 };
 
 export const Sizes: Story = {
   render: () => html`
-    <div style="display: flex; gap: 20px; align-items: baseline;">
-      <nx-link href="#" size="small" label="Small (14px)"></nx-link>
-      <nx-link href="#" size="default" label="Default (16px)"></nx-link>
-      <nx-link href="#" size="medium" label="Medium (16px)"></nx-link>
-      <nx-link href="#" size="large" label="Large (18px)"></nx-link>
+    <div style="display: flex; gap: 20px; align-items: baseline; font-family: sans-serif;">
+      <nx-link href="#" size="small">Small (14px)</nx-link>
+      <nx-link href="#" size="default">Default (16px)</nx-link>
+      <nx-link href="#" size="medium">Medium (16px)</nx-link>
+      <nx-link href="#" size="large">Large (18px)</nx-link>
+    </div>
+  `,
+};
+
+export const Colors: Story = {
+  render: () => html`
+    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap; font-family: sans-serif;">
+      <nx-link href="#" color="primary">Primary</nx-link>
+      <nx-link href="#" color="secondary">Secondary</nx-link>
+      <nx-link href="#" color="info">Info</nx-link>
+      <nx-link href="#" color="success">Success</nx-link>
+      <nx-link href="#" color="warning">Warning</nx-link>
+      <nx-link href="#" color="danger">Danger</nx-link>
+      <nx-link href="#" color="dark">Dark</nx-link>
+      <nx-link href="#" disabled>Disabled</nx-link>
     </div>
   `,
 };
 
 export const ExternalAndDownload: Story = {
   render: () => html`
-    <div style="display: flex; gap: 24px; align-items: center;">
-      <nx-link href="https://github.com" target="_blank" external label="External Documentation"></nx-link>
-      <nx-link href="/assets/report.pdf" download="report.pdf" label="Download Annual Report (PDF)">
+    <div style="display: flex; gap: 24px; align-items: center; font-family: sans-serif;">
+      <nx-link href="https://github.com" target="_blank" external>
+        External Documentation
+      </nx-link>
+      <nx-link href="/assets/report.pdf" download="report.pdf">
         <nx-icon slot="start" name="download" size="16"></nx-icon>
+        Download Annual Report (PDF)
       </nx-link>
     </div>
   `,
@@ -153,7 +173,7 @@ export const ExternalAndDownload: Story = {
 
 export const WithSlots: Story = {
   render: () => html`
-    <div style="display: flex; gap: 24px; align-items: center;">
+    <div style="display: flex; gap: 24px; align-items: center; font-family: sans-serif;">
       <nx-link href="#">
         <nx-icon slot="start" name="arrow-left" size="16"></nx-icon>
         Back to Dashboard
@@ -174,7 +194,7 @@ export const WithSlots: Story = {
 
 export const CustomStyling: Story = {
   render: () => html`
-    <div style="display: flex; gap: 24px; align-items: center;">
+    <div style="display: flex; gap: 24px; align-items: center; font-family: sans-serif;">
       <nx-link
         href="#"
         style="
@@ -184,8 +204,9 @@ export const CustomStyling: Story = {
           --underline-offset: 4px;
         "
         underline="always"
-        label="Sky Blue Heavy Link"
-      ></nx-link>
+      >
+        Sky Blue Heavy Link
+      </nx-link>
 
       <nx-link
         href="#"
@@ -194,8 +215,9 @@ export const CustomStyling: Story = {
           --color-hover: #be185d;
           font-style: italic;
         "
-        label="Pink Italicized Link"
-      ></nx-link>
+      >
+        Pink Italicized Link
+      </nx-link>
     </div>
   `,
 };
