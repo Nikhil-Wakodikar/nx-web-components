@@ -247,3 +247,41 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(textarea-box)`, `::part(textarea)`, `::part(label)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-textarea-parts::part(textarea-box) {
+        border: 2px dashed #8145b5;
+        border-radius: 12px;
+        background: #faf5ff;
+        box-shadow: 0 4px 14px rgba(129, 69, 181, 0.08);
+      }
+      .custom-textarea-parts::part(textarea) {
+        font-family: monospace;
+        color: #581c87;
+        font-size: 13px;
+      }
+      .custom-textarea-parts::part(label) {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #8145b5;
+        font-size: 12px;
+      }
+    </style>
+
+    <div style="max-width: 450px;">
+      <nx-textarea
+        class="custom-textarea-parts"
+        label="Dashed Note Area via ::part(textarea-box)"
+        placeholder="Enter internal release notes..."
+        rows="4"
+      ></nx-textarea>
+    </div>
+  `,
+};
+
+

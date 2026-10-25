@@ -182,3 +182,43 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`nx-list::part(container)`, `nx-list-item::part(inner)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-list-parts::part(container) {
+        border: 2px dashed #8145b5;
+        border-radius: 12px;
+        padding: 6px;
+        background: #faf5ff;
+      }
+      .custom-list-parts nx-list-item::part(inner) {
+        border-radius: 8px;
+        transition: transform 0.15s ease, background-color 0.15s ease;
+      }
+      .custom-list-parts nx-list-item:hover::part(inner) {
+        transform: translateX(4px);
+        background: #f3e8ff;
+      }
+    </style>
+
+    <div style="max-width: 420px; font-family: sans-serif;">
+      <nx-list class="custom-list-parts" lines="none">
+        <nx-list-item clickable>
+          <nx-icon slot="start" name="zap" size="18" color="primary"></nx-icon>
+          Instant Deployment
+          <nx-icon slot="end" name="chevron-right" size="16" color="medium"></nx-icon>
+        </nx-list-item>
+        <nx-list-item clickable>
+          <nx-icon slot="start" name="cpu" size="18" color="primary"></nx-icon>
+          Compute Allocation
+          <nx-icon slot="end" name="chevron-right" size="16" color="medium"></nx-icon>
+        </nx-list-item>
+      </nx-list>
+    </div>
+  `,
+};
+
+

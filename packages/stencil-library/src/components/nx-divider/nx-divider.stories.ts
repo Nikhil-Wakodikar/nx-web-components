@@ -277,3 +277,68 @@ export const InsetDivider: Story = {
   `,
 };
 
+/**
+ * Demonstrates Custom Styling using CSS Custom Properties (`--nx-divider-color`, `--nx-divider-thickness`, etc.).
+ */
+export const CustomStyling: Story = {
+  render: () => html`
+    <div style="display: flex; flex-direction: column; gap: 24px; max-width: 600px; font-family: sans-serif;">
+      <div>
+        <span style="font-size: 13px; font-weight: 600; color: #475569;">1. Neon Purple Gradient Line</span>
+        <nx-divider
+          label="EXCLUSIVE CONTENT"
+          style="
+            --nx-divider-color: #8145b5;
+            --nx-divider-thickness: 2px;
+            --nx-divider-label-color: #8145b5;
+            --nx-divider-label-font-weight: 700;
+          "
+        ></nx-divider>
+      </div>
+
+      <div>
+        <span style="font-size: 13px; font-weight: 600; color: #475569;">2. Dark Slate & Amber Highlight</span>
+        <nx-divider
+          label="SYSTEM CHECKPOINT"
+          style="
+            --nx-divider-color: #f59e0b;
+            --nx-divider-thickness: 3px;
+            --nx-divider-label-color: #b45309;
+            --nx-divider-label-font-size: 11px;
+            --nx-divider-spacing: 24px;
+          "
+        ></nx-divider>
+      </div>
+    </div>
+  `,
+};
+
+/**
+ * Demonstrates CSS Shadow Parts (`::part(line)`, `::part(label)`, `::part(divider)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .styled-divider-parts::part(line) {
+        border-top: 2px dashed #0284c7;
+      }
+      .styled-divider-parts::part(label) {
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 4px 14px;
+        border-radius: 9999px;
+        font-weight: 700;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border: 1px solid #bae6fd;
+      }
+    </style>
+
+    <div style="max-width: 600px; font-family: sans-serif;">
+      <nx-divider class="styled-divider-parts" label="Pill Label via ::part(label)"></nx-divider>
+    </div>
+  `,
+};
+
+

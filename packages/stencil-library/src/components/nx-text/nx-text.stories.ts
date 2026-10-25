@@ -240,3 +240,29 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(text)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-text-parts::part(text) {
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        text-shadow: 0 2px 8px rgba(129, 69, 181, 0.3);
+        color: #8145b5;
+        border-left: 4px solid #8145b5;
+        padding-left: 12px;
+      }
+    </style>
+
+    <div style="font-family: sans-serif;">
+      <nx-text class="custom-text-parts" variant="h3">
+        Shadow Part Styled Accent Title
+      </nx-text>
+    </div>
+  `,
+};
+
+

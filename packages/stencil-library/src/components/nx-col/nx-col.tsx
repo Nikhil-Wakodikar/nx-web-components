@@ -83,6 +83,7 @@ export class NxCol {
 
     return (
       <Host
+        part="col"
         style={hostStyles}
         class={{
           [`align-self-${this.alignSelf}`]: !!this.alignSelf,

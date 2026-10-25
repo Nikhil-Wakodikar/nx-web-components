@@ -193,3 +193,36 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(track)`, `::part(thumb)`, `::part(label)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-toggle-parts::part(track) {
+        box-shadow: 0 0 10px rgba(129, 69, 181, 0.4);
+        border: 2px solid #8145b5;
+      }
+      .custom-toggle-parts::part(thumb) {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      }
+      .custom-toggle-parts::part(label) {
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: #8145b5;
+        font-size: 13px;
+      }
+    </style>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <nx-toggle
+        class="custom-toggle-parts"
+        checked
+        label="Enhanced Glowing Switch via ::part(track)"
+      ></nx-toggle>
+    </div>
+  `,
+};
+
+

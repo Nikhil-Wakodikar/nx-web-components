@@ -197,3 +197,41 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(trigger)`, `::part(panel)`, `::part(label)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-picker-parts::part(trigger) {
+        border: 2px dashed #8145b5;
+        border-radius: 12px;
+        background: #fdf4ff;
+        font-weight: 600;
+        color: #8145b5;
+      }
+      .custom-picker-parts::part(panel) {
+        border: 2px solid #8145b5;
+        border-radius: 16px;
+        box-shadow: 0 12px 28px rgba(129, 69, 181, 0.2);
+      }
+      .custom-picker-parts::part(label) {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #8145b5;
+      }
+    </style>
+
+    <div style="max-width: 340px; min-height: 380px;">
+      <nx-date-picker
+        class="custom-picker-parts"
+        label="Dashed Trigger via ::part(trigger)"
+        value="2026-10-23"
+        format="YYYY-MM-DD"
+      ></nx-date-picker>
+    </div>
+  `,
+};
+
+

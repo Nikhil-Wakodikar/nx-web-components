@@ -207,3 +207,67 @@ export const CommonIconGallery: Story = {
   `,
 };
 
+/**
+ * Demonstrates Custom Styling using inherited CSS properties and CSS variables.
+ */
+export const CustomStyling: Story = {
+  render: () => html`
+    <div style="display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+      <div style="color: #8145b5; display: flex; align-items: center; gap: 8px;">
+        <nx-icon name="sparkles" size="28"></nx-icon>
+        <span style="font-weight: 600; font-family: sans-serif;">Inherited Purple Text Color</span>
+      </div>
+
+      <div style="color: #0284c7; display: flex; align-items: center; gap: 8px;">
+        <nx-icon name="cloud" size="28"></nx-icon>
+        <span style="font-weight: 600; font-family: sans-serif;">Inherited Sky Blue Color</span>
+      </div>
+    </div>
+  `,
+};
+
+/**
+ * Demonstrates CSS Shadow Parts (`::part(svg)`) for animations, glow filters, and transformations.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .icon-spin::part(svg) {
+        animation: nx-icon-spin 2s linear infinite;
+      }
+      .icon-glow::part(svg) {
+        filter: drop-shadow(0 0 8px #ec4899);
+      }
+      .icon-bounce::part(svg) {
+        transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      .icon-bounce:hover::part(svg) {
+        transform: scale(1.3) rotate(-10deg);
+      }
+      @keyframes nx-icon-spin {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <div style="display: flex; gap: 32px; align-items: center; flex-wrap: wrap; padding: 12px 0;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <nx-icon class="icon-spin" name="loader-2" size="32" color="primary"></nx-icon>
+        <span style="font-size: 12px; color: #64748b; font-family: sans-serif;">Spinning via ::part(svg)</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <nx-icon class="icon-glow" name="heart" size="32" color="#ec4899"></nx-icon>
+        <span style="font-size: 12px; color: #64748b; font-family: sans-serif;">Glow Filter via ::part(svg)</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+        <nx-icon class="icon-bounce" name="zap" size="32" color="warning"></nx-icon>
+        <span style="font-size: 12px; color: #64748b; font-family: sans-serif;">Hover Bounce via ::part(svg)</span>
+      </div>
+    </div>
+  `,
+};
+
+

@@ -91,6 +91,7 @@ export class NxRow {
 
     return (
       <Host
+        part="row"
         style={hostStyles}
         class={{
           [`justify-${this.justify}`]: !!this.justify,

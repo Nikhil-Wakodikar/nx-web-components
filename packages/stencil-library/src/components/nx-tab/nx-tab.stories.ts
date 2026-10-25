@@ -222,3 +222,43 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`nx-tab-group::part(tablist)`, `nx-tab-group::part(indicator)`, `nx-tab::part(panel)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-tab-parts::part(tablist) {
+        background: #f1f5f9;
+        padding: 4px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+      }
+      .custom-tab-parts::part(indicator) {
+        background: #8145b5;
+        height: 3px;
+        border-radius: 3px;
+      }
+      .custom-tab-parts nx-tab::part(panel) {
+        padding: 20px 0;
+        font-family: sans-serif;
+      }
+    </style>
+
+    <div style="max-width: 650px; font-family: sans-serif;">
+      <nx-tab-group class="custom-tab-parts" value="overview">
+        <nx-tab value="overview" label="Overview">
+          <p style="margin: 0; color: #334155;">Tablist capsule styling applied via <code>::part(tablist)</code>.</p>
+        </nx-tab>
+        <nx-tab value="metrics" label="Metrics">
+          <p style="margin: 0; color: #334155;">Real-time resource performance metrics.</p>
+        </nx-tab>
+        <nx-tab value="billing" label="Billing">
+          <p style="margin: 0; color: #334155;">Invoices and credit card payment options.</p>
+        </nx-tab>
+      </nx-tab-group>
+    </div>
+  `,
+};
+
+

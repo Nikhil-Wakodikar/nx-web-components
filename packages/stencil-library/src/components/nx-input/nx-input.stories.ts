@@ -280,3 +280,40 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(input-box)`, `::part(input)`, `::part(label)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-input-parts::part(input-box) {
+        border: 2px dashed #8145b5;
+        border-radius: 12px;
+        background: #faf5ff;
+        box-shadow: 0 4px 12px rgba(129, 69, 181, 0.08);
+      }
+      .custom-input-parts::part(input) {
+        font-family: monospace;
+        font-weight: 600;
+        color: #6b21a8;
+      }
+      .custom-input-parts::part(label) {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 700;
+        color: #8145b5;
+        font-size: 12px;
+      }
+    </style>
+
+    <div style="max-width: 380px;">
+      <nx-input
+        class="custom-input-parts"
+        label="Dashed Input Box via ::part(input-box)"
+        value="PRO-COUPON-2026"
+      ></nx-input>
+    </div>
+  `,
+};
+
+

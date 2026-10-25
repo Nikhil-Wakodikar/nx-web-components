@@ -153,3 +153,40 @@ export const CustomStyling: Story = {
   `,
 };
 
+/**
+ * Demonstrates CSS Shadow Parts (`::part(text)`, `::part(required)`, `::part(optional)`) for deep styling.
+ */
+export const CustomStylingShadowParts: Story = {
+  render: () => html`
+    <style>
+      .custom-label-parts::part(text) {
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: #8145b5;
+      }
+      .custom-label-parts::part(required) {
+        font-size: 16px;
+        color: #ec4899;
+      }
+      .custom-label-parts::part(optional) {
+        background: #f1f5f9;
+        padding: 2px 6px;
+        border-radius: 4px;
+        color: #64748b;
+        font-size: 11px;
+      }
+    </style>
+
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <nx-label class="custom-label-parts" required>
+        Uppercase Heading via ::part(text)
+      </nx-label>
+      <nx-label class="custom-label-parts" optional>
+        Styled Optional Tag via ::part(optional)
+      </nx-label>
+    </div>
+  `,
+};
+
+
