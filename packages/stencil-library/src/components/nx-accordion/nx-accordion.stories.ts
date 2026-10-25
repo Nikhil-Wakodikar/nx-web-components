@@ -317,7 +317,7 @@ export const AccordionGroupDefault: Story = {
           <p>Customize colors, typography, spacing, shadows, and radii using global CSS variables.</p>
         </nx-accordion>
         <nx-accordion value="section-3" header="Framework Integrations">
-          <p>Use seamlessly in Angular, React, Vue, Svelte, or plain vanilla HTML/JavaScript.</p>
+          <p>Use seamlessly across modern frontend frameworks and Angular applications.</p>
         </nx-accordion>
       </nx-accordion-group>
     </div>

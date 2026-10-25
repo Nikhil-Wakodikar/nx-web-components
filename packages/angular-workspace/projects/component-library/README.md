@@ -1,13 +1,22 @@
 # NX Angular Component Library (`@_nx/component-library`)
 
 [![npm version](https://img.shields.io/npm/v/@_nx/component-library.svg)](https://www.npmjs.com/package/@_nx/component-library)
+[![Storybook Docs](https://img.shields.io/badge/Storybook-Live_Docs-ff4785.svg?logo=storybook&logoColor=white)](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Official Angular wrapper library for **[`@_nx/stencil-library`](https://www.npmjs.com/package/@_nx/stencil-library)**. Provides native Angular component directives, event bindings, form control integration (`ReactiveFormsModule` / `FormsModule`), and dialog services.
 
 ---
 
-## Installation
+## 📚 Interactive Storybook Documentation
+
+Explore interactive examples, props, and design token customizations in our live documentation:
+
+👉 [**https://nikhil-wakodikar.github.io/nx-web-components/**](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs)
+
+---
+
+## 📦 Installation
 
 Install both the Angular wrapper and core components:
 
@@ -17,7 +26,7 @@ npm install @_nx/component-library @_nx/stencil-library
 
 ---
 
-## Setup & Usage
+## 🚀 Setup & Usage
 
 ### 1. Global Styles
 In `src/styles.css` (or `src/styles.scss`):
@@ -39,17 +48,19 @@ Import `ComponentLibraryModule` in your component's `imports` array:
 ```typescript
 import { Component, signal } from '@angular/core';
 import { RouterOutlet, RouterLink } from '@angular/router';
+import { ReactiveFormsModule, FormControl } from '@angular/forms';
 import { ComponentLibraryModule } from '@_nx/component-library';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, ComponentLibraryModule],
+  imports: [RouterOutlet, RouterLink, ComponentLibraryModule, ReactiveFormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('my-app');
+  emailControl = new FormControl('');
 }
 ```
 
@@ -76,7 +87,7 @@ export class AppModule {}
 
 ---
 
-## Form Controls & Event Binding Example
+## 🧩 Form Controls & Event Binding Example
 
 ```html
 <nx-card>
@@ -89,6 +100,18 @@ export class AppModule {}
   <!-- Event Handling -->
   <nx-button variant="primary" (nxClick)="onSave()">Save Changes</nx-button>
 </nx-card>
+```
+
+---
+
+## 🛠️ Publishing
+
+```bash
+# Build the Angular library from root
+npm run build:angular
+
+# Publish the generated dist package to npm
+npm run publish:angular
 ```
 
 ---

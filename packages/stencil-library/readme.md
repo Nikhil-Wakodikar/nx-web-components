@@ -1,175 +1,102 @@
 # NX Web Components (`@_nx/stencil-library`)
 
 [![npm version](https://img.shields.io/npm/v/@_nx/stencil-library.svg)](https://www.npmjs.com/package/@_nx/stencil-library)
+[![Storybook Docs](https://img.shields.io/badge/Storybook-Live_Docs-ff4785.svg?logo=storybook&logoColor=white)](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A modern, accessible, and framework-independent UI library of Web Components built with [Stencil](https://stenciljs.com).
+A modern, highly accessible enterprise UI component library built with [Stencil](https://stenciljs.com). Delivers lightweight, encapsulated, standard-compliant Web Components featuring customizable design tokens, CSS custom variables, and shadow DOM `::part()` styling.
 
 ---
 
-## ⚡ Quick Start (Vanilla JS & HTML)
+## 📚 Interactive Storybook Documentation
 
-### 1. Install
+Explore live interactive examples, properties, events, CSS variables, and shadow parts for all 34 components:
+
+👉 [**https://nikhil-wakodikar.github.io/nx-web-components/**](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs)
+
+---
+
+## 📦 Installation
 
 ```bash
 npm install @_nx/stencil-library
 ```
 
-### 2. Register Components & Styles
-
-Import styles and call `defineCustomElements()` in your main entry file (`main.js` or `index.js`):
-
-```javascript
-// Import styles and design tokens
-import '@_nx/stencil-library/styles.css';
-
-// Register web components with browser
-import { defineCustomElements } from '@_nx/stencil-library/loader';
-defineCustomElements();
-```
-
-### 3. Use in HTML
-
-```html
-<nx-card>
-  <nx-text variant="h2">Welcome to NX</nx-text>
-  <nx-input label="Full Name" placeholder="John Doe"></nx-input>
-  <nx-button variant="primary">Get Started</nx-button>
-</nx-card>
-```
-
----
-
-## 🌐 Using via CDN (Plain HTML)
-
-You can also use the components directly in any HTML file without build tools:
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>NX Web Components</title>
-
-  <!-- Global Styles -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@_nx/stencil-library/dist/stencil-library/stencil-library.css" />
-
-  <!-- Component Loader -->
-  <script type="module" src="https://cdn.jsdelivr.net/npm/@_nx/stencil-library/dist/stencil-library/stencil-library.esm.js"></script>
-</head>
-<body>
-  <div style="padding: 24px; max-width: 480px;">
-    <nx-card>
-      <nx-text variant="h3">Sign In</nx-text>
-      <nx-input label="Email" type="email" placeholder="user@example.com"></nx-input>
-      <nx-button variant="primary" id="btn">Submit</nx-button>
-    </nx-card>
-  </div>
-
-  <script>
-    document.getElementById('btn').addEventListener('nxClick', () => {
-      alert('Button clicked!');
-    });
-  </script>
-</body>
-</html>
-```
-
----
-
-## 🅰️ Using in Angular
-
-For Angular projects, use our official Angular wrapper package **[`@_nx/component-library`](https://www.npmjs.com/package/@_nx/component-library)**:
+For first-class Angular integration with typed directives and Reactive Forms support, install the companion package:
 
 ```bash
 npm install @_nx/component-library @_nx/stencil-library
 ```
 
-### 1. Global Styles
-In `src/styles.css` (or `src/styles.scss`):
+---
+
+## 🚀 Setup & Integration
+
+### 1. Global Styles & Design Tokens
+
+Import the global design system stylesheet into your project's main stylesheet (e.g. `src/styles.scss` or `src/styles.css`):
+
 ```scss
 @import '@_nx/stencil-library/styles.css';
 ```
 
-### 2. Register Loader
-In `src/main.ts`:
+### 2. Custom Element Registration
+
+Initialize and register the component custom elements in your application's entry bootstrap file (e.g. `src/main.ts`):
+
 ```typescript
 import { defineCustomElements } from '@_nx/stencil-library/loader';
+
 defineCustomElements();
 ```
 
-### 3. In Standalone Components (Angular 17, 18, 19, 20+)
-Import `ComponentLibraryModule` in the `imports` array of your component:
+---
+
+## 🅰️ Angular Integration
+
+Using our official wrapper **[`@_nx/component-library`](https://www.npmjs.com/package/@_nx/component-library)**:
 
 ```typescript
 import { Component } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ComponentLibraryModule } from '@_nx/component-library';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ComponentLibraryModule],
-  templateUrl: './app.html',
-  styleUrl: './app.css'
+  imports: [ComponentLibraryModule, ReactiveFormsModule],
+  template: `
+    <nx-card>
+      <nx-text variant="h3">User Profile</nx-text>
+      
+      <nx-input 
+        label="Username" 
+        [formControl]="usernameCtrl"
+        placeholder="Enter username">
+      </nx-input>
+
+      <nx-divider></nx-divider>
+
+      <nx-button variant="primary" (nxClick)="onSave()">Save</nx-button>
+    </nx-card>
+  `
 })
-export class App {}
-```
+export class AppComponent {
+  usernameCtrl = new FormControl('');
 
-### 4. Template
-```html
-<nx-card>
-  <nx-input label="Email" placeholder="Enter email"></nx-input>
-  <nx-button variant="primary">Submit</nx-button>
-</nx-card>
-```
-
----
-
-## 🧩 Common Component Examples
-
-### Buttons
-```html
-<nx-button variant="primary">Primary</nx-button>
-<nx-button variant="secondary">Secondary</nx-button>
-<nx-button variant="outline">Outline</nx-button>
-<nx-button variant="danger">Delete</nx-button>
-<nx-button disabled>Disabled</nx-button>
-```
-
-### Inputs & Toggles
-```html
-<nx-input label="Username" placeholder="Enter username" required></nx-input>
-<nx-checkbox label="Remember me" checked></nx-checkbox>
-<nx-toggle label="Enable notifications"></nx-toggle>
-```
-
-### Accordion
-```html
-<nx-accordion-group>
-  <nx-accordion header="Section 1" open>
-    <p>Content for section 1</p>
-  </nx-accordion>
-  <nx-accordion header="Section 2">
-    <p>Content for section 2</p>
-  </nx-accordion>
-</nx-accordion-group>
-```
-
-### Grid & Layout
-```html
-<nx-grid>
-  <nx-row>
-    <nx-col span="6">Left Column</nx-col>
-    <nx-col span="6">Right Column</nx-col>
-  </nx-row>
-</nx-grid>
+  onSave() {
+    console.log('Username:', this.usernameCtrl.value);
+  }
+}
 ```
 
 ---
 
-## 🎨 Theming with CSS Variables
+## 🎨 Custom Styling & Theming
 
-Customise the look & feel using CSS variables:
+### 1. CSS Custom Properties (Variables)
+
+Configure global theme tokens or target individual components:
 
 ```css
 :root {
@@ -178,19 +105,60 @@ Customise the look & feel using CSS variables:
   --nx-border-radius: 8px;
   --nx-font-family: 'Inter', system-ui, sans-serif;
 }
+
+/* Custom styling for specific components */
+nx-select {
+  --background: #fdfbfe;
+  --border-color: #8145b5;
+  --label-color: #4a154b;
+  --option-background-hover: #f3e8ff;
+  --option-color-selected: #8145b5;
+}
+```
+
+### 2. Shadow Parts (`::part`)
+
+All components expose shadow parts for deep CSS styling without piercing encapsulation:
+
+```css
+nx-select::part(trigger) {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+nx-select::part(panel) {
+  border-radius: 12px;
+}
+
+nx-badge::part(badge) {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 ```
 
 ---
 
-## 📚 Available Components (32)
+## 🧩 Available Components (34)
 
 | Category | Elements |
 |---|---|
 | **Forms & Input** | `nx-button`, `nx-input`, `nx-checkbox`, `nx-radio`, `nx-radio-group`, `nx-select`, `nx-select-option`, `nx-textarea`, `nx-toggle`, `nx-date-picker`, `nx-time-picker` |
-| **Status & Feedback** | `nx-badge`, `nx-chip`, `nx-loader`, `nx-progress`, `nx-toast` |
+| **Status & Feedback** | `nx-badge`, `nx-chip`, `nx-loader`, `nx-progress`, `nx-skeleton`, `nx-toast`, `nx-divider` |
 | **Containers & Layout** | `nx-card`, `nx-grid`, `nx-row`, `nx-col`, `nx-list`, `nx-list-item`, `nx-table` |
 | **Navigation & Modals** | `nx-accordion`, `nx-accordion-group`, `nx-tab`, `nx-tab-group`, `nx-link`, `nx-modal` |
 | **Typography & Icons** | `nx-text`, `nx-label`, `nx-icon` |
+
+---
+
+## 🛠️ Publishing
+
+```bash
+# Build the library
+npm run build
+
+# Publish to npm registry
+npm publish --access public
+```
 
 ---
 
