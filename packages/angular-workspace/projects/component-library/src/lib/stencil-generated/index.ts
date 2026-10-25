@@ -11,6 +11,7 @@ export const DIRECTIVES = [
   d.NxChip,
   d.NxCol,
   d.NxDatePicker,
+  d.NxDivider,
   d.NxGrid,
   d.NxIcon,
   d.NxInput,

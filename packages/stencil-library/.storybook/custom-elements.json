@@ -1953,6 +1953,185 @@
       ]
     },
     {
+      "name": "nx-divider",
+      "description": "",
+      "attributes": [
+        {
+          "name": "align",
+          "type": "NxDividerAlign",
+          "description": "Content alignment when label or slotted content is present: 'start', 'center', 'end'",
+          "default": "'center'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "NxDividerColor",
+          "description": "Color token ('default', 'primary', 'secondary', etc.) or custom CSS color string",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "dashed",
+          "type": "boolean",
+          "description": "Shorthand for variant=\"dashed\"",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "dotted",
+          "type": "boolean",
+          "description": "Shorthand for variant=\"dotted\"",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "inset",
+          "type": "boolean",
+          "description": "When true, indents the divider from the container edges",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Optional text label to display on the divider",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "NxDividerOrientation",
+          "description": "Orientation of the divider: 'horizontal' or 'vertical'",
+          "default": "'horizontal'",
+          "required": false
+        },
+        {
+          "name": "spacing",
+          "type": "NxDividerSpacing",
+          "description": "Spacing around the divider: 'none', 'xs', 'sm', 'md', 'lg', 'xl' or custom CSS value",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "thickness",
+          "type": "NxDividerThickness",
+          "description": "Line thickness: 'hairline', 'thin', 'medium', 'thick' or custom value",
+          "default": "'thin'",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxDividerVariant",
+          "description": "Visual style: 'solid', 'dashed', or 'dotted'",
+          "default": "'solid'",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "align",
+          "type": "NxDividerAlign",
+          "description": "Content alignment when label or slotted content is present: 'start', 'center', 'end'",
+          "default": "'center'",
+          "required": false
+        },
+        {
+          "name": "color",
+          "type": "NxDividerColor",
+          "description": "Color token ('default', 'primary', 'secondary', etc.) or custom CSS color string",
+          "default": "'default'",
+          "required": false
+        },
+        {
+          "name": "dashed",
+          "type": "boolean",
+          "description": "Shorthand for variant=\"dashed\"",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "dotted",
+          "type": "boolean",
+          "description": "Shorthand for variant=\"dotted\"",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "inset",
+          "type": "boolean",
+          "description": "When true, indents the divider from the container edges",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Optional text label to display on the divider",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "orientation",
+          "type": "NxDividerOrientation",
+          "description": "Orientation of the divider: 'horizontal' or 'vertical'",
+          "default": "'horizontal'",
+          "required": false
+        },
+        {
+          "name": "spacing",
+          "type": "NxDividerSpacing",
+          "description": "Spacing around the divider: 'none', 'xs', 'sm', 'md', 'lg', 'xl' or custom CSS value",
+          "default": "'md'",
+          "required": false
+        },
+        {
+          "name": "thickness",
+          "type": "NxDividerThickness",
+          "description": "Line thickness: 'hairline', 'thin', 'medium', 'thick' or custom value",
+          "default": "'thin'",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxDividerVariant",
+          "description": "Visual style: 'solid', 'dashed', or 'dotted'",
+          "default": "'solid'",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "divider",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "line",
+          "description": ""
+        },
+        {
+          "name": "line-end",
+          "description": ""
+        },
+        {
+          "name": "line-start",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "nx-grid",
       "description": "",
       "attributes": [
@@ -3376,7 +3555,7 @@
         {
           "name": "backdrop",
           "type": "'static' | boolean",
-          "description": "Backdrop behavior:\r\n- true: Clicking backdrop dismisses the modal\r\n- false / 'static': Clicking backdrop does not dismiss and triggers a subtle pulse animation",
+          "description": "Backdrop behavior:\n- true: Clicking backdrop dismisses the modal\n- false / 'static': Clicking backdrop does not dismiss and triggers a subtle pulse animation",
           "default": "true",
           "required": false
         },
@@ -3455,7 +3634,7 @@
         {
           "name": "backdrop",
           "type": "'static' | boolean",
-          "description": "Backdrop behavior:\r\n- true: Clicking backdrop dismisses the modal\r\n- false / 'static': Clicking backdrop does not dismiss and triggers a subtle pulse animation",
+          "description": "Backdrop behavior:\n- true: Clicking backdrop dismisses the modal\n- false / 'static': Clicking backdrop does not dismiss and triggers a subtle pulse animation",
           "default": "true",
           "required": false
         },
@@ -4615,7 +4794,7 @@
         {
           "name": "value",
           "type": "string",
-          "description": "Unique identifier or value for this tab.\r\nIf omitted, a unique ID is automatically generated.",
+          "description": "Unique identifier or value for this tab.\nIf omitted, a unique ID is automatically generated.",
           "default": "this.tabId",
           "required": false
         }
@@ -4666,7 +4845,7 @@
         {
           "name": "value",
           "type": "string",
-          "description": "Unique identifier or value for this tab.\r\nIf omitted, a unique ID is automatically generated.",
+          "description": "Unique identifier or value for this tab.\nIf omitted, a unique ID is automatically generated.",
           "default": "this.tabId",
           "required": false
         }
@@ -6348,7 +6527,7 @@
         {
           "name": "duration",
           "type": "number",
-          "description": "Duration in milliseconds before the toast automatically dismisses.\r\nSet to 0 to disable auto-dismiss.",
+          "description": "Duration in milliseconds before the toast automatically dismisses.\nSet to 0 to disable auto-dismiss.",
           "default": "3000",
           "required": false
         },
@@ -6448,7 +6627,7 @@
         {
           "name": "duration",
           "type": "number",
-          "description": "Duration in milliseconds before the toast automatically dismisses.\r\nSet to 0 to disable auto-dismiss.",
+          "description": "Duration in milliseconds before the toast automatically dismisses.\nSet to 0 to disable auto-dismiss.",
           "default": "3000",
           "required": false
         },

@@ -3022,4 +3022,283 @@
       </div>
     </div>
   </div>
+
+  <!-- ========================================== -->
+  <!-- nx-divider: Divider Component Showcase     -->
+  <!-- ========================================== -->
+  <div
+    style="
+      margin-top: 36px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      background: #fff;
+    "
+  >
+    <h3 style="margin-top: 0; margin-bottom: 8px">
+      Divider Component (&lt;nx-divider&gt;)
+    </h3>
+    <p style="color: #64748b; margin-bottom: 24px">
+      Separators for organizing content blocks, cards, and toolbars with support for orientations, line variants, thicknesses, theme colors, insets, and slotted labels:
+    </p>
+
+    <!-- 1. Basic Horizontal Divider -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        1. Default Horizontal Divider
+      </p>
+      <div style="max-width: 650px; background: #f8fafc; padding: 16px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <p style="margin: 0; font-size: 14px; color: #334155;">
+          <strong>Section A:</strong> Overview and initial configuration settings.
+        </p>
+        <nx-divider></nx-divider>
+        <p style="margin: 0; font-size: 14px; color: #334155;">
+          <strong>Section B:</strong> Advanced options and parameters separated cleanly by the default divider.
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. Line Style Variants -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        2. Line Style Variants (Solid, Dashed, Dotted)
+      </p>
+      <div style="max-width: 650px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 13px; color: #475569; font-weight: 500;">Solid (default):</span>
+        <nx-divider variant="solid"></nx-divider>
+
+        <span style="font-size: 13px; color: #475569; font-weight: 500;">Dashed:</span>
+        <nx-divider variant="dashed"></nx-divider>
+
+        <span style="font-size: 13px; color: #475569; font-weight: 500;">Dotted:</span>
+        <nx-divider variant="dotted"></nx-divider>
+      </div>
+    </div>
+
+    <!-- 3. Thickness Scale -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        3. Thickness Scale (Thin 1px, Medium 2px, Thick 4px)
+      </p>
+      <div style="max-width: 650px; display: flex; flex-direction: column; gap: 8px;">
+        <span style="font-size: 13px; color: #475569;">Thin (1px):</span>
+        <nx-divider thickness="thin" color="primary"></nx-divider>
+
+        <span style="font-size: 13px; color: #475569;">Medium (2px):</span>
+        <nx-divider thickness="medium" color="primary"></nx-divider>
+
+        <span style="font-size: 13px; color: #475569;">Thick (4px):</span>
+        <nx-divider thickness="thick" color="primary"></nx-divider>
+      </div>
+    </div>
+
+    <!-- 4. Spacing Options -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        4. Spacing Options (xs, sm, md, lg, xl)
+      </p>
+      <div style="max-width: 650px; background: #f8fafc; padding: 12px 16px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <span style="font-size: 12px; color: #64748b;">Tight Spacing (xs: 4px):</span>
+        <nx-divider spacing="xs"></nx-divider>
+        <span style="font-size: 12px; color: #64748b;">Small Spacing (sm: 8px):</span>
+        <nx-divider spacing="sm"></nx-divider>
+        <span style="font-size: 12px; color: #64748b;">Default Spacing (md: 16px):</span>
+        <nx-divider spacing="md"></nx-divider>
+        <span style="font-size: 12px; color: #64748b;">Large Spacing (lg: 24px):</span>
+        <nx-divider spacing="lg"></nx-divider>
+      </div>
+    </div>
+
+    <!-- 5. With Labels & Alignment -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        5. Dividers with Text Labels &amp; Alignment
+      </p>
+      <div style="max-width: 650px; display: flex; flex-direction: column; gap: 12px;">
+        <nx-divider label="OR"></nx-divider>
+        <nx-divider align="start" label="ACCOUNT SETTINGS"></nx-divider>
+        <nx-divider align="end" label="STEP 2 OF 4"></nx-divider>
+        <nx-divider variant="dashed" color="primary" label="SIGN IN WITH SOCIAL"></nx-divider>
+      </div>
+    </div>
+
+    <!-- 6. Slotted Custom Content (Badges, Icons, Chips) -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        6. Slotted Custom Content (Badges, Icons, &amp; Chips)
+      </p>
+      <div style="max-width: 650px; display: flex; flex-direction: column; gap: 16px;">
+        <nx-divider>
+          <nx-badge color="primary" value="NEW RELEASE" size="sm"></nx-badge>
+        </nx-divider>
+
+        <nx-divider color="secondary" variant="dashed">
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: #475569; font-weight: 500;">
+            <nx-icon name="user" size="small"></nx-icon>
+            Security &amp; Permissions
+          </span>
+        </nx-divider>
+
+        <nx-divider align="start" color="info">
+          <nx-chip label="Configured" size="sm" color="info"></nx-chip>
+        </nx-divider>
+      </div>
+    </div>
+
+    <!-- 7. Color Theme Variants -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        7. Color Theme Tokens
+      </p>
+      <div style="max-width: 650px; display: flex; flex-direction: column; gap: 6px;">
+        <nx-divider color="default" label="Default"></nx-divider>
+        <nx-divider color="primary" label="Primary"></nx-divider>
+        <nx-divider color="secondary" label="Secondary"></nx-divider>
+        <nx-divider color="success" label="Success"></nx-divider>
+        <nx-divider color="warning" label="Warning"></nx-divider>
+        <nx-divider color="danger" label="Danger"></nx-divider>
+        <nx-divider color="info" label="Info"></nx-divider>
+        <nx-divider color="dark" label="Dark"></nx-divider>
+      </div>
+    </div>
+
+    <!-- 8. Inset Divider -->
+    <div style="margin-bottom: 28px">
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        8. Inset Divider (In Containers &amp; Cards)
+      </p>
+      <div
+        style="
+          max-width: 500px;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          background: #ffffff;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        "
+      >
+        <div style="padding: 16px;">
+          <h4 style="margin: 0 0 6px 0; font-size: 15px; color: #0f172a;">Card Top Section</h4>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Notice the divider below doesn't touch the outer card borders because inset is enabled.</p>
+        </div>
+        <nx-divider inset></nx-divider>
+        <div style="padding: 16px;">
+          <h4 style="margin: 0 0 6px 0; font-size: 15px; color: #0f172a;">Card Bottom Section</h4>
+          <p style="margin: 0; font-size: 13px; color: #64748b;">Indented cleanly with 24px margins on both left and right sides.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Vertical Dividers (Toolbars & Navbars) -->
+    <div>
+      <p
+        style="
+          margin: 0 0 10px 0;
+          font-size: 13px;
+          font-weight: 500;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+        "
+      >
+        9. Vertical Dividers (Toolbars &amp; Navigation)
+      </p>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          height: 52px;
+          background: #f8fafc;
+          padding: 0 16px;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+          max-width: 650px;
+          flex-wrap: wrap;
+        "
+      >
+        <span style="font-weight: 600; font-size: 14px; color: #1e293b;">App Workspace</span>
+        <nx-divider orientation="vertical" spacing="md"></nx-divider>
+        <nx-link href="#">Dashboard</nx-link>
+        <nx-divider orientation="vertical" spacing="md"></nx-divider>
+        <nx-link href="#">Projects</nx-link>
+        <nx-divider orientation="vertical" spacing="md"></nx-divider>
+        <nx-badge color="success" value="Active" size="sm"></nx-badge>
+        <nx-divider orientation="vertical" spacing="md"></nx-divider>
+        <nx-button size="small" fill="outline" color="primary" (click)="onButtonClick('Toolbar Action')">
+          New Task
+        </nx-button>
+      </div>
+    </div>
+  </div>
 </div>

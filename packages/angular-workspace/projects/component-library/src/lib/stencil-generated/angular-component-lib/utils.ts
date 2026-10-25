@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* tslint:disable */
 import { EventEmitter } from '@angular/core';
-import { fromEvent, map } from 'rxjs';
+import { fromEvent } from 'rxjs';
 
 export const proxyInputs = (Cmp: any, inputs: string[]) => {
   const Prototype = Cmp.prototype;
