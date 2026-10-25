@@ -4746,6 +4746,201 @@
       "cssParts": []
     },
     {
+      "name": "nx-skeleton",
+      "description": "",
+      "attributes": [
+        {
+          "name": "animation",
+          "type": "NxSkeletonAnimation",
+          "description": "Animation effect: 'shimmer', 'pulse', or 'none'",
+          "default": "'shimmer'",
+          "required": false
+        },
+        {
+          "name": "bg",
+          "type": "string",
+          "description": "Custom background color for the placeholder",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Number of skeleton lines to render (for text variant)",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "string",
+          "description": "Custom animation duration (e.g. '1.5s' or '2s')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "description": "Height of the skeleton (e.g. '16px', '40px', or 40)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "last-line-width",
+          "type": "string",
+          "description": "Width for the last line when count > 1 (e.g. '60%')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "Whether the component is in loading state. If false, renders slotted content.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "radius",
+          "type": "string | number",
+          "description": "Custom border radius (e.g. '12px', '50%', or 12)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "shimmer-color",
+          "type": "string",
+          "description": "Custom shimmer highlight color",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string | number",
+          "description": "Convenience dimension for width & height (ideal for circular/square skeletons)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxSkeletonVariant",
+          "description": "Shape of the skeleton placeholder: 'text', 'circular', 'rectangular', or 'rounded'",
+          "default": "'text'",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "description": "Width of the skeleton (e.g. '100%', '80px', or 80)",
+          "default": "",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "animation",
+          "type": "NxSkeletonAnimation",
+          "description": "Animation effect: 'shimmer', 'pulse', or 'none'",
+          "default": "'shimmer'",
+          "required": false
+        },
+        {
+          "name": "bg",
+          "type": "string",
+          "description": "Custom background color for the placeholder",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "count",
+          "type": "number",
+          "description": "Number of skeleton lines to render (for text variant)",
+          "default": "1",
+          "required": false
+        },
+        {
+          "name": "duration",
+          "type": "string",
+          "description": "Custom animation duration (e.g. '1.5s' or '2s')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "height",
+          "type": "string | number",
+          "description": "Height of the skeleton (e.g. '16px', '40px', or 40)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "lastLineWidth",
+          "type": "string",
+          "description": "Width for the last line when count > 1 (e.g. '60%')",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "Whether the component is in loading state. If false, renders slotted content.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "radius",
+          "type": "string | number",
+          "description": "Custom border radius (e.g. '12px', '50%', or 12)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "shimmerColor",
+          "type": "string",
+          "description": "Custom shimmer highlight color",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "size",
+          "type": "string | number",
+          "description": "Convenience dimension for width & height (ideal for circular/square skeletons)",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "variant",
+          "type": "NxSkeletonVariant",
+          "description": "Shape of the skeleton placeholder: 'text', 'circular', 'rectangular', or 'rounded'",
+          "default": "'text'",
+          "required": false
+        },
+        {
+          "name": "width",
+          "type": "string | number",
+          "description": "Width of the skeleton (e.g. '100%', '80px', or 80)",
+          "default": "",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "container",
+          "description": ""
+        },
+        {
+          "name": "skeleton",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "nx-tab",
       "description": "",
       "attributes": [

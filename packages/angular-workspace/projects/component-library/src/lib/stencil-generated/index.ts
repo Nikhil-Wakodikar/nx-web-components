@@ -27,6 +27,7 @@ export const DIRECTIVES = [
   d.NxRow,
   d.NxSelect,
   d.NxSelectOption,
+  d.NxSkeleton,
   d.NxTab,
   d.NxTabGroup,
   d.NxTable,

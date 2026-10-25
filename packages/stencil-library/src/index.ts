@@ -73,3 +73,7 @@ export type {
   NxDividerSpacing,
   NxDividerThickness,
 } from './components/nx-divider/nx-divider';
+export type {
+  NxSkeletonVariant,
+  NxSkeletonAnimation,
+} from './components/nx-skeleton/nx-skeleton';

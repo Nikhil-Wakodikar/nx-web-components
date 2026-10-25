@@ -174,4 +174,10 @@ export class AppComponent {
     console.log('Button clicked:', label);
     this.showToast('primary', 'Clicked: ' + label, 'Button Action');
   }
+
+  skeletonLoading = true;
+
+  toggleSkeletonLoading() {
+    this.skeletonLoading = !this.skeletonLoading;
+  }
 }
