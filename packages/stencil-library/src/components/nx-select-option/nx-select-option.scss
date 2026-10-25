@@ -1,35 +1,76 @@
 :host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+  --background: var(--option-background, transparent);
+  --background-hover: var(--option-background-hover, var(--nx-color-purple-100, #f6f0fa));
+  --background-active: var(--background-hover);
+  --background-selected: var(--option-background-selected, var(--background-hover));
+
+  --color: var(--option-color, var(--nx-color-gray-800, #1e293b));
+  --color-selected: var(--option-color-selected, var(--nx-color-primary, #8145b5));
+  --color-disabled: var(--option-color-disabled, var(--nx-color-gray-400, #94a3b8));
+
+  --checkmark-color: var(--option-checkmark-color, var(--color-selected));
+
+  --border-radius: var(--option-border-radius, 4px);
+  --padding: var(--option-padding, 9px 12px);
+  --min-height: var(--option-min-height, 40px);
+
+  --font-family: var(--font-rubik, sans-serif);
+  --font-size: var(--option-font-size, var(--FontSize-14, 14px));
+  --font-weight: 400;
+  --font-weight-selected: 500;
+  --line-height: 20px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 40px;
-  padding: 9px 10px;
-  border-radius: 3px;
-  color: var(--nx-color-gray-800, #1e293b);
-  font-family: var(--font-rubik, sans-serif);
-  font-size: var(--FontSize-14, 14px);
-  line-height: 20px;
+  box-sizing: border-box;
+  min-height: var(--min-height);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  background: var(--background);
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
   cursor: pointer;
   outline: none;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 :host(:hover),
 :host(.active) {
-  background: var(--nx-color-purple-100, #f6f0fa);
+  background: var(--background-hover);
 }
 
 :host(.selected) {
-  color: var(--nx-color-primary, #8145b5);
-  font-weight: 500;
+  background: var(--background-selected);
+  color: var(--color-selected);
+  font-weight: var(--font-weight-selected);
 }
 
 :host(.disabled) {
-  color: var(--nx-color-gray-400, #94a3b8);
+  color: var(--color-disabled);
+  background: transparent;
   cursor: not-allowed;
+  pointer-events: none;
 }
 
 .checkmark {
+  display: inline-flex;
+  align-items: center;
   margin-left: 12px;
-  color: var(--nx-color-primary, #8145b5);
+  color: var(--checkmark-color);
   font-size: 14px;
+  font-weight: 600;
 }

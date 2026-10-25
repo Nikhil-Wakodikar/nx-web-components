@@ -4669,7 +4669,32 @@
         }
       ],
       "cssProperties": [],
-      "cssParts": []
+      "cssParts": [
+        {
+          "name": "chevron",
+          "description": ""
+        },
+        {
+          "name": "control",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "panel",
+          "description": ""
+        },
+        {
+          "name": "trigger",
+          "description": ""
+        },
+        {
+          "name": "value",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "nx-select-option",
@@ -4743,7 +4768,12 @@
         }
       ],
       "cssProperties": [],
-      "cssParts": []
+      "cssParts": [
+        {
+          "name": "checkmark",
+          "description": ""
+        }
+      ]
     },
     {
       "name": "nx-skeleton",
