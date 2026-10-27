@@ -111,25 +111,25 @@
    ========================================== */
 
 :host(.size-sm) .badge {
-  font-size: 11px;
-  height: 18px;
-  min-width: 18px;
-  padding: 0 6px;
+  font-size: 0.6875rem;
+  height: 1.125rem;
+  min-width: 1.125rem;
+  padding: 0 0.375rem;
 }
 
 :host(.size-md) .badge,
 :host(:not(.size-sm):not(.size-lg)) .badge {
-  font-size: 12px;
-  height: 22px;
-  min-width: 22px;
-  padding: 0 8px;
+  font-size: 0.75rem;
+  height: 1.375rem;
+  min-width: 1.375rem;
+  padding: 0 0.5rem;
 }
 
 :host(.size-lg) .badge {
-  font-size: 14px;
-  height: 26px;
-  min-width: 26px;
-  padding: 0 10px;
+  font-size: 0.875rem;
+  height: 1.625rem;
+  min-width: 1.625rem;
+  padding: 0 0.625rem;
 }
 
 /* ==========================================
@@ -141,16 +141,16 @@
 }
 
 :host(.shape-rounded.size-sm) .badge {
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 :host(.shape-rounded.size-md) .badge,
 :host(.shape-rounded:not(.size-sm):not(.size-lg)) .badge {
-  border-radius: 6px;
+  border-radius: 0.375rem;
 }
 
 :host(.shape-rounded.size-lg) .badge {
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 :host(.shape-circle) .badge {
@@ -172,25 +172,25 @@
 }
 
 :host(.size-sm) .badge--dot {
-  width: 6px !important;
-  height: 6px !important;
-  min-width: 6px !important;
-  min-height: 6px !important;
+  width: 0.375rem !important;
+  height: 0.375rem !important;
+  min-width: 0.375rem !important;
+  min-height: 0.375rem !important;
 }
 
 :host(.size-md) .badge--dot,
 :host(:not(.size-sm):not(.size-lg)) .badge--dot {
-  width: 8px !important;
-  height: 8px !important;
-  min-width: 8px !important;
-  min-height: 8px !important;
+  width: 0.5rem !important;
+  height: 0.5rem !important;
+  min-width: 0.5rem !important;
+  min-height: 0.5rem !important;
 }
 
 :host(.size-lg) .badge--dot {
-  width: 10px !important;
-  height: 10px !important;
-  min-width: 10px !important;
-  min-height: 10px !important;
+  width: 0.625rem !important;
+  height: 0.625rem !important;
+  min-width: 0.625rem !important;
+  min-height: 0.625rem !important;
 }
 
 /* ==========================================

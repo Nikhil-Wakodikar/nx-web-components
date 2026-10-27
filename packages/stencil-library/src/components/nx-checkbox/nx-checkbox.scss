@@ -5,27 +5,27 @@
      Public CSS API
      ============================== */
 
-  --size: 20px;
+  --size: 1.25rem;
 
   --border-width: 1px;
   --border-color: var(--nx-color-gray-400, #94a3b8);
   --border-hover-color: var(--nx-color-gray-600, #475569);
   --border-error-color: var(--nx-color-error, #dc2626);
-  --border-radius: 4px;
+  --border-radius: 0.25rem;
 
   --background: var(--nx-color-white, #fff);
   --checked-background: var(--nx-color-primary, #8145b5);
   --checked-border-color: var(--nx-color-primary, #8145b5);
 
   --check-color: #fff;
-  --check-size: 5px;
+  --check-size: 0.3125rem;
   --checkmark-width: 2px;
 
   --label-color: var(--nx-color-gray-900, #0f172a);
-  --label-font-size: 16px;
+  --label-font-size: 1rem;
   --label-font-weight: 400;
 
-  --gap: 10px;
+  --gap: 0.625rem;
 
   --disabled-opacity: 0.5;
 
@@ -183,17 +183,17 @@
 
 .required {
   color: var(--border-error-color);
-  margin-left: 2px;
+  margin-left: 0.125rem;
 }
 
 .checkbox-footer {
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
 .helper-text,
 .error-text {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .helper-text {

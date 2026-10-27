@@ -43,12 +43,12 @@ without breaking encapsulation using **CSS Custom Properties** or **CSS Shadow P
 | \`--border-color-activated\` | Border color when active | \`--background-activated\` |
 | \`--border-width\` | Border thickness | \`0\` (solid) / \`1px\` (outline) |
 | \`--border-style\` | Border line style (\`solid\`, \`dashed\`, \`dotted\`) | \`solid\` |
-| \`--border-radius\` | Corner radius | \`6px\` (\`999px\` for round) |
-| \`--padding-top\` | Top padding | \`6px\` (\`4px\` sm, \`8px\` lg) |
-| \`--padding-bottom\` | Bottom padding | \`6px\` (\`4px\` sm, \`8px\` lg) |
-| \`--padding-start\` | Left padding | \`16px\` (\`12px\` sm, \`20px\` lg) |
-| \`--padding-end\` | Right padding | \`16px\` (\`12px\` sm, \`20px\` lg) |
-| \`--font-size\` | Font size | \`16px\` (\`14px\` sm, \`18px\` lg) |
+| \`--border-radius\` | Corner radius | \`0.375rem\` (6px) (\`999px\` for round) |
+| \`--padding-top\` | Top padding | \`0.375rem\` (6px) (\`0.25rem\` sm, \`0.5rem\` lg) |
+| \`--padding-bottom\` | Bottom padding | \`0.375rem\` (6px) (\`0.25rem\` sm, \`0.5rem\` lg) |
+| \`--padding-start\` | Left padding | \`1rem\` (16px) (\`0.75rem\` sm, \`1.25rem\` lg) |
+| \`--padding-end\` | Right padding | \`1rem\` (16px) (\`0.75rem\` sm, \`1.25rem\` lg) |
+| \`--font-size\` | Font size | \`1rem\` (16px) (\`0.875rem\` sm, \`1.125rem\` lg) |
 | \`--font-weight\` | Font weight | \`500\` |
 | \`--box-shadow\` | Box shadow elevation | \`none\` |
 | \`--opacity\` | Element opacity | \`1\` (\`0.5\` when disabled) |

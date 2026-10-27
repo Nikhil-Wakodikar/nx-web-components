@@ -4,8 +4,8 @@
   --nx-list-item-active-bg: #f3f4f6;
   --nx-list-item-border-color: #e5e7eb;
   --nx-list-item-color: #000000;
-  --nx-list-item-padding-x: 16px;
-  --nx-list-item-min-height: 48px;
+  --nx-list-item-padding-x: 1rem;
+  --nx-list-item-min-height: 3rem;
 
   display: block;
   width: 100%;
@@ -24,7 +24,7 @@
   align-items: center;
   width: 100%;
   min-height: var(--nx-list-item-min-height);
-  padding: 12px var(--nx-list-item-padding-x);
+  padding: 0.75rem var(--nx-list-item-padding-x);
   background-color: var(--nx-list-item-bg);
   text-decoration: none;
   color: var(--nx-list-item-color);
@@ -48,7 +48,7 @@
     content: '';
     position: absolute;
     bottom: 0;
-    left: var(--nx-list-item-padding-x, 16px);
+    left: var(--nx-list-item-padding-x, 1rem);
     right: 0;
     height: 1px;
     background-color: var(--nx-list-item-border-color);
@@ -104,7 +104,7 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-right: 12px;
+  margin-right: 0.75rem;
 }
 
 .item-content {
@@ -112,7 +112,7 @@
   align-items: center;
   flex: 1 1 auto;
   min-width: 0;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 400;
   color: var(--nx-list-item-color);
   line-height: 1.5;
@@ -124,5 +124,5 @@
   justify-content: center;
   flex-shrink: 0;
   margin-left: auto;
-  padding-left: 12px;
+  padding-left: 0.75rem;
 }

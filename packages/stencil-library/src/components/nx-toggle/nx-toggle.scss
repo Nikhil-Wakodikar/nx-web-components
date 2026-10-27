@@ -5,9 +5,9 @@
      Public CSS API
      ============================== */
 
-  --track-width: 44px;
-  --track-height: 24px;
-  --thumb-size: 18px;
+  --track-width: 2.75rem;
+  --track-height: 1.5rem;
+  --thumb-size: 1.125rem;
   --thumb-offset: 2px;
 
   --border-width: 1px;
@@ -23,10 +23,10 @@
   --thumb-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
   --label-color: var(--nx-color-gray-900, #0f172a);
-  --label-font-size: 16px;
+  --label-font-size: 1rem;
   --label-font-weight: 400;
 
-  --gap: 10px;
+  --gap: 0.625rem;
   --disabled-opacity: 0.5;
   --transition-duration: 0.2s;
 }
@@ -40,24 +40,24 @@
    ============================== */
 
 :host(.toggle-small) {
-  --track-width: 36px;
-  --track-height: 20px;
-  --thumb-size: 14px;
-  --label-font-size: 14px;
+  --track-width: 2.25rem;
+  --track-height: 1.25rem;
+  --thumb-size: 0.875rem;
+  --label-font-size: 0.875rem;
 }
 
 :host(.toggle-default) {
-  --track-width: 44px;
-  --track-height: 24px;
-  --thumb-size: 18px;
-  --label-font-size: 16px;
+  --track-width: 2.75rem;
+  --track-height: 1.5rem;
+  --thumb-size: 1.125rem;
+  --label-font-size: 1rem;
 }
 
 :host(.toggle-large) {
-  --track-width: 52px;
-  --track-height: 28px;
-  --thumb-size: 22px;
-  --label-font-size: 18px;
+  --track-width: 3.25rem;
+  --track-height: 1.75rem;
+  --thumb-size: 1.375rem;
+  --label-font-size: 1.125rem;
 }
 
 /* ==============================
@@ -187,17 +187,17 @@
 
 .required {
   color: var(--border-error-color);
-  margin-left: 2px;
+  margin-left: 0.125rem;
 }
 
 .toggle-footer {
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
 .helper-text,
 .error-text {
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .helper-text {

@@ -5,8 +5,8 @@
   --nx-skeleton-bg: var(--nx-color-gray-200, #e2e8f0);
   --nx-skeleton-shimmer-color: rgba(255, 255, 255, 0.65);
   --nx-skeleton-duration: 1.5s;
-  --nx-skeleton-gap: 8px;
-  --nx-skeleton-border-radius: 8px;
+  --nx-skeleton-gap: 0.5rem;
+  --nx-skeleton-border-radius: 0.5rem;
 
   display: block;
   box-sizing: border-box;
@@ -42,7 +42,7 @@
 
   &--text {
     height: 1em;
-    border-radius: 4px;
+    border-radius: 0.25rem;
   }
 
   &--circular {
@@ -51,7 +51,7 @@
   }
 
   &--rounded {
-    border-radius: var(--nx-skeleton-border-radius, 8px);
+    border-radius: var(--nx-skeleton-border-radius, 0.5rem);
   }
 
   &--rectangular {
@@ -66,7 +66,7 @@
 .skeleton-group {
   display: flex;
   flex-direction: column;
-  gap: var(--nx-skeleton-gap, 8px);
+  gap: var(--nx-skeleton-gap, 0.5rem);
   width: 100%;
 }
 
