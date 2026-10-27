@@ -1,5 +1,5 @@
 :host {
-  --size: 20px;
+  --size: 1.25rem;
   --border-width: 1px;
 
   --border-color: var(--nx-color-gray-400, #94a3b8);
@@ -31,12 +31,12 @@
 .radio-wrapper {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .label-wrapper {
   color: var(--label-color);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.5;
 }
 
@@ -63,8 +63,8 @@
 }
 
 .radio-inner {
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
   border-radius: 50%;
   background: var(--nx-color-white, #ffffff);
   transform: scale(0);
@@ -104,7 +104,7 @@
 }
 
 :host(.label-fixed) .label-wrapper {
-  width: 120px;
+  width: 7.5rem;
 }
 
 /* ---------- Justify ---------- */

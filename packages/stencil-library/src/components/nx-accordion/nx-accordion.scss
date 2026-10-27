@@ -7,10 +7,10 @@
   --border-color: var(--nx-color-gray-200, #e2e8f0);
   --border-active-color: var(--border-color);
   --border-width: 1px;
-  --border-radius: var(--border-radius-8, 8px);
-  --header-padding: 12px;
-  --content-padding: 12px;
-  --icon-size: 20px;
+  --border-radius: var(--border-radius-8, 0.5rem);
+  --header-padding: 0.75rem;
+  --content-padding: 0.75rem;
+  --icon-size: 1.25rem;
   --icon-color: var(--nx-color-gray-900, #0f172a);
   --toggle-icon-color: var(--nx-color-gray-500, #64748b);
   --hover-background: var(--nx-color-gray-50, #f8fafc);
@@ -62,7 +62,7 @@
 :host(.accordion-accent) {
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
-  border-left: 4px solid transparent;
+  border-left: 0.25rem solid transparent;
   overflow: hidden;
   transition: border-color 0.2s ease, border-left-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -70,7 +70,7 @@
 :host(.accordion-accent.is-open) {
   border-left-color: var(--accent-color);
   border-color: var(--border-color);
-  border-left-width: 4px;
+  border-left-width: 0.25rem;
 }
 
 /* ==========================================
@@ -81,7 +81,7 @@
   display: flex;
   align-items: center;
   width: 100%;
-  padding: var(--header-padding, 12px);
+  padding: var(--header-padding, 0.75rem);
   border: none;
   background: transparent;
   color: inherit;
@@ -89,7 +89,7 @@
   text-align: left;
   cursor: pointer;
   user-select: none;
-  gap: 12px;
+  gap: 0.75rem;
   box-sizing: border-box;
   transition: background-color 0.15s ease;
 
@@ -117,11 +117,11 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
   color: var(--icon-color, #0f172a);
-  font-size: var(--icon-size, 20px);
-  --nx-icon-size: var(--icon-size, 20px);
+  font-size: var(--icon-size, 1.25rem);
+  --nx-icon-size: var(--icon-size, 1.25rem);
   transition: color 0.15s ease;
 }
 
@@ -134,10 +134,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
-  font-size: var(--icon-size, 20px);
-  --nx-icon-size: var(--icon-size, 20px);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
+  font-size: var(--icon-size, 1.25rem);
+  --nx-icon-size: var(--icon-size, 1.25rem);
 }
 
 /* ==========================================
@@ -150,7 +150,7 @@
   flex: 1 1 auto;
   min-width: 0;
   font-family: inherit;
-  font-size: var(--FontSize-16, 16px);
+  font-size: var(--FontSize-16, 1rem);
   font-weight: 500;
   line-height: 1.5;
   color: var(--color);
@@ -160,7 +160,7 @@
   display: inline-block;
   width: 100%;
   font-family: inherit;
-  font-size: var(--FontSize-16, 16px);
+  font-size: var(--FontSize-16, 1rem);
   font-weight: 500;
   line-height: 1.5;
   color: inherit;
@@ -193,18 +193,18 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
   color: var(--toggle-icon-color, #64748b);
-  font-size: var(--icon-size, 20px);
-  --nx-icon-size: var(--icon-size, 20px);
+  font-size: var(--icon-size, 1.25rem);
+  --nx-icon-size: var(--icon-size, 1.25rem);
   transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s ease;
 }
 
 .chevron-svg {
   display: block;
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
 }
 
 :host(.is-open) .accordion-toggle-icon:not(.has-collapse-icon) {
@@ -219,10 +219,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
-  font-size: var(--icon-size, 20px);
-  --nx-icon-size: var(--icon-size, 20px);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
+  font-size: var(--icon-size, 1.25rem);
+  --nx-icon-size: var(--icon-size, 1.25rem);
 }
 
 /* ==========================================
@@ -248,7 +248,7 @@
   min-height: 0;
   overflow: hidden;
   padding: 0;
-  font-size: var(--FontSize-16, 16px);
+  font-size: var(--FontSize-16, 1rem);
   line-height: 1.6;
   color: var(--nx-color-gray-700, #334155);
   box-sizing: border-box;
@@ -256,7 +256,7 @@
 }
 
 :host(.is-open) .accordion-body {
-  padding: var(--content-padding, 12px);
+  padding: var(--content-padding, 0.75rem);
   border-top: var(--border-width, 1px) solid var(--border-color);
 }
 

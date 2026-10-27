@@ -5,13 +5,13 @@
 
   --color: var(--nx-color-primary, #8145b5);
   --track-color: var(--nx-color-gray-200, #e2e8f0);
-  --size: 24px;
+  --size: 1.5rem;
   --duration: 0.85s;
 
   --label-color: var(--nx-color-gray-700, #334155);
-  --label-font-size: var(--nx-font-size-sm, 14px);
+  --label-font-size: var(--nx-font-size-sm, 0.875rem);
   --label-font-weight: var(--nx-font-weight-medium, 500);
-  --gap: 8px;
+  --gap: 0.5rem;
 
   --backdrop-background: rgba(255, 255, 255, 0.75);
   --backdrop-blur: 2px;

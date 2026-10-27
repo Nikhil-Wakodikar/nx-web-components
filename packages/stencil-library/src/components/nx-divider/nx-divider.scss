@@ -5,11 +5,11 @@
   --nx-divider-color: var(--nx-color-gray-200, #e2e8f0);
   --nx-divider-style: solid;
   --nx-divider-thickness: 1px;
-  --nx-divider-spacing: 16px;
+  --nx-divider-spacing: 1rem;
   --nx-divider-label-color: var(--nx-color-gray-500, #64748b);
-  --nx-divider-label-font-size: 13px;
+  --nx-divider-label-font-size: 0.8125rem;
   --nx-divider-label-font-weight: 500;
-  --nx-divider-label-padding: 12px;
+  --nx-divider-label-padding: 0.75rem;
   --nx-divider-font-family: var(
     --font-rubik,
     -apple-system,
@@ -92,7 +92,7 @@
       line-height: 1;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 0.5rem;
       user-select: none;
     }
 
@@ -109,7 +109,7 @@
     /* Alignment: start / left */
     &.align-start {
       .divider-line--start {
-        flex: 0 0 24px;
+        flex: 0 0 1.5rem;
       }
       .divider-line--end {
         flex: 1 1 0%;
@@ -122,7 +122,7 @@
         flex: 1 1 0%;
       }
       .divider-line--end {
-        flex: 0 0 24px;
+        flex: 0 0 1.5rem;
       }
     }
   }
@@ -131,9 +131,9 @@
 /* Horizontal Inset */
 :host(.is-inset) .divider--horizontal,
 :host([inset]) .divider--horizontal {
-  width: calc(100% - 48px);
-  margin-left: 24px;
-  margin-right: 24px;
+  width: calc(100% - 3rem);
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 /* ==========================================
@@ -189,7 +189,7 @@
       line-height: 1;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 0.25rem;
       user-select: none;
     }
 
@@ -204,7 +204,7 @@
 
     &.align-start {
       .divider-line--start {
-        flex: 0 0 16px;
+        flex: 0 0 1rem;
       }
       .divider-line--end {
         flex: 1 1 0%;
@@ -216,7 +216,7 @@
         flex: 1 1 0%;
       }
       .divider-line--end {
-        flex: 0 0 16px;
+        flex: 0 0 1rem;
       }
     }
   }
@@ -225,8 +225,8 @@
 /* Vertical Inset */
 :host(.is-inset) .divider--vertical,
 :host([inset]) .divider--vertical {
-  height: calc(100% - 16px);
-  margin-top: 8px;
-  margin-bottom: 8px;
+  height: calc(100% - 1rem);
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 

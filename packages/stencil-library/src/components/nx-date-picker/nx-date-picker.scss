@@ -10,17 +10,17 @@
   --border-focus-color: var(--nx-color-primary, #8145b5);
   --border-error-color: var(--nx-color-error, #dc2626);
   --border-success-color: var(--nx-color-success, #16a34a);
-  --border-radius: var(--border-radius-4, 4px);
+  --border-radius: var(--border-radius-4, 0.25rem);
 
   --accent-color: var(--nx-color-primary, #8145b5);
   --accent-light: var(--nx-color-purple-100, #f6f0fa);
 
   --font-family: var(--font-rubik, sans-serif);
-  --font-size: var(--FontSize-16, 16px);
+  --font-size: var(--FontSize-16, 1rem);
   --font-weight: 400;
-  --control-height: 48px;
-  --icon-size: 20px;
-  --nx-icon-size: var(--icon-size, 20px);
+  --control-height: 3rem;
+  --icon-size: 1.25rem;
+  --nx-icon-size: var(--icon-size, 1.25rem);
 
   display: block;
   width: 100%;
@@ -36,19 +36,19 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 
 .label-text {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  margin-bottom: 6px;
+  gap: 0.25rem;
+  margin-bottom: 0.375rem;
   color: var(--title, var(--color));
   font-family: var(--font-rubik-medium, var(--font-family));
-  font-size: var(--FontSize-14, 14px);
+  font-size: var(--FontSize-14, 0.875rem);
   font-weight: 500;
-  line-height: 18px;
+  line-height: 1.125rem;
   user-select: none;
 }
 
@@ -67,7 +67,7 @@
   justify-content: space-between;
   width: 100%;
   min-height: var(--control-height);
-  padding: 12px 14px;
+  padding: 0.75rem 0.875rem;
   border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
   background: var(--background);
@@ -75,7 +75,7 @@
   font-family: var(--font-family);
   font-size: var(--font-size);
   font-weight: var(--font-weight);
-  line-height: 20px;
+  line-height: 1.25rem;
   text-align: left;
   cursor: pointer;
   outline: none;
@@ -110,8 +110,8 @@
 .trigger-actions {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  margin-left: 12px;
+  gap: 0.375rem;
+  margin-left: 0.75rem;
   flex-shrink: 0;
 }
 
@@ -119,8 +119,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   border-radius: 50%;
   color: var(--placeholder-color);
   transition: background 0.15s ease, color 0.15s ease;
@@ -131,8 +131,8 @@
   }
 
   svg {
-    width: 14px;
-    height: 14px;
+    width: 0.875rem;
+    height: 0.875rem;
     fill: none;
     stroke: currentColor;
     stroke-width: 2;
@@ -142,8 +142,8 @@
 }
 
 .picker-icon {
-  width: var(--icon-size, 20px);
-  height: var(--icon-size, 20px);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
   color: var(--color);
   fill: none;
   stroke: currentColor;
@@ -159,12 +159,12 @@
 .picker-panel {
   position: absolute;
   z-index: var(--nx-z-dropdown, 1000);
-  top: calc(100% + 4px);
+  top: calc(100% + 0.25rem);
   left: 0;
-  width: 288px;
-  padding: 12px;
+  width: 18rem;
+  padding: 0.75rem;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: var(--nx-color-white, #fff);
   box-shadow: var(--nx-shadow-md, 0 8px 20px rgba(15, 23, 42, 0.12));
   user-select: none;
@@ -178,23 +178,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .header-selectors {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .selector-btn {
-  padding: 4px 8px;
+  padding: 0.25rem 0.5rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: transparent;
   color: var(--color);
   font-family: var(--font-rubik-medium, var(--font-family));
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
 
@@ -207,10 +207,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   border: none;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: transparent;
   color: var(--color);
   cursor: pointer;
@@ -220,8 +220,8 @@
   }
 
   svg {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     fill: none;
     stroke: currentColor;
     stroke-width: 2;
@@ -233,36 +233,36 @@
 .weekdays-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .weekday-cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 28px;
+  height: 1.75rem;
   color: var(--placeholder-color);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500;
 }
 
 .days-grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 2px;
+  gap: 0.125rem;
 }
 
 .day-cell {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 34px;
+  height: 2.125rem;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: transparent;
   color: var(--color);
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease;
 
@@ -299,18 +299,18 @@
 .years-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 6px;
-  padding: 6px 0;
+  gap: 0.375rem;
+  padding: 0.375rem 0;
 }
 
 .grid-option-btn {
-  height: 36px;
+  height: 2.25rem;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: transparent;
   color: var(--color);
   font-family: var(--font-family);
-  font-size: 13px;
+  font-size: 0.8125rem;
   cursor: pointer;
 
   &:hover {
@@ -329,19 +329,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 10px;
-  padding-top: 8px;
+  margin-top: 0.625rem;
+  padding-top: 0.5rem;
   border-top: 1px solid var(--nx-color-gray-200, #e2e8f0);
 }
 
 .footer-btn {
-  padding: 4px 10px;
+  padding: 0.25rem 0.625rem;
   border: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: transparent;
   color: var(--accent-color);
   font-family: var(--font-family);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
   cursor: pointer;
 
@@ -374,14 +374,14 @@
 }
 
 .field-footer {
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
 
 .helper-text,
 .error-text {
   font-family: var(--font-family);
-  font-size: 12px;
-  line-height: 16px;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .helper-text {

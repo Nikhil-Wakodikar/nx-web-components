@@ -7,16 +7,16 @@
   --track-color: var(--nx-color-gray-200, #e2e8f0);
   --buffer-color: var(--nx-color-purple-200, #ebdef4);
 
-  --height: 8px;
+  --height: 0.5rem;
   --border-radius: 999px;
-  --circular-size: 56px;
+  --circular-size: 3.5rem;
 
   --label-color: var(--nx-color-gray-800, #1e293b);
-  --label-font-size: var(--nx-font-size-sm, 14px);
+  --label-font-size: var(--nx-font-size-sm, 0.875rem);
   --label-font-weight: var(--nx-font-weight-medium, 500);
 
   --value-color: var(--nx-color-gray-600, #475569);
-  --value-font-size: var(--nx-font-size-xs, 12px);
+  --value-font-size: var(--nx-font-size-xs, 0.75rem);
   --value-font-weight: var(--nx-font-weight-semibold, 600);
 
   --transition: width 0.3s ease, stroke-dashoffset 0.3s ease;
@@ -37,21 +37,21 @@
    =============================== */
 
 :host(.progress-small) {
-  --height: 4px;
-  --circular-size: 36px;
-  --value-font-size: 10px;
+  --height: 0.25rem;
+  --circular-size: 2.25rem;
+  --value-font-size: 0.625rem;
 }
 
 :host(.progress-default) {
-  --height: 8px;
-  --circular-size: 56px;
-  --value-font-size: 12px;
+  --height: 0.5rem;
+  --circular-size: 3.5rem;
+  --value-font-size: 0.75rem;
 }
 
 :host(.progress-large) {
-  --height: 12px;
-  --circular-size: 80px;
-  --value-font-size: 14px;
+  --height: 0.75rem;
+  --circular-size: 5rem;
+  --value-font-size: 0.875rem;
 }
 
 /* ===============================
@@ -61,7 +61,7 @@
 .progress-linear-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.375rem;
   width: 100%;
 }
 
@@ -69,7 +69,7 @@
   display: none;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .progress-header-visible {
@@ -134,7 +134,7 @@
     transparent 75%,
     transparent
   );
-  background-size: 16px 16px;
+  background-size: 1rem 1rem;
 }
 
 :host(.progress-animated) .progress-fill {
@@ -162,7 +162,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .progress-circular-box {
@@ -214,7 +214,7 @@
 
 @keyframes nx-progress-stripes {
   0% {
-    background-position: 16px 0;
+    background-position: 1rem 0;
   }
   100% {
     background-position: 0 0;

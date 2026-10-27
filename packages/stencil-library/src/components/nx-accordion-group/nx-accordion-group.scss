@@ -2,8 +2,8 @@
   /* ==========================================
      Public Styling API
      ========================================== */
-  --gap: 0px;
-  --border-radius: var(--border-radius-8, 8px);
+  --gap: 0;
+  --border-radius: var(--border-radius-8, 0.5rem);
   --border-color: var(--nx-color-gray-200, #e2e8f0);
   --border-width: 1px;
 
@@ -49,7 +49,7 @@
 
 /* Flat / Card mode: separate items with gap */
 :host(.display-flat) {
-  --gap: 12px;
+  --gap: 0.75rem;
 }
 
 :host(.display-flat) ::slotted(nx-accordion) {
