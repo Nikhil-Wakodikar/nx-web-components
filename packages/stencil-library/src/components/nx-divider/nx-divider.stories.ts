@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-divider>` is a separator component used to group, demarcate, or organize
@@ -134,13 +135,13 @@ export const Default: Story = {
     <div style="max-width: 600px; font-family: sans-serif;">
       <p style="margin: 0; color: #334155;">Above content paragraph demonstrating natural document flow.</p>
       <nx-divider
-        orientation="${args.orientation}"
-        variant="${args.variant}"
-        color="${args.color}"
-        thickness="${args.thickness}"
-        spacing="${args.spacing}"
-        ?inset="${args.inset}"
-        label="${args.label || ''}"
+        orientation=${ifDefined(args.orientation)}
+        variant=${ifDefined(args.variant)}
+        color=${ifDefined(args.color)}
+        thickness=${ifDefined(args.thickness)}
+        spacing=${ifDefined(args.spacing)}
+        ?inset=${args.inset}
+        label=${ifDefined(args.label)}
       ></nx-divider>
       <p style="margin: 0; color: #334155;">Below content paragraph separated cleanly by the divider.</p>
     </div>

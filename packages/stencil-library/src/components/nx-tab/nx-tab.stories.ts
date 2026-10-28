@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-tab>` and `<nx-tab-group>` provide tabbed navigation interfaces.
@@ -106,10 +107,10 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 650px; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px;">
       <nx-tab-group
-        .value=${args.value}
-        .placement=${args.placement}
-        .size=${args.size}
-        .color=${args.color}
+        value=${ifDefined(args.value)}
+        placement=${ifDefined(args.placement)}
+        size=${ifDefined(args.size)}
+        color=${ifDefined(args.color)}
         ?stretch=${args.stretch}
         ?scrollable=${args.scrollable}
         ?disabled=${args.disabled}

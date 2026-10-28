@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-date-picker>` is a feature-rich, accessible calendar picker component.
@@ -135,18 +136,18 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 320px; min-height: 380px;">
       <nx-date-picker
-        .label=${args.label}
-        .value=${args.value}
-        .placeholder=${args.placeholder}
-        .format=${args.format}
-        .firstDayOfWeek=${args.firstDayOfWeek}
-        ?showTodayButton=${args.showTodayButton}
+        label=${ifDefined(args.label)}
+        value=${ifDefined(args.value)}
+        placeholder=${ifDefined(args.placeholder)}
+        format=${ifDefined(args.format)}
+        first-day-of-week=${ifDefined(args.firstDayOfWeek)}
+        ?show-today-button=${args.showTodayButton}
         ?clearable=${args.clearable}
         ?disabled=${args.disabled}
         ?invalid=${args.invalid}
         ?success=${args.success}
-        .helperText=${args.helperText}
-        .errorText=${args.errorText}
+        helper-text=${ifDefined(args.helperText)}
+        error-text=${ifDefined(args.errorText)}
         @nxChange=${(e: CustomEvent) => console.log('nxChange:', e.detail)}
       ></nx-date-picker>
     </div>

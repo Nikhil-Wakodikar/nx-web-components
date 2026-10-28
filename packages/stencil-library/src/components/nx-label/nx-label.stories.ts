@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-label>` is an accessible form label component supporting required indicators (*),
@@ -98,8 +99,8 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-label
-      .size=${args.size}
-      .weight=${args.weight}
+      size=${ifDefined(args.size)}
+      weight=${ifDefined(args.weight)}
       ?required=${args.required}
       ?optional=${args.optional}
       ?disabled=${args.disabled}

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-link>` is an accessible navigation link component wrapping HTML `<a>` tags.
@@ -106,12 +107,12 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-link
-      .label=${args.label}
-      .href=${args.href}
-      .target=${args.target}
-      .underline=${args.underline}
-      .size=${args.size}
-      .color=${args.color}
+      label=${ifDefined(args.label)}
+      href=${ifDefined(args.href)}
+      target=${ifDefined(args.target)}
+      underline=${ifDefined(args.underline)}
+      size=${ifDefined(args.size)}
+      color=${ifDefined(args.color)}
       ?external=${args.external}
       ?disabled=${args.disabled}
       @nxClick=${(e: CustomEvent) => console.log('nxClick:', e)}

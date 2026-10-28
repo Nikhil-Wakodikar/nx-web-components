@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-accordion>` and `<nx-accordion-group>` are accessible, collapsible components
@@ -49,7 +50,7 @@ Rather than using only the \`header="..."\` attribute, you can pass rich HTML di
     </div>
   </nx-accordion>
 
-  <nx-accordion value="third" toggleIcon="panel-bottom-open">
+  <nx-accordion value="third" toggle-icon="panel-bottom-open">
     <span slot="header" style="display: inline-flex; align-items: center;">
       <nx-icon style="margin-right: 8px" name="user-round-key"></nx-icon>
       Custom Header via slot="header"
@@ -255,16 +256,16 @@ export const Playground: Story = {
   render: (args) => html`
     <div style="max-width: 600px; width: 100%;">
       <nx-accordion
-        .header=${args.header}
-        .variant=${args.variant}
+        header=${ifDefined(args.header)}
+        variant=${ifDefined(args.variant)}
         ?open=${args.open}
         ?disabled=${args.disabled}
-        .expandIconPosition=${args.expandIconPosition}
-        .icon=${args.icon}
-        .toggleIcon=${args.toggleIcon}
-        .collapseIcon=${args.collapseIcon}
-        ?hideToggleIcon=${args.hideToggleIcon}
-        .contentPadding=${args.contentPadding}
+        expand-icon-position=${ifDefined(args.expandIconPosition)}
+        icon=${ifDefined(args.icon)}
+        toggle-icon=${ifDefined(args.toggleIcon)}
+        collapse-icon=${ifDefined(args.collapseIcon)}
+        ?hide-toggle-icon=${args.hideToggleIcon}
+        content-padding=${ifDefined(args.contentPadding)}
       >
         <p>${args.content}</p>
       </nx-accordion>
@@ -326,7 +327,7 @@ export const AccordionGroupDefault: Story = {
 
 /**
  * Demonstrates custom headers and content using `slot="header"` and `slot="content"`.
- * Supports rich markup, inline `<nx-icon>` elements, leading icons, and custom toggle icons (e.g. `toggleIcon="panel-bottom-open"`).
+ * Supports rich markup, inline `<nx-icon>` elements, leading icons, and custom toggle icons (e.g. `toggle-icon="panel-bottom-open"`).
  */
 export const SlotHeaderAndContent: Story = {
   render: () => html`
@@ -355,7 +356,7 @@ export const SlotHeaderAndContent: Story = {
           </div>
         </nx-accordion>
 
-        <nx-accordion value="third" toggleIcon="panel-bottom-open">
+        <nx-accordion value="third" toggle-icon="panel-bottom-open">
           <span
             slot="header"
             style="display: inline-flex; align-items: center;"
@@ -401,12 +402,12 @@ export const AccordionGroupMultiple: Story = {
 };
 
 /**
- * `<nx-accordion-group>` with `displayMode="flat"`, separating items into distinct card-like elements with gaps.
+ * `<nx-accordion-group>` with `display-mode="flat"`, separating items into distinct card-like elements with gaps.
  */
 export const AccordionGroupFlat: Story = {
   render: () => html`
     <div style="max-width: 640px; width: 100%;">
-      <nx-accordion-group displayMode="flat" value="item-1">
+      <nx-accordion-group display-mode="flat" value="item-1">
         <nx-accordion value="item-1" header="Account & Security" icon="shield">
           <p>Manage your password, two-factor authentication, and active sessions.</p>
         </nx-accordion>
@@ -448,7 +449,7 @@ export const WithLeadingIcons: Story = {
 export const WithTrailingSlot: Story = {
   render: () => html`
     <div style="max-width: 640px; width: 100%;">
-      <nx-accordion-group displayMode="flat">
+      <nx-accordion-group display-mode="flat">
         <nx-accordion header="API Gateway Service" icon="server">
           <span
             slot="end"
@@ -532,7 +533,7 @@ export const Disabled: Story = {
 
       <div>
         <p style="margin: 0 0 8px; font-size: 13px; font-weight: 600; color: #64748b;">Entire Group Disabled:</p>
-        <nx-accordion-group disabled displayMode="flat">
+        <nx-accordion-group disabled display-mode="flat">
           <nx-accordion header="Section 1">
             <p>Content 1</p>
           </nx-accordion>
@@ -621,7 +622,7 @@ export const CustomStylingDarkMode: Story = {
     <div style="background: #0f172a; padding: 24px; border-radius: 16px; max-width: 640px; width: 100%;">
       <p style="margin: 0 0 16px; font-size: 13px; font-weight: 600; color: #94a3b8;">Dark Minimalist Accordion Group:</p>
       <nx-accordion-group
-        displayMode="flat"
+        display-mode="flat"
         value="dark-1"
         style="
           --background: #1e293b;

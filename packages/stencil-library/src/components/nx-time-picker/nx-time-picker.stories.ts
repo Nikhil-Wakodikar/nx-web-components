@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-time-picker>` is an accessible time input control supporting 12-hour (AM/PM) and
@@ -117,12 +118,12 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 300px; min-height: 320px;">
       <nx-time-picker
-        .label=${args.label}
-        .value=${args.value}
-        .format=${args.format}
-        ?showSeconds=${args.showSeconds}
-        .minuteStep=${args.minuteStep}
-        ?showNowButton=${args.showNowButton}
+        label=${ifDefined(args.label)}
+        value=${ifDefined(args.value)}
+        format=${ifDefined(args.format)}
+        ?show-seconds=${args.showSeconds}
+        minute-step=${ifDefined(args.minuteStep)}
+        ?show-now-button=${args.showNowButton}
         ?clearable=${args.clearable}
         ?disabled=${args.disabled}
         ?invalid=${args.invalid}
@@ -151,8 +152,8 @@ export const SteppedIntervals: Story = {
       <nx-time-picker
         label="Quarter-Hour Booking (15m step)"
         format="12h"
-        minuteStep="15"
-        helperText="Only 00, 15, 30, and 45 minutes can be selected."
+        minute-step="15"
+        helper-text="Only 00, 15, 30, and 45 minutes can be selected."
       ></nx-time-picker>
     </div>
   `,

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-card>` is a flexible container component used to present structured content,
@@ -111,13 +112,13 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 400px;">
       <nx-card
-        .headerTitle=${args.headerTitle}
-        .subtitle=${args.subtitle}
-        .variant=${args.variant}
-        .padding=${args.padding}
+        header-title=${ifDefined(args.headerTitle)}
+        subtitle=${ifDefined(args.subtitle)}
+        variant=${ifDefined(args.variant)}
+        padding=${ifDefined(args.padding)}
         ?hoverable=${args.hoverable}
         ?disabled=${args.disabled}
-        .href=${args.href}
+        href=${ifDefined(args.href)}
       >
         <p style="margin: 0; color: #475569; font-size: 14px; line-height: 1.6;">
           Cards contain content and actions about a single subject. They should be easy to scan for relevant and actionable information.

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-input>` is an accessible, feature-packed text input component supporting labels,
@@ -143,19 +144,19 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 360px;">
       <nx-input
-        .label=${args.label}
-        .value=${args.value}
-        .placeholder=${args.placeholder}
-        .type=${args.type}
-        .helperText=${args.helperText}
-        .errorText=${args.errorText}
+        label=${ifDefined(args.label)}
+        value=${ifDefined(args.value)}
+        placeholder=${ifDefined(args.placeholder)}
+        type=${ifDefined(args.type)}
+        helper-text=${ifDefined(args.helperText)}
+        error-text=${ifDefined(args.errorText)}
         ?invalid=${args.invalid}
         ?success=${args.success}
         ?disabled=${args.disabled}
         ?readonly=${args.readonly}
         ?required=${args.required}
         ?counter=${args.counter}
-        .maxlength=${args.maxlength}
+        maxlength=${ifDefined(args.maxlength)}
         @nxInput=${(e: CustomEvent) => console.log('nxInput:', e.detail)}
         @nxChange=${(e: CustomEvent) => console.log('nxChange:', e.detail)}
         @nxFocus=${() => console.log('nxFocus')}

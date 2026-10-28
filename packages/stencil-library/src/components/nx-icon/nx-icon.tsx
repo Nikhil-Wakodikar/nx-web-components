@@ -38,13 +38,13 @@ const iconLookup: Record<string, IconNode> = Object.entries(icons).reduce(
 export class NxIcon {
   @Prop({ reflect: true }) name?: string;
 
-  @Prop() size: string | number = 'medium';
+  @Prop({ reflect: true }) size: string | number = 'medium';
 
-  @Prop() color?: string;
+  @Prop({ reflect: true }) color?: string;
 
-  @Prop() strokeWidth = 2;
+  @Prop({ attribute: 'stroke-width', reflect: true }) strokeWidth = 2;
 
-  @Prop() label?: string;
+  @Prop({ reflect: true }) label?: string;
 
   private get iconNode(): IconNode | undefined {
     if (!this.name) return undefined;

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-list>` and `<nx-list-item>` organize information into vertically stacked rows.
@@ -80,7 +81,7 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 420px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden;">
       <nx-list
-        .lines=${args.lines}
+        lines=${ifDefined(args.lines)}
         ?clickable=${args.clickable}
         ?disabled=${args.disabled}
       >

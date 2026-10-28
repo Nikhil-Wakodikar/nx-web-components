@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-select>` and `<nx-select-option>` provide an accessible, styled dropdown menu
@@ -141,9 +142,9 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 340px; min-height: 220px;">
       <nx-select
-        .label=${args.label}
-        .value=${args.value}
-        .placeholder=${args.placeholder}
+        label=${ifDefined(args.label)}
+        value=${ifDefined(args.value)}
+        placeholder=${ifDefined(args.placeholder)}
         ?disabled=${args.disabled}
         ?invalid=${args.invalid}
         ?success=${args.success}

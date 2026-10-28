@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-text>` provides semantic, consistent typographic hierarchy throughout the application.
@@ -134,14 +135,14 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-text
-      .variant=${args.variant}
-      .as=${args.as}
-      .weight=${args.weight}
-      .align=${args.align}
-      .transform=${args.transform}
-      .color=${args.color}
+      variant=${ifDefined(args.variant)}
+      as=${ifDefined(args.as)}
+      weight=${ifDefined(args.weight)}
+      align=${ifDefined(args.align)}
+      transform=${ifDefined(args.transform)}
+      color=${ifDefined(args.color)}
       ?truncate=${args.truncate}
-      .lines=${args.lines}
+      lines=${ifDefined(args.lines)}
       ?italic=${args.italic}
       ?underline=${args.underline}
       ?strikethrough=${args.strikethrough}

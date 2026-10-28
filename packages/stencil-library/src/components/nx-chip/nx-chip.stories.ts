@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-chip>` represents an interactive compact element for filters, selections,
@@ -134,11 +135,11 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-chip
-      .label=${args.label}
-      .variant=${args.variant}
-      .color=${args.color}
-      .size=${args.size}
-      .shape=${args.shape}
+      label=${ifDefined(args.label)}
+      variant=${ifDefined(args.variant)}
+      color=${ifDefined(args.color)}
+      size=${ifDefined(args.size)}
+      shape=${ifDefined(args.shape)}
       ?clickable=${args.clickable}
       ?selectable=${args.selectable}
       ?selected=${args.selected}

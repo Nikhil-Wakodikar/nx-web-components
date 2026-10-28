@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-modal>` is an accessible dialog / overlay modal component.
@@ -128,11 +129,11 @@ export const Default: Story = {
 
       <nx-modal
         id="demo-modal"
-        .isOpen=${args.isOpen}
-        .header=${args.header}
-        .subHeader=${args.subHeader}
-        .size=${args.size}
-        .backdrop=${args.backdrop}
+        ?is-open=${args.isOpen}
+        header=${ifDefined(args.header)}
+        sub-header=${ifDefined(args.subHeader)}
+        size=${ifDefined(args.size)}
+        backdrop=${ifDefined(args.backdrop)}
         ?centered=${args.centered}
         ?dismissible=${args.dismissible}
         ?scrollable=${args.scrollable}

@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-toggle>` is an accessible switch component for binary on/off settings.
@@ -114,15 +115,15 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-toggle
-      .label=${args.label}
+      label=${ifDefined(args.label)}
       ?checked=${args.checked}
-      .size=${args.size}
+      size=${ifDefined(args.size)}
       ?disabled=${args.disabled}
       ?invalid=${args.invalid}
-      .labelPlacement=${args.labelPlacement}
-      .helperText=${args.helperText}
-      .errorText=${args.errorText}
-      .color=${args.color}
+      label-placement=${ifDefined(args.labelPlacement)}
+      helper-text=${ifDefined(args.helperText)}
+      error-text=${ifDefined(args.errorText)}
+      color=${ifDefined(args.color)}
       @nxChange=${(e: CustomEvent) => console.log('nxChange:', e.detail)}
     ></nx-toggle>
   `,
@@ -141,14 +142,14 @@ export const Sizing: Story = {
 export const LabelPlacementAndLayout: Story = {
   render: () => html`
     <div style="display: flex; flex-direction: column; gap: 20px; max-width: 400px;">
-      <nx-toggle labelPlacement="end" label="Label on Right (Default)"></nx-toggle>
-      <nx-toggle labelPlacement="start" label="Label on Left"></nx-toggle>
+      <nx-toggle label-placement="end" label="Label on Right (Default)"></nx-toggle>
+      <nx-toggle label-placement="start" label="Label on Left"></nx-toggle>
       <div style="border: 1px solid #e2e8f0; padding: 14px 16px; border-radius: 8px;">
         <nx-toggle
           justify="space-between"
-          labelPlacement="start"
+          label-placement="start"
           label="Automatic Cloud Backups"
-          helperText="Backs up your database snapshot every 24 hours"
+          helper-text="Backs up your database snapshot every 24 hours"
           checked
           style="width: 100%; display: block;"
         ></nx-toggle>
@@ -164,7 +165,7 @@ export const States: Story = {
       <nx-toggle checked label="Normal Checked"></nx-toggle>
       <nx-toggle disabled label="Disabled Unchecked"></nx-toggle>
       <nx-toggle disabled checked label="Disabled Checked"></nx-toggle>
-      <nx-toggle invalid errorText="This setting cannot be disabled." checked label="Invalid State"></nx-toggle>
+      <nx-toggle invalid error-text="This setting cannot be disabled." checked label="Invalid State"></nx-toggle>
     </div>
   `,
 };

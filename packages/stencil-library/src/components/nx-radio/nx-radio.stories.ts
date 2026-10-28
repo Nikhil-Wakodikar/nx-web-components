@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-radio>` and `<nx-radio-group>` provide accessible single-selection options among mutually exclusive choices.
@@ -112,15 +113,15 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-radio-group
-      .label=${args.label}
-      .value=${args.value}
-      .direction=${args.direction}
+      label=${ifDefined(args.label)}
+      value=${ifDefined(args.value)}
+      direction=${ifDefined(args.direction)}
       ?disabled=${args.disabled}
       ?required=${args.required}
       ?invalid=${args.invalid}
-      ?allowEmptySelection=${args.allowEmptySelection}
-      .helperText=${args.helperText}
-      .errorText=${args.errorText}
+      ?allow-empty-selection=${args.allowEmptySelection}
+      helper-text=${ifDefined(args.helperText)}
+      error-text=${ifDefined(args.errorText)}
       @nxChange=${(e: CustomEvent) => console.log('nxChange:', e.detail)}
     >
       <nx-radio value="starter">Starter Plan ($9/mo)</nx-radio>
