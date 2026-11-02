@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-checkbox>` is an accessible form selection control supporting checked,
@@ -114,15 +115,15 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-checkbox
-      .label=${args.label}
+      label=${ifDefined(args.label)}
       ?checked=${args.checked}
       ?indeterminate=${args.indeterminate}
       ?disabled=${args.disabled}
       ?invalid=${args.invalid}
-      .labelPlacement=${args.labelPlacement}
-      .helperText=${args.helperText}
-      .errorText=${args.errorText}
-      .color=${args.color}
+      label-placement=${ifDefined(args.labelPlacement)}
+      helper-text=${ifDefined(args.helperText)}
+      error-text=${ifDefined(args.errorText)}
+      color=${ifDefined(args.color)}
       @nxChange=${(e: CustomEvent) => console.log('nxChange:', e.detail)}
     ></nx-checkbox>
   `,
@@ -143,12 +144,12 @@ export const States: Story = {
 export const LabelPlacementAndLayout: Story = {
   render: () => html`
     <div style="display: flex; flex-direction: column; gap: 20px; max-width: 380px;">
-      <nx-checkbox labelPlacement="end" label="Label at End (Default)"></nx-checkbox>
-      <nx-checkbox labelPlacement="start" label="Label at Start"></nx-checkbox>
+      <nx-checkbox label-placement="end" label="Label at End (Default)"></nx-checkbox>
+      <nx-checkbox label-placement="start" label="Label at Start"></nx-checkbox>
       <div style="border: 1px solid #e2e8f0; padding: 12px; border-radius: 8px;">
         <nx-checkbox
           justify="space-between"
-          labelPlacement="start"
+          label-placement="start"
           label="Full-Width Justified Option"
           style="width: 100%; display: block;"
         ></nx-checkbox>

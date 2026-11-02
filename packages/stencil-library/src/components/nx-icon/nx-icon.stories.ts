@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-icon>` renders high-quality, crisp SVG icons powered by the Lucide icon library.
@@ -102,11 +103,11 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-icon
-      .name=${args.name}
-      .size=${args.size}
-      .color=${args.color}
-      .strokeWidth=${args.strokeWidth}
-      .label=${args.label}
+      name=${ifDefined(args.name)}
+      size=${ifDefined(args.size)}
+      color=${ifDefined(args.color)}
+      stroke-width=${ifDefined(args.strokeWidth)}
+      label=${ifDefined(args.label)}
     ></nx-icon>
   `,
 };
@@ -173,15 +174,15 @@ export const StrokeWidths: Story = {
   render: () => html`
     <div style="display: flex; gap: 24px; align-items: center;">
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <nx-icon name="shield" size="32" strokeWidth="1"></nx-icon>
+        <nx-icon name="shield" size="32" stroke-width="1"></nx-icon>
         <span style="font-size: 11px; color: #64748b;">stroke: 1</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <nx-icon name="shield" size="32" strokeWidth="2"></nx-icon>
+        <nx-icon name="shield" size="32" stroke-width="2"></nx-icon>
         <span style="font-size: 11px; color: #64748b;">stroke: 2 (default)</span>
       </div>
       <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
-        <nx-icon name="shield" size="32" strokeWidth="3"></nx-icon>
+        <nx-icon name="shield" size="32" stroke-width="3"></nx-icon>
         <span style="font-size: 11px; color: #64748b;">stroke: 3</span>
       </div>
     </div>

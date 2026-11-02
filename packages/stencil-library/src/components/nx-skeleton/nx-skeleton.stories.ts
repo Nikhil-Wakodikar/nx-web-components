@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-skeleton>` is a lightweight placeholder component used to visually indicate an
@@ -152,18 +153,18 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 480px; font-family: sans-serif;">
       <nx-skeleton
-        .variant=${args.variant}
-        .animation=${args.animation}
-        .width=${args.width}
-        .height=${args.height}
-        .size=${args.size}
-        .radius=${args.radius}
-        .count=${args.count}
-        .lastLineWidth=${args.lastLineWidth}
+        variant=${ifDefined(args.variant)}
+        animation=${ifDefined(args.animation)}
+        width=${ifDefined(args.width)}
+        height=${ifDefined(args.height)}
+        size=${ifDefined(args.size)}
+        radius=${ifDefined(args.radius)}
+        count=${ifDefined(args.count)}
+        last-line-width=${ifDefined(args.lastLineWidth)}
         ?loading=${args.loading}
-        .duration=${args.duration}
-        .bg=${args.bg}
-        .shimmerColor=${args.shimmerColor}
+        duration=${ifDefined(args.duration)}
+        bg=${ifDefined(args.bg)}
+        shimmer-color=${ifDefined(args.shimmerColor)}
       >
         <div style="padding: 16px; background: #e0f2fe; border-radius: 8px; color: #0369a1;">
           <strong>Slotted Content Revealed!</strong>

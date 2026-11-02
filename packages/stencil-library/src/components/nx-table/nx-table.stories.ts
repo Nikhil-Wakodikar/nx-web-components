@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 const SAMPLE_COLUMNS = [
   { key: 'id', title: 'ID', width: '80px', sortable: true },
@@ -162,15 +163,15 @@ export const Default: Story = {
       ?striped=${args.striped}
       ?bordered=${args.bordered}
       ?hoverable=${args.hoverable}
-      .size=${args.size}
-      .variant=${args.variant}
+      size=${ifDefined(args.size)}
+      variant=${ifDefined(args.variant)}
       ?sortable=${args.sortable}
       ?paginated=${args.paginated}
-      .pageSize=${args.pageSize}
+      page-size=${ifDefined(args.pageSize)}
       ?selectable=${args.selectable}
-      .selectionMode=${args.selectionMode}
+      selection-mode=${ifDefined(args.selectionMode)}
       ?loading=${args.loading}
-      ?stickyHeader=${args.stickyHeader}
+      ?sticky-header=${args.stickyHeader}
       @nxSort=${(e: CustomEvent) => console.log('nxSort:', e.detail)}
       @nxSelectionChange=${(e: CustomEvent) => console.log('nxSelectionChange:', e.detail)}
       @nxRowClick=${(e: CustomEvent) => console.log('nxRowClick:', e.detail)}

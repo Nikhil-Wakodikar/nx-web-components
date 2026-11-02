@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-button>` is an accessible, themeable web component built with Stencil.
@@ -192,14 +193,14 @@ type Story = StoryObj;
 export const Playground: Story = {
   render: (args) => html`
     <nx-button
-      .fill=${args.fill}
-      .variant=${args.variant}
-      .color=${args.color}
-      .size=${args.size}
-      .shape=${args.shape}
-      .expand=${args.expand}
+      fill=${ifDefined(args.fill)}
+      variant=${ifDefined(args.variant)}
+      color=${ifDefined(args.color)}
+      size=${ifDefined(args.size)}
+      shape=${ifDefined(args.shape)}
+      expand=${ifDefined(args.expand)}
       ?disabled=${args.disabled}
-      .type=${args.type}
+      type=${ifDefined(args.type)}
     >
       ${args.label}
     </nx-button>

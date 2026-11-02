@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-badge>` is an accessible, versatile indicator component used to highlight status,
@@ -125,15 +126,15 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-badge
-      .value=${args.value}
-      .variant=${args.variant}
-      .color=${args.color}
-      .size=${args.size}
-      .shape=${args.shape}
+      value=${ifDefined(args.value)}
+      variant=${ifDefined(args.variant)}
+      color=${ifDefined(args.color)}
+      size=${ifDefined(args.size)}
+      shape=${ifDefined(args.shape)}
       ?dot=${args.dot}
       ?pulse=${args.pulse}
-      .max=${args.max}
-      .placement=${args.placement}
+      max=${ifDefined(args.max)}
+      placement=${ifDefined(args.placement)}
     >
       ${args.placement ? html`<nx-button fill="outline">Notifications</nx-button>` : ''}
     </nx-badge>

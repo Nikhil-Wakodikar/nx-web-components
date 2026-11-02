@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-toast>` provides non-intrusive toast notifications and snackbars.
@@ -147,16 +148,16 @@ export const Default: Story = {
 
       <nx-toast
         id="demo-toast"
-        .isOpen=${args.isOpen}
-        .header=${args.header}
-        .message=${args.message}
-        .variant=${args.variant}
-        .position=${args.position}
-        .duration=${args.duration}
-        ?showProgressBar=${args.showProgressBar}
-        ?showIcon=${args.showIcon}
+        ?is-open=${args.isOpen}
+        header=${ifDefined(args.header)}
+        message=${ifDefined(args.message)}
+        variant=${ifDefined(args.variant)}
+        position=${ifDefined(args.position)}
+        duration=${ifDefined(args.duration)}
+        ?show-progress-bar=${args.showProgressBar}
+        ?show-icon=${args.showIcon}
         ?dismissible=${args.dismissible}
-        .actionText=${args.actionText}
+        action-text=${ifDefined(args.actionText)}
         @nxDismiss=${() => {
           const t = document.querySelector('nx-toast#demo-toast') as any;
           if (t) t.isOpen = false;

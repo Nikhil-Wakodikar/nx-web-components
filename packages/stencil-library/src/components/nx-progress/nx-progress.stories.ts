@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-progress>` and `<nx-loader>` visualize loading progress, background tasks, and waiting states.
@@ -115,15 +116,15 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 450px;">
       <nx-progress
-        .value=${args.value}
-        .max=${args.max}
-        .variant=${args.variant}
+        value=${ifDefined(args.value)}
+        max=${ifDefined(args.max)}
+        variant=${ifDefined(args.variant)}
         ?indeterminate=${args.indeterminate}
-        ?showValue=${args.showValue}
-        .label=${args.label}
+        ?show-value=${args.showValue}
+        label=${ifDefined(args.label)}
         ?striped=${args.striped}
         ?animated=${args.animated}
-        .color=${args.color}
+        color=${ifDefined(args.color)}
       ></nx-progress>
     </div>
   `,
@@ -132,9 +133,9 @@ export const Default: Story = {
 export const CircularProgress: Story = {
   render: () => html`
     <div style="display: flex; gap: 32px; align-items: center;">
-      <nx-progress variant="circular" value="25" showValue size="small"></nx-progress>
-      <nx-progress variant="circular" value="65" showValue size="default"></nx-progress>
-      <nx-progress variant="circular" value="90" showValue size="large" color="#10b981"></nx-progress>
+      <nx-progress variant="circular" value="25" show-value size="small"></nx-progress>
+      <nx-progress variant="circular" value="65" show-value size="default"></nx-progress>
+      <nx-progress variant="circular" value="90" show-value size="large" color="#10b981"></nx-progress>
       <nx-progress variant="circular" indeterminate label="Processing..."></nx-progress>
     </div>
   `,
@@ -194,7 +195,7 @@ export const LoaderVariants: Story = {
       </div>
 
       <div style="padding-top: 12px;">
-        <nx-loader variant="spinner" label="Connecting to secure gateway..." labelPlacement="end"></nx-loader>
+        <nx-loader variant="spinner" label="Connecting to secure gateway..." label-placement="end"></nx-loader>
       </div>
     </div>
   `,

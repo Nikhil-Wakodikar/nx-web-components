@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-loader>` is an accessible, customizable loading indicator component supporting
@@ -110,11 +111,11 @@ type Story = StoryObj;
 export const Default: Story = {
   render: (args) => html`
     <nx-loader
-      .variant=${args.variant}
-      .size=${args.size}
-      .color=${args.color}
-      .label=${args.label}
-      .labelPlacement=${args.labelPlacement}
+      variant=${ifDefined(args.variant)}
+      size=${ifDefined(args.size)}
+      color=${ifDefined(args.color)}
+      label=${ifDefined(args.label)}
+      label-placement=${ifDefined(args.labelPlacement)}
       ?paused=${args.paused}
     ></nx-loader>
   `,

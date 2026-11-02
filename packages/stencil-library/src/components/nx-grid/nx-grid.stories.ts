@@ -18,7 +18,7 @@ const meta: Meta = {
 The responsive grid system is organized into three tiers:
 - **\`<nx-grid>\`**: The outer container providing max-width constraints, centering, and container padding.
 - **\`<nx-row>\`**: A flexbox row wrapper managing gutters, flex wrapping, and horizontal/vertical alignment.
-- **\`<nx-col>\`**: Responsive column spans based on a 12-column grid system (\`size="6"\`, \`sizeMd="4"\`, \`sizeLg="3"\`).
+- **\`<nx-col>\`**: Responsive column spans based on a 12-column grid system (\`size="6"\`, \`size-md="4"\`, \`size-lg="3"\`).
 
 ---
 
@@ -69,7 +69,7 @@ const boxStyle = 'background: #e0e7ff; color: #3730a3; padding: 14px; text-align
 
 export const Default: Story = {
   render: (args) => html`
-    <nx-grid ?fixed=${args.fixed} ?fluid=${args.fluid} ?noPadding=${args.noPadding}>
+    <nx-grid ?fixed=${args.fixed} ?fluid=${args.fluid} ?no-padding=${args.noPadding}>
       <nx-row gap="12px">
         <nx-col size="12">
           <div style=${boxStyle}>size="12" (Full Width)</div>
@@ -98,16 +98,16 @@ export const ResponsiveBreakpoints: Story = {
   render: () => html`
     <nx-grid fluid>
       <nx-row gap="12px">
-        <nx-col sizeXs="12" sizeSm="6" sizeMd="4" sizeLg="3">
+        <nx-col size-xs="12" size-sm="6" size-md="4" size-lg="3">
           <div style=${boxStyle}>12 xs | 6 sm | 4 md | 3 lg</div>
         </nx-col>
-        <nx-col sizeXs="12" sizeSm="6" sizeMd="4" sizeLg="3">
+        <nx-col size-xs="12" size-sm="6" size-md="4" size-lg="3">
           <div style=${boxStyle}>12 xs | 6 sm | 4 md | 3 lg</div>
         </nx-col>
-        <nx-col sizeXs="12" sizeSm="6" sizeMd="4" sizeLg="3">
+        <nx-col size-xs="12" size-sm="6" size-md="4" size-lg="3">
           <div style=${boxStyle}>12 xs | 6 sm | 4 md | 3 lg</div>
         </nx-col>
-        <nx-col sizeXs="12" sizeSm="6" sizeMd="4" sizeLg="3">
+        <nx-col size-xs="12" size-sm="6" size-md="4" size-lg="3">
           <div style=${boxStyle}>12 xs | 6 sm | 4 md | 3 lg</div>
         </nx-col>
       </nx-row>

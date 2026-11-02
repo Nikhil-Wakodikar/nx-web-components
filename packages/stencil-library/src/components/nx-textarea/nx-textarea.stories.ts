@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/web-components';
 import { html } from 'lit';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 /**
  * `<nx-textarea>` is an accessible multiline text input component supporting auto-grow expansion,
@@ -154,21 +155,21 @@ export const Default: Story = {
   render: (args) => html`
     <div style="max-width: 450px;">
       <nx-textarea
-        .label=${args.label}
-        .value=${args.value}
-        .placeholder=${args.placeholder}
-        .rows=${args.rows}
-        ?autoGrow=${args.autoGrow}
-        .resize=${args.resize}
-        .helperText=${args.helperText}
-        .errorText=${args.errorText}
+        label=${ifDefined(args.label)}
+        value=${ifDefined(args.value)}
+        placeholder=${ifDefined(args.placeholder)}
+        rows=${ifDefined(args.rows)}
+        ?auto-grow=${args.autoGrow}
+        resize=${ifDefined(args.resize)}
+        helper-text=${ifDefined(args.helperText)}
+        error-text=${ifDefined(args.errorText)}
         ?invalid=${args.invalid}
         ?success=${args.success}
         ?disabled=${args.disabled}
         ?readonly=${args.readonly}
         ?required=${args.required}
         ?counter=${args.counter}
-        .maxlength=${args.maxlength}
+        maxlength=${ifDefined(args.maxlength)}
         @nxInput=${(e: CustomEvent) => console.log('nxInput:', e.detail)}
         @nxChange=${(e: CustomEvent) => console.log('nxChange:', e.detail)}
       ></nx-textarea>
