@@ -785,6 +785,10 @@
       "cssProperties": [],
       "cssParts": [
         {
+          "name": "checkmark",
+          "description": ""
+        },
+        {
           "name": "chevron",
           "description": ""
         },
@@ -841,10 +845,6 @@
           "description": ""
         },
         {
-          "name": "option-checkmark",
-          "description": ""
-        },
-        {
           "name": "option-highlight",
           "description": ""
         },
@@ -858,6 +858,10 @@
         },
         {
           "name": "start",
+          "description": ""
+        },
+        {
+          "name": "trigger",
           "description": ""
         }
       ]

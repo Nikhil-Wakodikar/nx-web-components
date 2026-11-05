@@ -94,7 +94,7 @@ export class NxOption {
 
         {this.selected && (
           <nx-icon
-            class="option-checkmark"
+            class="checkmark"
             part="checkmark"
             name="check"
             size="small"

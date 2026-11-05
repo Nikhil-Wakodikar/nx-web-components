@@ -858,7 +858,7 @@ export class NxAutocomplete {
 
     return (
       <div
-        class="dropdown-panel"
+        class="options-panel"
         part="panel"
         id={this.listboxId}
         role="listbox"
@@ -916,8 +916,8 @@ export class NxAutocomplete {
                 </span>
                 {isSelected && (
                   <nx-icon
-                    class="option-checkmark"
-                    part="option-checkmark"
+                    class="checkmark"
+                    part="checkmark"
                     name="check"
                     size="small"
                   ></nx-icon>
@@ -962,87 +962,99 @@ export class NxAutocomplete {
           'readonly': this.readonly,
         }}
       >
-        <div class="autocomplete-field">
+        <div class="select-field">
           {this.renderLabel()}
 
-          <div class="control-wrapper" part="control">
-            <div class="input-start" part="start" hidden={!this.hasStartSlot}>
-              <slot name="start" onSlotchange={this.checkSlots}></slot>
-            </div>
+          <div class="select-control" part="control">
+            <div
+              class={{
+                'select-trigger': true,
+                'has-focus': this.hasFocus,
+                'is-open': this.isOpen,
+              }}
+              part="trigger"
+              onClick={() => {
+                if (!this.disabled && !this.readonly) {
+                  this.nativeInput?.focus();
+                }
+              }}
+            >
+              <div class="input-start" part="start" hidden={!this.hasStartSlot}>
+                <slot name="start" onSlotchange={this.checkSlots}></slot>
+              </div>
 
-            <input
-              ref={el => (this.nativeInput = el as HTMLInputElement)}
-              id={this.autocompleteId}
-              class="native-input"
-              part="input"
-              type="text"
-              name={this.name}
-              value={this.value}
-              placeholder={this.placeholder}
-              disabled={this.disabled}
-              readOnly={this.readonly}
-              required={this.required}
-              autocomplete="off"
-              role="combobox"
-              aria-autocomplete="list"
-              aria-expanded={this.isOpen ? 'true' : 'false'}
-              aria-controls={this.listboxId}
-              aria-activedescendant={activeOptionId}
-              aria-labelledby={this.getLabelledById()}
-              aria-invalid={this.invalid ? 'true' : undefined}
-              aria-required={this.required ? 'true' : undefined}
-              onInput={this.onInput}
-              onFocus={this.onFocus}
-              onBlur={this.onBlur}
-              onKeyDown={this.onKeyDown}
-            />
+              <input
+                ref={el => (this.nativeInput = el as HTMLInputElement)}
+                id={this.autocompleteId}
+                class="native-input"
+                part="input"
+                type="text"
+                name={this.name}
+                value={this.value}
+                placeholder={this.placeholder}
+                disabled={this.disabled}
+                readOnly={this.readonly}
+                required={this.required}
+                autocomplete="off"
+                role="combobox"
+                aria-autocomplete="list"
+                aria-expanded={this.isOpen ? 'true' : 'false'}
+                aria-controls={this.listboxId}
+                aria-activedescendant={activeOptionId}
+                aria-labelledby={this.getLabelledById()}
+                aria-invalid={this.invalid ? 'true' : undefined}
+                aria-required={this.required ? 'true' : undefined}
+                onInput={this.onInput}
+                onFocus={this.onFocus}
+                onBlur={this.onBlur}
+                onKeyDown={this.onKeyDown}
+              />
 
-            {/* End Adornments: Clear Button, Spinner, Dropdown Chevron, End Slot */}
-            <div class="input-end" part="end">
-              <slot name="end" onSlotchange={this.checkSlots}></slot>
+              <div class="input-end" part="end">
+                <slot name="end" onSlotchange={this.checkSlots}></slot>
 
-              {this.loading && (
-                <span class="inline-loader" part="loader" aria-hidden="true">
-                  <slot name="loading">
-                    <nx-icon name="loader-2" size="small"></nx-icon>
-                  </slot>
-                </span>
-              )}
+                {this.loading && (
+                  <span class="inline-loader" part="loader" aria-hidden="true">
+                    <slot name="loading">
+                      <nx-icon name="loader-2" size="small"></nx-icon>
+                    </slot>
+                  </span>
+                )}
 
-              {showClear && (
-                <button
-                  type="button"
-                  class="clear-button"
-                  part="clear-button"
-                  aria-label="Clear input"
-                  tabindex="-1"
-                  onClick={this.onClearClick}
-                >
-                  <nx-icon name="x" size="small"></nx-icon>
-                </button>
-              )}
+                {showClear && (
+                  <button
+                    type="button"
+                    class="clear-button"
+                    part="clear-button"
+                    aria-label="Clear input"
+                    tabindex="-1"
+                    onClick={this.onClearClick}
+                  >
+                    <nx-icon name="x" size="small"></nx-icon>
+                  </button>
+                )}
 
-              {this.showDropdownIcon && (
-                <button
-                  type="button"
-                  class={{
-                    'dropdown-toggle': true,
-                    'is-open': this.isOpen,
-                  }}
-                  part="dropdown-button"
-                  tabindex="-1"
-                  aria-label="Toggle suggestions"
-                  disabled={this.disabled || this.readonly}
-                  onClick={this.onDropdownToggleClick}
-                >
-                  <nx-icon
-                    class="chevron-icon"
-                    part="chevron"
-                    name="chevron-down"
-                    size="small"
-                  ></nx-icon>
-                </button>
-              )}
+                {this.showDropdownIcon && (
+                  <button
+                    type="button"
+                    class={{
+                      'dropdown-toggle': true,
+                      'is-open': this.isOpen,
+                    }}
+                    part="dropdown-button"
+                    tabindex="-1"
+                    aria-label="Toggle suggestions"
+                    disabled={this.disabled || this.readonly}
+                    onClick={this.onDropdownToggleClick}
+                  >
+                    <nx-icon
+                      class="chevron"
+                      part="chevron"
+                      name="chevron-down"
+                    ></nx-icon>
+                  </button>
+                )}
+              </div>
             </div>
 
             {this.renderDropdownPanel()}

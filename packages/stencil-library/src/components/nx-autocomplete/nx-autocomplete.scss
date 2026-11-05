@@ -1,12 +1,12 @@
 :host {
   /* ==========================================
-     Public Styling API
+     Public Styling API (Aligned with nx-select)
      ========================================== */
 
-  /* Input Container */
+  /* Trigger Container */
   --background: transparent;
   --background-hover: var(--background);
-  --background-focus: transparent;
+  --background-focus: var(--background);
   --background-disabled: var(--nx-color-gray-100, #f1f5f9);
 
   --color: var(--nx-color-gray-900, #0f172a);
@@ -20,18 +20,15 @@
   --border-success-color: var(--nx-color-success, #16a34a);
 
   --border-width: 1px;
-  --border-style: solid;
   --border-radius: var(--border-radius-4, 0.25rem);
-  --focus-ring: none;
+  --focus-ring: 2px solid color-mix(in srgb, var(--border-focus-color, #8145b5) 24%, transparent);
 
-  --font-family: var(--font-poppins, var(--font-rubik, 'Poppins', sans-serif));
-  --font-family-medium: var(--font-poppins-medium, var(--font-rubik-medium, 'Poppins', sans-serif));
+  --font-family: var(--font-poppins, var(--font-rubik, sans-serif));
   --font-size: var(--FontSize-16, 1rem);
   --font-weight: 400;
   --line-height: 1.25rem;
   --control-height: 3rem;
-  --padding-start: 0.875rem;
-  --padding-end: 0.875rem;
+  --padding: 0.75rem 0.875rem;
   --caret-color: var(--border-focus-color, #8145b5);
 
   /* Label */
@@ -41,26 +38,27 @@
   --label-line-height: 1.125rem;
   --label-margin-bottom: 0.375rem;
 
-  /* Adornments */
-  --icon-size: 1.25rem;
-  --nx-icon-size: var(--icon-size, 1.25rem);
-  --clear-button-color: var(--placeholder-color);
-  --clear-button-color-hover: var(--color);
+  /* Chevron */
   --chevron-color: var(--placeholder-color);
   --chevron-color-hover: var(--color);
+  --icon-size: 1.25rem;
+  --nx-icon-size: var(--icon-size, 1.25rem);
+
+  /* Clear Button & Loader */
+  --clear-button-color: var(--placeholder-color);
+  --clear-button-color-hover: var(--color);
   --loader-color: var(--border-focus-color, #8145b5);
 
-  /* Dropdown Panel */
+  /* Dropdown Options Panel */
   --panel-background: var(--nx-color-white, #ffffff);
   --panel-border-color: var(--border-color);
   --panel-border-radius: var(--border-radius);
   --panel-border-width: 1px;
-  --panel-box-shadow: none;
+  --panel-box-shadow: var(--nx-shadow-md, 0 4px 12px rgba(0, 0, 0, 0.1));
   --panel-max-height: 15rem;
   --panel-padding: 0.25rem;
-  --panel-z-index: 1000;
 
-  /* Options */
+  /* Cascading Option Defaults (inherited by slotted nx-option) */
   --option-background: transparent;
   --option-background-hover: var(--nx-color-purple-100, #f6f0fa);
   --option-background-active: var(--nx-color-purple-100, #f6f0fa);
@@ -68,15 +66,13 @@
   --option-color: var(--nx-color-gray-800, #1e293b);
   --option-color-selected: var(--nx-color-primary, #8145b5);
   --option-color-disabled: var(--nx-color-gray-400, #94a3b8);
+  --option-checkmark-color: var(--nx-color-primary, #8145b5);
   --option-border-radius: 0.25rem;
   --option-font-size: var(--FontSize-14, 0.875rem);
-  --option-line-height: 1.25rem;
-  --option-padding: 0.625rem 0.875rem;
+  --option-padding: 0.5625rem 0.75rem;
   --option-min-height: 2.5rem;
+  --option-line-height: 1.25rem;
   --option-highlight-color: var(--nx-color-primary, #8145b5);
-  --option-highlight-background: transparent;
-  --option-highlight-weight: 600;
-  --checkmark-color: var(--nx-color-primary, #8145b5);
 
   /* Empty / Helper / Error */
   --no-results-color: var(--placeholder-color);
@@ -97,8 +93,7 @@
   box-sizing: border-box;
 }
 
-.autocomplete-field {
-  position: relative;
+.select-field {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -106,7 +101,7 @@
 }
 
 /* ==========================================
-   Label
+   Label (Matches nx-select)
    ========================================== */
 
 .label-text-wrapper {
@@ -119,8 +114,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
+  margin-bottom: var(--label-margin-bottom);
   color: var(--label-color);
-  font-family: var(--font-family-medium);
+  font-family: var(--font-poppins-medium, var(--font-rubik-medium, var(--font-family)));
   font-size: var(--label-font-size);
   font-weight: var(--label-font-weight);
   line-height: var(--label-line-height);
@@ -133,63 +129,80 @@
 }
 
 /* ==========================================
-   Control Container (Input Box)
+   Control Container (Matches nx-select)
    ========================================== */
 
-.control-wrapper {
+.select-control {
   position: relative;
+  width: 100%;
+}
+
+.select-trigger {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   min-height: var(--control-height);
-  background: var(--background);
-  border: var(--border-width) var(--border-style) var(--border-color);
+  padding: var(--padding);
+  border: var(--border-width) solid var(--border-color);
   border-radius: var(--border-radius);
+  background: var(--background);
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  cursor: text;
   outline: none;
   box-shadow: none;
   transition: border-color 0.15s ease, background-color 0.15s ease;
 }
 
-.control-wrapper:hover:not(:has(.native-input:disabled)) {
+.select-trigger:hover:not(:has(.native-input:disabled)) {
   background: var(--background-hover);
   border-color: var(--border-hover-color);
+
+  .chevron {
+    color: var(--chevron-color-hover);
+  }
 }
 
-:host(.has-focus) .control-wrapper,
-.control-wrapper:focus-within {
+.select-trigger.has-focus,
+.select-trigger:focus-within {
   background: var(--background-focus);
   border-color: var(--border-focus-color);
-  outline: var(--focus-ring, none);
+  outline: none;
   box-shadow: none;
 }
 
-:host(.invalid) .control-wrapper {
+:host(.disabled) .select-trigger,
+.select-trigger:has(.native-input:disabled) {
+  background: var(--background-disabled);
+  color: var(--color-disabled);
+  cursor: not-allowed;
+
+  .chevron {
+    opacity: 0.5;
+  }
+}
+
+:host(.invalid) .select-trigger,
+:host(.invalid) .select-trigger:hover,
+:host(.invalid) .select-trigger:focus-within {
   border-color: var(--border-error-color) !important;
 }
 
-:host(.success) .control-wrapper {
+:host(.success) .select-trigger {
   border-color: var(--border-success-color) !important;
 }
 
-:host(.disabled) .control-wrapper,
-.control-wrapper:has(.native-input:disabled) {
-  background: var(--background-disabled);
-  border-color: var(--border-color);
-  cursor: not-allowed;
-  opacity: 0.8;
-}
-
 /* ==========================================
-   Native Input
+   Native Input (Inside Trigger)
    ========================================== */
 
 .native-input {
   flex: 1 1 auto;
   min-width: 0;
-  height: 100%;
-  min-height: calc(var(--control-height) - (var(--border-width) * 2));
-  padding-left: var(--padding-start);
-  padding-right: 0.5rem;
   border: none;
   outline: none;
   background: transparent;
@@ -199,6 +212,8 @@
   font-weight: var(--font-weight);
   line-height: var(--line-height);
   caret-color: var(--caret-color);
+  padding: 0;
+  margin: 0;
 }
 
 .native-input::placeholder {
@@ -216,7 +231,7 @@
 }
 
 /* ==========================================
-   Start Slot Adornment
+   Start Adornment Slot
    ========================================== */
 
 .input-start {
@@ -224,17 +239,14 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding-left: var(--padding-start);
-  font-size: var(--icon-size);
+  margin-right: 0.625rem;
   color: var(--placeholder-color);
+  font-size: var(--icon-size);
+  --nx-icon-size: var(--icon-size);
 }
 
 .input-start[hidden] {
   display: none;
-}
-
-:host(.has-start-slot) .native-input {
-  padding-left: 0.5rem;
 }
 
 ::slotted([slot='start']) {
@@ -248,16 +260,16 @@
 }
 
 /* ==========================================
-   End Adornments & Buttons
+   End Adornment Suffix
    ========================================== */
 
 .input-end {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.375rem;
+  gap: 0.5rem;
   flex-shrink: 0;
-  padding-right: var(--padding-end);
+  margin-left: 0.5rem;
   color: var(--placeholder-color);
 }
 
@@ -300,6 +312,7 @@
   color: var(--clear-button-color);
   border-radius: 50%;
   cursor: pointer;
+  outline: none;
   transition: color 0.15s ease, background-color 0.15s ease;
 
   &:hover {
@@ -313,67 +326,70 @@
   }
 }
 
-/* Dropdown Toggle Chevron Button */
+/* Chevron Button & Icon (Matches nx-select) */
 .dropdown-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.5rem;
-  height: 1.5rem;
   padding: 0;
   margin: 0;
   border: none;
   background: transparent;
-  color: var(--chevron-color);
   cursor: pointer;
-  border-radius: 0.25rem;
-  transition: color 0.15s ease;
-
-  &:hover:not(:disabled) {
-    color: var(--chevron-color-hover);
-  }
+  color: inherit;
+  outline: none;
 
   &:disabled {
     cursor: not-allowed;
-    opacity: 0.5;
   }
+}
 
-  .chevron-icon {
-    display: inline-flex;
-    transition: transform 0.2s ease;
-  }
+.chevron {
+  flex: 0 0 var(--icon-size, 1.25rem);
+  width: var(--icon-size, 1.25rem);
+  height: var(--icon-size, 1.25rem);
+  color: var(--chevron-color);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 120ms ease, color 0.15s ease;
+}
 
-  &.is-open .chevron-icon {
-    transform: rotate(180deg);
-  }
+:host(.is-open) .chevron,
+.dropdown-toggle.is-open .chevron {
+  transform: rotate(180deg);
 }
 
 /* ==========================================
-   Dropdown Suggestions Panel (Listbox)
+   Dropdown Options Panel (Matches nx-select)
    ========================================== */
 
-.dropdown-panel {
+.options-panel {
   position: absolute;
+  z-index: var(--nx-z-dropdown, 1000);
   top: calc(100% + 0.25rem);
-  left: 0;
   right: 0;
-  z-index: var(--panel-z-index);
+  left: 0;
   max-height: var(--panel-max-height);
   overflow-y: auto;
-  overflow-x: hidden;
   padding: var(--panel-padding);
-  background: var(--panel-background);
   border: var(--panel-border-width) solid var(--panel-border-color);
   border-radius: var(--panel-border-radius);
+  background: var(--panel-background);
   box-shadow: var(--panel-box-shadow);
+  box-sizing: border-box;
   scrollbar-width: thin;
 }
 
-.dropdown-panel[hidden] {
+.options-panel[hidden] {
   display: none;
 }
 
-/* Option Item */
+::slotted(nx-option) {
+  display: block;
+}
+
+/* Option Item (Prop Mode) */
 .option-item {
   display: flex;
   align-items: center;
@@ -389,12 +405,9 @@
   line-height: var(--option-line-height);
   cursor: pointer;
   user-select: none;
-  transition: background-color 0.12s ease, color 0.12s ease;
+  transition: background-color 0.15s ease, color 0.15s ease;
 
-  &.is-active {
-    background: var(--option-background-active);
-  }
-
+  &.is-active,
   &:hover:not(.is-disabled) {
     background: var(--option-background-hover);
   }
@@ -420,20 +433,20 @@
 }
 
 .option-highlight {
-  background: var(--option-highlight-background);
+  background: transparent;
   color: var(--option-highlight-color);
-  font-weight: var(--option-highlight-weight);
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
-.option-checkmark {
-  flex-shrink: 0;
+.checkmark {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-left: 0.5rem;
-  color: var(--checkmark-color);
+  margin-left: 0.75rem;
+  color: var(--option-checkmark-color, var(--color-selected, #8145b5));
+  font-size: 0.875rem;
+  font-weight: 600;
 }
 
 /* Loading State in Panel */
