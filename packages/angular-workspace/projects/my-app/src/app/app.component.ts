@@ -27,6 +27,45 @@ export class AppComponent {
     price: ['115000'],
   });
 
+  options = [
+    'United States',
+    'United Kingdom',
+    'Canada',
+    'Germany',
+    'France',
+    'Japan',
+    'Australia',
+    'India',
+    'Brazil',
+    'Netherlands',
+  ];
+
+  autocompleteCountries = [
+    { label: 'United States', value: 'US' },
+    { label: 'United Kingdom', value: 'GB' },
+    { label: 'Canada', value: 'CA' },
+    { label: 'Germany', value: 'DE' },
+    { label: 'France', value: 'FR' },
+    { label: 'Japan', value: 'JP' },
+    { label: 'Australia', value: 'AU' },
+    { label: 'India', value: 'IN' },
+    { label: 'Brazil', value: 'BR' },
+    { label: 'Netherlands', value: 'NL' },
+  ];
+
+  selectedCountry = 'Canada';
+
+  onCountrySelect(event: any) {
+    console.log('Country selected:', event);
+    const selected = event?.detail || event;
+    this.selectedCountry = selected?.label || selected?.value || selected;
+    this.showToast('primary', `Selected country: ${this.selectedCountry}`, 'Autocomplete Selection');
+  }
+
+  onCountryChange(event: any) {
+    console.log('Country changed:', event);
+  }
+
   onSubmitTnc() {
     console.log('Form submitted:', this.tcnForm.value);
   }

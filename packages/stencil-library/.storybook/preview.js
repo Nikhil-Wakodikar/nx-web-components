@@ -44,6 +44,7 @@ const preview = {
             'Label',
             'Radio',
             'Select',
+            'Autocomplete',
             'Date Picker',
             'Time Picker',
             'Tabs',

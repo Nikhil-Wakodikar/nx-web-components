@@ -368,6 +368,501 @@
       "cssParts": []
     },
     {
+      "name": "nx-autocomplete",
+      "description": "`<nx-autocomplete>` is an accessible, feature-rich combobox component that provides\nreal-time suggestion filtering, keyboard navigation, slot support (including `<nx-option>`),\nand extensive CSS customization with zero border shadows.",
+      "attributes": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "description": "Whether a clear (\"x\") button is displayed when input has a value.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "description": "Debounce delay in milliseconds before emitting nxInput and filtering options.",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the autocomplete is disabled.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "error-text",
+          "type": "string",
+          "description": "Error message displayed beneath the field when invalid is true.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "filter-mode",
+          "type": "'contains' | 'startsWith' | 'custom'",
+          "description": "Filtering mode: 'contains', 'startsWith', or 'custom' (for async/server-side filtering).",
+          "default": "'contains'",
+          "required": false
+        },
+        {
+          "name": "helper-text",
+          "type": "string",
+          "description": "Helper text displayed beneath the field.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "highlight-match",
+          "type": "boolean",
+          "description": "Whether to highlight the matching text segment within each suggestion item.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "Applies invalid/error visual styling.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Label text displayed above the autocomplete control.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "Whether an asynchronous search or loading process is in progress.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "max-results",
+          "type": "number",
+          "description": "Maximum number of suggestions to display in the dropdown. 0 means unlimited.",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "min-chars",
+          "type": "number",
+          "description": "Minimum number of characters typed before opening the suggestions dropdown.",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name of the input element for forms.",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "no-results-text",
+          "type": "string",
+          "description": "Message displayed when no suggestions match the query.",
+          "default": "'No options found'",
+          "required": false
+        },
+        {
+          "name": "open-on-focus",
+          "type": "boolean",
+          "description": "Whether focusing the input automatically opens the suggestions dropdown.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "(AutocompleteOption | string)[] | string",
+          "description": "Array of options or JSON string. Accepts objects `{ label, value, disabled? }` or plain strings.\nCan also be omitted when using slotted `<nx-option>` elements.",
+          "default": "[]",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "Placeholder text shown when the input field is empty.",
+          "default": "'Start typing...'",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "Whether the autocomplete is read-only.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Marks the field as required.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "show-dropdown-icon",
+          "type": "boolean",
+          "description": "Whether clicking the dropdown arrow icon toggles the dropdown list.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "Applies success visual styling.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The current text value of the autocomplete input.",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "clearable",
+          "type": "boolean",
+          "description": "Whether a clear (\"x\") button is displayed when input has a value.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "debounce",
+          "type": "number",
+          "description": "Debounce delay in milliseconds before emitting nxInput and filtering options.",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the autocomplete is disabled.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "errorText",
+          "type": "string",
+          "description": "Error message displayed beneath the field when invalid is true.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "filterMode",
+          "type": "'contains' | 'startsWith' | 'custom'",
+          "description": "Filtering mode: 'contains', 'startsWith', or 'custom' (for async/server-side filtering).",
+          "default": "'contains'",
+          "required": false
+        },
+        {
+          "name": "helperText",
+          "type": "string",
+          "description": "Helper text displayed beneath the field.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "highlightMatch",
+          "type": "boolean",
+          "description": "Whether to highlight the matching text segment within each suggestion item.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "invalid",
+          "type": "boolean",
+          "description": "Applies invalid/error visual styling.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Label text displayed above the autocomplete control.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "description": "Whether an asynchronous search or loading process is in progress.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "maxResults",
+          "type": "number",
+          "description": "Maximum number of suggestions to display in the dropdown. 0 means unlimited.",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "minChars",
+          "type": "number",
+          "description": "Minimum number of characters typed before opening the suggestions dropdown.",
+          "default": "0",
+          "required": false
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Name of the input element for forms.",
+          "default": "''",
+          "required": false
+        },
+        {
+          "name": "noResultsText",
+          "type": "string",
+          "description": "Message displayed when no suggestions match the query.",
+          "default": "'No options found'",
+          "required": false
+        },
+        {
+          "name": "openOnFocus",
+          "type": "boolean",
+          "description": "Whether focusing the input automatically opens the suggestions dropdown.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "options",
+          "type": "(AutocompleteOption | string)[] | string",
+          "description": "Array of options or JSON string. Accepts objects `{ label, value, disabled? }` or plain strings.\nCan also be omitted when using slotted `<nx-option>` elements.",
+          "default": "[]",
+          "required": false
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "description": "Placeholder text shown when the input field is empty.",
+          "default": "'Start typing...'",
+          "required": false
+        },
+        {
+          "name": "readonly",
+          "type": "boolean",
+          "description": "Whether the autocomplete is read-only.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "required",
+          "type": "boolean",
+          "description": "Marks the field as required.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "showDropdownIcon",
+          "type": "boolean",
+          "description": "Whether clicking the dropdown arrow icon toggles the dropdown list.",
+          "default": "true",
+          "required": false
+        },
+        {
+          "name": "success",
+          "type": "boolean",
+          "description": "Applies success visual styling.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The current text value of the autocomplete input.",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "nxBlur",
+          "description": "Emitted when the input loses focus.",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxChange",
+          "description": "Emitted when a selection is made or the input loses focus after its value changed.",
+          "type": "string"
+        },
+        {
+          "name": "nxClear",
+          "description": "Emitted when the clear button is clicked.",
+          "type": "void"
+        },
+        {
+          "name": "nxFocus",
+          "description": "Emitted when the input gains focus.",
+          "type": "FocusEvent"
+        },
+        {
+          "name": "nxInput",
+          "description": "Emitted whenever the user types into the input field.",
+          "type": "string"
+        },
+        {
+          "name": "nxSelect",
+          "description": "Emitted when an option is selected from the dropdown list.",
+          "type": "AutocompleteOption"
+        }
+      ],
+      "methods": [
+        {
+          "name": "clear",
+          "description": "Clears the current input value and emits events.",
+          "type": "clear() => Promise<void>"
+        },
+        {
+          "name": "close",
+          "description": "Closes the suggestions dropdown list.",
+          "type": "close() => Promise<void>"
+        },
+        {
+          "name": "getInputElement",
+          "description": "Returns a reference to the inner native `<input>` element.",
+          "type": "getInputElement() => Promise<HTMLInputElement | undefined>"
+        },
+        {
+          "name": "open",
+          "description": "Opens the suggestions dropdown list.",
+          "type": "open() => Promise<void>"
+        },
+        {
+          "name": "selectOptionElement",
+          "description": "Called by slotted `<nx-option>` components when clicked.",
+          "type": "selectOptionElement(option: HTMLElement) => Promise<void>"
+        },
+        {
+          "name": "setFocus",
+          "description": "Sets focus to the native input element.",
+          "type": "setFocus() => Promise<void>"
+        },
+        {
+          "name": "setInputValue",
+          "description": "Sets the input text value programmatically.",
+          "type": "setInputValue(value: string) => Promise<void>"
+        },
+        {
+          "name": "setOptionActive",
+          "description": "Sets the active state on a slotted `<nx-option>` during hover.",
+          "type": "setOptionActive(option: HTMLElement) => Promise<void>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "loading",
+          "description": ""
+        },
+        {
+          "name": "no-results",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "chevron",
+          "description": ""
+        },
+        {
+          "name": "clear-button",
+          "description": ""
+        },
+        {
+          "name": "control",
+          "description": ""
+        },
+        {
+          "name": "dropdown-button",
+          "description": ""
+        },
+        {
+          "name": "end",
+          "description": ""
+        },
+        {
+          "name": "error-text",
+          "description": ""
+        },
+        {
+          "name": "footer",
+          "description": ""
+        },
+        {
+          "name": "helper-text",
+          "description": ""
+        },
+        {
+          "name": "input",
+          "description": ""
+        },
+        {
+          "name": "label",
+          "description": ""
+        },
+        {
+          "name": "loader",
+          "description": ""
+        },
+        {
+          "name": "loading-state",
+          "description": ""
+        },
+        {
+          "name": "no-results",
+          "description": ""
+        },
+        {
+          "name": "option",
+          "description": ""
+        },
+        {
+          "name": "option-checkmark",
+          "description": ""
+        },
+        {
+          "name": "option-highlight",
+          "description": ""
+        },
+        {
+          "name": "option-label",
+          "description": ""
+        },
+        {
+          "name": "panel",
+          "description": ""
+        },
+        {
+          "name": "start",
+          "description": ""
+        }
+      ]
+    },
+    {
       "name": "nx-badge",
       "description": "",
       "attributes": [
@@ -3787,6 +4282,109 @@
         },
         {
           "name": "title",
+          "description": ""
+        }
+      ]
+    },
+    {
+      "name": "nx-option",
+      "description": "`<nx-option>` represents an individual selectable suggestion item inside `<nx-autocomplete>`.",
+      "attributes": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "Whether the option is currently active (highlighted via keyboard navigation or hover).",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the option is disabled and cannot be selected.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Optional custom display label. If omitted, textContent of the slotted content is used.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Whether the option is currently selected.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The value represented by this option.",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "properties": [
+        {
+          "name": "active",
+          "type": "boolean",
+          "description": "Whether the option is currently active (highlighted via keyboard navigation or hover).",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": "Whether the option is disabled and cannot be selected.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "description": "Optional custom display label. If omitted, textContent of the slotted content is used.",
+          "default": "",
+          "required": false
+        },
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "Whether the option is currently selected.",
+          "default": "false",
+          "required": false
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "description": "The value represented by this option.",
+          "default": "''",
+          "required": false
+        }
+      ],
+      "events": [],
+      "methods": [
+        {
+          "name": "getLabel",
+          "description": "Returns the resolved display label string.",
+          "type": "getLabel() => Promise<string>"
+        }
+      ],
+      "slots": [
+        {
+          "name": "default",
+          "description": "The default slot"
+        }
+      ],
+      "cssProperties": [],
+      "cssParts": [
+        {
+          "name": "checkmark",
+          "description": ""
+        },
+        {
+          "name": "label",
           "description": ""
         }
       ]

@@ -66,6 +66,57 @@ export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
 
 
 @ProxyCmp({
+  inputs: ['clearable', 'debounce', 'disabled', 'errorText', 'filterMode', 'helperText', 'highlightMatch', 'invalid', 'label', 'loading', 'maxResults', 'minChars', 'name', 'noResultsText', 'openOnFocus', 'options', 'placeholder', 'readonly', 'required', 'showDropdownIcon', 'success', 'value'],
+  methods: ['selectOptionElement', 'setOptionActive', 'setFocus', 'setInputValue', 'clear', 'open', 'close', 'getInputElement']
+})
+@Component({
+  selector: 'nx-autocomplete',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['clearable', 'debounce', 'disabled', 'errorText', 'filterMode', 'helperText', 'highlightMatch', 'invalid', 'label', 'loading', 'maxResults', 'minChars', 'name', 'noResultsText', 'openOnFocus', 'options', 'placeholder', 'readonly', 'required', 'showDropdownIcon', 'success', 'value'],
+})
+export class NxAutocomplete {
+  protected el: HTMLNxAutocompleteElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxInput', 'nxChange', 'nxSelect', 'nxClear', 'nxFocus', 'nxBlur']);
+  }
+}
+
+
+import type { AutocompleteOption as INxAutocompleteAutocompleteOption } from '@_nx/stencil-library';
+
+export declare interface NxAutocomplete extends Components.NxAutocomplete {
+  /**
+   * Emitted whenever the user types into the input field.
+   */
+  nxInput: EventEmitter<string>;
+  /**
+   * Emitted when a selection is made or the input loses focus after its value changed.
+   */
+  nxChange: EventEmitter<string>;
+  /**
+   * Emitted when an option is selected from the dropdown list.
+   */
+  nxSelect: EventEmitter<INxAutocompleteAutocompleteOption>;
+  /**
+   * Emitted when the clear button is clicked.
+   */
+  nxClear: EventEmitter<void>;
+  /**
+   * Emitted when the input gains focus.
+   */
+  nxFocus: EventEmitter<FocusEvent>;
+  /**
+   * Emitted when the input loses focus.
+   */
+  nxBlur: EventEmitter<FocusEvent>;
+}
+
+
+@ProxyCmp({
   inputs: ['color', 'dot', 'max', 'placement', 'pulse', 'shape', 'size', 'value', 'variant']
 })
 @Component({
@@ -544,6 +595,29 @@ export declare interface NxModal extends Components.NxModal {
    */
   nxClose: EventEmitter<void>;
 }
+
+
+@ProxyCmp({
+  inputs: ['active', 'disabled', 'label', 'selected', 'value'],
+  methods: ['getLabel']
+})
+@Component({
+  selector: 'nx-option',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['active', 'disabled', 'label', 'selected', 'value'],
+})
+export class NxOption {
+  protected el: HTMLNxOptionElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+
+export declare interface NxOption extends Components.NxOption {}
 
 
 @ProxyCmp({

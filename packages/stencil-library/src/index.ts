@@ -76,3 +76,5 @@ export type {
   NxSkeletonVariant,
   NxSkeletonAnimation,
 } from './components/nx-skeleton/nx-skeleton';
+export type { AutocompleteOption } from './components/nx-autocomplete/nx-autocomplete';
+

@@ -1,0 +1,499 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+
+  /* Input Container */
+  --background: transparent;
+  --background-hover: var(--background);
+  --background-focus: transparent;
+  --background-disabled: var(--nx-color-gray-100, #f1f5f9);
+
+  --color: var(--nx-color-gray-900, #0f172a);
+  --color-disabled: var(--placeholder-color, var(--nx-color-gray-500, #64748b));
+  --placeholder-color: var(--nx-color-gray-500, #64748b);
+
+  --border-color: var(--nx-color-gray-300, #cbd5e1);
+  --border-hover-color: var(--nx-color-gray-500, #64748b);
+  --border-focus-color: var(--nx-color-primary, #8145b5);
+  --border-error-color: var(--nx-color-error, #dc2626);
+  --border-success-color: var(--nx-color-success, #16a34a);
+
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: var(--border-radius-4, 0.25rem);
+  --focus-ring: none;
+
+  --font-family: var(--font-poppins, var(--font-rubik, 'Poppins', sans-serif));
+  --font-family-medium: var(--font-poppins-medium, var(--font-rubik-medium, 'Poppins', sans-serif));
+  --font-size: var(--FontSize-16, 1rem);
+  --font-weight: 400;
+  --line-height: 1.25rem;
+  --control-height: 3rem;
+  --padding-start: 0.875rem;
+  --padding-end: 0.875rem;
+  --caret-color: var(--border-focus-color, #8145b5);
+
+  /* Label */
+  --label-color: var(--title, var(--color));
+  --label-font-size: var(--FontSize-14, 0.875rem);
+  --label-font-weight: 500;
+  --label-line-height: 1.125rem;
+  --label-margin-bottom: 0.375rem;
+
+  /* Adornments */
+  --icon-size: 1.25rem;
+  --nx-icon-size: var(--icon-size, 1.25rem);
+  --clear-button-color: var(--placeholder-color);
+  --clear-button-color-hover: var(--color);
+  --chevron-color: var(--placeholder-color);
+  --chevron-color-hover: var(--color);
+  --loader-color: var(--border-focus-color, #8145b5);
+
+  /* Dropdown Panel */
+  --panel-background: var(--nx-color-white, #ffffff);
+  --panel-border-color: var(--border-color);
+  --panel-border-radius: var(--border-radius);
+  --panel-border-width: 1px;
+  --panel-box-shadow: none;
+  --panel-max-height: 15rem;
+  --panel-padding: 0.25rem;
+  --panel-z-index: 1000;
+
+  /* Options */
+  --option-background: transparent;
+  --option-background-hover: var(--nx-color-purple-100, #f6f0fa);
+  --option-background-active: var(--nx-color-purple-100, #f6f0fa);
+  --option-background-selected: var(--nx-color-purple-100, #f6f0fa);
+  --option-color: var(--nx-color-gray-800, #1e293b);
+  --option-color-selected: var(--nx-color-primary, #8145b5);
+  --option-color-disabled: var(--nx-color-gray-400, #94a3b8);
+  --option-border-radius: 0.25rem;
+  --option-font-size: var(--FontSize-14, 0.875rem);
+  --option-line-height: 1.25rem;
+  --option-padding: 0.625rem 0.875rem;
+  --option-min-height: 2.5rem;
+  --option-highlight-color: var(--nx-color-primary, #8145b5);
+  --option-highlight-background: transparent;
+  --option-highlight-weight: 600;
+  --checkmark-color: var(--nx-color-primary, #8145b5);
+
+  /* Empty / Helper / Error */
+  --no-results-color: var(--placeholder-color);
+  --no-results-font-size: var(--FontSize-14, 0.875rem);
+  --no-results-padding: 1rem 0.875rem;
+  --helper-color: var(--placeholder-color);
+  --helper-font-size: 0.75rem;
+  --error-color: var(--border-error-color);
+  --error-font-size: 0.75rem;
+
+  display: block;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.autocomplete-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.25rem;
+}
+
+/* ==========================================
+   Label
+   ========================================== */
+
+.label-text-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--label-margin-bottom);
+}
+
+.label-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--label-color);
+  font-family: var(--font-family-medium);
+  font-size: var(--label-font-size);
+  font-weight: var(--label-font-weight);
+  line-height: var(--label-line-height);
+  user-select: none;
+  cursor: pointer;
+}
+
+.required {
+  color: var(--border-error-color);
+}
+
+/* ==========================================
+   Control Container (Input Box)
+   ========================================== */
+
+.control-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: var(--control-height);
+  background: var(--background);
+  border: var(--border-width) var(--border-style) var(--border-color);
+  border-radius: var(--border-radius);
+  outline: none;
+  box-shadow: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.control-wrapper:hover:not(:has(.native-input:disabled)) {
+  background: var(--background-hover);
+  border-color: var(--border-hover-color);
+}
+
+:host(.has-focus) .control-wrapper,
+.control-wrapper:focus-within {
+  background: var(--background-focus);
+  border-color: var(--border-focus-color);
+  outline: var(--focus-ring, none);
+  box-shadow: none;
+}
+
+:host(.invalid) .control-wrapper {
+  border-color: var(--border-error-color) !important;
+}
+
+:host(.success) .control-wrapper {
+  border-color: var(--border-success-color) !important;
+}
+
+:host(.disabled) .control-wrapper,
+.control-wrapper:has(.native-input:disabled) {
+  background: var(--background-disabled);
+  border-color: var(--border-color);
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+/* ==========================================
+   Native Input
+   ========================================== */
+
+.native-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  min-height: calc(var(--control-height) - (var(--border-width) * 2));
+  padding-left: var(--padding-start);
+  padding-right: 0.5rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  caret-color: var(--caret-color);
+}
+
+.native-input::placeholder {
+  color: var(--placeholder-color);
+  opacity: 1;
+}
+
+.native-input:disabled {
+  color: var(--color-disabled);
+  cursor: not-allowed;
+}
+
+.native-input:read-only {
+  cursor: default;
+}
+
+/* ==========================================
+   Start Slot Adornment
+   ========================================== */
+
+.input-start {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding-left: var(--padding-start);
+  font-size: var(--icon-size);
+  color: var(--placeholder-color);
+}
+
+.input-start[hidden] {
+  display: none;
+}
+
+:host(.has-start-slot) .native-input {
+  padding-left: 0.5rem;
+}
+
+::slotted([slot='start']) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: var(--icon-size);
+  color: inherit;
+}
+
+/* ==========================================
+   End Adornments & Buttons
+   ========================================== */
+
+.input-end {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  flex-shrink: 0;
+  padding-right: var(--padding-end);
+  color: var(--placeholder-color);
+}
+
+::slotted([slot='end']) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  font-size: var(--icon-size);
+}
+
+/* Inline Spinner */
+.inline-loader {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--loader-color);
+
+  nx-icon,
+  svg {
+    display: inline-flex;
+    animation: nx-spin 0.8s linear infinite;
+  }
+}
+
+/* Clear Button */
+.clear-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: var(--clear-button-color);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    color: var(--clear-button-color-hover);
+    background-color: var(--option-background-hover);
+  }
+
+  nx-icon,
+  svg {
+    display: inline-flex;
+  }
+}
+
+/* Dropdown Toggle Chevron Button */
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: transparent;
+  color: var(--chevron-color);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  transition: color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    color: var(--chevron-color-hover);
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  .chevron-icon {
+    display: inline-flex;
+    transition: transform 0.2s ease;
+  }
+
+  &.is-open .chevron-icon {
+    transform: rotate(180deg);
+  }
+}
+
+/* ==========================================
+   Dropdown Suggestions Panel (Listbox)
+   ========================================== */
+
+.dropdown-panel {
+  position: absolute;
+  top: calc(100% + 0.25rem);
+  left: 0;
+  right: 0;
+  z-index: var(--panel-z-index);
+  max-height: var(--panel-max-height);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: var(--panel-padding);
+  background: var(--panel-background);
+  border: var(--panel-border-width) solid var(--panel-border-color);
+  border-radius: var(--panel-border-radius);
+  box-shadow: var(--panel-box-shadow);
+  scrollbar-width: thin;
+}
+
+.dropdown-panel[hidden] {
+  display: none;
+}
+
+/* Option Item */
+.option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: var(--option-min-height);
+  padding: var(--option-padding);
+  border-radius: var(--option-border-radius);
+  background: var(--option-background);
+  color: var(--option-color);
+  font-family: var(--font-family);
+  font-size: var(--option-font-size);
+  line-height: var(--option-line-height);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.12s ease, color 0.12s ease;
+
+  &.is-active {
+    background: var(--option-background-active);
+  }
+
+  &:hover:not(.is-disabled) {
+    background: var(--option-background-hover);
+  }
+
+  &.is-selected {
+    background: var(--option-background-selected);
+    color: var(--option-color-selected);
+    font-weight: 500;
+  }
+
+  &.is-disabled {
+    color: var(--option-color-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}
+
+.option-label {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.option-highlight {
+  background: var(--option-highlight-background);
+  color: var(--option-highlight-color);
+  font-weight: var(--option-highlight-weight);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.option-checkmark {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  color: var(--checkmark-color);
+}
+
+/* Loading State in Panel */
+.loading-state {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding: 0.875rem;
+  color: var(--no-results-color);
+  font-family: var(--font-family);
+  font-size: var(--no-results-font-size);
+
+  .loading-spinner {
+    display: inline-flex;
+    color: var(--loader-color);
+
+    nx-icon,
+    svg {
+      display: inline-flex;
+      animation: nx-spin 0.8s linear infinite;
+    }
+  }
+}
+
+/* Empty No Results State */
+.no-results {
+  padding: var(--no-results-padding);
+  text-align: center;
+  color: var(--no-results-color);
+  font-family: var(--font-family);
+  font-size: var(--no-results-font-size);
+}
+
+/* ==========================================
+   Footer (Helper / Error text)
+   ========================================== */
+
+.input-footer {
+  display: flex;
+  align-items: center;
+  margin-top: 0.375rem;
+  font-family: var(--font-family);
+}
+
+.helper-text {
+  color: var(--helper-color);
+  font-size: var(--helper-font-size);
+}
+
+.error-text {
+  color: var(--error-color);
+  font-size: var(--error-font-size);
+}
+
+/* Keyframe Animations */
+@keyframes nx-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
