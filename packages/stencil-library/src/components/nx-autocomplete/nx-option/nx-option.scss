@@ -1,0 +1,91 @@
+:host {
+  /* ==========================================
+     Public Styling API (Matches nx-select-option)
+     ========================================== */
+  --background: var(--option-background, transparent);
+  --background-hover: var(--option-background-hover, var(--nx-color-purple-100, #f6f0fa));
+  --background-active: var(--background-hover);
+  --background-selected: var(--option-background-selected, var(--background-hover));
+
+  --color: var(--option-color, var(--nx-color-gray-800, #1e293b));
+  --color-selected: var(--option-color-selected, var(--nx-color-primary, #8145b5));
+  --color-disabled: var(--option-color-disabled, var(--nx-color-gray-400, #94a3b8));
+
+  --checkmark-color: var(--option-checkmark-color, var(--color-selected));
+
+  --border-radius: var(--option-border-radius, 0.25rem);
+  --padding: var(--option-padding, 0.5625rem 0.75rem);
+  --min-height: var(--option-min-height, 2.5rem);
+
+  --font-family: var(--font-poppins, var(--font-rubik, sans-serif));
+  --font-size: var(--option-font-size, var(--FontSize-14, 0.875rem));
+  --font-weight: 400;
+  --font-weight-selected: 500;
+  --line-height: 1.25rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  min-height: var(--min-height);
+  padding: var(--padding);
+  border-radius: var(--border-radius);
+  background: var(--background);
+  color: var(--color);
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  line-height: var(--line-height);
+  cursor: pointer;
+  outline: none;
+  box-shadow: none;
+  user-select: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:host([hidden]) {
+  display: none !important;
+}
+
+:host(:hover),
+:host(.active),
+:host(.is-active) {
+  background: var(--background-hover);
+}
+
+:host(.selected),
+:host(.is-selected) {
+  background: var(--background-selected);
+  color: var(--color-selected);
+  font-weight: var(--font-weight-selected);
+}
+
+:host(.disabled),
+:host(.is-disabled) {
+  color: var(--color-disabled);
+  background: transparent;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.option-label {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.checkmark {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.75rem;
+  color: var(--checkmark-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+}

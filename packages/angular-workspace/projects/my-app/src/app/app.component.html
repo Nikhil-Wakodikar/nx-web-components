@@ -258,6 +258,24 @@
     <nx-select-option value="flexible" disabled>Flexible</nx-select-option>
   </nx-select>
 
+  <!-- nx-autocomplete: Searchable Combobox Sample -->
+  <div style="margin: 20px 0">
+    <nx-autocomplete
+      label="Country (Autocomplete)"
+      placeholder="Type to search country..."
+      [clearable]="true"
+      [showDropdownIcon]="true"
+      (nxSelect)="onCountrySelect($event)"
+      (nxChange)="onCountryChange($event)"
+    >
+      <nx-icon slot="start" name="search"></nx-icon>
+
+      <nx-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </nx-option>
+    </nx-autocomplete>
+  </div>
+
   <div style="margin: 20px">
     <nx-checkbox>
       I agree to the

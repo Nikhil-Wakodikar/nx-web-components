@@ -4,6 +4,7 @@ import * as d from './components';
 export const DIRECTIVES = [
   d.NxAccordion,
   d.NxAccordionGroup,
+  d.NxAutocomplete,
   d.NxBadge,
   d.NxButton,
   d.NxCard,
@@ -21,6 +22,7 @@ export const DIRECTIVES = [
   d.NxListItem,
   d.NxLoader,
   d.NxModal,
+  d.NxOption,
   d.NxProgress,
   d.NxRadio,
   d.NxRadioGroup,

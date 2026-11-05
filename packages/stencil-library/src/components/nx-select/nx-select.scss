@@ -138,7 +138,7 @@
 .select-trigger:hover:not(:disabled):focus {
   background: var(--background-focus);
   border-color: var(--border-focus-color);
-  outline: var(--focus-ring);
+  // outline: var(--focus-ring);
 }
 
 .select-trigger:disabled {
