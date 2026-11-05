@@ -292,18 +292,7 @@ export const SlottedOptions: StoryObj = {
         ?clearable=${true}
         ?show-dropdown-icon=${true}
       >
-        <svg
-          slot="start"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+        <nx-icon slot="start" name="search"></nx-icon>
 
         <nx-option value="United States">United States</nx-option>
         <nx-option value="United Kingdom">United Kingdom</nx-option>
@@ -368,18 +357,7 @@ export const WithPrefixSlot: StoryObj = {
         helper-text="Includes a search icon in slot='start'"
         .options=${countryOptions}
       >
-        <svg
-          slot="start"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-        </svg>
+        <nx-icon slot="start" name="search"></nx-icon>
       </nx-autocomplete>
     </div>
   `,
