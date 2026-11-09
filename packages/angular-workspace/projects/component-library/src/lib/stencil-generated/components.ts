@@ -1072,3 +1072,36 @@ export declare interface NxToggle extends Components.NxToggle {
 }
 
 
+@ProxyCmp({
+  inputs: ['arrow', 'content', 'delay', 'disabled', 'hideDelay', 'maxWidth', 'offset', 'open', 'placement', 'size', 'target', 'trigger', 'variant'],
+  methods: ['show', 'hide', 'toggle']
+})
+@Component({
+  selector: 'nx-tooltip',
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: '<ng-content></ng-content>',
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: ['arrow', 'content', 'delay', 'disabled', 'hideDelay', 'maxWidth', 'offset', 'open', 'placement', 'size', 'target', 'trigger', 'variant'],
+})
+export class NxTooltip {
+  protected el: HTMLNxTooltipElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['nxShow', 'nxHide']);
+  }
+}
+
+
+export declare interface NxTooltip extends Components.NxTooltip {
+  /**
+   * Emitted when the tooltip becomes visible.
+   */
+  nxShow: EventEmitter<void>;
+  /**
+   * Emitted when the tooltip hides.
+   */
+  nxHide: EventEmitter<void>;
+}
+
+

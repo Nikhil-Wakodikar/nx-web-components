@@ -50,6 +50,7 @@ const preview = {
             'Tabs',
             'Modal',
             'Toast',
+            'Tooltip',
             'Table',
             'Progress & Loader',
             'List',

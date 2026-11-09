@@ -77,4 +77,10 @@ export type {
   NxSkeletonAnimation,
 } from './components/nx-skeleton/nx-skeleton';
 export type { AutocompleteOption } from './components/nx-autocomplete/nx-autocomplete';
+export type {
+  NxTooltipPlacement,
+  NxTooltipTrigger,
+  NxTooltipVariant,
+  NxTooltipSize,
+} from './components/nx-tooltip/nx-tooltip.types';
 
