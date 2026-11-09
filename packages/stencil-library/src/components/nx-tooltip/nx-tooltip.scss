@@ -1,0 +1,437 @@
+:host {
+  /* ==========================================
+     Public Styling API
+     ========================================== */
+
+  /* Colors */
+  --nx-tooltip-bg: var(--background, #0f172a);
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, rgba(255, 255, 255, 0.12));
+  --nx-tooltip-border-width: var(--border-width, 1px);
+  --nx-tooltip-border-style: var(--border-style, solid);
+  --nx-tooltip-border-radius: var(--border-radius, 0.25rem);
+
+  /* Typography */
+  --nx-tooltip-font-family: var(--font-family, var(--font-rubik, var(--font-poppins, sans-serif)));
+  --nx-tooltip-font-size: var(--font-size, 0.75rem);
+  --nx-tooltip-font-weight: var(--font-weight, 400);
+  --nx-tooltip-line-height: var(--line-height, 1.4);
+
+  /* Spacing & Dimensions */
+  --nx-tooltip-padding: var(--padding, 0.375rem 0.6875rem);
+  --nx-tooltip-shadow: var(--box-shadow, 0 4px 14px rgba(0, 0, 0, 0.16));
+  --nx-tooltip-max-width: var(--max-width, 18rem);
+  --nx-tooltip-offset: var(--offset, 8px);
+
+  /* Pointer Arrow */
+  --nx-tooltip-arrow-size: var(--arrow-size, 0.5rem);
+  --nx-tooltip-arrow-bg: var(--arrow-bg, var(--nx-tooltip-bg));
+
+  /* Stacking & Animation */
+  --nx-tooltip-z-index: var(--z-index, 1000);
+  --nx-tooltip-transition-duration: var(--transition-duration, 140ms);
+
+  display: inline-flex;
+  vertical-align: middle;
+  position: relative;
+  font-family: var(--nx-tooltip-font-family);
+  box-sizing: border-box;
+
+  &.has-target {
+    display: contents;
+  }
+
+  &.disabled {
+    pointer-events: auto;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.tooltip-trigger-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: inherit;
+  width: 100%;
+}
+
+/* ==========================================
+   Size Variants
+   ========================================== */
+
+:host([size='sm']),
+.nx-tooltip-bubble.size-sm {
+  --nx-tooltip-font-size: var(--font-size, 0.6875rem);
+  --nx-tooltip-padding: var(--padding, 0.25rem 0.5rem);
+  --nx-tooltip-border-radius: var(--border-radius, 0.25rem);
+}
+
+:host([size='md']),
+.nx-tooltip-bubble.size-md {
+  --nx-tooltip-font-size: var(--font-size, 0.75rem);
+  --nx-tooltip-padding: var(--padding, 0.375rem 0.6875rem);
+  --nx-tooltip-border-radius: var(--border-radius, 0.25rem);
+}
+
+:host([size='lg']),
+.nx-tooltip-bubble.size-lg {
+  --nx-tooltip-font-size: var(--font-size, 0.8125rem);
+  --nx-tooltip-padding: var(--padding, 0.5rem 0.875rem);
+  --nx-tooltip-border-radius: var(--border-radius, 0.375rem);
+}
+
+/* ==========================================
+   Color Theme Variants
+   ========================================== */
+
+/* Dark Theme (Default) */
+:host([variant='dark']),
+.nx-tooltip-bubble.variant-dark {
+  --nx-tooltip-bg: var(--background, #0f172a);
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, rgba(255, 255, 255, 0.12));
+}
+
+/* Light Theme */
+:host([variant='light']),
+.nx-tooltip-bubble.variant-light {
+  --nx-tooltip-bg: var(--background, #ffffff);
+  --nx-tooltip-color: var(--color, #0f172a);
+  --nx-tooltip-border-color: var(--border-color, #e2e8f0);
+  --nx-tooltip-shadow: var(--box-shadow, 0 6px 20px rgba(0, 0, 0, 0.08));
+}
+
+/* Primary Theme */
+:host([variant='primary']),
+.nx-tooltip-bubble.variant-primary {
+  --nx-tooltip-bg: var(--background, var(--nx-color-primary, #8145b5));
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, transparent);
+}
+
+/* Success Theme */
+:host([variant='success']),
+.nx-tooltip-bubble.variant-success {
+  --nx-tooltip-bg: var(--background, var(--nx-color-success, #16a34a));
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, transparent);
+}
+
+/* Warning Theme */
+:host([variant='warning']),
+.nx-tooltip-bubble.variant-warning {
+  --nx-tooltip-bg: var(--background, var(--nx-color-warning, #d97706));
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, transparent);
+}
+
+/* Danger Theme */
+:host([variant='danger']),
+.nx-tooltip-bubble.variant-danger {
+  --nx-tooltip-bg: var(--background, var(--nx-color-error, #dc2626));
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, transparent);
+}
+
+/* Info Theme */
+:host([variant='info']),
+.nx-tooltip-bubble.variant-info {
+  --nx-tooltip-bg: var(--background, var(--nx-color-info, #2563eb));
+  --nx-tooltip-color: var(--color, #ffffff);
+  --nx-tooltip-border-color: var(--border-color, transparent);
+}
+
+/* ==========================================
+   Floating Tooltip Bubble
+   ========================================== */
+
+.nx-tooltip-bubble {
+  position: absolute;
+  z-index: var(--nx-tooltip-z-index);
+  display: block;
+  font-family: var(--nx-tooltip-font-family);
+  font-size: var(--nx-tooltip-font-size);
+  font-weight: var(--nx-tooltip-font-weight);
+  line-height: var(--nx-tooltip-line-height);
+  padding: var(--nx-tooltip-padding);
+  background: var(--nx-tooltip-bg);
+  color: var(--nx-tooltip-color);
+  border: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+  border-radius: var(--nx-tooltip-border-radius);
+  box-shadow: var(--nx-tooltip-shadow);
+  max-width: var(--nx-tooltip-max-width);
+  text-align: left;
+  word-wrap: break-word;
+  white-space: normal;
+  width: max-content;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--nx-tooltip-transition-duration) cubic-bezier(0.16, 1, 0.3, 1),
+              transform var(--nx-tooltip-transition-duration) cubic-bezier(0.16, 1, 0.3, 1),
+              visibility var(--nx-tooltip-transition-duration);
+
+  &.is-visible {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .tooltip-content {
+    position: relative;
+    z-index: 2;
+    display: block;
+  }
+}
+
+/* ==========================================
+   Placements for Standard Wrapped Elements
+   ========================================== */
+
+:host(:not(.has-target)) .nx-tooltip-bubble {
+  position: absolute;
+
+  &.placement-top {
+    bottom: calc(100% + var(--nx-tooltip-offset, 8px));
+    left: 50%;
+    transform: translateX(-50%) translateY(4px) scale(0.96);
+
+    &.is-visible {
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+  }
+
+  &.placement-top-start {
+    bottom: calc(100% + var(--nx-tooltip-offset, 8px));
+    left: 0;
+    transform: translateY(4px) scale(0.96);
+    transform-origin: bottom left;
+
+    &.is-visible {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &.placement-top-end {
+    bottom: calc(100% + var(--nx-tooltip-offset, 8px));
+    right: 0;
+    transform: translateY(4px) scale(0.96);
+    transform-origin: bottom right;
+
+    &.is-visible {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &.placement-bottom {
+    top: calc(100% + var(--nx-tooltip-offset, 8px));
+    left: 50%;
+    transform: translateX(-50%) translateY(-4px) scale(0.96);
+
+    &.is-visible {
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+  }
+
+  &.placement-bottom-start {
+    top: calc(100% + var(--nx-tooltip-offset, 8px));
+    left: 0;
+    transform: translateY(-4px) scale(0.96);
+    transform-origin: top left;
+
+    &.is-visible {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &.placement-bottom-end {
+    top: calc(100% + var(--nx-tooltip-offset, 8px));
+    right: 0;
+    transform: translateY(-4px) scale(0.96);
+    transform-origin: top right;
+
+    &.is-visible {
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  &.placement-left {
+    right: calc(100% + var(--nx-tooltip-offset, 8px));
+    top: 50%;
+    transform: translateY(-50%) translateX(4px) scale(0.96);
+
+    &.is-visible {
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
+  }
+
+  &.placement-left-start {
+    right: calc(100% + var(--nx-tooltip-offset, 8px));
+    top: 0;
+    transform: translateX(4px) scale(0.96);
+    transform-origin: top right;
+
+    &.is-visible {
+      transform: translateX(0) scale(1);
+    }
+  }
+
+  &.placement-left-end {
+    right: calc(100% + var(--nx-tooltip-offset, 8px));
+    bottom: 0;
+    transform: translateX(4px) scale(0.96);
+    transform-origin: bottom right;
+
+    &.is-visible {
+      transform: translateX(0) scale(1);
+    }
+  }
+
+  &.placement-right {
+    left: calc(100% + var(--nx-tooltip-offset, 8px));
+    top: 50%;
+    transform: translateY(-50%) translateX(-4px) scale(0.96);
+
+    &.is-visible {
+      transform: translateY(-50%) translateX(0) scale(1);
+    }
+  }
+
+  &.placement-right-start {
+    left: calc(100% + var(--nx-tooltip-offset, 8px));
+    top: 0;
+    transform: translateX(-4px) scale(0.96);
+    transform-origin: top left;
+
+    &.is-visible {
+      transform: translateX(0) scale(1);
+    }
+  }
+
+  &.placement-right-end {
+    left: calc(100% + var(--nx-tooltip-offset, 8px));
+    bottom: 0;
+    transform: translateX(-4px) scale(0.96);
+    transform-origin: bottom left;
+
+    &.is-visible {
+      transform: translateX(0) scale(1);
+    }
+  }
+}
+
+/* ==========================================
+   Positioning for External Target Mode
+   ========================================== */
+
+:host(.has-target) .nx-tooltip-bubble {
+  position: fixed;
+  z-index: var(--nx-tooltip-z-index, 9999);
+  transform: scale(0.96);
+
+  &.is-visible {
+    transform: scale(1);
+  }
+}
+
+/* ==========================================
+   Arrow Pointer
+   ========================================== */
+
+.tooltip-arrow {
+  position: absolute;
+  width: var(--nx-tooltip-arrow-size);
+  height: var(--nx-tooltip-arrow-size);
+  background: var(--nx-tooltip-arrow-bg);
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+/* Top Placements */
+.nx-tooltip-bubble.placement-top .tooltip-arrow,
+.nx-tooltip-bubble.placement-top-start .tooltip-arrow,
+.nx-tooltip-bubble.placement-top-end .tooltip-arrow {
+  bottom: calc(-0.5 * var(--nx-tooltip-arrow-size, 0.5rem));
+  border-right: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+  border-bottom: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+}
+
+.nx-tooltip-bubble.placement-top .tooltip-arrow {
+  left: calc(50% - (var(--nx-tooltip-arrow-size, 0.5rem) / 2));
+}
+
+.nx-tooltip-bubble.placement-top-start .tooltip-arrow {
+  left: 0.875rem;
+}
+
+.nx-tooltip-bubble.placement-top-end .tooltip-arrow {
+  right: 0.875rem;
+}
+
+/* Bottom Placements */
+.nx-tooltip-bubble.placement-bottom .tooltip-arrow,
+.nx-tooltip-bubble.placement-bottom-start .tooltip-arrow,
+.nx-tooltip-bubble.placement-bottom-end .tooltip-arrow {
+  top: calc(-0.5 * var(--nx-tooltip-arrow-size, 0.5rem));
+  border-left: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+  border-top: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+}
+
+.nx-tooltip-bubble.placement-bottom .tooltip-arrow {
+  left: calc(50% - (var(--nx-tooltip-arrow-size, 0.5rem) / 2));
+}
+
+.nx-tooltip-bubble.placement-bottom-start .tooltip-arrow {
+  left: 0.875rem;
+}
+
+.nx-tooltip-bubble.placement-bottom-end .tooltip-arrow {
+  right: 0.875rem;
+}
+
+/* Left Placements */
+.nx-tooltip-bubble.placement-left .tooltip-arrow,
+.nx-tooltip-bubble.placement-left-start .tooltip-arrow,
+.nx-tooltip-bubble.placement-left-end .tooltip-arrow {
+  right: calc(-0.5 * var(--nx-tooltip-arrow-size, 0.5rem));
+  border-right: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+  border-top: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+}
+
+.nx-tooltip-bubble.placement-left .tooltip-arrow {
+  top: calc(50% - (var(--nx-tooltip-arrow-size, 0.5rem) / 2));
+}
+
+.nx-tooltip-bubble.placement-left-start .tooltip-arrow {
+  top: 0.625rem;
+}
+
+.nx-tooltip-bubble.placement-left-end .tooltip-arrow {
+  bottom: 0.625rem;
+}
+
+/* Right Placements */
+.nx-tooltip-bubble.placement-right .tooltip-arrow,
+.nx-tooltip-bubble.placement-right-start .tooltip-arrow,
+.nx-tooltip-bubble.placement-right-end .tooltip-arrow {
+  left: calc(-0.5 * var(--nx-tooltip-arrow-size, 0.5rem));
+  border-left: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+  border-bottom: var(--nx-tooltip-border-width) var(--nx-tooltip-border-style) var(--nx-tooltip-border-color);
+}
+
+.nx-tooltip-bubble.placement-right .tooltip-arrow {
+  top: calc(50% - (var(--nx-tooltip-arrow-size, 0.5rem) / 2));
+}
+
+.nx-tooltip-bubble.placement-right-start .tooltip-arrow {
+  top: 0.625rem;
+}
+
+.nx-tooltip-bubble.placement-right-end .tooltip-arrow {
+  bottom: 0.625rem;
+}

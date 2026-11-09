@@ -276,6 +276,156 @@
     </nx-autocomplete>
   </div>
 
+  <!-- nx-tooltip: Comprehensive Samples & Showcase -->
+  <div style="margin: 32px 0; padding: 24px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fafafa;">
+    <h3 style="margin-top: 0; font-family: var(--font-poppins, sans-serif); color: #1e293b; display: flex; align-items: center; gap: 8px;">
+      <nx-icon name="info" size="20" color="#8145b5"></nx-icon>
+      nx-tooltip Showcase
+    </h3>
+    <p style="font-family: var(--font-poppins, sans-serif); color: #64748b; font-size: 14px; margin-bottom: 24px;">
+      Hover, focus, or click the buttons below to preview tooltip behaviors, placements, themes, sizes, and rich content.
+    </p>
+
+    <!-- Section 1: Placements -->
+    <div style="margin-bottom: 24px;">
+      <h4 style="font-family: var(--font-poppins, sans-serif); color: #334155; font-size: 14px; margin-bottom: 12px;">
+        1. Placements (Top, Bottom, Left, Right)
+      </h4>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+        <nx-tooltip content="Tooltip on Top" placement="top">
+          <nx-button fill="outline" color="primary">Top Placement</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Tooltip on Bottom" placement="bottom">
+          <nx-button fill="outline" color="primary">Bottom Placement</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Tooltip on Left" placement="left">
+          <nx-button fill="outline" color="primary">Left Placement</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Tooltip on Right" placement="right">
+          <nx-button fill="outline" color="primary">Right Placement</nx-button>
+        </nx-tooltip>
+      </div>
+    </div>
+
+    <!-- Section 2: Color Themes / Variants -->
+    <div style="margin-bottom: 24px;">
+      <h4 style="font-family: var(--font-poppins, sans-serif); color: #334155; font-size: 14px; margin-bottom: 12px;">
+        2. Color Themes (Variants)
+      </h4>
+      <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+        <nx-tooltip content="Dark Theme (Default)" variant="dark">
+          <nx-button color="dark">Dark</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Clean Light Theme" variant="light">
+          <nx-button fill="outline">Light</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Brand Primary Theme" variant="primary">
+          <nx-button color="primary">Primary</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Operation saved successfully!" variant="success">
+          <nx-button color="success">Success</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Caution: requires review" variant="warning">
+          <nx-button color="warning">Warning</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Irreversible delete action" variant="danger">
+          <nx-button color="danger">Danger</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Documentation and help guides" variant="info">
+          <nx-button color="info">Info</nx-button>
+        </nx-tooltip>
+      </div>
+    </div>
+
+    <!-- Section 3: Sizes -->
+    <div style="margin-bottom: 24px;">
+      <h4 style="font-family: var(--font-poppins, sans-serif); color: #334155; font-size: 14px; margin-bottom: 12px;">
+        3. Sizes (sm, md, lg)
+      </h4>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+        <nx-tooltip content="Compact small tooltip (sm)" size="sm">
+          <nx-button size="small">Small Tooltip</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Default medium tooltip (md)" size="md">
+          <nx-button>Medium Tooltip</nx-button>
+        </nx-tooltip>
+
+        <nx-tooltip content="Roomy large tooltip (lg)" size="lg">
+          <nx-button size="large">Large Tooltip</nx-button>
+        </nx-tooltip>
+      </div>
+    </div>
+
+    <!-- Section 4: Trigger Modes & Rich Content -->
+    <div style="margin-bottom: 24px;">
+      <h4 style="font-family: var(--font-poppins, sans-serif); color: #334155; font-size: 14px; margin-bottom: 12px;">
+        4. Triggers & Rich Content
+      </h4>
+      <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
+        <!-- Click Trigger -->
+        <nx-tooltip content="Click outside or click button again to dismiss" trigger="click">
+          <nx-button color="secondary">Click to Toggle</nx-button>
+        </nx-tooltip>
+
+        <!-- Focus Trigger -->
+        <nx-tooltip content="Focused via keyboard navigation" trigger="focus">
+          <nx-button fill="outline" color="secondary">Focus Me (Tab Key)</nx-button>
+        </nx-tooltip>
+
+        <!-- Rich Content with Slot -->
+        <nx-tooltip placement="bottom" variant="dark" max-width="20rem">
+          <nx-button color="primary">
+            <nx-icon slot="start" name="sparkles"></nx-icon>
+            Rich Tooltip Slot
+          </nx-button>
+          <div slot="content" style="padding: 4px 0;">
+            <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 4px;">
+              <nx-icon name="keyboard" size="14" color="#38bdf8"></nx-icon>
+              <strong style="color: #ffffff; font-size: 12px;">Keyboard Shortcut</strong>
+            </div>
+            <p style="margin: 0 0 6px; font-size: 11px; color: #94a3b8; line-height: 1.4;">
+              Quickly trigger actions directly from your keyboard.
+            </p>
+            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 4px;">
+              <span style="font-size: 10px; color: #cbd5e1;">Quick action</span>
+              <span style="background: rgba(255,255,255,0.15); padding: 1px 6px; border-radius: 3px; font-family: monospace; font-size: 10px;">⌘ + K</span>
+            </div>
+          </div>
+        </nx-tooltip>
+      </div>
+    </div>
+
+    <!-- Section 5: External Target Element -->
+    <div>
+      <h4 style="font-family: var(--font-poppins, sans-serif); color: #334155; font-size: 14px; margin-bottom: 12px;">
+        5. External Target Element (Decoupled trigger via target="id")
+      </h4>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <nx-button id="btn-export-assets" color="success">
+          <nx-icon slot="start" name="download"></nx-icon>
+          Download Report
+        </nx-button>
+
+        <nx-tooltip
+          target="btn-export-assets"
+          content="Export data package as a compressed archive (.zip)"
+          placement="right"
+          variant="success"
+        ></nx-tooltip>
+      </div>
+    </div>
+  </div>
+
   <div style="margin: 20px">
     <nx-checkbox>
       I agree to the

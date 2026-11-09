@@ -37,5 +37,6 @@ export const DIRECTIVES = [
   d.NxTextarea,
   d.NxTimePicker,
   d.NxToast,
-  d.NxToggle
+  d.NxToggle,
+  d.NxTooltip
 ];
