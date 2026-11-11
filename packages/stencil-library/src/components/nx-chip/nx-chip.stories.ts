@@ -18,7 +18,7 @@ const meta: Meta = {
 ### Overview
 The \`<nx-chip>\` component represents tags, attributes, contact pills, and filter selections.
 It features built-in support for:
-- **Clickable chips**: Triggers \`nxClick\` events.
+- **Clickable chips**: Triggers native \`click\` events.
 - **Selectable chips**: Toggles selection state with an animated checkmark, emitting \`nxSelect\`.
 - **Removable chips**: Displays an accessible remove button emitting \`nxRemove\`.
 - **Slots**: \`start\` slot for icons/avatars, \`end\` slot for custom trailing indicators.
@@ -145,7 +145,7 @@ export const Default: Story = {
       ?selected=${args.selected}
       ?removable=${args.removable}
       ?disabled=${args.disabled}
-      @nxClick=${(e: CustomEvent) => console.log('nxClick:', e.detail)}
+      @click=${(e: MouseEvent) => console.log('click:', e)}
       @nxSelect=${(e: CustomEvent) => console.log('nxSelect:', e.detail)}
       @nxRemove=${(e: CustomEvent) => console.log('nxRemove:', e.detail)}
     ></nx-chip>
@@ -227,7 +227,7 @@ export const InteractiveStates: Story = {
       <div>
         <h4 style="margin: 0 0 12px; font-family: sans-serif; font-size: 14px; color: #64748b;">Clickable & Removable</h4>
         <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-          <nx-chip clickable label="Clickable Chip" @nxClick=${() => alert('Chip clicked!')}></nx-chip>
+          <nx-chip clickable label="Clickable Chip" @click=${() => alert('Chip clicked!')}></nx-chip>
           <nx-chip removable label="Removable Tag" @nxRemove=${(e: CustomEvent) => console.log('Removed:', e)}></nx-chip>
           <nx-chip clickable removable color="danger" label="Dismiss Alert"></nx-chip>
         </div>

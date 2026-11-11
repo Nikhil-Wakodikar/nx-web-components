@@ -98,7 +98,7 @@ export class AppModule {}
   <nx-checkbox [(ngModel)]="rememberMe" label="Remember me"></nx-checkbox>
 
   <!-- Event Handling -->
-  <nx-button variant="primary" (nxClick)="onSave()">Save Changes</nx-button>
+  <nx-button variant="primary" (click)="onSave()">Save Changes</nx-button>
 </nx-card>
 ```
 

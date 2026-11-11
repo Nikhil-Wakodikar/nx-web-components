@@ -115,7 +115,7 @@ export const Default: Story = {
       color=${ifDefined(args.color)}
       ?external=${args.external}
       ?disabled=${args.disabled}
-      @nxClick=${(e: CustomEvent) => console.log('nxClick:', e)}
+      @click=${(e: MouseEvent) => console.log('click:', e)}
     >
       ${args.label || 'Explore Documentation'}
     </nx-link>

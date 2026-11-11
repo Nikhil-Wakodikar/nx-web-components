@@ -2157,7 +2157,7 @@
         <nx-button
           size="small"
           variant="outline"
-          (nxClick)="toggleTableLoading()"
+          (click)="toggleTableLoading()"
         >
           Test Loading Overlay
         </nx-button>
@@ -2364,13 +2364,13 @@
         Full Lines
       </p>
       <nx-list lines="full" [clickable]="true">
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >Full Lines</nx-list-item
         >
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >Full Lines</nx-list-item
         >
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >Full Lines</nx-list-item
         >
       </nx-list>
@@ -2391,13 +2391,13 @@
         Inset Lines
       </p>
       <nx-list lines="inset">
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >Inset Lines</nx-list-item
         >
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >Inset Lines</nx-list-item
         >
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >Inset Lines</nx-list-item
         >
       </nx-list>
@@ -2418,13 +2418,13 @@
         No Lines
       </p>
       <nx-list lines="none">
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >No Lines</nx-list-item
         >
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >No Lines</nx-list-item
         >
-        <nx-list-item (nxClick)="onListItemClick($event)"
+        <nx-list-item (click)="onListItemClick($event)"
           >No Lines</nx-list-item
         >
       </nx-list>
@@ -2448,7 +2448,7 @@
         <nx-list-item
           [clickable]="true"
           value="inbox"
-          (nxClick)="onListItemClick($event)"
+          (click)="onListItemClick($event)"
         >
           <nx-icon slot="start" name="mail" style="color: #2563eb"></nx-icon>
           Inbox
@@ -2457,7 +2457,7 @@
         <nx-list-item
           [clickable]="true"
           value="settings"
-          (nxClick)="onListItemClick($event)"
+          (click)="onListItemClick($event)"
         >
           <nx-icon
             slot="start"
@@ -2470,7 +2470,7 @@
         <nx-list-item
           [clickable]="true"
           value="help"
-          (nxClick)="onListItemClick($event)"
+          (click)="onListItemClick($event)"
         >
           <nx-icon
             slot="start"

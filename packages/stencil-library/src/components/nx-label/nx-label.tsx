@@ -1,8 +1,6 @@
 import {
   Component,
   Element,
-  Event,
-  EventEmitter,
   Host,
   Prop,
   State,
@@ -84,9 +82,6 @@ export class NxLabel {
   /** Whether long text should truncate with an ellipsis */
   @Prop({ reflect: true }) truncate = false;
 
-  /** Emitted when the label is clicked */
-  @Event({ bubbles: true, composed: true }) nxClick!: EventEmitter<MouseEvent>;
-
   connectedCallback() {
     this.checkSlots();
   }
@@ -106,8 +101,6 @@ export class NxLabel {
       ev.stopPropagation();
       return;
     }
-
-    this.nxClick.emit(ev);
 
     // If an associated htmlFor ID is provided, forward focus and interaction
     if (this.htmlFor) {

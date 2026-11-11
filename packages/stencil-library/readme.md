@@ -77,7 +77,7 @@ import { ComponentLibraryModule } from '@_nx/component-library';
 
       <nx-divider></nx-divider>
 
-      <nx-button variant="primary" (nxClick)="onSave()">Save</nx-button>
+      <nx-button variant="primary" (click)="onSave()">Save</nx-button>
     </nx-card>
   `
 })

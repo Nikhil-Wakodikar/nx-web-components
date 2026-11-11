@@ -10,7 +10,6 @@ import {
   h,
 } from '@stencil/core';
 import {
-  NxListItemClickEventDetail,
   NxListItemLines,
 } from '../nx-list-item/nx-list-item';
 
@@ -129,22 +128,22 @@ export class NxList {
     });
   };
 
-  @Listen('nxClick')
-  handleItemClick(ev: CustomEvent<NxListItemClickEventDetail>) {
+  @Listen('click')
+  handleItemClick(ev: MouseEvent) {
     if (this.disabled) return;
 
-    const item = ev.target as unknown as NxListItemElement;
-    const detail = ev.detail;
+    const item = ((ev.target as HTMLElement)?.closest?.('nx-list-item') || ev.target) as unknown as NxListItemElement;
+    if (!item || (item as any).disabled) return;
 
-    if (detail && detail.value !== undefined) {
-      this.value = detail.value;
+    if (item.value !== undefined) {
+      this.value = item.value;
       this.syncChildItems();
 
       this.nxChange.emit({
         value: this.value,
         selected: true,
         item,
-        event: detail.event,
+        event: ev,
       });
     }
   }
