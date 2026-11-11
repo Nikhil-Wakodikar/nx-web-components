@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserProfileDialogComponent } from './user-profile-dialog.component';
+import { DemoStandaloneButtonComponent } from './demo-standalone-button.component';
 import { ComponentLibraryModule } from '@_nx/stencil-library/angular';
 
 @NgModule({
@@ -15,6 +16,7 @@ import { ComponentLibraryModule } from '@_nx/stencil-library/angular';
     ReactiveFormsModule,
     FormsModule,
     ComponentLibraryModule,
+    DemoStandaloneButtonComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
