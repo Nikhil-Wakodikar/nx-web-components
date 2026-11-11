@@ -5,7 +5,13 @@
     "baseUrl": "./",
     "paths": {
       "component-library": [
-        "dist/component-library"
+        "../stencil-library/angular"
+      ],
+      "@_nx/component-library": [
+        "../stencil-library/angular"
+      ],
+      "@_nx/stencil-library/angular": [
+        "../stencil-library/angular"
       ]
     },
     "outDir": "./dist/out-tsc",

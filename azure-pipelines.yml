@@ -143,8 +143,11 @@ stages:
                 mkdir -p artifact-staging/library-artifacts/stencil-lib
 
                 # Copy build and packed files
-                cp -r packages/stencil-library/dist/* artifact-staging/library-artifacts/stencil-lib/
-                find packages/stencil-library -name "*.tgz" -exec cp {} artifact-staging/library-artifacts/stencil-lib/ \;
+                cp -r packages/stencil-library/dist artifact-staging/library-artifacts/stencil-lib/
+                if [ -d "packages/stencil-library/angular" ]; then
+                  cp -r packages/stencil-library/angular artifact-staging/library-artifacts/stencil-lib/
+                fi
+                find packages/stencil-library -maxdepth 1 -name "*.tgz" -exec cp {} artifact-staging/library-artifacts/stencil-lib/ \;
 
                 # Copy version.json from repo root if available
                 if [ -f "version.json" ]; then

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CommonModule } from '@angular/common';
 import { By } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ComponentLibraryModule, InputValueAccessor } from 'component-library';
+import { ComponentLibraryModule, InputValueAccessor } from '@_nx/stencil-library/angular';
 import { defineCustomElements } from '@_nx/stencil-library/loader';
 import { AppComponent } from './app.component';
 

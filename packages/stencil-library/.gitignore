@@ -2,6 +2,9 @@
 dist/
 www/
 loader/
+components/
+angular/
+fonts/
 storybook-static/
 
 # Temporary & editor files

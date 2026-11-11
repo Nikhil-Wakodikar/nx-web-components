@@ -27,6 +27,9 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
     nx-select[formControlName],
     nx-select[formControl],
     nx-select[ngModel],
+    nx-autocomplete[formControlName],
+    nx-autocomplete[formControl],
+    nx-autocomplete[ngModel],
     nx-date-picker[formControlName],
     nx-date-picker[formControl],
     nx-date-picker[ngModel],
@@ -34,6 +37,7 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
     nx-time-picker[formControl],
     nx-time-picker[ngModel]
   `,
+  standalone: true,
 })
 export class TextValueAccessor
   implements ControlValueAccessor, OnInit, OnDestroy

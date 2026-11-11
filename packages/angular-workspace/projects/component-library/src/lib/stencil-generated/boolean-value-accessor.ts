@@ -25,6 +25,7 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
     nx-toggle[formControl],
     nx-toggle[ngModel]
   `,
+  standalone: true,
 })
 export class BooleanValueAccessor
   implements ControlValueAccessor, OnInit, OnDestroy
