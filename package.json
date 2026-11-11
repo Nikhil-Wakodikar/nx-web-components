@@ -5,10 +5,11 @@
     "packages/*"
   ],
   "scripts": {
-    "build:stencil": "npm --workspace=@_nx/stencil-library run build",
-    "build:angular": "npm --workspace=angular-workspace run build",
+    "build": "npm --workspace=@_nx/stencil-library run build",
+    "build:stencil": "npm --workspace=@_nx/stencil-library run build:stencil",
+    "build:angular": "npm --workspace=@_nx/stencil-library run build:angular",
+    "publish": "npm publish --workspace=@_nx/stencil-library --access public",
     "publish:stencil": "npm publish --workspace=@_nx/stencil-library --access public",
-    "publish:angular": "npm publish ./packages/angular-workspace/dist/component-library --access public",
     "storybook": "npm --workspace=@_nx/stencil-library run storybook",
     "build-storybook": "npm --workspace=@_nx/stencil-library run build-storybook"
   },

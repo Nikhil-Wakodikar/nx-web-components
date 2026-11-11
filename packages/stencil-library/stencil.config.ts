@@ -16,6 +16,11 @@ export const config: Config = {
       copy: [{ src: 'global/fonts', dest: 'fonts' }],
     },
     {
+      type: 'dist-custom-elements',
+      dir: 'components',
+      copy: [{ src: 'global/fonts', dest: 'fonts' }],
+    },
+    {
       type: 'www',
       serviceWorker: null, // disable service workers
       copy: [
@@ -24,7 +29,7 @@ export const config: Config = {
     },
     angularOutputTarget({
       componentCorePackage: '@_nx/stencil-library',
-      outputType: 'component',
+      outputType: 'standalone',
       directivesProxyFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/components.ts',
       directivesArrayFile: '../angular-workspace/projects/component-library/src/lib/stencil-generated/index.ts',
     }),

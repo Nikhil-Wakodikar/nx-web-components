@@ -22,6 +22,7 @@ import { handleSharedFormSubmit } from '../utils/form-validation.helper';
     nx-radio-group[formControl],
     nx-radio-group[ngModel]
   `,
+  standalone: true,
 })
 export class RadioValueAccessor
   implements ControlValueAccessor, OnInit, OnDestroy

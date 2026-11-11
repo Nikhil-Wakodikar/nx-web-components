@@ -4,10 +4,47 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Even
 
 import { ProxyCmp, proxyOutputs } from './angular-component-lib/utils';
 
-import { Components } from '@_nx/stencil-library';
+import type { Components } from '@_nx/stencil-library/components';
 
-
+import { defineCustomElement as defineNxAccordion } from '@_nx/stencil-library/components/nx-accordion.js';
+import { defineCustomElement as defineNxAccordionGroup } from '@_nx/stencil-library/components/nx-accordion-group.js';
+import { defineCustomElement as defineNxAutocomplete } from '@_nx/stencil-library/components/nx-autocomplete.js';
+import { defineCustomElement as defineNxBadge } from '@_nx/stencil-library/components/nx-badge.js';
+import { defineCustomElement as defineNxButton } from '@_nx/stencil-library/components/nx-button.js';
+import { defineCustomElement as defineNxCard } from '@_nx/stencil-library/components/nx-card.js';
+import { defineCustomElement as defineNxCheckbox } from '@_nx/stencil-library/components/nx-checkbox.js';
+import { defineCustomElement as defineNxChip } from '@_nx/stencil-library/components/nx-chip.js';
+import { defineCustomElement as defineNxCol } from '@_nx/stencil-library/components/nx-col.js';
+import { defineCustomElement as defineNxDatePicker } from '@_nx/stencil-library/components/nx-date-picker.js';
+import { defineCustomElement as defineNxDivider } from '@_nx/stencil-library/components/nx-divider.js';
+import { defineCustomElement as defineNxGrid } from '@_nx/stencil-library/components/nx-grid.js';
+import { defineCustomElement as defineNxIcon } from '@_nx/stencil-library/components/nx-icon.js';
+import { defineCustomElement as defineNxInput } from '@_nx/stencil-library/components/nx-input.js';
+import { defineCustomElement as defineNxLabel } from '@_nx/stencil-library/components/nx-label.js';
+import { defineCustomElement as defineNxLink } from '@_nx/stencil-library/components/nx-link.js';
+import { defineCustomElement as defineNxList } from '@_nx/stencil-library/components/nx-list.js';
+import { defineCustomElement as defineNxListItem } from '@_nx/stencil-library/components/nx-list-item.js';
+import { defineCustomElement as defineNxLoader } from '@_nx/stencil-library/components/nx-loader.js';
+import { defineCustomElement as defineNxModal } from '@_nx/stencil-library/components/nx-modal.js';
+import { defineCustomElement as defineNxOption } from '@_nx/stencil-library/components/nx-option.js';
+import { defineCustomElement as defineNxProgress } from '@_nx/stencil-library/components/nx-progress.js';
+import { defineCustomElement as defineNxRadio } from '@_nx/stencil-library/components/nx-radio.js';
+import { defineCustomElement as defineNxRadioGroup } from '@_nx/stencil-library/components/nx-radio-group.js';
+import { defineCustomElement as defineNxRow } from '@_nx/stencil-library/components/nx-row.js';
+import { defineCustomElement as defineNxSelect } from '@_nx/stencil-library/components/nx-select.js';
+import { defineCustomElement as defineNxSelectOption } from '@_nx/stencil-library/components/nx-select-option.js';
+import { defineCustomElement as defineNxSkeleton } from '@_nx/stencil-library/components/nx-skeleton.js';
+import { defineCustomElement as defineNxTab } from '@_nx/stencil-library/components/nx-tab.js';
+import { defineCustomElement as defineNxTabGroup } from '@_nx/stencil-library/components/nx-tab-group.js';
+import { defineCustomElement as defineNxTable } from '@_nx/stencil-library/components/nx-table.js';
+import { defineCustomElement as defineNxText } from '@_nx/stencil-library/components/nx-text.js';
+import { defineCustomElement as defineNxTextarea } from '@_nx/stencil-library/components/nx-textarea.js';
+import { defineCustomElement as defineNxTimePicker } from '@_nx/stencil-library/components/nx-time-picker.js';
+import { defineCustomElement as defineNxToast } from '@_nx/stencil-library/components/nx-toast.js';
+import { defineCustomElement as defineNxToggle } from '@_nx/stencil-library/components/nx-toggle.js';
+import { defineCustomElement as defineNxTooltip } from '@_nx/stencil-library/components/nx-tooltip.js';
 @ProxyCmp({
+  defineCustomElementFn: defineNxAccordion,
   inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
   methods: ['expand', 'collapse', 'toggle']
 })
@@ -17,6 +54,7 @@ import { Components } from '@_nx/stencil-library';
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['collapseIcon', 'contentPadding', 'disabled', 'expandIconPosition', 'header', 'hideToggleIcon', 'icon', 'open', 'toggleIcon', 'value', 'variant'],
+  standalone: true
 })
 export class NxAccordion {
   protected el: HTMLNxAccordionElement;
@@ -28,7 +66,7 @@ export class NxAccordion {
 }
 
 
-import type { NxAccordionToggleEventDetail as INxAccordionNxAccordionToggleEventDetail } from '@_nx/stencil-library';
+import type { NxAccordionToggleEventDetail as INxAccordionNxAccordionToggleEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxAccordion extends Components.NxAccordion {
 
@@ -37,6 +75,7 @@ export declare interface NxAccordion extends Components.NxAccordion {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxAccordionGroup,
   inputs: ['disabled', 'displayMode', 'expandIconPosition', 'multiple', 'value', 'variant'],
   methods: ['getAccordions', 'requestToggle']
 })
@@ -46,6 +85,7 @@ export declare interface NxAccordion extends Components.NxAccordion {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disabled', 'displayMode', 'expandIconPosition', 'multiple', 'value', 'variant'],
+  standalone: true
 })
 export class NxAccordionGroup {
   protected el: HTMLNxAccordionGroupElement;
@@ -57,7 +97,7 @@ export class NxAccordionGroup {
 }
 
 
-import type { NxAccordionGroupChangeEventDetail as INxAccordionGroupNxAccordionGroupChangeEventDetail } from '@_nx/stencil-library';
+import type { NxAccordionGroupChangeEventDetail as INxAccordionGroupNxAccordionGroupChangeEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
 
@@ -66,6 +106,7 @@ export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxAutocomplete,
   inputs: ['clearable', 'debounce', 'disabled', 'errorText', 'filterMode', 'helperText', 'highlightMatch', 'invalid', 'label', 'loading', 'maxResults', 'minChars', 'name', 'noResultsText', 'openOnFocus', 'options', 'placeholder', 'readonly', 'required', 'showDropdownIcon', 'success', 'value'],
   methods: ['selectOptionElement', 'setOptionActive', 'setFocus', 'setInputValue', 'clear', 'open', 'close', 'getInputElement']
 })
@@ -75,6 +116,7 @@ export declare interface NxAccordionGroup extends Components.NxAccordionGroup {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clearable', 'debounce', 'disabled', 'errorText', 'filterMode', 'helperText', 'highlightMatch', 'invalid', 'label', 'loading', 'maxResults', 'minChars', 'name', 'noResultsText', 'openOnFocus', 'options', 'placeholder', 'readonly', 'required', 'showDropdownIcon', 'success', 'value'],
+  standalone: true
 })
 export class NxAutocomplete {
   protected el: HTMLNxAutocompleteElement;
@@ -86,7 +128,7 @@ export class NxAutocomplete {
 }
 
 
-import type { AutocompleteOption as INxAutocompleteAutocompleteOption } from '@_nx/stencil-library';
+import type { AutocompleteOption as INxAutocompleteAutocompleteOption } from '@_nx/stencil-library/components';
 
 export declare interface NxAutocomplete extends Components.NxAutocomplete {
   /**
@@ -117,6 +159,7 @@ export declare interface NxAutocomplete extends Components.NxAutocomplete {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxBadge,
   inputs: ['color', 'dot', 'max', 'placement', 'pulse', 'shape', 'size', 'value', 'variant']
 })
 @Component({
@@ -125,6 +168,7 @@ export declare interface NxAutocomplete extends Components.NxAutocomplete {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'dot', 'max', 'placement', 'pulse', 'shape', 'size', 'value', 'variant'],
+  standalone: true
 })
 export class NxBadge {
   protected el: HTMLNxBadgeElement;
@@ -139,6 +183,7 @@ export declare interface NxBadge extends Components.NxBadge {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxButton,
   inputs: ['color', 'disabled', 'expand', 'fill', 'form', 'name', 'shape', 'size', 'type', 'value', 'variant'],
   methods: ['setFocus', 'setBlur']
 })
@@ -148,6 +193,7 @@ export declare interface NxBadge extends Components.NxBadge {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'disabled', 'expand', 'fill', 'form', 'name', 'shape', 'size', 'type', 'value', 'variant'],
+  standalone: true
 })
 export class NxButton {
   protected el: HTMLNxButtonElement;
@@ -172,6 +218,7 @@ export declare interface NxButton extends Components.NxButton {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxCard,
   inputs: ['disabled', 'headerTitle', 'hoverable', 'href', 'padding', 'rel', 'subtitle', 'target', 'variant']
 })
 @Component({
@@ -180,6 +227,7 @@ export declare interface NxButton extends Components.NxButton {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disabled', 'headerTitle', 'hoverable', 'href', 'padding', 'rel', 'subtitle', 'target', 'variant'],
+  standalone: true
 })
 export class NxCard {
   protected el: HTMLNxCardElement;
@@ -198,6 +246,7 @@ export declare interface NxCard extends Components.NxCard {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxCheckbox,
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'indeterminate', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'value'],
   methods: ['setFocus']
 })
@@ -207,6 +256,7 @@ export declare interface NxCard extends Components.NxCard {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'indeterminate', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'value'],
+  standalone: true
 })
 export class NxCheckbox {
   protected el: HTMLNxCheckboxElement;
@@ -231,6 +281,7 @@ export declare interface NxCheckbox extends Components.NxCheckbox {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxChip,
   inputs: ['clickable', 'color', 'disabled', 'label', 'removable', 'selectable', 'selected', 'shape', 'size', 'value', 'variant']
 })
 @Component({
@@ -239,6 +290,7 @@ export declare interface NxCheckbox extends Components.NxCheckbox {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clickable', 'color', 'disabled', 'label', 'removable', 'selectable', 'selected', 'shape', 'size', 'value', 'variant'],
+  standalone: true
 })
 export class NxChip {
   protected el: HTMLNxChipElement;
@@ -250,7 +302,7 @@ export class NxChip {
 }
 
 
-import type { NxChipSelectEventDetail as INxChipNxChipSelectEventDetail } from '@_nx/stencil-library';
+import type { NxChipSelectEventDetail as INxChipNxChipSelectEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxChip extends Components.NxChip {
   /**
@@ -269,6 +321,7 @@ export declare interface NxChip extends Components.NxChip {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxCol,
   inputs: ['alignSelf', 'offset', 'offsetLg', 'offsetMd', 'offsetSm', 'offsetXl', 'offsetXs', 'offsetXxl', 'order', 'size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs', 'sizeXxl']
 })
 @Component({
@@ -277,6 +330,7 @@ export declare interface NxChip extends Components.NxChip {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignSelf', 'offset', 'offsetLg', 'offsetMd', 'offsetSm', 'offsetXl', 'offsetXs', 'offsetXxl', 'order', 'size', 'sizeLg', 'sizeMd', 'sizeSm', 'sizeXl', 'sizeXs', 'sizeXxl'],
+  standalone: true
 })
 export class NxCol {
   protected el: HTMLNxColElement;
@@ -291,6 +345,7 @@ export declare interface NxCol extends Components.NxCol {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxDatePicker,
   inputs: ['clearable', 'disabled', 'errorText', 'firstDayOfWeek', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'name', 'placeholder', 'readonly', 'required', 'showTodayButton', 'success', 'value'],
   methods: ['setFocus', 'open', 'close']
 })
@@ -300,6 +355,7 @@ export declare interface NxCol extends Components.NxCol {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clearable', 'disabled', 'errorText', 'firstDayOfWeek', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'name', 'placeholder', 'readonly', 'required', 'showTodayButton', 'success', 'value'],
+  standalone: true
 })
 export class NxDatePicker {
   protected el: HTMLNxDatePickerElement;
@@ -324,6 +380,7 @@ export declare interface NxDatePicker extends Components.NxDatePicker {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxDivider,
   inputs: ['align', 'color', 'dashed', 'dotted', 'inset', 'label', 'orientation', 'spacing', 'thickness', 'variant']
 })
 @Component({
@@ -332,6 +389,7 @@ export declare interface NxDatePicker extends Components.NxDatePicker {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['align', 'color', 'dashed', 'dotted', 'inset', 'label', 'orientation', 'spacing', 'thickness', 'variant'],
+  standalone: true
 })
 export class NxDivider {
   protected el: HTMLNxDividerElement;
@@ -346,6 +404,7 @@ export declare interface NxDivider extends Components.NxDivider {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxGrid,
   inputs: ['fixed', 'fluid', 'noPadding', 'padding']
 })
 @Component({
@@ -354,6 +413,7 @@ export declare interface NxDivider extends Components.NxDivider {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['fixed', 'fluid', 'noPadding', 'padding'],
+  standalone: true
 })
 export class NxGrid {
   protected el: HTMLNxGridElement;
@@ -368,6 +428,7 @@ export declare interface NxGrid extends Components.NxGrid {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxIcon,
   inputs: ['color', 'label', 'name', 'size', 'strokeWidth']
 })
 @Component({
@@ -376,6 +437,7 @@ export declare interface NxGrid extends Components.NxGrid {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'label', 'name', 'size', 'strokeWidth'],
+  standalone: true
 })
 export class NxIcon {
   protected el: HTMLNxIconElement;
@@ -390,6 +452,7 @@ export declare interface NxIcon extends Components.NxIcon {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxInput,
   inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'counter', 'disabled', 'errorText', 'helperText', 'inputmode', 'invalid', 'label', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'step', 'success', 'type', 'value'],
   methods: ['setInputValue', 'setFocus', 'getInputElement']
 })
@@ -399,6 +462,7 @@ export declare interface NxIcon extends Components.NxIcon {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['autocapitalize', 'autocomplete', 'autofocus', 'counter', 'disabled', 'errorText', 'helperText', 'inputmode', 'invalid', 'label', 'max', 'maxlength', 'min', 'minlength', 'name', 'pattern', 'placeholder', 'readonly', 'required', 'spellcheck', 'step', 'success', 'type', 'value'],
+  standalone: true
 })
 export class NxInput {
   protected el: HTMLNxInputElement;
@@ -423,6 +487,7 @@ export declare interface NxInput extends Components.NxInput {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxLabel,
   inputs: ['color', 'disabled', 'fontFamily', 'htmlFor', 'optional', 'position', 'required', 'size', 'truncate', 'weight']
 })
 @Component({
@@ -431,6 +496,7 @@ export declare interface NxInput extends Components.NxInput {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'disabled', 'fontFamily', 'htmlFor', 'optional', 'position', 'required', 'size', 'truncate', 'weight'],
+  standalone: true
 })
 export class NxLabel {
   protected el: HTMLNxLabelElement;
@@ -451,6 +517,7 @@ export declare interface NxLabel extends Components.NxLabel {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxLink,
   inputs: ['color', 'disabled', 'download', 'external', 'href', 'label', 'rel', 'size', 'target', 'underline']
 })
 @Component({
@@ -459,6 +526,7 @@ export declare interface NxLabel extends Components.NxLabel {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'disabled', 'download', 'external', 'href', 'label', 'rel', 'size', 'target', 'underline'],
+  standalone: true
 })
 export class NxLink {
   protected el: HTMLNxLinkElement;
@@ -477,6 +545,7 @@ export declare interface NxLink extends Components.NxLink {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxList,
   inputs: ['clickable', 'disabled', 'lines', 'value']
 })
 @Component({
@@ -485,6 +554,7 @@ export declare interface NxLink extends Components.NxLink {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clickable', 'disabled', 'lines', 'value'],
+  standalone: true
 })
 export class NxList {
   protected el: HTMLNxListElement;
@@ -496,7 +566,7 @@ export class NxList {
 }
 
 
-import type { NxListChangeEventDetail as INxListNxListChangeEventDetail } from '@_nx/stencil-library';
+import type { NxListChangeEventDetail as INxListNxListChangeEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxList extends Components.NxList {
   /**
@@ -507,6 +577,7 @@ export declare interface NxList extends Components.NxList {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxListItem,
   inputs: ['clickable', 'disabled', 'download', 'href', 'lines', 'rel', 'selected', 'target', 'value']
 })
 @Component({
@@ -515,6 +586,7 @@ export declare interface NxList extends Components.NxList {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clickable', 'disabled', 'download', 'href', 'lines', 'rel', 'selected', 'target', 'value'],
+  standalone: true
 })
 export class NxListItem {
   protected el: HTMLNxListItemElement;
@@ -526,7 +598,7 @@ export class NxListItem {
 }
 
 
-import type { NxListItemClickEventDetail as INxListItemNxListItemClickEventDetail } from '@_nx/stencil-library';
+import type { NxListItemClickEventDetail as INxListItemNxListItemClickEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxListItem extends Components.NxListItem {
   /**
@@ -537,6 +609,7 @@ export declare interface NxListItem extends Components.NxListItem {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxLoader,
   inputs: ['color', 'fullscreen', 'label', 'labelPlacement', 'overlay', 'paused', 'size', 'strokeWidth', 'variant']
 })
 @Component({
@@ -545,6 +618,7 @@ export declare interface NxListItem extends Components.NxListItem {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'fullscreen', 'label', 'labelPlacement', 'overlay', 'paused', 'size', 'strokeWidth', 'variant'],
+  standalone: true
 })
 export class NxLoader {
   protected el: HTMLNxLoaderElement;
@@ -559,6 +633,7 @@ export declare interface NxLoader extends Components.NxLoader {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxModal,
   inputs: ['animated', 'backdrop', 'centered', 'dismissible', 'header', 'isOpen', 'keyboard', 'scrollable', 'size', 'subHeader', 'zIndex'],
   methods: ['present', 'dismiss']
 })
@@ -568,6 +643,7 @@ export declare interface NxLoader extends Components.NxLoader {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['animated', 'backdrop', 'centered', 'dismissible', 'header', 'isOpen', 'keyboard', 'scrollable', 'size', 'subHeader', 'zIndex'],
+  standalone: true
 })
 export class NxModal {
   protected el: HTMLNxModalElement;
@@ -579,7 +655,7 @@ export class NxModal {
 }
 
 
-import type { NxModalDismissDetail as INxModalNxModalDismissDetail } from '@_nx/stencil-library';
+import type { NxModalDismissDetail as INxModalNxModalDismissDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxModal extends Components.NxModal {
   /**
@@ -598,6 +674,7 @@ export declare interface NxModal extends Components.NxModal {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxOption,
   inputs: ['active', 'disabled', 'label', 'selected', 'value'],
   methods: ['getLabel']
 })
@@ -607,6 +684,7 @@ export declare interface NxModal extends Components.NxModal {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['active', 'disabled', 'label', 'selected', 'value'],
+  standalone: true
 })
 export class NxOption {
   protected el: HTMLNxOptionElement;
@@ -621,6 +699,7 @@ export declare interface NxOption extends Components.NxOption {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxProgress,
   inputs: ['animated', 'buffer', 'color', 'indeterminate', 'label', 'max', 'showValue', 'size', 'striped', 'strokeWidth', 'value', 'valueText', 'variant']
 })
 @Component({
@@ -629,6 +708,7 @@ export declare interface NxOption extends Components.NxOption {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['animated', 'buffer', 'color', 'indeterminate', 'label', 'max', 'showValue', 'size', 'striped', 'strokeWidth', 'value', 'valueText', 'variant'],
+  standalone: true
 })
 export class NxProgress {
   protected el: HTMLNxProgressElement;
@@ -643,6 +723,7 @@ export declare interface NxProgress extends Components.NxProgress {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxRadio,
   inputs: ['alignment', 'color', 'disabled', 'invalid', 'justify', 'labelPlacement', 'value'],
   methods: ['setFocus', 'setButtonTabindex']
 })
@@ -652,6 +733,7 @@ export declare interface NxProgress extends Components.NxProgress {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignment', 'color', 'disabled', 'invalid', 'justify', 'labelPlacement', 'value'],
+  standalone: true
 })
 export class NxRadio {
   protected el: HTMLNxRadioElement;
@@ -672,6 +754,7 @@ export declare interface NxRadio extends Components.NxRadio {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxRadioGroup,
   inputs: ['allowEmptySelection', 'compareWith', 'direction', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'name', 'required', 'value'],
   methods: ['setFocus']
 })
@@ -681,6 +764,7 @@ export declare interface NxRadio extends Components.NxRadio {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['allowEmptySelection', 'compareWith', 'direction', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'name', 'required', 'value'],
+  standalone: true
 })
 export class NxRadioGroup {
   protected el: HTMLNxRadioGroupElement;
@@ -692,8 +776,8 @@ export class NxRadioGroup {
 }
 
 
-import type { NxRadioGroupChangeEventDetail as INxRadioGroupNxRadioGroupChangeEventDetail } from '@_nx/stencil-library';
-import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupValueChangeEventDetail } from '@_nx/stencil-library';
+import type { NxRadioGroupChangeEventDetail as INxRadioGroupNxRadioGroupChangeEventDetail } from '@_nx/stencil-library/components';
+import type { NxRadioGroupValueChangeEventDetail as INxRadioGroupNxRadioGroupValueChangeEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
@@ -704,6 +788,7 @@ export declare interface NxRadioGroup extends Components.NxRadioGroup {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxRow,
   inputs: ['align', 'alignContent', 'columnGap', 'gap', 'justify', 'noGutters', 'rowGap', 'wrap']
 })
 @Component({
@@ -712,6 +797,7 @@ export declare interface NxRadioGroup extends Components.NxRadioGroup {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['align', 'alignContent', 'columnGap', 'gap', 'justify', 'noGutters', 'rowGap', 'wrap'],
+  standalone: true
 })
 export class NxRow {
   protected el: HTMLNxRowElement;
@@ -726,6 +812,7 @@ export declare interface NxRow extends Components.NxRow {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxSelect,
   inputs: ['disabled', 'invalid', 'label', 'name', 'placeholder', 'required', 'success', 'value'],
   methods: ['selectOption', 'setFocus']
 })
@@ -735,6 +822,7 @@ export declare interface NxRow extends Components.NxRow {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['disabled', 'invalid', 'label', 'name', 'placeholder', 'required', 'success', 'value'],
+  standalone: true
 })
 export class NxSelect {
   protected el: HTMLNxSelectElement;
@@ -759,6 +847,7 @@ export declare interface NxSelect extends Components.NxSelect {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxSelectOption,
   inputs: ['active', 'disabled', 'selected', 'value']
 })
 @Component({
@@ -767,6 +856,7 @@ export declare interface NxSelect extends Components.NxSelect {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['active', 'disabled', 'selected', 'value'],
+  standalone: true
 })
 export class NxSelectOption {
   protected el: HTMLNxSelectOptionElement;
@@ -781,6 +871,7 @@ export declare interface NxSelectOption extends Components.NxSelectOption {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxSkeleton,
   inputs: ['animation', 'bg', 'count', 'duration', 'height', 'lastLineWidth', 'loading', 'radius', 'shimmerColor', 'size', 'variant', 'width']
 })
 @Component({
@@ -789,6 +880,7 @@ export declare interface NxSelectOption extends Components.NxSelectOption {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['animation', 'bg', 'count', 'duration', 'height', 'lastLineWidth', 'loading', 'radius', 'shimmerColor', 'size', 'variant', 'width'],
+  standalone: true
 })
 export class NxSkeleton {
   protected el: HTMLNxSkeletonElement;
@@ -803,6 +895,7 @@ export declare interface NxSkeleton extends Components.NxSkeleton {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxTab,
   inputs: ['active', 'badge', 'closable', 'disabled', 'icon', 'label', 'value'],
   methods: ['select', 'close']
 })
@@ -812,6 +905,7 @@ export declare interface NxSkeleton extends Components.NxSkeleton {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['active', 'badge', 'closable', 'disabled', 'icon', 'label', 'value'],
+  standalone: true
 })
 export class NxTab {
   protected el: HTMLNxTabElement;
@@ -832,6 +926,7 @@ export declare interface NxTab extends Components.NxTab {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxTabGroup,
   inputs: ['color', 'disabled', 'placement', 'scrollable', 'size', 'stretch', 'value'],
   methods: ['getTabs', 'getSelectedTab', 'selectTab', 'registerTab', 'unregisterTab']
 })
@@ -841,6 +936,7 @@ export declare interface NxTab extends Components.NxTab {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['color', 'disabled', 'placement', 'scrollable', 'size', 'stretch', 'value'],
+  standalone: true
 })
 export class NxTabGroup {
   protected el: HTMLNxTabGroupElement;
@@ -852,7 +948,7 @@ export class NxTabGroup {
 }
 
 
-import type { NxTabChangeEventDetail as INxTabGroupNxTabChangeEventDetail } from '@_nx/stencil-library';
+import type { NxTabChangeEventDetail as INxTabGroupNxTabChangeEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxTabGroup extends Components.NxTabGroup {
   /**
@@ -863,6 +959,7 @@ export declare interface NxTabGroup extends Components.NxTabGroup {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxTable,
   inputs: ['bordered', 'caption', 'clickableRows', 'color', 'columns', 'currentPage', 'data', 'emptyText', 'hoverable', 'loading', 'loadingText', 'maxHeight', 'pageSize', 'pageSizeOptions', 'paginated', 'rowKey', 'selectable', 'selectedRows', 'selectionMode', 'size', 'sortColumn', 'sortDirection', 'sortable', 'stickyHeader', 'striped', 'totalItems', 'variant'],
   methods: ['selectAll', 'deselectAll', 'getSelectedRows', 'getSelectedKeys', 'setPage', 'sort']
 })
@@ -872,6 +969,7 @@ export declare interface NxTabGroup extends Components.NxTabGroup {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['bordered', 'caption', 'clickableRows', 'color', 'columns', 'currentPage', 'data', 'emptyText', 'hoverable', 'loading', 'loadingText', 'maxHeight', 'pageSize', 'pageSizeOptions', 'paginated', 'rowKey', 'selectable', 'selectedRows', 'selectionMode', 'size', 'sortColumn', 'sortDirection', 'sortable', 'stickyHeader', 'striped', 'totalItems', 'variant'],
+  standalone: true
 })
 export class NxTable {
   protected el: HTMLNxTableElement;
@@ -883,10 +981,10 @@ export class NxTable {
 }
 
 
-import type { NxTableSortEventDetail as INxTableNxTableSortEventDetail } from '@_nx/stencil-library';
-import type { NxTableSelectionEventDetail as INxTableNxTableSelectionEventDetail } from '@_nx/stencil-library';
-import type { NxTablePageChangeEventDetail as INxTableNxTablePageChangeEventDetail } from '@_nx/stencil-library';
-import type { NxTableRowClickEventDetail as INxTableNxTableRowClickEventDetail } from '@_nx/stencil-library';
+import type { NxTableSortEventDetail as INxTableNxTableSortEventDetail } from '@_nx/stencil-library/components';
+import type { NxTableSelectionEventDetail as INxTableNxTableSelectionEventDetail } from '@_nx/stencil-library/components';
+import type { NxTablePageChangeEventDetail as INxTableNxTablePageChangeEventDetail } from '@_nx/stencil-library/components';
+import type { NxTableRowClickEventDetail as INxTableNxTableRowClickEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxTable extends Components.NxTable {
   /**
@@ -909,6 +1007,7 @@ export declare interface NxTable extends Components.NxTable {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxText,
   inputs: ['align', 'as', 'color', 'inline', 'italic', 'lines', 'size', 'strikethrough', 'transform', 'truncate', 'underline', 'variant', 'weight']
 })
 @Component({
@@ -917,6 +1016,7 @@ export declare interface NxTable extends Components.NxTable {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['align', 'as', 'color', 'inline', 'italic', 'lines', 'size', 'strikethrough', 'transform', 'truncate', 'underline', 'variant', 'weight'],
+  standalone: true
 })
 export class NxText {
   protected el: HTMLNxTextElement;
@@ -931,6 +1031,7 @@ export declare interface NxText extends Components.NxText {}
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxTextarea,
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'counter', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'success', 'value', 'wrap'],
   methods: ['setInputValue', 'setFocus', 'getInputElement']
 })
@@ -940,6 +1041,7 @@ export declare interface NxText extends Components.NxText {}
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['autoGrow', 'autocapitalize', 'autofocus', 'cols', 'counter', 'disabled', 'errorText', 'helperText', 'invalid', 'label', 'maxlength', 'minlength', 'name', 'placeholder', 'readonly', 'required', 'resize', 'rows', 'spellcheck', 'success', 'value', 'wrap'],
+  standalone: true
 })
 export class NxTextarea {
   protected el: HTMLNxTextareaElement;
@@ -964,6 +1066,7 @@ export declare interface NxTextarea extends Components.NxTextarea {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxTimePicker,
   inputs: ['clearable', 'disabled', 'errorText', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'minuteStep', 'name', 'placeholder', 'readonly', 'required', 'secondStep', 'showNowButton', 'showSeconds', 'success', 'value'],
   methods: ['setFocus', 'open', 'close']
 })
@@ -973,6 +1076,7 @@ export declare interface NxTextarea extends Components.NxTextarea {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['clearable', 'disabled', 'errorText', 'format', 'helperText', 'invalid', 'label', 'max', 'min', 'minuteStep', 'name', 'placeholder', 'readonly', 'required', 'secondStep', 'showNowButton', 'showSeconds', 'success', 'value'],
+  standalone: true
 })
 export class NxTimePicker {
   protected el: HTMLNxTimePickerElement;
@@ -997,6 +1101,7 @@ export declare interface NxTimePicker extends Components.NxTimePicker {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxToast,
   inputs: ['actionText', 'animated', 'dismissible', 'duration', 'header', 'icon', 'isOpen', 'message', 'pauseOnHover', 'position', 'showIcon', 'showProgressBar', 'translucent', 'variant'],
   methods: ['present', 'dismiss']
 })
@@ -1006,6 +1111,7 @@ export declare interface NxTimePicker extends Components.NxTimePicker {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['actionText', 'animated', 'dismissible', 'duration', 'header', 'icon', 'isOpen', 'message', 'pauseOnHover', 'position', 'showIcon', 'showProgressBar', 'translucent', 'variant'],
+  standalone: true
 })
 export class NxToast {
   protected el: HTMLNxToastElement;
@@ -1017,7 +1123,7 @@ export class NxToast {
 }
 
 
-import type { NxToastDismissDetail as INxToastNxToastDismissDetail } from '@_nx/stencil-library';
+import type { NxToastDismissDetail as INxToastNxToastDismissDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxToast extends Components.NxToast {
   /**
@@ -1040,6 +1146,7 @@ export declare interface NxToast extends Components.NxToast {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxToggle,
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'size', 'value'],
   methods: ['toggle', 'setFocus']
 })
@@ -1049,6 +1156,7 @@ export declare interface NxToast extends Components.NxToast {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['alignment', 'checked', 'color', 'disabled', 'errorText', 'helperText', 'invalid', 'justify', 'label', 'labelPlacement', 'name', 'required', 'size', 'value'],
+  standalone: true
 })
 export class NxToggle {
   protected el: HTMLNxToggleElement;
@@ -1073,6 +1181,7 @@ export declare interface NxToggle extends Components.NxToggle {
 
 
 @ProxyCmp({
+  defineCustomElementFn: defineNxTooltip,
   inputs: ['arrow', 'content', 'delay', 'disabled', 'hideDelay', 'maxWidth', 'offset', 'open', 'placement', 'size', 'target', 'trigger', 'variant'],
   methods: ['show', 'hide', 'toggle']
 })
@@ -1082,6 +1191,7 @@ export declare interface NxToggle extends Components.NxToggle {
   template: '<ng-content></ng-content>',
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['arrow', 'content', 'delay', 'disabled', 'hideDelay', 'maxWidth', 'offset', 'open', 'placement', 'size', 'target', 'trigger', 'variant'],
+  standalone: true
 })
 export class NxTooltip {
   protected el: HTMLNxTooltipElement;

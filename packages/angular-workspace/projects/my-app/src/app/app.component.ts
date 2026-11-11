@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { NxDialogService } from 'component-library';
+import { NxDialogService } from '@_nx/stencil-library/angular';
 import { UserProfileDialogComponent } from './user-profile-dialog.component';
 
 @Component({

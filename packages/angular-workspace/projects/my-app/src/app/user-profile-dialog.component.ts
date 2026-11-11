@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { NxDialogRef, NX_DIALOG_DATA } from 'component-library';
+import { NxDialogRef, NX_DIALOG_DATA } from '@_nx/stencil-library/angular';
 
 export interface UserProfileData {
   name: string;

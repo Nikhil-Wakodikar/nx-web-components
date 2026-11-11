@@ -26,10 +26,13 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
+    "./angular": {
+      "types": "./angular/index.d.ts",
+      "esm2022": "./angular/esm2022/_nx-component-library.mjs",
+      "esm": "./angular/esm2022/_nx-component-library.mjs",
+      "default": "./angular/fesm2022/_nx-component-library.mjs"
     },
+    "./components/*": "./components/*",
     "./loader": {
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",
@@ -44,10 +47,38 @@
   },
   "files": [
     "dist/",
-    "loader/"
+    "loader/",
+    "components/",
+    "angular/"
   ],
+  "peerDependencies": {
+    "@angular/common": ">=16.0.0",
+    "@angular/core": ">=16.0.0",
+    "@angular/forms": ">=16.0.0",
+    "@angular/platform-browser": ">=16.0.0",
+    "rxjs": "^7.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/common": {
+      "optional": true
+    },
+    "@angular/core": {
+      "optional": true
+    },
+    "@angular/forms": {
+      "optional": true
+    },
+    "@angular/platform-browser": {
+      "optional": true
+    },
+    "rxjs": {
+      "optional": true
+    }
+  },
   "scripts": {
-    "build": "stencil build",
+    "build": "stencil build && node scripts/clean-angular-events.js && ng-packagr -p ../angular-workspace/projects/component-library/ng-package.json && node scripts/generate-storybook-custom-elements.js",
+    "build:stencil": "stencil build",
+    "build:angular": "node scripts/clean-angular-events.js && ng-packagr -p ../angular-workspace/projects/component-library/ng-package.json",
     "postbuild": "node scripts/clean-angular-events.js && node scripts/generate-storybook-custom-elements.js",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
@@ -55,7 +86,7 @@
     "generate": "stencil generate",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "pack-lib-stencil-library": "cd dist/ && npm pack",
+    "pack-lib-stencil-library": "npm pack",
     "release-notes": "node scripts/update-release-notes.js",
     "release-notes:preview": "node scripts/update-release-notes.js --since=HEAD~10"
   },
@@ -63,6 +94,7 @@
     "@chromatic-com/storybook": "^3.2.3",
     "@stencil/angular-output-target": "^0.10.2",
     "@stencil/core": "^4.7.0",
+    "ng-packagr": "^16.2.0",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-mdx-gfm": "^8.4.7",
     "@storybook/addon-webpack5-compiler-swc": "^2.0.0",
