@@ -1,8 +1,6 @@
 import {
   Component,
   Element,
-  Event,
-  EventEmitter,
   Host,
   Prop,
   State,
@@ -59,9 +57,6 @@ export class NxListItem {
   /** Link download attribute */
   @Prop() download?: string;
 
-  /** Emitted when the item is clicked */
-  @Event({ bubbles: true, composed: true }) nxClick!: EventEmitter<NxListItemClickEventDetail>;
-
   connectedCallback() {
     this.checkSlots();
   }
@@ -81,12 +76,6 @@ export class NxListItem {
       ev.stopPropagation();
       return;
     }
-
-    this.nxClick.emit({
-      value: this.value,
-      selected: this.selected,
-      event: ev,
-    });
   };
 
   private handleKeyDown = (ev: KeyboardEvent) => {

@@ -1,8 +1,6 @@
 import {
   Component,
   Element,
-  Event,
-  EventEmitter,
   Host,
   Prop,
   State,
@@ -35,8 +33,6 @@ export class NxCard {
   @State() hasHeaderSlot = false;
   @State() hasFooterSlot = false;
 
-  @Event({ bubbles: true, composed: true }) nxClick!: EventEmitter<MouseEvent>;
-
   connectedCallback() {
     this.checkSlots();
   }
@@ -61,7 +57,6 @@ export class NxCard {
       ev.stopPropagation();
       return;
     }
-    this.nxClick.emit(ev);
   };
 
   private handleKeyDown = (ev: KeyboardEvent) => {

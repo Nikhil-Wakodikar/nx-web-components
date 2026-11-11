@@ -13,7 +13,7 @@ A modern, highly accessible enterprise design system and Web Component library b
 
 Explore our interactive component playground, live documentation, accessibility details, design tokens, CSS custom variables, and shadow part customizations:
 
-👉 [**Interactive Storybook Documentation**](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs)
+👉 [**Interactive Storybook Documentation**](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-overview--docs)
 
 ---
 
@@ -79,7 +79,7 @@ import { ComponentLibraryModule } from '@_nx/component-library';
 
       <nx-divider></nx-divider>
 
-      <nx-button variant="primary" (nxClick)="onSave()">
+      <nx-button variant="primary" (click)="onSave()">
         Save Changes
       </nx-button>
     </nx-card>

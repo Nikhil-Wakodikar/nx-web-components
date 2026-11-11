@@ -234,15 +234,11 @@ export class NxCard {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['nxClick']);
   }
 }
 
 
-export declare interface NxCard extends Components.NxCard {
-
-  nxClick: EventEmitter<MouseEvent>;
-}
+export declare interface NxCard extends Components.NxCard {}
 
 
 @ProxyCmp({
@@ -297,7 +293,7 @@ export class NxChip {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['nxClick', 'nxSelect', 'nxRemove']);
+    proxyOutputs(this, this.el, ['nxSelect', 'nxRemove']);
   }
 }
 
@@ -305,10 +301,6 @@ export class NxChip {
 import type { NxChipSelectEventDetail as INxChipNxChipSelectEventDetail } from '@_nx/stencil-library/components';
 
 export declare interface NxChip extends Components.NxChip {
-  /**
-   * Emitted when a clickable or selectable chip is clicked
-   */
-  nxClick: EventEmitter<any>;
   /**
    * Emitted when selection state changes on a selectable chip
    */
@@ -503,17 +495,11 @@ export class NxLabel {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['nxClick']);
   }
 }
 
 
-export declare interface NxLabel extends Components.NxLabel {
-  /**
-   * Emitted when the label is clicked
-   */
-  nxClick: EventEmitter<MouseEvent>;
-}
+export declare interface NxLabel extends Components.NxLabel {}
 
 
 @ProxyCmp({
@@ -533,15 +519,11 @@ export class NxLink {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['nxClick']);
   }
 }
 
 
-export declare interface NxLink extends Components.NxLink {
-
-  nxClick: EventEmitter<MouseEvent>;
-}
+export declare interface NxLink extends Components.NxLink {}
 
 
 @ProxyCmp({
@@ -593,19 +575,11 @@ export class NxListItem {
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['nxClick']);
   }
 }
 
 
-import type { NxListItemClickEventDetail as INxListItemNxListItemClickEventDetail } from '@_nx/stencil-library/components';
-
-export declare interface NxListItem extends Components.NxListItem {
-  /**
-   * Emitted when the item is clicked
-   */
-  nxClick: EventEmitter<INxListItemNxListItemClickEventDetail>;
-}
+export declare interface NxListItem extends Components.NxListItem {}
 
 
 @ProxyCmp({

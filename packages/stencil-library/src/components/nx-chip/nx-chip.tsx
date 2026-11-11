@@ -143,10 +143,6 @@ export class NxChip {
   /** Whether the chip is disabled */
   @Prop({ reflect: true }) disabled = false;
 
-  /** Emitted when a clickable or selectable chip is clicked */
-  @Event({ bubbles: true, composed: true })
-  nxClick!: EventEmitter<any>;
-
   /** Emitted when selection state changes on a selectable chip */
   @Event({ bubbles: true, composed: true })
   nxSelect!: EventEmitter<NxChipSelectEventDetail>;
@@ -168,10 +164,6 @@ export class NxChip {
         selected: this.selected,
         value: this.value !== undefined ? this.value : this.label,
       });
-    }
-
-    if (this.clickable || this.selectable) {
-      this.nxClick.emit(this.value !== undefined ? this.value : this.label);
     }
   };
 

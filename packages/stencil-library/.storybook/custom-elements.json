@@ -1367,13 +1367,7 @@
           "required": false
         }
       ],
-      "events": [
-        {
-          "name": "nxClick",
-          "description": "",
-          "type": "MouseEvent"
-        }
-      ],
+      "events": [],
       "methods": [],
       "slots": [
         {
@@ -1849,11 +1843,6 @@
         }
       ],
       "events": [
-        {
-          "name": "nxClick",
-          "description": "Emitted when a clickable or selectable chip is clicked",
-          "type": "any"
-        },
         {
           "name": "nxRemove",
           "description": "Emitted when the remove/close button is clicked",
@@ -3390,13 +3379,7 @@
           "required": false
         }
       ],
-      "events": [
-        {
-          "name": "nxClick",
-          "description": "Emitted when the label is clicked",
-          "type": "MouseEvent"
-        }
-      ],
+      "events": [],
       "methods": [],
       "slots": [
         {
@@ -3595,13 +3578,7 @@
           "required": false
         }
       ],
-      "events": [
-        {
-          "name": "nxClick",
-          "description": "",
-          "type": "MouseEvent"
-        }
-      ],
+      "events": [],
       "methods": [],
       "slots": [
         {
@@ -3847,13 +3824,7 @@
           "required": false
         }
       ],
-      "events": [
-        {
-          "name": "nxClick",
-          "description": "Emitted when the item is clicked",
-          "type": "NxListItemClickEventDetail"
-        }
-      ],
+      "events": [],
       "methods": [],
       "slots": [
         {

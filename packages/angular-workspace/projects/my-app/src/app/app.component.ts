@@ -206,7 +206,8 @@ export class AppComponent {
 
   onListItemClick(event: any) {
     console.log('List item clicked:', event);
-    this.showToast('info', `Clicked: ${event.value || 'Item'}`, 'List Item Click');
+    const label = event?.value || (event?.currentTarget as HTMLElement)?.getAttribute?.('value') || (event?.currentTarget as HTMLElement)?.textContent?.trim() || 'Item';
+    this.showToast('info', `Clicked: ${label}`, 'List Item Click');
   }
 
   onButtonClick(label: string) {

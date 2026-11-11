@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, Host, Prop, h } from '@stencil/core';
+import { Component, Host, Prop, h } from '@stencil/core';
 
 const colorTokens: Record<string, { base: string; hover: string; active: string }> = {
   primary: {
@@ -79,8 +79,6 @@ export class NxLink {
 
   @Prop() label?: string;
 
-  @Event({ bubbles: true, composed: true }) nxClick!: EventEmitter<MouseEvent>;
-
   private get resolvedTarget(): string | undefined {
     if (this.target) return this.target;
     if (this.external) return '_blank';
@@ -122,8 +120,6 @@ export class NxLink {
       ev.stopImmediatePropagation();
       return;
     }
-
-    this.nxClick.emit(ev);
   };
 
   render() {
