@@ -13,3 +13,10 @@ targetDirs.forEach((dir) => {
     console.log('[prepare-build] Created placeholder directory:', dir);
   }
 });
+
+// Pre-patch template utils and angular generator files before stencil build runs
+try {
+  require('./clean-angular-events.js');
+} catch (err) {
+  console.warn('[prepare-build] Warning: could not pre-clean angular events:', err.message);
+}

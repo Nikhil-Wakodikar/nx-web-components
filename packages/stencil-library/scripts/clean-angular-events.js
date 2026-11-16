@@ -12,14 +12,27 @@ function patchUtils(filePath) {
   let content = fs.readFileSync(filePath, 'utf8');
   let changed = false;
 
-  if (!content.includes('@angular/core')) {
-    content = content.replace(
-      "import { fromEvent, map } from 'rxjs';",
-      "import { EventEmitter } from '@angular/core';\nimport { fromEvent, map } from 'rxjs';"
-    );
-    changed = true;
+  // 1a. Ensure EventEmitter is imported from @angular/core
+  if (!content.includes('EventEmitter')) {
+    if (content.includes("from '@angular/core'")) {
+      content = content.replace(
+        /import\s*\{([^}]+)\}\s*from\s*['"]@angular\/core['"];?/,
+        (match, imports) => `import { EventEmitter, ${imports.trim()} } from '@angular/core';`
+      );
+      changed = true;
+    } else {
+      const firstImportMatch = content.match(/import\s+[^;]+;?/);
+      if (firstImportMatch) {
+        content = content.replace(firstImportMatch[0], `import { EventEmitter } from '@angular/core';\n${firstImportMatch[0]}`);
+        changed = true;
+      } else {
+        content = `import { EventEmitter } from '@angular/core';\n${content}`;
+        changed = true;
+      }
+    }
   }
 
+  // 1b. Ensure proxyOutputs creates EventEmitter and unwraps detail
   const oldProxyRegex = /export const proxyOutputs = \(instance: any, el: any, events: string\[\]\) => \{[\s\S]*?\n\};/;
   const newProxyOutputs = `export const proxyOutputs = (instance: any, el: any, events: string[]) => {
   events.forEach((eventName) => {
@@ -37,8 +50,11 @@ function patchUtils(filePath) {
 };`;
 
   if (oldProxyRegex.test(content)) {
-    content = content.replace(oldProxyRegex, newProxyOutputs);
-    changed = true;
+    const match = content.match(oldProxyRegex)[0];
+    if (match.trim() !== newProxyOutputs.trim()) {
+      content = content.replace(oldProxyRegex, newProxyOutputs);
+      changed = true;
+    }
   }
 
   if (changed) {
