@@ -1,6 +1,6 @@
 {
   "name": "@_nx/component-library",
-  "version": "2.0.1",
+  "version": "2.1.1",
   "description": "Angular directive and component wrappers for NX Web Components (@_nx/stencil-library)",
   "publishConfig": {
     "access": "public"
@@ -24,7 +24,7 @@
     "@angular/core": ">=16.0.0"
   },
   "dependencies": {
-    "@_nx/stencil-library": "^2.0.1",
+    "@_nx/stencil-library": "^2.1.1",
     "tslib": "^2.3.0"
   },
   "sideEffects": false
