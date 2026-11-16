@@ -1,8 +1,7 @@
 # NX Web Components & Angular Design System
 
-[![npm version (@_nx/component-library)](https://img.shields.io/npm/v/@_nx/component-library.svg?label=@_nx/component-library)](https://www.npmjs.com/package/@_nx/component-library)
 [![npm version (@_nx/stencil-library)](https://img.shields.io/npm/v/@_nx/stencil-library.svg?label=@_nx/stencil-library)](https://www.npmjs.com/package/@_nx/stencil-library)
-[![Storybook Docs](https://img.shields.io/badge/Storybook-Live_Docs-ff4785.svg?logo=storybook&logoColor=white)](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-select--docs)
+[![Storybook Docs](https://img.shields.io/badge/Storybook-Live_Docs-ff4785.svg?logo=storybook&logoColor=white)](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-overview--docs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A modern, highly accessible enterprise design system and Web Component library built with [Stencil](https://stenciljs.com) and first-party [Angular](https://angular.dev) Ivy wrapper integration.
