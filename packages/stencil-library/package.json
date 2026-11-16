@@ -76,8 +76,10 @@
     }
   },
   "scripts": {
-    "build": "stencil build && node scripts/clean-angular-events.js && ng-packagr -p ../angular-workspace/projects/component-library/ng-package.json && node scripts/generate-storybook-custom-elements.js",
-    "build:stencil": "stencil build",
+    "prebuild": "node scripts/prepare-build.js",
+    "prebuild:stencil": "node scripts/prepare-build.js",
+    "build": "node scripts/prepare-build.js && stencil build && node scripts/clean-angular-events.js && ng-packagr -p ../angular-workspace/projects/component-library/ng-package.json && node scripts/generate-storybook-custom-elements.js",
+    "build:stencil": "node scripts/prepare-build.js && stencil build",
     "build:angular": "node scripts/clean-angular-events.js && ng-packagr -p ../angular-workspace/projects/component-library/ng-package.json",
     "postbuild": "node scripts/clean-angular-events.js && node scripts/generate-storybook-custom-elements.js",
     "start": "stencil build --dev --watch --serve",
