@@ -2,18 +2,181 @@ import { Meta } from '@storybook/blocks';
 
 <Meta title="NX Web Components/Overview" />
 
-# NX Web Components
+# NX Web Components — Angular Integration Guide
 
-Reusable, accessible web components built with Stencil and designed for framework-independent use.
+A modern enterprise UI component library built with [Stencil](https://stenciljs.com) featuring first-class **Angular (v16+)** support. 
 
-## Components
+Includes typed standalone Angular component wrappers, automatic `ControlValueAccessor` integration for Reactive Forms and `ngModel`, built-in form validation sync, programmatic dialog/modal services, and customizable design tokens.
 
-- `nx-button`: button variants and actions
-- `nx-input`: labeled text input with validation states
-- `nx-checkbox`: single boolean selection
-- `nx-radio-group` and `nx-radio`: mutually exclusive selection
-- `nx-grid`, `nx-row`, and `nx-col`: responsive layout primitives
+🔗 **Storybook Live Documentation**: [https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-overview--docs](https://nikhil-wakodikar.github.io/nx-web-components/?path=/docs/nx-web-components-overview--docs)
 
-## Design Tokens
+---
 
-The global stylesheet exposes the `--nx-*` color, typography, spacing, radius, shadow, and layering tokens. Import `stencil-library/styles.css` once in the consuming application's global stylesheet.
+## 📦 1. Installation
+
+Install the library with a single npm command:
+
+```bash
+npm install @_nx/stencil-library
+```
+
+> **Note**: Both the core Web Components and the Angular Ivy integration layer (`@_nx/stencil-library/angular`) are bundled in this single package. No separate wrapper package is needed.
+
+---
+
+## 🎨 2. Global Styles & Typography
+
+Import the global design system stylesheet into your Angular application's global stylesheet (`src/styles.scss`):
+
+```scss
+@import "@_nx/stencil-library/styles.css";
+
+// Optional: Customize theme tokens and root font family
+:root {
+  --nx-font-family: 'Poppins', sans-serif;
+  --nx-color-primary: #8145b5;
+  --nx-color-primary-hover: #6c32a0;
+  --nx-border-radius: 8px;
+}
+
+body {
+  font-family: var(--nx-font-family);
+}
+```
+
+---
+
+## 🚀 3. Application Setup
+
+### Standalone Angular Applications (Recommended)
+
+In your `src/main.ts`, register the custom element loader using `provideNxWebComponents()`:
+
+```typescript
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideNxWebComponents } from '@_nx/stencil-library/angular';
+import { AppComponent } from './app/app.component';
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideNxWebComponents(),
+    // other application providers
+  ]
+}).catch(err => console.error(err));
+```
+
+### NgModule Applications
+
+If your application uses traditional `NgModule`, import `NxComponentLibraryModule`:
+
+```typescript
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { NxComponentLibraryModule } from '@_nx/stencil-library/angular';
+import { AppComponent } from './app/app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule,
+    NxComponentLibraryModule
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+---
+
+## 🧩 4. Standalone Component Usage
+
+All component wrappers are Angular standalone components and can be imported directly where needed:
+
+```typescript
+import { Component } from '@angular/core';
+import { NxButton, NxBadge, NxCard } from '@_nx/stencil-library/angular';
+
+@Component({
+  selector: 'app-dashboard',
+  standalone: true,
+  imports: [NxButton, NxBadge, NxCard],
+  template: `
+    <nx-card>
+      <h2>Dashboard <nx-badge variant="success">Active</nx-badge></h2>
+      <p>Manage your account settings and preferences.</p>
+      
+      <!-- Native (click) event works directly -->
+      <nx-button variant="primary" (click)="onSave()">Save Changes</nx-button>
+    </nx-card>
+  `
+})
+export class DashboardComponent {
+  onSave() {
+    console.log('Button clicked!');
+  }
+}
+```
+
+---
+
+## 📝 5. Reactive Forms & ngModel Integration
+
+All input components (`nx-input`, `nx-checkbox`, `nx-radio`, `nx-radio-group`, `nx-select`, `nx-textarea`, `nx-toggle`, `nx-autocomplete`, `nx-date-picker`, `nx-time-picker`) have built-in `ControlValueAccessor` implementations that automatically sync Angular form states (`touched`, `dirty`, `invalid`, `disabled`):
+
+```typescript
+import { Component, inject } from '@angular/core';
+import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { 
+  NxInput, 
+  NxCheckbox, 
+  NxButton, 
+  NxValidators 
+} from '@_nx/stencil-library/angular';
+
+@Component({
+  selector: 'app-login-form',
+  standalone: true,
+  imports: [ReactiveFormsModule, NxInput, NxCheckbox, NxButton],
+  template: `
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <nx-input 
+        formControlName="email" 
+        label="Email Address" 
+        type="email"
+        placeholder="user@example.com">
+      </nx-input>
+
+      <nx-input 
+        formControlName="password" 
+        label="Password" 
+        type="password">
+      </nx-input>
+
+      <nx-checkbox formControlName="rememberMe">
+        Remember me
+      </nx-checkbox>
+
+      <nx-button type="submit" variant="primary" [disabled]="loginForm.invalid">
+        Log In
+      </nx-button>
+    </form>
+  `
+})
+export class LoginFormComponent {
+  private fb = inject(FormBuilder);
+
+  loginForm = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(8)]],
+    rememberMe: [false, [NxValidators.requiredTrue]]
+  });
+
+  onSubmit() {
+    if (this.loginForm.valid) {
+      console.log('Form data:', this.loginForm.value);
+    }
+  }
+}
+```
+
