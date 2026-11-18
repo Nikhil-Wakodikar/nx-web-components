@@ -40,14 +40,14 @@ Import the global design system stylesheet into your Angular application's globa
 
 // Optional: Customize theme tokens and root font family
 :root {
-  --nx-font-family: 'Poppins', sans-serif;
+  --nx-font-family-base: 'Poppins', sans-serif;
   --nx-color-primary: #8145b5;
-  --nx-color-primary-hover: #6c32a0;
-  --nx-border-radius: 8px;
+  --nx-color-primary-hover: #6e389c;
+  --nx-radius-md: 0.5rem;
 }
 
 body {
-  font-family: var(--nx-font-family);
+  font-family: var(--nx-font-family-base);
 }
 ```
 
@@ -74,11 +74,12 @@ bootstrapApplication(AppComponent, {
 
 ### NgModule Applications
 
-If your application uses traditional `NgModule`, import `NxComponentLibraryModule`:
+If your application uses traditional `NgModule`, import `NxComponentLibraryModule` (which exports all component proxies, value accessors, and directives):
 
 ```typescript
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NxComponentLibraryModule } from '@_nx/stencil-library/angular';
 import { AppComponent } from './app/app.component';
 
@@ -86,9 +87,10 @@ import { AppComponent } from './app/app.component';
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     NxComponentLibraryModule
   ],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
@@ -109,12 +111,18 @@ import { NxButton, NxCard, NxBadge } from '@_nx/stencil-library/angular';
   standalone: true,
   imports: [NxButton, NxCard, NxBadge],
   template: `
-    <nx-card>
-      <h2>Dashboard <nx-badge variant="success">Active</nx-badge></h2>
+    <nx-card variant="elevated" padding="medium" headerTitle="Dashboard" subtitle="Account overview">
+      <p>
+        Status: <nx-badge color="success" variant="subtle">Active</nx-badge>
+      </p>
       <p>Manage your account settings and preferences.</p>
-      
+
       <!-- Native (click) works directly -->
-      <nx-button variant="primary" (click)="onSave()">Save Changes</nx-button>
+      <div slot="footer">
+        <nx-button color="primary" fill="solid" (click)="onSave()">
+          Save Changes
+        </nx-button>
+      </div>
     </nx-card>
   `
 })
@@ -129,42 +137,54 @@ export class DashboardComponent {
 
 ## 📝 Reactive Forms & ngModel Integration
 
-All input components (`nx-input`, `nx-checkbox`, `nx-radio`, `nx-radio-group`, `nx-select`, `nx-textarea`, `nx-toggle`, `nx-autocomplete`, `nx-date-picker`, `nx-time-picker`) have built-in `ControlValueAccessor` implementations that automatically sync Angular form states (`touched`, `dirty`, `invalid`, `disabled`):
+All form components (`nx-input`, `nx-checkbox`, `nx-radio`, `nx-radio-group`, `nx-select`, `nx-textarea`, `nx-toggle`, `nx-autocomplete`, `nx-date-picker`, `nx-time-picker`) have built-in `ControlValueAccessor` directives (`TextValueAccessor`, `BooleanValueAccessor`, `RadioValueAccessor`, or `NX_VALUE_ACCESSORS`) that automatically sync Angular form states (`touched`, `dirty`, `invalid`, `disabled`):
 
 ```typescript
 import { Component, inject } from '@angular/core';
 import { FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
-import { 
-  NxInput, 
-  NxCheckbox, 
-  NxButton, 
-  NxValidators 
+import {
+  NxInput,
+  NxCheckbox,
+  NxButton,
+  NxValidators,
+  TextValueAccessor,
+  BooleanValueAccessor
 } from '@_nx/stencil-library/angular';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [ReactiveFormsModule, NxInput, NxCheckbox, NxButton],
+  imports: [
+    ReactiveFormsModule,
+    NxInput,
+    NxCheckbox,
+    NxButton,
+    TextValueAccessor,
+    BooleanValueAccessor
+  ],
   template: `
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <nx-input 
-        formControlName="email" 
-        label="Email Address" 
+      <nx-input
+        formControlName="email"
+        label="Email Address"
         type="email"
-        placeholder="user@example.com">
+        placeholder="user@example.com"
+        errorText="Please enter a valid email address"
+        [required]="true">
       </nx-input>
 
-      <nx-input 
-        formControlName="password" 
-        label="Password" 
-        type="password">
+      <nx-input
+        formControlName="password"
+        label="Password"
+        type="password"
+        errorText="Password must be at least 8 characters"
+        [required]="true">
       </nx-input>
 
-      <nx-checkbox formControlName="rememberMe">
-        Remember me
+      <nx-checkbox formControlName="rememberMe" color="primary" label="Remember me">
       </nx-checkbox>
 
-      <nx-button type="submit" variant="primary" [disabled]="loginForm.invalid">
+      <nx-button type="submit" color="primary" fill="solid" [disabled]="loginForm.invalid">
         Log In
       </nx-button>
     </form>
@@ -217,7 +237,7 @@ import { ConfirmDialogComponent } from './confirm-dialog.component';
   standalone: true,
   imports: [NxButton],
   template: `
-    <nx-button variant="danger" (click)="onDeleteAccount()">
+    <nx-button color="danger" fill="solid" (click)="onDeleteAccount()">
       Delete Account
     </nx-button>
   `
@@ -227,11 +247,11 @@ export class AccountSettingsComponent {
 
   onDeleteAccount() {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
-      data: { 
-        title: 'Delete Account', 
-        message: 'Are you sure you want to permanently delete your account?' 
-      },
-      width: '420px'
+      header: 'Delete Account',
+      size: 'sm',
+      data: {
+        message: 'Are you sure you want to permanently delete your account?'
+      }
     });
 
     dialogRef.afterClosed().subscribe(confirmed => {
